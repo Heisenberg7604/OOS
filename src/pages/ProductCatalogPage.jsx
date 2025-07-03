@@ -225,7 +225,23 @@ const ProductCatalogPage = () => {
                                                             updateCart(newCart);
                                                         }}
                                                     >-</button>
-                                                    <span className="mx-4 font-bold text-lg">{cartItem.quantity}</span>
+                                                    <input
+                                                        type="number"
+                                                        min="1"
+                                                        value={cartItem.quantity}
+                                                        onChange={e => {
+                                                            let value = Number(e.target.value);
+                                                            if (isNaN(value) || value < 1) value = 1;
+                                                            const newCart = cart.map(item =>
+                                                                item["part no"] === product["part no"]
+                                                                    ? { ...item, quantity: value }
+                                                                    : item
+                                                            );
+                                                            updateCart(newCart);
+                                                        }}
+                                                        className="mx-2 w-16 text-center text-lg border border-gray-300 rounded"
+                                                        style={{ appearance: 'textfield' }}
+                                                    />
                                                     <button
                                                         className="w-10 h-10 rounded-full bg-red-500 text-white text-2xl flex items-center justify-center hover:bg-red-600"
                                                         onClick={() => {

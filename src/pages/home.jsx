@@ -11,6 +11,7 @@ import gridshuttle from '../assets/gridshuttle.png';
 import Navbar from '../components/navbar'; // Import the navbar component
 import Footer from '../components/Footer'; // Import the Footer component
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 // Add a hook to detect if the screen is mobile
 function useIsMobile() {
@@ -25,6 +26,8 @@ function useIsMobile() {
 
 const LandingPage = () => {
   const [openIndex, setOpenIndex] = React.useState(null);
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-white">
       {/* Use the Navbar component */}
@@ -237,6 +240,7 @@ const LandingPage = () => {
               dropdown={product.dropdown}
               isOpen={openIndex === idx}
               onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+              category={product.category}
             />
           ))}
         </div>
@@ -255,36 +259,63 @@ const productList = [
   {
     title: 'Starlinger Loom Models',
     img: gridloom,
+    category: 'starlinger-loom',
     dropdown: [
-      'SL-4', 'SL-6', 'Alpha-6', 'SL-8', 'Sl-62 HD', 'SL-62', 'FX-6.0', 'FX-6.1HD', 'FX-8.0', 'FX-10.0',
+      { name: 'SL-4', subcategory: 'sl-4' },
+      { name: 'SL-6', subcategory: 'sl-6' },
+      { name: 'Alpha-6', subcategory: 'alpha-6' },
+      { name: 'SL-8', subcategory: 'sl-8' },
+      { name: 'Sl-62 HD', subcategory: 'sl-62-hd' },
+      { name: 'SL-62', subcategory: 'sl-62' },
+      { name: 'FX-6.0', subcategory: 'fx-6-0' },
+      { name: 'FX-6.1HD', subcategory: 'fx-6-1hd' },
+      { name: 'FX-8.0', subcategory: 'fx-8-0' },
+      { name: 'FX-10.0', subcategory: 'fx-10-0' },
     ],
   },
   {
     title: 'Starlinger Winder Models',
     img: grid2,
+    category: 'starlinger-winder',
     dropdown: [
-      'StacoFill 200', 'Stacofill 200 A II', 'Stacofill 200 XE', 'Fill 200',
+      { name: 'StacoFill 200', subcategory: 'stacofill-200' },
+      { name: 'Stacofill 200 A II', subcategory: 'stacofill-200-a-ii' },
+      { name: 'Stacofill 200 XE', subcategory: 'stacofill-200-xe' },
+      { name: 'Fill 200', subcategory: 'fill-200' },
     ],
   },
   {
     title: 'Jaiko Loom Models',
     img: gridshuttle,
+    category: 'jaiko-loom',
     dropdown: [
-      'Vega-6 HS Star', 'Vega 608 HF', 'Vega 812 HF',
+      { name: 'Vega-6 HS Star', subcategory: 'vega-6-hs-star' },
+      { name: 'Vega 608 HF', subcategory: 'vega-608-hf' },
+      { name: 'Vega 812 HF', subcategory: 'vega-812-hf' },
     ],
   },
   {
     title: 'JP Catalogues',
     img: gridbag,
+    category: 'jp-catalogues',
     dropdown: [
-      'Cheese winder JTW -200 IX', 'Flexographic Printing Machine', 'Lamination-1600 Polycoat', 'Bag liner insertion machine', 'Bag cutting Stitching Machine.',
+      { name: 'Cheese winder JTW -200 IX', subcategory: 'cheese-winder-jtw-200-ix' },
+      { name: 'Flexographic Printing Machine', subcategory: 'flexographic-printing-machine' },
+      { name: 'Lamination-1600 Polycoat', subcategory: 'lamination-1600-polycoat' },
+      { name: 'Bag liner insertion machine', subcategory: 'bag-liner-insertion-machine' },
+      { name: 'Bag cutting Stitching Machine.', subcategory: 'bag-cutting-stitching-machine' },
     ],
   },
 ];
 
 // ProductCard component with responsive dropdown direction
-const ProductCard = ({ title, img, dropdown, isOpen, onClick }) => {
+const ProductCard = ({ title, img, dropdown, isOpen, onClick, category }) => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
+
+  const handleDropdownClick = (subcategory) => {
+    navigate(`/products/${category}/${subcategory}`);
+  };
 
   return (
     <div className="relative w-full">
@@ -301,8 +332,7 @@ const ProductCard = ({ title, img, dropdown, isOpen, onClick }) => {
           </div>
           <button
             onClick={onClick}
-            className={`bg-red-500 rounded-full p-2 flex items-center justify-center transition-transform duration-300 ${isOpen && !isMobile ? 'rotate-90' : ''
-              }`}
+            className={`bg-red-500 rounded-full p-2 flex items-center justify-center transition-transform duration-300 ${isOpen && !isMobile ? 'rotate-90' : ''}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -331,10 +361,11 @@ const ProductCard = ({ title, img, dropdown, isOpen, onClick }) => {
                 <div className="grid grid-cols-3 gap-3">
                   {dropdown.map((item, idx) => (
                     <div
-                      key={item}
+                      key={item.name}
+                      onClick={() => handleDropdownClick(item.subcategory)}
                       className="py-3 px-4 bg-white hover:bg-red-50 rounded-lg cursor-pointer border border-red-200 hover:border-red-400 transition-colors duration-200 text-sm font-medium text-gray-700 hover:text-red-600"
                     >
-                      {item}
+                      {item.name}
                     </div>
                   ))}
                 </div>
@@ -358,10 +389,11 @@ const ProductCard = ({ title, img, dropdown, isOpen, onClick }) => {
               <div className="grid grid-cols-1 gap-2">
                 {dropdown.map((item, idx) => (
                   <div
-                    key={item}
+                    key={item.name}
+                    onClick={() => handleDropdownClick(item.subcategory)}
                     className="py-3 px-4 bg-white hover:bg-red-50 rounded-lg cursor-pointer border border-red-200 hover:border-red-400 transition-colors duration-200 text-sm font-medium text-gray-700 hover:text-red-600"
                   >
-                    {item}
+                    {item.name}
                   </div>
                 ))}
               </div>

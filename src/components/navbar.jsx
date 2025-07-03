@@ -44,30 +44,32 @@ const Navbar = () => {
           {/* Hamburger menu (mobile only, always at far right) */}
           <div className="flex md:hidden flex-1 justify-end">
             <button
-              className="ml-2"
+              className={`ml-2 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'rotate-90' : 'rotate-0'}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6 text-gray-700" />
-              ) : (
-                <Menu className="h-6 w-6 text-gray-700" />
-              )}
+              <span className="block transition-all duration-300">
+                {isMenuOpen ? (
+                  <X className="h-6 w-6 text-gray-700 transition-all duration-300 opacity-100 scale-100" />
+                ) : (
+                  <Menu className="h-6 w-6 text-gray-700 transition-all duration-300 opacity-100 scale-100" />
+                )}
+              </span>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
-              <Link to="/" className="block px-3 py-2 text-gray-700 hover:text-red-500">Home</Link>
-              <Link to="#" className="block px-3 py-2 text-gray-700 hover:text-red-500">Products</Link>
-              <Link to="/cart" className="block px-3 py-2 text-gray-700 hover:text-red-500">Cart</Link>
-              <Link to="/contact" className="block px-3 py-2 text-gray-700 hover:text-red-500">Contact</Link>
-              <Link to="/profile" className="block px-3 py-2 text-gray-700 hover:text-red-500">Profile</Link>
-            </div>
+        <div
+          className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-4 pointer-events-none'}`}
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
+            <Link to="/" className="block px-3 py-2 text-gray-700 hover:text-red-500">Home</Link>
+            <Link to="#" className="block px-3 py-2 text-gray-700 hover:text-red-500">Products</Link>
+            <Link to="/cart" className="block px-3 py-2 text-gray-700 hover:text-red-500">Cart</Link>
+            <Link to="/contact" className="block px-3 py-2 text-gray-700 hover:text-red-500">Contact</Link>
+            <Link to="/profile" className="block px-3 py-2 text-gray-700 hover:text-red-500">Profile</Link>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
