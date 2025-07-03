@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "r
 import LandingPage from "./pages/home";
 import Profile from "./pages/profile";
 import Auth from "./pages/auth";
+import ProductsPage from "./pages/product";
 
 // Simple authentication context for demo
 export const AuthContext = React.createContext();
@@ -37,6 +38,14 @@ function App() {
             element={
               <RequireAuth>
                 <Profile />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/products"
+            element={
+              <RequireAuth>
+                <ProductsPage />
               </RequireAuth>
             }
           />

@@ -13,6 +13,7 @@ import Footer from '../components/Footer'; // Import the Footer component
 import { motion, AnimatePresence } from 'framer-motion';
 
 const LandingPage = () => {
+  const [openIndex, setOpenIndex] = React.useState(null);
   return (
     <div className="min-h-screen bg-white">
       {/* Use the Navbar component */}
@@ -214,12 +215,21 @@ const LandingPage = () => {
           <div className="w-10 h-0.5 bg-black mr-4" />
           <h2 className="text-2xl font-semibold">Products</h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Product Cards with dropdowns */}
-          {productList.map((product) => (
-            <ProductCard key={product.title} title={product.title} img={product.img} />
+        
+        {/* Product Cards Container */}
+        <div className="space-y-6">
+          {productList.map((product, idx) => (
+            <ProductCard
+              key={product.title + idx}
+              title={product.title}
+              img={product.img}
+              dropdown={product.dropdown}
+              isOpen={openIndex === idx}
+              onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            />
           ))}
         </div>
+        
         {/* More coming soon */}
         <div className="mt-8 mb-12">
           <span className="text-3xl text-red-500 font-semibold drop-shadow-md">More coming soon...</span>
@@ -231,49 +241,96 @@ const LandingPage = () => {
 };
 
 const productList = [
-  { title: 'Tape Extrusion Line', img: grid1 },
-  { title: 'Winding Machines', img: grid2 },
-  { title: 'Circular Looms', img: gridloom },
-  { title: 'Extrusion Coating Line', img: gridbag },
-  { title: 'Printing Machine', img: gridrad },
-  { title: 'Bag Conversion Line', img: gridline },
+  {
+    title: 'Starlinger Loom Models',
+    img: gridloom,
+    dropdown: [
+      'SL-4', 'SL-6', 'Alpha-6', 'SL-8', 'Sl-62 HD', 'SL-62', 'FX-6.0', 'FX-6.1HD', 'FX-8.0', 'FX-10.0',
+    ],
+  },
+  {
+    title: 'Starlinger Winder Models',
+    img: grid2,
+    dropdown: [
+      'StacoFill 200', 'Stacofill 200 A II', 'Stacofill 200 XE', 'Fill 200',
+    ],
+  },
+  {
+    title: 'Jaiko Loom Models',
+    img: gridshuttle,
+    dropdown: [
+      'Vega-6 HS Star', 'Vega 608 HF', 'Vega 812 HF',
+    ],
+  },
+  {
+    title: 'JP Catalogues',
+    img: gridbag,
+    dropdown: [
+      'Cheese winder JTW -200 IX', 'Flexographic Printing Machine', 'Lamination-1600 Polycoat', 'Bag liner insertion machine', 'Bag cutting Stitching Machine.',
+    ],
+  },
 ];
 
-// ProductCard component with dropdown
-const ProductCard = ({ title, img }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+// ProductCard component with sideways dropdown
+const ProductCard = ({ title, img, dropdown, isOpen, onClick }) => {
   return (
-    <div className="w-80 rounded-2xl shadow-lg bg-white overflow-hidden mb-8">
-      <img
-        src={img}
-        alt={title}
-        className="w-full h-32 object-cover"
-      />
-      <div className="flex items-center justify-between p-6 cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-        <span className="text-xl font-medium">{title}</span>
-        <span className={`bg-red-500 rounded-full p-2 flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </span>
-      </div>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-            className="px-6 pb-4"
+    <div className="relative w-full">
+      <div className="flex items-center bg-white rounded-2xl shadow-lg overflow-hidden">
+        {/* Main Card */}
+        <div className="flex items-center w-80 p-6">
+          <img
+            src={img}
+            alt={title}
+            className="w-16 h-16 object-cover rounded-lg mr-4"
+          />
+          <div className="flex-1">
+            <span className="text-xl font-medium">{title}</span>
+          </div>
+          <button
+            onClick={onClick}
+            className={`bg-red-500 rounded-full p-2 flex items-center justify-center transition-transform duration-300 ${
+              isOpen ? 'rotate-90' : ''
+            }`}
           >
-            <div className="bg-gray-50 rounded-xl p-4 mt-2 shadow">
-              <div className="py-2 px-3 hover:bg-gray-100 rounded-lg cursor-pointer border border-[#FF2B2B]">F.X. 10</div>
-              <div className="py-2 px-3 hover:bg-gray-100 rounded-lg cursor-pointer border border-[#FF2B2B] mt-2">F.X. 8</div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              strokeWidth={2} 
+              stroke="white" 
+              className="w-6 h-6"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Sideways Dropdown */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              animate={{ width: 'auto', opacity: 1 }}
+              exit={{ width: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              className="bg-gray-50 border-l-2 border-red-500 overflow-hidden"
+            >
+              <div className="p-6 min-w-[600px]">
+                <div className="grid grid-cols-3 gap-3">
+                  {dropdown.map((item, idx) => (
+                    <div
+                      key={item}
+                      className="py-3 px-4 bg-white hover:bg-red-50 rounded-lg cursor-pointer border border-red-200 hover:border-red-400 transition-colors duration-200 text-sm font-medium text-gray-700 hover:text-red-600"
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
