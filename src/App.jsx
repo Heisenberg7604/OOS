@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "r
 import LandingPage from "./pages/home";
 import Profile from "./pages/profile";
 import Login from "./pages/login";
-import ProductsPage from "./pages/product";
+import ProductsPage from "./pages/ProductsPage";
+import ProductCatalogPage from "./pages/ProductCatalogPage";
 import ScrollToTop from "./components/ScrollToTop";
 import Contact from "./pages/contact";
+import Home from "./pages/home";
+import CartPage from "./pages/cart";
 
 // Simple authentication context for demo
 export const AuthContext = React.createContext();
@@ -49,6 +52,22 @@ function App() {
             element={
               <RequireAuth>
                 <ProductsPage />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/products/:category/:subcategory"
+            element={
+              <RequireAuth>
+                <ProductCatalogPage />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <RequireAuth>
+                <CartPage />
               </RequireAuth>
             }
           />

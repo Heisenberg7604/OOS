@@ -28,7 +28,7 @@ const Navbar = () => {
           <nav className="hidden md:flex flex-1 justify-center space-x-8">
             <Link to="/" className="text-gray-700 hover:text-red-500 transition-colors">Home</Link>
             <Link to="/products" className="text-gray-700 hover:text-red-500 transition-colors">Products</Link>
-            <Link to="#" className="text-gray-700 hover:text-red-500 transition-colors">Cart</Link>
+            <Link to="/cart" className="text-gray-700 hover:text-red-500 transition-colors">Cart</Link>
             <Link to="/contact" className="text-gray-700 hover:text-red-500 transition-colors">Contact</Link>
           </nav>
 
@@ -62,7 +62,7 @@ const Navbar = () => {
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
               <Link to="/" className="block px-3 py-2 text-gray-700 hover:text-red-500">Home</Link>
               <Link to="#" className="block px-3 py-2 text-gray-700 hover:text-red-500">Products</Link>
-              <Link to="#" className="block px-3 py-2 text-gray-700 hover:text-red-500">Cart</Link>
+              <Link to="/cart" className="block px-3 py-2 text-gray-700 hover:text-red-500">Cart</Link>
               <Link to="/contact" className="block px-3 py-2 text-gray-700 hover:text-red-500">Contact</Link>
               <Link to="/profile" className="block px-3 py-2 text-gray-700 hover:text-red-500">Profile</Link>
             </div>
