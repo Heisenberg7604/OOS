@@ -264,7 +264,7 @@ const ProductCard = ({ title, img }) => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             className="px-6 pb-4"
           >
             <div className="bg-gray-50 rounded-xl p-4 mt-2 shadow">
