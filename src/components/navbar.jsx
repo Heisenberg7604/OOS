@@ -9,9 +9,9 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex items-center h-16 w-full">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <Link to="/">
               <img
                 src={logo}
@@ -25,15 +25,15 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex flex-1 justify-center space-x-8">
             <Link to="/" className="text-gray-700 hover:text-red-500 transition-colors">Home</Link>
             <Link to="/products" className="text-gray-700 hover:text-red-500 transition-colors">Products</Link>
             <Link to="#" className="text-gray-700 hover:text-red-500 transition-colors">Cart</Link>
-            <Link to="#" className="text-gray-700 hover:text-red-500 transition-colors">Contact</Link>
+            <Link to="/contact" className="text-gray-700 hover:text-red-500 transition-colors">Contact</Link>
           </nav>
 
-          {/* Profile Icon */}
-          <div className="hidden md:flex items-center">
+          {/* Profile Icon (desktop only) */}
+          <div className="hidden md:flex items-center flex-shrink-0">
             <Link to="/profile">
               <div className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
                 <User className="w-4 h-4 text-white" />
@@ -41,17 +41,19 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6 text-gray-700" />
-            ) : (
-              <Menu className="h-6 w-6 text-gray-700" />
-            )}
-          </button>
+          {/* Hamburger menu (mobile only, always at far right) */}
+          <div className="flex md:hidden flex-1 justify-end">
+            <button
+              className="ml-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6 text-gray-700" />
+              ) : (
+                <Menu className="h-6 w-6 text-gray-700" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -61,7 +63,7 @@ const Navbar = () => {
               <Link to="/" className="block px-3 py-2 text-gray-700 hover:text-red-500">Home</Link>
               <Link to="#" className="block px-3 py-2 text-gray-700 hover:text-red-500">Products</Link>
               <Link to="#" className="block px-3 py-2 text-gray-700 hover:text-red-500">Cart</Link>
-              <Link to="#" className="block px-3 py-2 text-gray-700 hover:text-red-500">Contact</Link>
+              <Link to="/contact" className="block px-3 py-2 text-gray-700 hover:text-red-500">Contact</Link>
               <Link to="/profile" className="block px-3 py-2 text-gray-700 hover:text-red-500">Profile</Link>
             </div>
           </div>

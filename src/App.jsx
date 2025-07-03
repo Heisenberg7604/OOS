@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import LandingPage from "./pages/home";
 import Profile from "./pages/profile";
-import Auth from "./pages/auth";
+import Login from "./pages/login";
 import ProductsPage from "./pages/product";
+import ScrollToTop from "./components/ScrollToTop";
+import Contact from "./pages/contact";
 
 // Simple authentication context for demo
 export const AuthContext = React.createContext();
@@ -12,7 +14,7 @@ function RequireAuth({ children }) {
   const { isAuthenticated } = React.useContext(AuthContext);
   const location = useLocation();
   if (!isAuthenticated) {
-    return <Navigate to="/auth" state={{ from: location }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
   return children;
 }
@@ -23,8 +25,9 @@ function App() {
   return (
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
       <Router>
+        <ScrollToTop />
         <Routes>
-          <Route path="/auth" element={<Auth />} />
+          <Route path="/login" element={<Login />} />
           <Route
             path="/"
             element={
@@ -49,6 +52,7 @@ function App() {
               </RequireAuth>
             }
           />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
     </AuthContext.Provider>

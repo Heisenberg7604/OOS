@@ -5,7 +5,7 @@ import { AuthContext } from '../App';
 const TEMP_USERNAME = "jpuser";
 const TEMP_PASSWORD = "jp@123";
 
-const Auth = () => {
+const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { setIsAuthenticated } = useContext(AuthContext);
@@ -69,4 +69,4 @@ const Auth = () => {
     );
 };
 
-export default Auth;
+export default Login;
