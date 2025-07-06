@@ -1,72 +1,96 @@
-import React, { useState, useContext } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { AuthContext } from '../App';
-
-const TEMP_USERNAME = "jpuser";
-const TEMP_PASSWORD = "jp@123";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const { setIsAuthenticated } = useContext(AuthContext);
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (username === TEMP_USERNAME && password === TEMP_PASSWORD) {
-            setIsAuthenticated(true);
-            navigate("/", { replace: true });
-        } else {
-            alert("Invalid username or password.");
-        }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    
+    const result = await login(email, password);
+    
+    if (result.success) {
+      navigate('/');
+    } else {
+      setError(result.message);
+    }
+    
+    setLoading(false);
+  };
 
-    return (
-        <div
-            className="min-h-screen w-full flex items-center justify-center bg-cover bg-center"
-            style={{ backgroundImage: "url('/bg.png')" }}
-        >
-            <div className="flex flex-col md:flex-row rounded-2xl shadow-lg overflow-hidden bg-white/80 md:bg-white/0 backdrop-blur-md">
-                {/* Left: Logo */}
-                <div className="flex flex-col items-center justify-center bg-white p-8 md:p-16 md:w-96">
-                    <img src="/sign-in-logo.png" alt="Sign In Logo" className="w-40 h-40 object-contain" />
-                </div>
-                {/* Right: Form */}
-                <div className="flex flex-col justify-center bg-[#FF2D2D] p-8 md:p-16 md:w-96">
-                    <h2 className="text-white text-3xl font-bold mb-8 text-center">Hello!</h2>
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            className="rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400 text-black"
-                            required
-                        />
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400 text-black"
-                            required
-                        />
-                        <button
-                            type="submit"
-                            className="rounded-full bg-white text-black font-semibold py-2 mt-2 hover:bg-gray-100 transition"
-                        >
-                            Sign In
-                        </button>
-                    </form>
-                    <button className="mt-4 text-white text-sm hover:underline self-center" type="button">
-                        Forgot Password?
-                    </button>
-                </div>
-            </div>
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        {error && (
+          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+            {error}
+          </div>
+        )}
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-gray-700 mb-2" htmlFor="email">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={loading}
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-gray-700 mb-2" htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              disabled={loading}
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 disabled:bg-gray-400"
+            disabled={loading}
+          >
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
+        </form>
+        <div className="mt-4 text-center">
+          <p className="text-gray-600">
+            Don't have an account?{' '}
+            <button
+              onClick={() => navigate('/register')}
+              className="text-blue-600 hover:underline"
+            >
+              Register here
+            </button>
+          </p>
         </div>
-    );
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-500">
+            Test credentials: admin@test.com / admin123
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Login;

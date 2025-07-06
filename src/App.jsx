@@ -1,80 +1,58 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import LandingPage from "./pages/home";
-import Profile from "./pages/profile";
-import Login from "./pages/login";
-import ProductsPage from "./pages/ProductsPage";
-import ProductCatalogPage from "./pages/ProductCatalogPage";
-import ScrollToTop from "./components/ScrollToTop";
-import Contact from "./pages/contact";
-import Home from "./pages/home";
-import CartPage from "./pages/cart";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Navbar from './components/navbar';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
-// Simple authentication context for demo
-export const AuthContext = React.createContext();
-
-function RequireAuth({ children }) {
-  const { isAuthenticated } = React.useContext(AuthContext);
-  const location = useLocation();
-  if (!isAuthenticated) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-  return children;
-}
+// Import all pages
+import Home from './pages/home';
+import Login from './pages/login';
+import Register from './components/Register';
+import Dashboard from './pages/Dashboard';
+import AdminPanel from './pages/adminpanel';
+import UserManagement from './pages/UserManagement';
+import Unauthorized from './pages/Unauthorized';
+import LandingPage from './pages/home';
+import Profile from './pages/profile';
+import ProductsPage from './pages/ProductsPage';
+import ProductCatalogPage from './pages/ProductCatalogPage';
+import Contact from './pages/contact';
+import CartPage from './pages/cart';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+    <AuthProvider>
       <Router>
         <ScrollToTop />
+        <Navbar />
         <Routes>
+          {/* Public routes */}
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route
-            path="/"
-            element={
-              <RequireAuth>
-                <LandingPage />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <RequireAuth>
-                <Profile />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/products"
-            element={
-              <RequireAuth>
-                <ProductsPage />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/products/:category/:subcategory"
-            element={
-              <RequireAuth>
-                <ProductCatalogPage />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <RequireAuth>
-                <CartPage />
-              </RequireAuth>
-            }
-          />
+          <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/unauthorized" element={<Unauthorized />} />
+          
+          {/* Protected routes - require authentication */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/:category/:subcategory" element={<ProductCatalogPage />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Route>
+          
+          {/* Admin-only routes */}
+          <Route element={<ProtectedRoute roles={['admin']} />}>
+            <Route path="/admin" element={<AdminPanel />} />
+            <Route path="/admin/users" element={<UserManagement />} />
+          </Route>
         </Routes>
+        <Footer />
       </Router>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 

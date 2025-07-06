@@ -6,34 +6,6 @@ import heroimg from '../assets/hero.png';
 
 const productList = [
     {
-        title: 'Starlinger Loom Models',
-        img: heroimg,
-        category: 'starlinger-loom',
-        dropdown: [
-            { name: 'SL-4', subcategory: 'sl-4' },
-            { name: 'SL-6', subcategory: 'sl-6' },
-            { name: 'Alpha-6', subcategory: 'alpha-6' },
-            { name: 'SL-8', subcategory: 'sl-8' },
-            { name: 'SL-62 HD', subcategory: 'sl-62-hd' },
-            { name: 'SL-62', subcategory: 'sl-62' },
-            { name: 'FX-6.0', subcategory: 'fx-6-0' },
-            { name: 'FX-6.1HD', subcategory: 'fx-6-1hd' },
-            { name: 'FX-8.0', subcategory: 'fx-8-0' },
-            { name: 'FX-10.0', subcategory: 'fx-10-0' },
-        ],
-    },
-    {
-        title: 'Starlinger Winder Models',
-        img: heroimg,
-        category: 'starlinger-winder',
-        dropdown: [
-            { name: 'StacoFill 200', subcategory: 'stacofill-200' },
-            { name: 'Stacofill 200 A II', subcategory: 'stacofill-200-a-ii' },
-            { name: 'Stacofill 200 XE', subcategory: 'stacofill-200-xe' },
-            { name: 'Fill 200', subcategory: 'fill-200' },
-        ],
-    },
-    {
         title: 'Jaiko Loom Models',
         img: heroimg,
         category: 'jaiko-loom',
@@ -64,7 +36,6 @@ const ProductsPage = () => {
     };
     return (
         <div className="min-h-screen bg-white flex flex-col">
-            <Navbar />
             <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mt-12">
                 <div className="mb-8 flex items-center">
                     <div className="w-10 h-0.5 bg-black mr-4" />
@@ -109,7 +80,6 @@ const ProductsPage = () => {
                     <span className="text-3xl text-red-500 font-semibold drop-shadow-md">More coming soon...</span>
                 </div>
             </main>
-            <Footer />
         </div>
     );
 };

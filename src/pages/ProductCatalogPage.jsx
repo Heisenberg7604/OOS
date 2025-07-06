@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
+import { useAuth } from '../context/AuthContext';
 
 const ProductCatalogPage = () => {
     const navigate = useNavigate();
-    // State management
+    const { addToCart, isAuthenticated, cart, loadCart } = useAuth();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -14,15 +15,15 @@ const ProductCatalogPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(20);
     const [filteredProducts, setFilteredProducts] = useState([]);
-    const [cart, setCart] = useState([]);
+    const [successMsg, setSuccessMsg] = useState('');
 
-    // Load products from stackofill.json
     useEffect(() => {
         const loadProducts = async () => {
             try {
                 setLoading(true);
                 setError(null);
-                const response = await fetch('/data/stackofill.json');
+                // Fetch products from backend API
+                const response = await fetch('http://localhost:5000/api/products');
                 if (!response.ok) {
                     throw new Error(`Failed to load products: ${response.status}`);
                 }
@@ -36,67 +37,65 @@ const ProductCatalogPage = () => {
             }
         };
         loadProducts();
-    }, []);
+        if (isAuthenticated) loadCart();
+        // eslint-disable-next-line
+    }, [isAuthenticated]);
 
-    // Load cart from localStorage on mount
-    useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem('cart') || '[]');
-        setCart(storedCart);
-    }, []);
-
-    // Helper to update cart in state and localStorage
-    const updateCart = (newCart) => {
-        setCart(newCart);
-        localStorage.setItem('cart', JSON.stringify(newCart));
-    };
-
-    // Filter and sort products
     useEffect(() => {
         let filtered = [...products];
-        // Apply search filter
         if (searchTerm) {
             filtered = filtered.filter(product =>
                 (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
-                (product["part no"] && product["part no"].toLowerCase().includes(searchTerm.toLowerCase()))
+                (product.partNo && product.partNo.toLowerCase().includes(searchTerm.toLowerCase()))
             );
         }
-        // Apply sorting
         filtered.sort((a, b) => {
             switch (sortBy) {
                 case 'description':
                     return (a.description || '').localeCompare(b.description || '');
                 case 'partno':
-                    return (a["part no"] || '').localeCompare(b["part no"] || '');
+                    return (a.partNo || '').localeCompare(b.partNo || '');
                 default:
                     return 0;
             }
         });
         setFilteredProducts(filtered);
-        setCurrentPage(1); // Reset to first page when filtering
+        setCurrentPage(1);
     }, [products, searchTerm, sortBy]);
 
-    // Pagination
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
     const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-    // Handle image load error
     const handleImageError = (e) => {
         e.target.src = '/assets/placeholder.jpg';
+    };
+
+    const handleAddToCart = async (partNo) => {
+        if (!isAuthenticated) {
+            navigate('/login');
+            return;
+        }
+        const result = await addToCart(partNo, 1);
+        if (result.success) {
+            setSuccessMsg('Added to cart!');
+            loadCart();
+            setTimeout(() => setSuccessMsg(''), 1500);
+        } else {
+            setError(result.message || 'Failed to add to cart');
+        }
     };
 
     if (loading) {
         return (
             <div className="min-h-screen bg-white flex flex-col">
-                <Navbar />
                 <main className="flex-1 flex items-center justify-center">
                     <div className="text-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500 mx-auto mb-4"></div>
                         <p className="text-lg text-gray-600">Loading products...</p>
                     </div>
                 </main>
-                <Footer />
             </div>
         );
     }
@@ -131,13 +130,19 @@ const ProductCatalogPage = () => {
                     <div className="flex items-center mb-4">
                         <div className="w-10 h-0.5 bg-black mr-4" />
                         <h1 className="text-3xl font-bold text-gray-800">
-                            Stacofill 200 A II
+                            Product Catalog
                         </h1>
                     </div>
                     <p className="text-gray-600">
                         Showing {filteredProducts.length} of {products.length} products
                     </p>
                 </div>
+                {/* Success Message */}
+                {successMsg && (
+                    <div className="mb-4 p-3 bg-green-100 text-green-800 rounded-lg text-center font-semibold">
+                        {successMsg}
+                    </div>
+                )}
                 {/* Search and Sort Controls */}
                 <div className="bg-gray-50 p-6 rounded-2xl mb-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -179,109 +184,54 @@ const ProductCatalogPage = () => {
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-                        {currentProducts.map((product, idx) => (
-                            <div
-                                key={product["part no"] + idx}
-                                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                            >
-                                {/* Product Image */}
-                                <div className="h-48 bg-gray-100 overflow-hidden flex items-center justify-center">
-                                    <img
-                                        src={product["image path"] ? `/data/stackofill ${product["image path"].replace('assets', 'assets')}` : '/assets/placeholder.jpg'}
-                                        alt={product.description}
-                                        className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
-                                        onError={handleImageError}
-                                    />
-                                </div>
-                                {/* Product Info */}
-                                <div className="p-6">
-                                    <div className="mb-2">
-                                        <span className="text-sm font-medium text-red-500 bg-red-50 px-2 py-1 rounded">
-                                            {product["part no"]}
-                                        </span>
+                        {currentProducts.map((product) => {
+                            const cartItem = cart?.items?.find(item => item.partNo === product.partNo);
+                            // Fix image path
+                            let imgSrc = product.imagePath || '/assets/placeholder.jpg';
+                            if (imgSrc && !imgSrc.startsWith('/')) {
+                                imgSrc = '/data/stackofill assets/' + imgSrc.replace(/^assets\//, '');
+                            }
+                            return (
+                                <div
+                                    key={product.partNo}
+                                    className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                                >
+                                    {/* Product Image */}
+                                    <div className="h-48 bg-gray-100 overflow-hidden flex items-center justify-center">
+                                        <img
+                                            src={imgSrc}
+                                            alt={product.description}
+                                            className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                                            onError={handleImageError}
+                                        />
                                     </div>
-                                    <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
-                                        {product.description}
-                                    </h3>
-                                    {/* Cart Controls */}
-                                    {(() => {
-                                        const cartItem = cart.find(item => item["part no"] === product["part no"]);
-                                        if (cartItem && cartItem.quantity > 0) {
-                                            return (
-                                                <div className="flex items-center justify-between mt-4">
-                                                    <button
-                                                        className="w-10 h-10 rounded-full bg-red-500 text-white text-2xl flex items-center justify-center hover:bg-red-600"
-                                                        onClick={() => {
-                                                            let newCart;
-                                                            if (cartItem.quantity === 1) {
-                                                                newCart = cart.filter(item => item["part no"] !== product["part no"]);
-                                                            } else {
-                                                                newCart = cart.map(item =>
-                                                                    item["part no"] === product["part no"]
-                                                                        ? { ...item, quantity: item.quantity - 1 }
-                                                                        : item
-                                                                );
-                                                            }
-                                                            updateCart(newCart);
-                                                        }}
-                                                    >-</button>
-                                                    <input
-                                                        type="number"
-                                                        min="1"
-                                                        value={cartItem.quantity}
-                                                        onChange={e => {
-                                                            let value = Number(e.target.value);
-                                                            if (isNaN(value) || value < 1) value = 1;
-                                                            const newCart = cart.map(item =>
-                                                                item["part no"] === product["part no"]
-                                                                    ? { ...item, quantity: value }
-                                                                    : item
-                                                            );
-                                                            updateCart(newCart);
-                                                        }}
-                                                        className="mx-2 w-16 text-center text-lg border border-gray-300 rounded"
-                                                        style={{ appearance: 'textfield' }}
-                                                    />
-                                                    <button
-                                                        className="w-10 h-10 rounded-full bg-red-500 text-white text-2xl flex items-center justify-center hover:bg-red-600"
-                                                        onClick={() => {
-                                                            const newCart = cart.map(item =>
-                                                                item["part no"] === product["part no"]
-                                                                    ? { ...item, quantity: item.quantity + 1 }
-                                                                    : item
-                                                            );
-                                                            updateCart(newCart);
-                                                        }}
-                                                    >+</button>
-                                                </div>
-                                            );
-                                        } else {
-                                            return (
-                                                <button
-                                                    className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors duration-200 font-semibold"
-                                                    onClick={() => {
-                                                        const existing = cart.find(item => item["part no"] === product["part no"]);
-                                                        let newCart;
-                                                        if (existing) {
-                                                            newCart = cart.map(item =>
-                                                                item["part no"] === product["part no"]
-                                                                    ? { ...item, quantity: (item.quantity || 1) + 1 }
-                                                                    : item
-                                                            );
-                                                        } else {
-                                                            newCart = [...cart, { ...product, quantity: 1 }];
-                                                        }
-                                                        updateCart(newCart);
-                                                    }}
-                                                >
-                                                    Add to Cart
-                                                </button>
-                                            );
-                                        }
-                                    })()}
+                                    {/* Product Info */}
+                                    <div className="p-6">
+                                        <div className="mb-2">
+                                            <span className="text-sm font-medium text-red-500 bg-red-50 px-2 py-1 rounded">
+                                                {product.partNo}
+                                            </span>
+                                        </div>
+                                        <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
+                                            {product.description}
+                                        </h3>
+                                        {/* Cart Controls */}
+                                        {cartItem && cartItem.quantity > 0 ? (
+                                            <div className="flex items-center justify-between mt-4">
+                                                <span className="text-green-600 font-semibold">In Cart ({cartItem.quantity})</span>
+                                            </div>
+                                        ) : (
+                                            <button
+                                                className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors duration-200 font-semibold"
+                                                onClick={() => handleAddToCart(product.partNo)}
+                                            >
+                                                Add to Cart
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 )}
                 {/* Pagination */}
@@ -318,6 +268,15 @@ const ProductCatalogPage = () => {
                         </button>
                     </div>
                 )}
+                {/* Checkout Button */}
+                <div className="text-center mt-12">
+                    <button
+                        onClick={() => navigate('/cart')}
+                        className="bg-red-500 text-white px-12 py-4 rounded-lg text-lg font-semibold hover:bg-red-600 transition-colors duration-200"
+                    >
+                        Checkout
+                    </button>
+                </div>
             </main>
             <Footer />
         </div>

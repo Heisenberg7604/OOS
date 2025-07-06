@@ -36,7 +36,6 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen bg-white">
-            <Navbar />
             
             {/* Hero Section */}
             <section className="relative py-20 bg-gradient-to-br from-red-50 to-red-100">
@@ -229,7 +228,6 @@ const Contact = () => {
                 </div>
             </section>
 
-            <Footer />
         </div>
     );
 };

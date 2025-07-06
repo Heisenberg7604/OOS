@@ -31,7 +31,7 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Use the Navbar component */}
-      <Navbar />
+      
 
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -256,34 +256,6 @@ const LandingPage = () => {
 };
 
 const productList = [
-  {
-    title: 'Starlinger Loom Models',
-    img: gridloom,
-    category: 'starlinger-loom',
-    dropdown: [
-      { name: 'SL-4', subcategory: 'sl-4' },
-      { name: 'SL-6', subcategory: 'sl-6' },
-      { name: 'Alpha-6', subcategory: 'alpha-6' },
-      { name: 'SL-8', subcategory: 'sl-8' },
-      { name: 'Sl-62 HD', subcategory: 'sl-62-hd' },
-      { name: 'SL-62', subcategory: 'sl-62' },
-      { name: 'FX-6.0', subcategory: 'fx-6-0' },
-      { name: 'FX-6.1HD', subcategory: 'fx-6-1hd' },
-      { name: 'FX-8.0', subcategory: 'fx-8-0' },
-      { name: 'FX-10.0', subcategory: 'fx-10-0' },
-    ],
-  },
-  {
-    title: 'Starlinger Winder Models',
-    img: grid2,
-    category: 'starlinger-winder',
-    dropdown: [
-      { name: 'StacoFill 200', subcategory: 'stacofill-200' },
-      { name: 'Stacofill 200 A II', subcategory: 'stacofill-200-a-ii' },
-      { name: 'Stacofill 200 XE', subcategory: 'stacofill-200-xe' },
-      { name: 'Fill 200', subcategory: 'fill-200' },
-    ],
-  },
   {
     title: 'Jaiko Loom Models',
     img: gridshuttle,

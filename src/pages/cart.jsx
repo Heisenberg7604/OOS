@@ -1,147 +1,436 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/navbar';
-import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const CartPage = () => {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState({ items: [], total: 0 });
     const [orderConfirmed, setOrderConfirmed] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [isCartLoading, setIsCartLoading] = useState(true);
+    const [imageErrors, setImageErrors] = useState({});
+    
+    const { user, isAuthenticated, logout, token, api } = useAuth();
+    const navigate = useNavigate();
+
+    const fetchCart = async () => {
+        if (!isAuthenticated || !token) {
+            console.error('Authentication required - redirecting to login');
+            navigate('/login');
+            return;
+        }
+        
+        setIsCartLoading(true);
+        setError(null);
+        
+        try {
+            console.log('Attempting to fetch cart...');
+            const response = await api.get('/cart', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            if (response.data && (response.data.items || response.data.length === 0)) {
+                console.log('Cart data received:', response.data);
+                setCart(response.data);
+            } else {
+                throw new Error('Invalid cart data structure received');
+            }
+        } catch (error) {
+            console.error('Cart fetch error:', {
+                message: error.message,
+                response: error.response?.data,
+                status: error.response?.status,
+                config: {
+                    url: error.config?.url,
+                    method: error.config?.method
+                }
+            });
+            
+            if (error.response?.status === 401 || error.response?.status === 403) {
+                console.log('Authentication error - logging out');
+                logout();
+                navigate('/login');
+            } else if (error.response?.status === 404) {
+                setError('Cart service unavailable. Please try again later.');
+            } else {
+                setError(error.response?.data?.message || 
+                        error.message || 
+                        'Failed to load cart. Please refresh the page.');
+            }
+        } finally {
+            setIsCartLoading(false);
+        }
+    };
 
     useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem('cart') || '[]');
-        setCart(storedCart);
-    }, []);
+        if (!isAuthenticated) {
+            navigate('/login');
+            return;
+        }
+        
+        fetchCart();
+        
+        // Cleanup function
+        return () => {
+            // Cancel any pending requests if component unmounts
+        };
+    }, [isAuthenticated, token, navigate]);
 
-    const removeFromCart = (partNo) => {
-        const updatedCart = cart.filter(item => item["part no"] !== partNo);
-        setCart(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+    const removeFromCart = async (partNo) => {
+        if (!isAuthenticated || !token) {
+            navigate('/login');
+            return;
+        }
+        
+        try {
+            // Optimistic UI update
+            setCart(prev => ({
+                ...prev,
+                items: prev.items.filter(item => item["part no"] !== partNo),
+                total: prev.total - (prev.items.find(item => item["part no"] === partNo)?.price || 0)
+            }));
+            
+            await api.delete(`/cart/remove/${encodeURIComponent(partNo)}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            // Final sync with server
+            await fetchCart();
+        } catch (error) {
+            console.error('Remove item error:', error);
+            // Revert optimistic update on error
+            await fetchCart();
+            
+            if (error.response?.status === 401 || error.response?.status === 403) {
+                logout();
+                navigate('/login');
+            } else {
+                setError('Failed to remove item. Please try again.');
+            }
+        }
     };
 
-    const clearCart = () => {
-        setCart([]);
-        localStorage.removeItem('cart');
+    const clearCart = async () => {
+        if (!isAuthenticated || !token) {
+            navigate('/login');
+            return;
+        }
+        
+        try {
+            await api.delete('/cart/clear', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            setCart({ items: [], total: 0 });
+        } catch (error) {
+            console.error('Clear cart error:', error);
+            
+            if (error.response?.status === 401 || error.response?.status === 403) {
+                logout();
+                navigate('/login');
+            } else {
+                setError('Failed to clear cart. Please try again.');
+            }
+        }
     };
 
-    const handleQuantityChange = (partNo, newQty) => {
-        if (newQty < 1) return;
-        const updatedCart = cart.map(item =>
-            item["part no"] === partNo ? { ...item, quantity: newQty } : item
+    const handleQuantityChange = async (partNo, newQty) => {
+        if (newQty < 1 || !isAuthenticated || !token) return;
+        
+        try {
+            // Optimistic UI update
+            setCart(prev => {
+                const updatedItems = prev.items.map(item => 
+                    item["part no"] === partNo ? { ...item, quantity: newQty } : item
+                );
+                
+                return {
+                    items: updatedItems,
+                    total: updatedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+                };
+            });
+            
+            await api.put('/cart/update', {
+                partNo,
+                quantity: newQty
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            // Final sync with server
+            await fetchCart();
+        } catch (error) {
+            console.error('Quantity update error:', error);
+            // Revert optimistic update on error
+            await fetchCart();
+            
+            if (error.response?.status === 401 || error.response?.status === 403) {
+                logout();
+                navigate('/login');
+            } else {
+                setError('Failed to update quantity. Please try again.');
+            }
+        }
+    };
+
+    const handleSubmitOrder = async () => {
+        if (!isAuthenticated || !token) {
+            alert('Please log in to place an order');
+            navigate('/login');
+            return;
+        }
+
+        if (cart.items.length === 0) {
+            alert('Your cart is empty');
+            return;
+        }
+
+        setIsLoading(true);
+        setError(null);
+        
+        try {
+            const response = await api.post('/orders', {
+                items: cart.items,
+                total: cart.total
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            setOrderConfirmed(true);
+            setCart({ items: [], total: 0 });
+            
+            // Optional: Show success notification
+            console.log('Order submitted successfully:', response.data);
+        } catch (error) {
+            console.error('Order submission error:', error);
+            
+            if (error.response?.status === 401 || error.response?.status === 403) {
+                logout();
+                navigate('/login');
+            } else {
+                setError(error.response?.data?.message || 
+                        'Failed to submit order. Please try again later.');
+            }
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleImageError = (partNo) => {
+        setImageErrors(prev => ({
+            ...prev,
+            [partNo]: true
+        }));
+    };
+
+    const getImageSrc = (item) => {
+        const partNo = item["part no"] || item.partNo;
+        
+        // If this image has already failed, return placeholder
+        if (imageErrors[partNo]) {
+            return '/assets/placeholder.jpg';
+        }
+        
+        let imgSrc = item["image path"] || '/assets/placeholder.jpg';
+        
+        // Fix image path if it doesn't start with /
+        if (imgSrc && !imgSrc.startsWith('/')) {
+            imgSrc = '/data/stackofill assets/' + imgSrc.replace(/^assets\//, '');
+        }
+        
+        return imgSrc;
+    };
+
+    if (isCartLoading) {
+        return (
+            <div className="min-h-screen bg-white flex flex-col">
+                <main className="flex-1 flex items-center justify-center">
+                    <div className="text-center">
+                        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500 mx-auto mb-4"></div>
+                        <p className="text-gray-600">Loading your cart...</p>
+                    </div>
+                </main>
+            </div>
         );
-        setCart(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
-    };
+    }
+
+    if (!isAuthenticated) {
+        return (
+            <div className="min-h-screen bg-white flex flex-col">
+                <main className="flex-1 flex items-center justify-center">
+                    <div className="text-center">
+                        <p className="text-gray-600">Please log in to view your cart.</p>
+                        <button
+                            onClick={() => navigate('/login')}
+                            className="mt-4 bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors"
+                        >
+                            Go to Login
+                        </button>
+                    </div>
+                </main>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-white flex flex-col">
-            <Navbar />
             <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-8 lg:px-16 mt-12 mb-12">
-                <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
-                {cart.length === 0 ? (
+                <div className="flex justify-between items-center mb-8">
+                    <h1 className="text-3xl font-bold text-gray-800">Your Shopping Cart</h1>
+                    {user && (
+                        <div className="flex items-center space-x-4">
+                            <span className="text-gray-600">Welcome, {user.name || user.email}</span>
+                            <button
+                                onClick={() => logout()}
+                                className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors text-sm"
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    )}
+                </div>
+
+                {error && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg">
+                        <div className="flex justify-between items-center">
+                            <span>{error}</span>
+                            <button 
+                                onClick={() => setError(null)}
+                                className="ml-4 text-sm underline text-red-800 hover:text-red-900"
+                            >
+                                Dismiss
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {cart.items.length === 0 ? (
                     <div className="text-center py-12">
                         <div className="text-gray-400 text-6xl mb-4">🛒</div>
-                        <h3 className="text-xl font-semibold text-gray-600 mb-2">Your cart is empty</h3>
+                        <h3 className="text-xl font-semibold text-gray-600 mb-2">
+                            {orderConfirmed ? 'Order Confirmed!' : 'Your Cart is Empty'}
+                        </h3>
+                        <p className="text-gray-500 mb-4">
+                            {orderConfirmed 
+                                ? 'Thank you for your purchase. A confirmation has been sent to your email.' 
+                                : 'Browse our products to add items to your cart.'}
+                        </p>
+                        <button
+                            onClick={() => navigate('/products')}
+                            className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors"
+                        >
+                            {orderConfirmed ? 'Continue Shopping' : 'Start Shopping'}
+                        </button>
                     </div>
                 ) : (
                     <>
-                        <div className="mb-6 flex justify-end">
+                        <div className="mb-6 flex justify-between items-center">
+                            <h2 className="text-lg font-semibold text-gray-700">
+                                {cart.items.length} {cart.items.length === 1 ? 'Item' : 'Items'} in Cart
+                            </h2>
                             <button
                                 onClick={clearCart}
-                                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
+                                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-red-100 hover:text-red-600 transition-colors text-sm"
                             >
-                                Clear Cart
+                                Clear Entire Cart
                             </button>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {cart.map((item, idx) => (
-                                <div key={item["part no"] + idx} className="flex flex-col items-center bg-gray-50 rounded-xl p-2 sm:p-4 shadow h-full text-center">
-                                    <img
-                                        src={item["image path"] ? `/data/stackofill ${item["image path"].replace('assets', 'assets')}` : '/assets/placeholder.jpg'}
-                                        alt={item.description}
-                                        className="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-lg mb-2"
-                                    />
-                                    <div className="flex-1 text-center">
-                                        <div className="font-bold text-base sm:text-lg text-gray-800">{item.description}</div>
-                                        <div className="text-xs sm:text-sm text-gray-500">Part No: {item["part no"]}</div>
-                                        <div className="flex items-center gap-2 sm:gap-4 mt-2 justify-center">
-                                            <button
-                                                className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-red-500 text-white text-xl sm:text-2xl flex items-center justify-center disabled:opacity-50"
-                                                onClick={() => handleQuantityChange(item["part no"], item.quantity - 1)}
-                                                disabled={item.quantity <= 1}
-                                            >-</button>
-                                            <input
-                                                type="number"
-                                                min="1"
-                                                value={item.quantity}
-                                                onChange={e => handleQuantityChange(item["part no"], Number(e.target.value))}
-                                                className="px-1 sm:px-2 text-center text-lg sm:text-2xl border-none outline-none font-bold bg-white flex-shrink-0"
-                                                style={{ appearance: 'textfield', width: `${Math.max(String(item.quantity).length, 3)}ch` }}
-                                            />
-                                            <button
-                                                className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-red-500 text-white text-xl sm:text-2xl flex items-center justify-center"
-                                                onClick={() => handleQuantityChange(item["part no"], item.quantity + 1)}
-                                            >+</button>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {cart.items.map((item) => {
+                                const partNo = item["part no"] || item.partNo;
+                                const imgSrc = getImageSrc(item);
+                                
+                                return (
+                                    <div key={partNo} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+                                        <div className="p-4 flex flex-col h-full">
+                                            <div className="flex justify-center mb-4 bg-gray-50 rounded-lg p-4">
+                                                <img
+                                                    src={imgSrc}
+                                                    alt={item.description}
+                                                    className="h-32 w-32 object-contain"
+                                                    onError={() => handleImageError(partNo)}
+                                                />
+                                            </div>
+                                            <div className="flex-1">
+                                                <h3 className="font-bold text-gray-800 mb-1 line-clamp-2">
+                                                    {item.description}
+                                                </h3>
+                                                <p className="text-sm text-gray-500 mb-2">Part No: {partNo}</p>
+
+                                            </div>
+                                            <div className="flex items-center justify-between mt-auto">
+                                                <div className="flex items-center border border-gray-300 rounded-lg">
+                                                    <button
+                                                        className="w-8 h-8 bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 disabled:opacity-50 rounded-l-lg"
+                                                        onClick={() => handleQuantityChange(partNo, item.quantity - 1)}
+                                                        disabled={item.quantity <= 1}
+                                                    >
+                                                        -
+                                                    </button>
+                                                    <span className="px-3 text-center w-10 bg-white">
+                                                        {item.quantity}
+                                                    </span>
+                                                    <button
+                                                        className="w-8 h-8 bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 rounded-r-lg"
+                                                        onClick={() => handleQuantityChange(partNo, item.quantity + 1)}
+                                                    >
+                                                        +
+                                                    </button>
+                                                </div>
+                                                <button
+                                                    onClick={() => removeFromCart(partNo)}
+                                                    className="text-red-500 hover:text-red-700 text-sm font-medium ml-2"
+                                                >
+                                                    Remove
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <button
-                                        onClick={() => removeFromCart(item["part no"])}
-                                        className="mt-2 bg-gray-200 text-gray-700 px-2 sm:px-3 py-1 rounded hover:bg-red-100 hover:text-red-600 text-xs sm:text-base"
-                                    >
-                                        Remove
-                                    </button>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
-                        <div className="flex justify-center mt-8 px-2">
+
+
+
+                        <div className="mt-8 flex justify-center">
                             <button
-                                onClick={() => setOrderConfirmed(true)}
-                                className="w-full sm:w-auto bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-green-700 transition-colors shadow"
-                                disabled={orderConfirmed}
+                                onClick={handleSubmitOrder}
+                                disabled={isLoading || orderConfirmed}
+                                className={`w-full md:w-auto px-8 py-3 rounded-lg text-lg font-semibold transition-colors ${
+                                    isLoading || orderConfirmed
+                                        ? 'bg-gray-400 cursor-not-allowed'
+                                        : 'bg-green-600 text-white hover:bg-green-700'
+                                }`}
                             >
-                                Confirm Order
+                                {isLoading ? (
+                                    <span className="flex items-center justify-center">
+                                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        Processing...
+                                    </span>
+                                ) : orderConfirmed ? (
+                                    'Order Confirmed!'
+                                ) : (
+                                    'Proceed to Checkout'
+                                )}
                             </button>
                         </div>
-                        {orderConfirmed && (
-                            <div className="mt-8 bg-gray-100 rounded-lg p-2 sm:p-6 shadow overflow-x-auto">
-                                <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center">Order Details</h2>
-                                <div className="block w-full overflow-x-auto">
-                                    <table className="min-w-full text-left text-gray-700 text-xs sm:text-base">
-                                        <thead>
-                                            <tr>
-                                                <th className="px-2 sm:px-4 py-2">Image</th>
-                                                <th className="px-2 sm:px-4 py-2">Description</th>
-                                                <th className="px-2 sm:px-4 py-2">Part No</th>
-                                                <th className="px-2 sm:px-4 py-2">Quantity</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {cart.map((item, idx) => (
-                                                <tr key={item["part no"] + idx} className="border-t">
-                                                    <td className="px-2 sm:px-4 py-2">
-                                                        <img
-                                                            src={item["image path"] ? `/data/stackofill ${item["image path"].replace('assets', 'assets')}` : '/assets/placeholder.jpg'}
-                                                            alt={item.description}
-                                                            className="w-8 h-8 sm:w-12 sm:h-12 object-contain rounded"
-                                                        />
-                                                    </td>
-                                                    <td className="px-2 sm:px-4 py-2">{item.description}</td>
-                                                    <td className="px-2 sm:px-4 py-2">{item["part no"]}</td>
-                                                    <td className="px-2 sm:px-4 py-2">{item.quantity}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div className="flex justify-center mt-6 sm:mt-6">
-                                    <button className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors shadow">
-                                        Get Invoice
-                                    </button>
-                                </div>
-                            </div>
-                        )}
                     </>
                 )}
             </main>
-            <Footer />
         </div>
     );
 };
