@@ -95,7 +95,7 @@ const LandingPage = () => {
           {/* 3: Lorem ipsum text block */}
           <div className="col-span-5 row-span-3 col-start-1 row-start-5 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl p-6 flex items-center justify-center text-white">
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-2">Lorem ipsum is simply dummy text of the printing typesetting industry.</h3>
+              <h3 className="text-2xl font-bold mb-2">“Engineered precision spare parts designed to ensure optimal performance and long-term reliability in every application.”</h3>
             </div>
           </div>
           {/* 4: 100% Quality Compliance text block */}
@@ -159,7 +159,7 @@ const LandingPage = () => {
             {/* Lorem ipsum text block */}
             <div className="h-40 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl p-6 flex items-center justify-center text-white">
               <div className="text-center">
-                <h3 className="text-lg font-bold">Lorem ipsum is simply dummy text of the printing typesetting industry.</h3>
+                <h3 className="text-lg font-bold">“Engineered precision spare parts designed to ensure optimal performance and long-term reliability in every application.”</h3>
               </div>
             </div>
 

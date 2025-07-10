@@ -6,7 +6,6 @@ import heroImg from '../assets/hero.png';
 const Profile = () => {
     return (
         <div className="min-h-screen bg-white flex flex-col justify-between">
-            <Navbar />
             <div className="flex flex-col items-center justify-center flex-1 py-12">
                 <div className="flex flex-col md:flex-row items-center md:items-start w-full max-w-4xl bg-white rounded-2xl shadow-lg p-8 gap-10">
                     {/* Profile Picture */}
@@ -40,7 +39,6 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };

@@ -103,7 +103,7 @@ const ProductCatalogPage = () => {
     if (error) {
         return (
             <div className="min-h-screen bg-white flex flex-col">
-                <Navbar />
+                
                 <main className="flex-1 flex items-center justify-center">
                     <div className="text-center">
                         <div className="text-red-500 text-xl mb-4">⚠️ Error Loading Products</div>
@@ -278,7 +278,7 @@ const ProductCatalogPage = () => {
                     </button>
                 </div>
             </main>
-            <Footer />
+            
         </div>
     );
 };
