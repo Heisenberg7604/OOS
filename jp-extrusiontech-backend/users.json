@@ -1,0 +1,26 @@
+[
+  {
+    "id": "admin-1",
+    "name": "Admin",
+    "email": "admin@jpextrusiontech.com",
+    "password": "$2b$10$BcQzfiFNVx/jL8K8a8VySOKiYloZlH6VBwCZ5ayJf/0jGnBHYSSlO",
+    "role": "admin",
+    "createdAt": "2025-07-04T22:50:53.656Z"
+  },
+  {
+    "id": "1751669480685",
+    "name": "krishnaraj bhosale",
+    "email": "krishnarajbhosale@gmail.com",
+    "password": "$2b$10$Cqw9M7NYYcR9rBW4ErMVXOIWLKnVDp3QIGADqvZ6i1uZrgZkLjJAy",
+    "role": "user",
+    "createdAt": "2025-07-04T22:51:20.685Z"
+  },
+  {
+    "id": "1751711694091n1q1x244t",
+    "name": "Krushna",
+    "email": "bhosalekrushnaraj@gmail.com",
+    "password": "$2a$10$0J46fJGnwNG.xm/PYkfVqOHsjd0qhpAcp71SJSOJ3A0PEyq96dPDa",
+    "role": "user",
+    "createdAt": "2025-07-05T10:34:54.091Z"
+  }
+]

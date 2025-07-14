@@ -6,26 +6,9 @@ import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showAdminLogin, setShowAdminLogin] = useState(false);
-  const [adminCredentials, setAdminCredentials] = useState({ username: '', password: '' });
-  const [adminError, setAdminError] = useState('');
   
-  const { user, isAuthenticated, logout, loginAsAdmin } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
-
-  const handleAdminLogin = async (e) => {
-    e.preventDefault();
-    setAdminError('');
-    
-    const success = await loginAsAdmin(adminCredentials.username, adminCredentials.password);
-    if (success) {
-      setShowAdminLogin(false);
-      setAdminCredentials({ username: '', password: '' });
-      navigate('/admin');
-    } else {
-      setAdminError('Invalid admin credentials');
-    }
-  };
 
   const handleLogout = () => {
     logout();
@@ -110,12 +93,6 @@ const Navbar = () => {
                 >
                   Register
                 </Link>
-                <button
-                  onClick={() => setShowAdminLogin(true)}
-                  className="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition-colors"
-                >
-                  Admin Login
-                </button>
               </>
             )}
           </div>
@@ -220,15 +197,6 @@ const Navbar = () => {
                   >
                     Register
                   </Link>
-                  <button
-                    onClick={() => {
-                      setShowAdminLogin(true);
-                      setIsMenuOpen(false);
-                    }}
-                    className="block w-full text-left px-3 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
-                  >
-                    Admin Login
-                  </button>
                 </div>
               )}
             </div>
@@ -236,78 +204,7 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* Admin Login Modal */}
-      {showAdminLogin && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full mx-4">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Admin Login</h3>
-              <button
-                onClick={() => {
-                  setShowAdminLogin(false);
-                  setAdminError('');
-                  setAdminCredentials({ username: '', password: '' });
-                }}
-                className="text-gray-500 hover:text-gray-700"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-            
-            <form onSubmit={handleAdminLogin} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Username
-                </label>
-                <input
-                  type="text"
-                  value={adminCredentials.username}
-                  onChange={(e) => setAdminCredentials({ ...adminCredentials, username: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  value={adminCredentials.password}
-                  onChange={(e) => setAdminCredentials({ ...adminCredentials, password: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                  required
-                />
-              </div>
-              
-              {adminError && (
-                <div className="text-red-600 text-sm">{adminError}</div>
-              )}
-              
-              <div className="flex space-x-3">
-                <button
-                  type="submit"
-                  className="flex-1 bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors"
-                >
-                  Login
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowAdminLogin(false);
-                    setAdminError('');
-                    setAdminCredentials({ username: '', password: '' });
-                  }}
-                  className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 transition-colors"
-                >
-                  Cancel
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+
     </header>
   );
 };

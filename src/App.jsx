@@ -10,7 +10,6 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/home';
 import Login from './pages/login';
 import Register from './components/Register';
-import Dashboard from './pages/Dashboard';
 import AdminPanel from './pages/adminpanel';
 import UserManagement from './pages/UserManagement';
 import Unauthorized from './pages/Unauthorized';
@@ -20,6 +19,7 @@ import ProductsPage from './pages/ProductsPage';
 import ProductCatalogPage from './pages/ProductCatalogPage';
 import Contact from './pages/contact';
 import CartPage from './pages/cart';
+import AdminLogin from './pages/AdminLogin';
 
 function App() {
   return (
@@ -34,10 +34,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
           
           {/* Protected routes - require authentication */}
           <Route element={<ProtectedRoute />}>
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:category/:subcategory" element={<ProductCatalogPage />} />

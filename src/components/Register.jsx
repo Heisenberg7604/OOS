@@ -7,8 +7,7 @@ const Register = () => {
     name: '',
     email: '',
     password: '',
-    confirmPassword: '',
-    role: 'user'
+    confirmPassword: ''
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -42,15 +41,16 @@ const Register = () => {
       return;
     }
 
+    // Always register as user
     const result = await register(
       formData.name,
       formData.email,
       formData.password,
-      formData.role
+      'user'
     );
 
     if (result.success) {
-      navigate('/dashboard');
+      navigate('/');
     } else {
       setError(result.message);
     }
@@ -127,22 +127,6 @@ const Register = () => {
               required
               disabled={loading}
             />
-          </div>
-          <div className="mb-6">
-            <label className="block text-gray-700 mb-2" htmlFor="role">
-              Role
-            </label>
-            <select
-              id="role"
-              name="role"
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
-              value={formData.role}
-              onChange={handleChange}
-              disabled={loading}
-            >
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
-            </select>
           </div>
           <button
             type="submit"

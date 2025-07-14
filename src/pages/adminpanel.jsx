@@ -239,6 +239,24 @@ const AdminPanel = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {activeTab === 'dashboard' && (
                     <div className="space-y-6">
+                        {/* Admin Notice */}
+                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <div className="flex">
+                                <div className="flex-shrink-0">
+                                    <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div className="ml-3">
+                                    <h3 className="text-sm font-medium text-blue-800">
+                                        Single Admin System
+                                    </h3>
+                                    <div className="mt-2 text-sm text-blue-700">
+                                        <p>This system is configured for single admin access. Only one admin account is allowed.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         {/* Stats Cards */}
                         <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
                             <div className="bg-white p-6 rounded-lg shadow-sm border">
@@ -464,6 +482,9 @@ const AdminPanel = () => {
                     <div className="bg-white rounded-lg shadow-sm border">
                         <div className="px-6 py-4 border-b">
                             <h3 className="text-lg font-medium text-gray-900">All Users</h3>
+                            <p className="text-sm text-gray-600 mt-1">
+                                Note: Only one admin account is allowed in the system. Additional admin accounts cannot be created.
+                            </p>
                         </div>
                         <div className="overflow-x-auto">
                             <table className="min-w-full divide-y divide-gray-200">
