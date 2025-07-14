@@ -1,0 +1,3242 @@
+[
+  {
+    "part_code": "JAIKO-812     001902",
+    "part_image": "../assets/JAIKO-812_001902.jpg",
+    "description": "FELT"
+  },
+  {
+    "part_code": "JAIKO-812   001910",
+    "part_image": "../assets/JAIKO-812_001910.png",
+    "description": "VIBRATING PAD"
+  },
+  {
+    "part_code": "JAIKO-812.         001511",
+    "part_image": "../assets/JAIKO-812._001511.jpg",
+    "description": "CHECKER PLATE"
+  },
+  {
+    "part_code": "JAIKO-812       SA0112",
+    "part_image": "../assets/JAIKO-812_SA0112.jpg",
+    "description": "LOOM STAND ASSY"
+  },
+  {
+    "part_code": "JAIKO-812      002401",
+    "part_image": "../assets/JAIKO-812_002401.png",
+    "description": "BASE PLATE"
+  },
+  {
+    "part_code": "JAIKO-812      002402",
+    "part_image": "../assets/grey.png",
+    "description": "MAIN HOUSING"
+  },
+  {
+    "part_code": "JAIKO-812        002903",
+    "part_image": "../assets/JAIKO-812_002903.jpg",
+    "description": "WASHER (M16)"
+  },
+  {
+    "part_code": "JAIKO-812        002904",
+    "part_image": "../assets/JAIKO-812_002904.png",
+    "description": "HEX BOLT (M16 X 55 LG)"
+  },
+  {
+    "part_code": "JAIKO-812        002905",
+    "part_image": "../assets/JAIKO-812_002905.png",
+    "description": "THRUST BALL BERING (#51122)"
+  },
+  {
+    "part_code": "JAIKO-812        002406",
+    "part_image": "../assets/JAIKO-812_002406.png",
+    "description": "BOTTOM COVER"
+  },
+  {
+    "part_code": "JAIKO-812        002907",
+    "part_image": "../assets/JAIKO-812_002907.jpg",
+    "description": "PLAIN WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-812        002908",
+    "part_image": "../assets/JAIKO-812_002908.png",
+    "description": "HEX BOLT M12 X 35 LG"
+  },
+  {
+    "part_code": "JAIKO-812        002909",
+    "part_image": "../assets/JAIKO-812_002909.png",
+    "description": "BALL BEARING(#6026)"
+  },
+  {
+    "part_code": "JAIKO-812        002410",
+    "part_image": "../assets/JAIKO-812_002410.jpg",
+    "description": "MAIN SHAFT"
+  },
+  {
+    "part_code": "JAIKO-812        002911",
+    "part_image": "../assets/JAIKO-812_002911.png",
+    "description": "BALL BEARING(#6226)"
+  },
+  {
+    "part_code": "JAIKO-812      002912",
+    "part_image": "../assets/JAIKO-812_002912.jpg",
+    "description": "CIRCLIP (A-230)"
+  },
+  {
+    "part_code": "JAIKO-812         002413",
+    "part_image": "../assets/JAIKO-812_002413.png",
+    "description": "TOP COVER"
+  },
+  {
+    "part_code": "JAIKO-812         002914",
+    "part_image": "../assets/JAIKO-812_002914.jpg",
+    "description": "PLAIN WASHER (M8)"
+  },
+  {
+    "part_code": "JAIKO-812         002915",
+    "part_image": "../assets/JAIKO-812_002915.png",
+    "description": "HEX BOLT (M8 X 12LG)"
+  },
+  {
+    "part_code": "JAIKO-812         002916",
+    "part_image": "../assets/JAIKO-812_002916.png",
+    "description": "OIL NIPPLE"
+  },
+  {
+    "part_code": "JAIKO-812       003401",
+    "part_image": "../assets/JAIKO-812_003401.jpg",
+    "description": "CAM"
+  },
+  {
+    "part_code": "JAIKO-812       003402",
+    "part_image": "../assets/JAIKO-812_003402.png",
+    "description": "CAM BRACKET"
+  },
+  {
+    "part_code": "JAIKO-812        003903",
+    "part_image": "../assets/JAIKO-812_003903.jpg",
+    "description": "SPRING WASHER M12"
+  },
+  {
+    "part_code": "JAIKO-812       003903",
+    "part_image": "../assets/JAIKO-812_003903.jpg",
+    "description": "HEX BOLT (M12)"
+  },
+  {
+    "part_code": "JAIKO-812.      004401",
+    "part_image": "../assets/JAIKO-812._004401.png",
+    "description": "MAIN TIMING PULLEY (HF)"
+  },
+  {
+    "part_code": "JAIKO-812   004902",
+    "part_image": "../assets/JAIKO-812_004902.jpg",
+    "description": "PLAIN WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-812   004903",
+    "part_image": "../assets/JAIKO-812_004903.png",
+    "description": "HEX BOLT (M16 X 110 LG.)"
+  },
+  {
+    "part_code": "JAIKO-812   004404",
+    "part_image": "../assets/JAIKO-812_004404.png",
+    "description": "STEPPED PULLEY ADJUSTING BRACKET"
+  },
+  {
+    "part_code": "JAIKO-812   004905",
+    "part_image": "../assets/JAIKO-812_004905.jpg",
+    "description": "HEX BOLT (M12 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-812   004906",
+    "part_image": "../assets/JAIKO-812_004906.jpg",
+    "description": "BEARING #6211"
+  },
+  {
+    "part_code": "JAIKO-814   004407",
+    "part_image": "../assets/JAIKO-814_004407.png",
+    "description": "COUNTER 'V' BELT PULLEY"
+  },
+  {
+    "part_code": "JAIKO-814   004408",
+    "part_image": "../assets/JAIKO-814_004408.png",
+    "description": "TIMING PULLEY"
+  },
+  {
+    "part_code": "JAIKO-814   004909",
+    "part_image": "../assets/JAIKO-814_004909.png",
+    "description": "BEARING #6311"
+  },
+  {
+    "part_code": "JAIKO-814   004910",
+    "part_image": "../assets/grey.png",
+    "description": "TIMING PULLY COLLAR"
+  },
+  {
+    "part_code": "JAIKO-814   004511",
+    "part_image": "../assets/JAIKO-814_004511.png",
+    "description": "ADJUSTING BRACKET FOR MOTOR"
+  },
+  {
+    "part_code": "JAIKO-812   004912",
+    "part_image": "../assets/JAIKO-812_004912.png",
+    "description": "HEX BOLT (M12 X 100LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 004913",
+    "part_image": "../assets/JAIKO-812_004913.jpg",
+    "description": "HEX NUT (M12)"
+  },
+  {
+    "part_code": "JAIKO-812 004914",
+    "part_image": "../assets/JAIKO-812_004914.jpg",
+    "description": "PLAIN WASHER (M10)"
+  },
+  {
+    "part_code": "JAIKO-812 004915",
+    "part_image": "../assets/JAIKO-812_004915.jpg",
+    "description": "HEX BOLT (M10 X 40LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 004417(16)",
+    "part_image": "../assets/JAIKO-812_004417(16).png",
+    "description": "MAIN MOTOR SPACER"
+  },
+  {
+    "part_code": "JAIKO-814 004418(17)",
+    "part_image": "../assets/JAIKO-814_004418(17).png",
+    "description": "MOTOR 'V' BELT PULLEY"
+  },
+  {
+    "part_code": "JAIKO-812 004419(18)",
+    "part_image": "../assets/JAIKO-812_004419(18).jpg",
+    "description": "MOTOR WASHER"
+  },
+  {
+    "part_code": "JAIKO-812 004520(19)",
+    "part_image": "../assets/JAIKO-812_004520(19).png",
+    "description": "MAIN MOTOR MTG. BKT."
+  },
+  {
+    "part_code": "JAIKO-812 004921(20)",
+    "part_image": "../assets/JAIKO-812_004921(20).jpg",
+    "description": "PLAIN WASHER (M16)"
+  },
+  {
+    "part_code": "JAIKO-812 004922(21)",
+    "part_image": "../assets/JAIKO-812_004922(21).png",
+    "description": "HEX BOLT (M16 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 004922",
+    "part_image": "../assets/JAIKO-812_004922.png",
+    "description": "TIMING BELT (HTD-14M-55W x 237Z x 3318LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 004923",
+    "part_image": "../assets/JAIKO-812_004923.jpg",
+    "description": "'V' BELT (XPA-2180LG.)"
+  },
+  {
+    "part_code": "JAIKO-814 004425(24)",
+    "part_image": "../assets/grey.png",
+    "description": "AXLE"
+  },
+  {
+    "part_code": "JAIKO-812 004925",
+    "part_image": "../assets/grey.png",
+    "description": "CSK BOLT (M10 X 25LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 004926",
+    "part_image": "../assets/grey.png",
+    "description": "ALLEN BOLT (M5 X 20LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 004927",
+    "part_image": "../assets/grey.png",
+    "description": "PLAIN WASHER (M5)"
+  },
+  {
+    "part_code": "JAIKO-812 004928",
+    "part_image": "../assets/JAIKO-812_004928.jpg",
+    "description": "MAIN MOTOR (9.3 KW, 930 RPM, 160M)"
+  },
+  {
+    "part_code": "JAIKO-812  005401",
+    "part_image": "../assets/JAIKO-812_005401.png",
+    "description": "SWITCH BOARD MTG BRIDGE-01"
+  },
+  {
+    "part_code": "JAIKO-812  005402",
+    "part_image": "../assets/JAIKO-812_005402.png",
+    "description": "SWITCH BOARD MTG BRIDGE-02"
+  },
+  {
+    "part_code": "JAIKO-812  005903",
+    "part_image": "../assets/JAIKO-812_005903.jpg",
+    "description": "PUSH BUTTON ACTUATOR (BLACK)"
+  },
+  {
+    "part_code": "JAIKO-812  005904",
+    "part_image": "../assets/JAIKO-812_005904.png",
+    "description": "PUSH BUTTON ACTUATOR (GREEN)"
+  },
+  {
+    "part_code": "JAIKO-812  005905",
+    "part_image": "../assets/JAIKO-812_005905.jpg",
+    "description": "PUSH BUTTON ACTUATOR (RED)"
+  },
+  {
+    "part_code": "JAIKO-812  005906",
+    "part_image": "../assets/JAIKO-812_005906.jpg",
+    "description": "PUSH BUTTON BOX HOUSING"
+  },
+  {
+    "part_code": "JAIKO-812  005907",
+    "part_image": "../assets/JAIKO-812_005907.png",
+    "description": "SIGNAL PLATE"
+  },
+  {
+    "part_code": "JAIKO-812  005908",
+    "part_image": "../assets/JAIKO-812_005908.jpg",
+    "description": "POILET LAMP PIN TYPE RED WITH BODY"
+  },
+  {
+    "part_code": "JAIKO-812  005909",
+    "part_image": "../assets/JAIKO-812_005909.jpg",
+    "description": "SCREW (M4 X 25 LG)"
+  },
+  {
+    "part_code": "JAIKO-812  005911",
+    "part_image": "../assets/JAIKO-812_005911.jpg",
+    "description": "SCREW (M4 X 12 LG)"
+  },
+  {
+    "part_code": "JAIKO-812  005912",
+    "part_image": "../assets/JAIKO-812_005912.jpg",
+    "description": "O' RING"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "COMPLEAT SWITCH BOX ASSEMBLY              INCLUSIVE :                     PUSH BUTTON ACTUATOR (BLACK).                           PUSH BUTTON ACTUATOR (GREEN).                         PUSH BUTTON ACTUATOR (RED).                              PUSH BUTTON BOX HOUSING WITH COVER.                      SIGNAL PLATE.              POILET LAMP PIN TYPE RED WITH BODY.                   CHEESE HEAD SCREW (M4 X 25 LG).                         CHEESE HEAD SCREW (M4 X 12 LG).                                  O' RING"
+  },
+  {
+    "part_code": "JAIKO-812    006401",
+    "part_image": "../assets/JAIKO-812_006401.png",
+    "description": "BRIDGE (HF)"
+  },
+  {
+    "part_code": "JAIKO-812    006402",
+    "part_image": "../assets/JAIKO-812_006402.png",
+    "description": "RING STAND (HF)"
+  },
+  {
+    "part_code": "JAIKO-812    006403",
+    "part_image": "../assets/JAIKO-812_006403.png",
+    "description": "RING STAND FULL (HF)"
+  },
+  {
+    "part_code": "VEGA-812         006504",
+    "part_image": "../assets/VEGA-812_006504.png",
+    "description": "E-RING PIPE"
+  },
+  {
+    "part_code": "JAIKO-810      006904A",
+    "part_image": "../assets/JAIKO-810_006904A.png",
+    "description": "HEAT SHRIKABLE TUBE"
+  },
+  {
+    "part_code": "JAIKO-812        006905",
+    "part_image": "../assets/JAIKO-812_006905.jpg",
+    "description": "SOCKET SET SCREW (M8 X 25)"
+  },
+  {
+    "part_code": "JAIKO-812        006406",
+    "part_image": "../assets/JAIKO-812_006406.png",
+    "description": "WEAVING RING HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812        006907",
+    "part_image": "../assets/JAIKO-812_006907.jpg",
+    "description": "PLAIN WASHER (M8)"
+  },
+  {
+    "part_code": "JAIKO-812        006908",
+    "part_image": "../assets/JAIKO-812_006908.jpg",
+    "description": "SOCKET HEAD CAP SCREW (M8 X 45)"
+  },
+  {
+    "part_code": "JAIKO-812        006909",
+    "part_image": "../assets/JAIKO-812_006909.jpg",
+    "description": "SOCKET HEAD CAP SCREW (M8 X 35)"
+  },
+  {
+    "part_code": "JAIKO-812        006410",
+    "part_image": "../assets/JAIKO-812_006410.png",
+    "description": "BUSH FOR RING STAND"
+  },
+  {
+    "part_code": "JAIKO-812        006911",
+    "part_image": "../assets/JAIKO-812_006911.jpg",
+    "description": "SOCKET HEAD CAP SCREW (M8 X 25)"
+  },
+  {
+    "part_code": "JAIKO-812        006912",
+    "part_image": "../assets/JAIKO-812_006912.jpg",
+    "description": "SOCKET HEAD CAP SCREW (M8 X 16)"
+  },
+  {
+    "part_code": "JAIKO-812        006913",
+    "part_image": "../assets/JAIKO-812_006913.png",
+    "description": "PLAIN WASHER (M4)"
+  },
+  {
+    "part_code": "JAIKO-812        006914",
+    "part_image": "../assets/JAIKO-812_006914.jpg",
+    "description": "SOCKET BUTTON HEAD CAP SCREW (M4 X 10)"
+  },
+  {
+    "part_code": "JAIKO-812        006515",
+    "part_image": "../assets/JAIKO-812_006515.png",
+    "description": "COVER"
+  },
+  {
+    "part_code": "JAIKO-812        006516",
+    "part_image": "../assets/JAIKO-812_006516.jpg",
+    "description": "EYELET BOW"
+  },
+  {
+    "part_code": "JAIKO-812 006917",
+    "part_image": "../assets/JAIKO-812_006917.jpg",
+    "description": "EYELET CERAMIC"
+  },
+  {
+    "part_code": "JAIKO-812        006918",
+    "part_image": "../assets/grey.png",
+    "description": "ARALDITE (AW-106)"
+  },
+  {
+    "part_code": "JAIKO-812      006918A",
+    "part_image": "../assets/grey.png",
+    "description": "HARDNER FOR ARALDITE (HV-953 U)"
+  },
+  {
+    "part_code": "JAIKO-812 007401",
+    "part_image": "../assets/JAIKO-812_007401.jpg",
+    "description": "REED RING ASSY"
+  },
+  {
+    "part_code": "JAIKO-812 008401",
+    "part_image": "../assets/JAIKO-812_008401.jpg",
+    "description": "SEGMENT"
+  },
+  {
+    "part_code": "JAIKO-812 008902",
+    "part_image": "../assets/JAIKO-812_008902.jpg",
+    "description": "ALLEN BOLT (M6 X 20 LG)"
+  },
+  {
+    "part_code": "JAIKO-812 008903",
+    "part_image": "../assets/JAIKO-812_008903.jpg",
+    "description": "WASHER M6"
+  },
+  {
+    "part_code": "VEGA-6 007504",
+    "part_image": "../assets/VEGA-6_007504.jpg",
+    "description": "UPPER BEARING BLOCK"
+  },
+  {
+    "part_code": "VEGA-6 007505",
+    "part_image": "../assets/VEGA-6_007505.jpg",
+    "description": "LOWER BEARING BLOCK"
+  },
+  {
+    "part_code": "JAIKO-812 008906",
+    "part_image": "../assets/JAIKO-812_008906.jpg",
+    "description": "ALLEN BOLT (M6 X 12 LG)"
+  },
+  {
+    "part_code": "VEGA-6 001407",
+    "part_image": "../assets/VEGA-6_001407.jpg",
+    "description": "ADJUSTING SCREW"
+  },
+  {
+    "part_code": "JAIKO-812 008908",
+    "part_image": "../assets/JAIKO-812_008908.jpg",
+    "description": "HEX NUT (M8)"
+  },
+  {
+    "part_code": "VEGA-6            007809",
+    "part_image": "../assets/VEGA-6_007809.jpg",
+    "description": "UPPER BRG. BLOCK COVER"
+  },
+  {
+    "part_code": "VEGA-6            008401",
+    "part_image": "../assets/VEGA-6_008401.jpg",
+    "description": "COVER PLATE"
+  },
+  {
+    "part_code": "VEGA-6            008902",
+    "part_image": "../assets/VEGA-6_008902.jpg",
+    "description": "ALLEN BOLT (M6 X 55 LG)"
+  },
+  {
+    "part_code": "VEGA-6            008903",
+    "part_image": "../assets/VEGA-6_008903.jpg",
+    "description": "WASHER(M6)"
+  },
+  {
+    "part_code": "VEGA-6            008904",
+    "part_image": "../assets/VEGA-6_008904.jpg",
+    "description": "CIRCLIP (A-28)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "EXTERNAL CIRCLIP A12"
+  },
+  {
+    "part_code": "VEGA-6            008905",
+    "part_image": "../assets/VEGA-6_008905.jpg",
+    "description": "BALL BERING (#6001)"
+  },
+  {
+    "part_code": "VEGA-6            008906",
+    "part_image": "../assets/VEGA-6_008906.jpg",
+    "description": "EXCENTER ROLLER (ø52)"
+  },
+  {
+    "part_code": "VEGA-6            008407",
+    "part_image": "../assets/VEGA-6_008407.jpg",
+    "description": "PLUG"
+  },
+  {
+    "part_code": "VEGA-6            008808",
+    "part_image": "../assets/VEGA-6_008808.jpg",
+    "description": "LEAVER"
+  },
+  {
+    "part_code": "VEGA-6            008909",
+    "part_image": "../assets/VEGA-6_008909.jpg",
+    "description": "HEX NUT (M6)"
+  },
+  {
+    "part_code": "VEGA-6            008410",
+    "part_image": "../assets/VEGA-6_008410.jpg",
+    "description": "CONNECTING ROD"
+  },
+  {
+    "part_code": "VEGA-6             008411",
+    "part_image": "../assets/VEGA-6_008411.jpg",
+    "description": "DOVEL PIN 6 X30 LG"
+  },
+  {
+    "part_code": "VEGA-6            008412",
+    "part_image": "../assets/VEGA-6_008412.jpg",
+    "description": "LARGER BLOCK BEARING BLOCK"
+  },
+  {
+    "part_code": "VEGA-6            008413",
+    "part_image": "../assets/VEGA-6_008413.jpg",
+    "description": "CYLINDRICAL PIN"
+  },
+  {
+    "part_code": "VEGA-6            008423",
+    "part_image": "../assets/VEGA-6_008423.jpg",
+    "description": "CYLINDRICAL PIN (WITH SERCLIP GROVE)"
+  },
+  {
+    "part_code": "VEGA-6            008414",
+    "part_image": "../assets/VEGA-6_008414.jpg",
+    "description": "BEARING CAP"
+  },
+  {
+    "part_code": "VEGA-6            008915",
+    "part_image": "../assets/VEGA-6_008915.png",
+    "description": "SPECIAL WASHER 8.4 x 14 x 1.5 THK"
+  },
+  {
+    "part_code": "VEGA-6            008916",
+    "part_image": "../assets/VEGA-6_008916.jpg",
+    "description": "ALLEN BOLT (M8 X 25LG)"
+  },
+  {
+    "part_code": "VEGA-6            008917",
+    "part_image": "../assets/VEGA-6_008917.jpg",
+    "description": "CLAMPING PIECE"
+  },
+  {
+    "part_code": "VEGA-6           SA0818",
+    "part_image": "../assets/VEGA-6_SA0818.jpg",
+    "description": "EXCENTER ROLLER (ø52) COMPLETE ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6            SA0819",
+    "part_image": "../assets/VEGA-6_SA0819.jpg",
+    "description": "LARGER BLOCK BERING BLOCK ASSEMBLY INCLUSIVE: LARGER BERING BLOCK, CYLENDRICAL PIN WITH CIRCLIP GROVE, EXTERNAL CIRCLIP A 12 , INTERNAL CERCLIP B 28, Ball BARING 6001,"
+  },
+  {
+    "part_code": "VEGA-6            008921",
+    "part_image": "../assets/VEGA-6_008921.jpg",
+    "description": "NYLOX RING"
+  },
+  {
+    "part_code": "VEGA-6            SA0822",
+    "part_image": "../assets/VEGA-6_SA0822.jpg",
+    "description": "COMPLETE JOCKEY LEVER ASSEMBLY                          INCLUDES :                                        LEVER\nSINTERED BUSH \nLARGER BLOCK BEARING BLOCK\nCYLINDRICAL PIN (WITH CERCLIP GROOVE)\nDOVEL PIN \nCOVER PLATE\nCONECTING ROD \nCLAMPING PIECE\nNYLOX RING\nPLUG\nSTUD                                                   BALL BEARING 6001\nHEX NUT M6 X 1P\nINTERNAL CIRCLIP B 28\nALLEN BOLT M6 X 55\nEXTERNAL CIRCLIP A 12"
+  },
+  {
+    "part_code": "VEGA-6            009801",
+    "part_image": "../assets/VEGA-6_009801.jpg",
+    "description": "RETURN PULLEY STRAIGHT 100.5 LG"
+  },
+  {
+    "part_code": "VEGA-6            009402",
+    "part_image": "../assets/VEGA-6_009402.jpg",
+    "description": "AXEL (SMALL)"
+  },
+  {
+    "part_code": "VEGA-6            009903",
+    "part_image": "../assets/VEGA-6_009903.jpg",
+    "description": "BEARING (#6000)"
+  },
+  {
+    "part_code": "VEGA-6            009904",
+    "part_image": "../assets/VEGA-6_009904.jpg",
+    "description": "FELT RING"
+  },
+  {
+    "part_code": "JAIKO-812        010905",
+    "part_image": "../assets/JAIKO-812_010905.jpg",
+    "description": "LOWER HEDDLE BELT"
+  },
+  {
+    "part_code": "VEGA-6            009906",
+    "part_image": "../assets/VEGA-6_009906.jpg",
+    "description": "HEALD WIRE"
+  },
+  {
+    "part_code": "JAIKO-812        010907",
+    "part_image": "../assets/JAIKO-812_010907.jpg",
+    "description": "HEDDLE BELT UPPER (HF)"
+  },
+  {
+    "part_code": "JAIKO-812        SA0993",
+    "part_image": "../assets/JAIKO-812_SA0993.jpg",
+    "description": "HELD WIRE WITH HEDEL BELT ASSY"
+  },
+  {
+    "part_code": "VEGA-6            009808",
+    "part_image": "../assets/VEGA-6_009808.jpg",
+    "description": "RETURN PULLEY TAPER 100.5 LG"
+  },
+  {
+    "part_code": "VEGA-6            SA0991",
+    "part_image": "../assets/VEGA-6_SA0991.jpg",
+    "description": "RETURN PULLEY STRAIGHT 100.5 LG ASSY"
+  },
+  {
+    "part_code": "VEGA-6           SA0992",
+    "part_image": "../assets/VEGA-6_SA0992.jpg",
+    "description": "RETURN PULLEY TAPER 100.5 LG ASSY"
+  },
+  {
+    "part_code": "VEGA-6             017401",
+    "part_image": "../assets/VEGA-6_017401.jpg",
+    "description": "BEARING DISTANCE PIECE"
+  },
+  {
+    "part_code": "VEGA-6            017402",
+    "part_image": "../assets/VEGA-6_017402.jpg",
+    "description": "SEALING DISC"
+  },
+  {
+    "part_code": "VEGA-6            017803",
+    "part_image": "../assets/VEGA-6_017803.jpg",
+    "description": "DRIVE  ROLL"
+  },
+  {
+    "part_code": "VEGA-6             017904",
+    "part_image": "../assets/VEGA-6_017904.jpg",
+    "description": "BALL BERING (#6000 ZZ)"
+  },
+  {
+    "part_code": "VEGA-6             017905",
+    "part_image": "../assets/VEGA-6_017905.jpg",
+    "description": "CIRCLIP (A- 28)"
+  },
+  {
+    "part_code": "VEGA-6            017906",
+    "part_image": "../assets/VEGA-6_017906.png",
+    "description": "HEX BOLT (M8 X 35 LG)"
+  },
+  {
+    "part_code": "JAIKO-812 011507",
+    "part_image": "../assets/JAIKO-812_011507.jpg",
+    "description": "DRIVE BLOCK (HF)"
+  },
+  {
+    "part_code": "VEGA-6             017908",
+    "part_image": "../assets/VEGA-6_017908.png",
+    "description": "WASHER (M8)"
+  },
+  {
+    "part_code": "VEGA-6             017909",
+    "part_image": "../assets/VEGA-6_017909.jpg",
+    "description": "HEX NUT (M8)"
+  },
+  {
+    "part_code": "VEGA-6             017910",
+    "part_image": "../assets/VEGA-6_017910.png",
+    "description": "HEX BOLT (M8 X 20LG)"
+  },
+  {
+    "part_code": "JAIKO-812      011411",
+    "part_image": "../assets/JAIKO-812_011411.jpg",
+    "description": "DOWEL PIN"
+  },
+  {
+    "part_code": "VEGA-6 SA0211",
+    "part_image": "../assets/VEGA-6_SA0211.jpg",
+    "description": "DRIVING ROLL/ PUSHER   ASSY                      INCLOCIVE:                     DRIVE ROLL                  SEALING DISC           DISTANCE PIECE               BALL BEARING (#6000 ZZ) CIRCLIP                              HEX BOLT (M8 X 35LG) WASHER (M8)"
+  },
+  {
+    "part_code": "VEGA-6            SA1712",
+    "part_image": "../assets/VEGA-6_SA1712.jpg",
+    "description": "DRRIVE BLOCK COMPLEAT ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6           018401",
+    "part_image": "../assets/VEGA-6_018401.jpg",
+    "description": "SPACER"
+  },
+  {
+    "part_code": "VEGA-6      018802 (P)",
+    "part_image": "../assets/VEGA-6_018802_(P).jpg",
+    "description": "BANDAGE BRAKE ROLL"
+  },
+  {
+    "part_code": "VEGA-6     018402 (S)",
+    "part_image": "../assets/VEGA-6_018402_(S).jpg",
+    "description": "BANDAGE BRAKE ROLL"
+  },
+  {
+    "part_code": "VEGA-6            018903",
+    "part_image": "../assets/VEGA-6_018903.jpg",
+    "description": "BALL BEARING (#609 Z)"
+  },
+  {
+    "part_code": "VEGA-6             018904",
+    "part_image": "../assets/VEGA-6_018904.jpg",
+    "description": "SPL. HEX BOLT (M8)"
+  },
+  {
+    "part_code": "JAIKO-812 012505",
+    "part_image": "../assets/JAIKO-812_012505.jpg",
+    "description": "BRAKE STAND"
+  },
+  {
+    "part_code": "VEGA-6            018906",
+    "part_image": "../assets/VEGA-6_018906.png",
+    "description": "WASHER (M8)"
+  },
+  {
+    "part_code": "VEGA-6             018907",
+    "part_image": "../assets/VEGA-6_018907.jpg",
+    "description": "HEX NUT (M8)"
+  },
+  {
+    "part_code": "VEGA-6            018908",
+    "part_image": "../assets/VEGA-6_018908.png",
+    "description": "HEX BOLT (M8 X 20 LG)"
+  },
+  {
+    "part_code": "JAIKO-812        011411",
+    "part_image": "../assets/JAIKO-812_011411.jpg",
+    "description": "DOWEL PIN"
+  },
+  {
+    "part_code": "VEGA-6            SA1809",
+    "part_image": "../assets/VEGA-6_SA1809.jpg",
+    "description": "BANDAGE BRAKE ROLL ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6           SA1810",
+    "part_image": "../assets/VEGA-6_SA1810.jpg",
+    "description": "BRAKE STAND COMPLEAT ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812        013801",
+    "part_image": "../assets/JAIKO-812_013801.png",
+    "description": "COMPENSATOR MTG. BKT. PIECE"
+  },
+  {
+    "part_code": "JAIKO-812        013802",
+    "part_image": "../assets/JAIKO-812_013802.jpg",
+    "description": "COMPENSATOR HOLDER (FREE HOLE)"
+  },
+  {
+    "part_code": "JAIKO-812        013803",
+    "part_image": "../assets/JAIKO-812_013803.jpg",
+    "description": "COMPENSATOR HOLDER (BLIND HOLE)"
+  },
+  {
+    "part_code": "JAIKO-812        013804",
+    "part_image": "../assets/JAIKO-812_013804.jpg",
+    "description": "INTERMEDIATE PLATE"
+  },
+  {
+    "part_code": "JAIKO-812         013905",
+    "part_image": "../assets/JAIKO-812_013905.png",
+    "description": "PLAIN WASHER (M8)"
+  },
+  {
+    "part_code": "JAIKO-812         013906",
+    "part_image": "../assets/JAIKO-812_013906.jpg",
+    "description": "SOCKET HEAD CAP SCREW (M8 X 60LG.)"
+  },
+  {
+    "part_code": "JAIKO-812        013907",
+    "part_image": "../assets/JAIKO-812_013907.jpg",
+    "description": "COMPENSATOR (M)"
+  },
+  {
+    "part_code": "VEGA-6       011410(7b)",
+    "part_image": "../assets/VEGA-6_011410(7b).jpg",
+    "description": "THREAD EYE"
+  },
+  {
+    "part_code": "JAIKO-812 013908",
+    "part_image": "../assets/JAIKO-812_013908.jpg",
+    "description": "COMPENSATOR SPRING"
+  },
+  {
+    "part_code": "JAIKO-812 013909",
+    "part_image": "../assets/JAIKO-812_013909.jpg",
+    "description": "SPRING HOLDER (ø 1.2 )"
+  },
+  {
+    "part_code": "VEGA-6      011811",
+    "part_image": "../assets/VEGA-6_011811.jpg",
+    "description": "COMPENSATOR SPACER"
+  },
+  {
+    "part_code": "JAIKO-812       013511",
+    "part_image": "../assets/JAIKO-812_013511.png",
+    "description": "COMPENSATOR WIRE STOPPER (INSIDE)"
+  },
+  {
+    "part_code": "JAIKO-812        013512",
+    "part_image": "../assets/JAIKO-812_013512.png",
+    "description": "COMPENSATOR WIRE STOPPER (OUTSIDE)"
+  },
+  {
+    "part_code": "JAIKO-812        013513",
+    "part_image": "../assets/JAIKO-812_013513.png",
+    "description": "SPRING HNG. ROD (OUTSIDE)"
+  },
+  {
+    "part_code": "JAIKO-812         013514",
+    "part_image": "../assets/JAIKO-812_013514.png",
+    "description": "COMPENSATOR WIRE RESTING (OUTSIDE"
+  },
+  {
+    "part_code": "JAIKO-812       013515",
+    "part_image": "../assets/JAIKO-812_013515.png",
+    "description": "COMPENSATOR WIRE PIVOT (OUTSIDE)"
+  },
+  {
+    "part_code": "JAIKO-812        013516",
+    "part_image": "../assets/JAIKO-812_013516.png",
+    "description": "COMPENSATOR WIRE PIVOT (INSIDE)"
+  },
+  {
+    "part_code": "JAIKO-812        013917",
+    "part_image": "../assets/JAIKO-812_013917.jpg",
+    "description": "HEX. NUT (M6)"
+  },
+  {
+    "part_code": "JAIKO-812        013918",
+    "part_image": "../assets/JAIKO-812_013918.jpg",
+    "description": "SOCKET SET SCREW (M6 X 20LG.)"
+  },
+  {
+    "part_code": "JAIKO-812        013919",
+    "part_image": "../assets/JAIKO-812_013919.jpg",
+    "description": "SOCKET SET SCREW (M6 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-812        013520",
+    "part_image": "../assets/JAIKO-812_013520.png",
+    "description": "GUIDE ROD S.S (OUTSIDE)"
+  },
+  {
+    "part_code": "JAIKO-812        013822",
+    "part_image": "../assets/JAIKO-812_013822.jpg",
+    "description": "BENDING SPRING DIVISER"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "OILER DROPER"
+  },
+  {
+    "part_code": "JAIKO-812 015401",
+    "part_image": "../assets/JAIKO-812_015401.jpg",
+    "description": "WEAVING RING 59\" (ID-955MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015402",
+    "part_image": "../assets/JAIKO-812_015402.jpg",
+    "description": "WEAVING RING 60\" (ID-970MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015403",
+    "part_image": "../assets/JAIKO-812_015403.jpg",
+    "description": "WEAVING RING 61\" (ID-986.9MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015404",
+    "part_image": "../assets/JAIKO-812_015404.jpg",
+    "description": "WEAVING RING 62\" (ID-1003MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015405",
+    "part_image": "../assets/JAIKO-812_015405.jpg",
+    "description": "WEAVING RING 63\" (ID-1019.3MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015406",
+    "part_image": "../assets/JAIKO-812_015406.jpg",
+    "description": "WEAVING RING 64\" (ID-1035.4MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015407",
+    "part_image": "../assets/JAIKO-812_015407.jpg",
+    "description": "WEAVING RING 65\" (ID-1051.6MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015408",
+    "part_image": "../assets/JAIKO-812_015408.jpg",
+    "description": "WEAVING RING 66\" (ID-11067.8MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015409",
+    "part_image": "../assets/JAIKO-812_015409.jpg",
+    "description": "WEAVING RING 67\" (ID-1084MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015410",
+    "part_image": "../assets/JAIKO-812_015410.jpg",
+    "description": "WEAVING RING 68\" (ID-1100.2MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015411",
+    "part_image": "../assets/JAIKO-812_015411.jpg",
+    "description": "WEAVING RING 69\" (ID-1116.3MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015412",
+    "part_image": "../assets/JAIKO-812_015412.jpg",
+    "description": "WEAVING RING 70\" (ID-1132.5MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015413",
+    "part_image": "../assets/JAIKO-812_015413.jpg",
+    "description": "WEAVING RING 71\" (ID-1148.7MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015414",
+    "part_image": "../assets/JAIKO-812_015414.jpg",
+    "description": "WEAVING RING 72\" (ID-1164.8MM)"
+  },
+  {
+    "part_code": "JAIKO-812 015415",
+    "part_image": "../assets/JAIKO-812_015415.jpg",
+    "description": "WEAVING RING 73\" (ID-1181MM)"
+  },
+  {
+    "part_code": "JAIKO-812 016901",
+    "part_image": "../assets/JAIKO-812_016901.png",
+    "description": "HEX BOLT (M8 X 70LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 016502",
+    "part_image": "../assets/JAIKO-812_016502.png",
+    "description": "WEAVING RING HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812 016903",
+    "part_image": "../assets/JAIKO-812_016903.jpg",
+    "description": "HEX NUT (M8)"
+  },
+  {
+    "part_code": "JAIKO-812 016904",
+    "part_image": "../assets/JAIKO-812_016904.png",
+    "description": "PLAIN WASHER (M8)"
+  },
+  {
+    "part_code": "JAIKO-812    017401",
+    "part_image": "../assets/JAIKO-812_017401.png",
+    "description": "MAGNET SENSOR ROD MTG BRACKET"
+  },
+  {
+    "part_code": "JAIKO-812    017502",
+    "part_image": "../assets/JAIKO-812_017502.jpg",
+    "description": "MAGNET SENSOR ROD"
+  },
+  {
+    "part_code": "JAIKO-812    017903",
+    "part_image": "../assets/JAIKO-812_017903.png",
+    "description": "WASHER (M5)"
+  },
+  {
+    "part_code": "JAIKO-812    017904",
+    "part_image": "../assets/JAIKO-812_017904.png",
+    "description": "HEX BOLT (M5 X 25 LG)"
+  },
+  {
+    "part_code": "JAIKO-812    017405",
+    "part_image": "../assets/JAIKO-812_017405.jpg",
+    "description": "SENSOR MTG BKT"
+  },
+  {
+    "part_code": "JAIKO-812    017906",
+    "part_image": "../assets/JAIKO-812_017906.png",
+    "description": "WASHER (M6)"
+  },
+  {
+    "part_code": "JAIKO-812    017907",
+    "part_image": "../assets/JAIKO-812_017907.png",
+    "description": "HEX BOLT (M6 X 20 LG)"
+  },
+  {
+    "part_code": "JAIKO-812    017508",
+    "part_image": "../assets/JAIKO-812_017508.jpg",
+    "description": "MAGNET SENSOR COVER BKT"
+  },
+  {
+    "part_code": "JAIKO-812    017909",
+    "part_image": "../assets/JAIKO-812_017909.jpg",
+    "description": "WASHER (M8)"
+  },
+  {
+    "part_code": "JAIKO-812    017910",
+    "part_image": "../assets/JAIKO-812_017910.png",
+    "description": "HEX BOLT (M8 X 25 LG)"
+  },
+  {
+    "part_code": "JAIKO-812    017911",
+    "part_image": "../assets/JAIKO-812_017911.jpg",
+    "description": "HEX NUT (M8)"
+  },
+  {
+    "part_code": "JAIKO-812    017912",
+    "part_image": "../assets/JAIKO-812_017912.jpg",
+    "description": "MAGNET SENSOR(VEGA 6)"
+  },
+  {
+    "part_code": "JAIKO-812    017913",
+    "part_image": "../assets/JAIKO-812_017913.png",
+    "description": "PLAIN WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-812    017914",
+    "part_image": "../assets/JAIKO-812_017914.jpg",
+    "description": "HEX NUT (M12)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.png",
+    "description": "COMPLEAT MAGNET SENSOR ASSY"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.png",
+    "description": "MAGNET SENSOR SPECIAL NUT"
+  },
+  {
+    "part_code": "JAIKO-812    018501",
+    "part_image": "../assets/grey.png",
+    "description": "COLOUR SENSOR ROD ADJ. BKT"
+  },
+  {
+    "part_code": "JAIKO-812    018902",
+    "part_image": "../assets/JAIKO-812_018902.png",
+    "description": "WASHER (M6)"
+  },
+  {
+    "part_code": "JAIKO-812    018903",
+    "part_image": "../assets/JAIKO-812_018903.jpg",
+    "description": "HEX BOLT (M6 X 15 LG)"
+  },
+  {
+    "part_code": "JAIKO-812    018404",
+    "part_image": "../assets/JAIKO-812_018404.jpg",
+    "description": "COLOUR SENSOR ROD MTG BKT"
+  },
+  {
+    "part_code": "JAIKO-812    018905",
+    "part_image": "../assets/JAIKO-812_018905.jpg",
+    "description": "SOCKET SET SCREW (M6 X 10LG)"
+  },
+  {
+    "part_code": "JAIKO-812    018506",
+    "part_image": "../assets/JAIKO-812_018506.jpg",
+    "description": "COLOUR SENSOR ROD"
+  },
+  {
+    "part_code": "JAIKO-812    018407",
+    "part_image": "../assets/JAIKO-812_018407.jpg",
+    "description": "SENSOR MTG BKT"
+  },
+  {
+    "part_code": "JAIKO-812    018908",
+    "part_image": "../assets/JAIKO-812_018908.jpg",
+    "description": "HEX BOLT (M6 X 20 LG)"
+  },
+  {
+    "part_code": "JAIKO-812    018909",
+    "part_image": "../assets/JAIKO-812_018909.jpg",
+    "description": "COLOUR SENSOR BKT"
+  },
+  {
+    "part_code": "JAIKO-812    018910",
+    "part_image": "../assets/JAIKO-812_018910.png",
+    "description": "WASHER (M8)"
+  },
+  {
+    "part_code": "JAIKO-812    018911",
+    "part_image": "../assets/JAIKO-812_018911.jpg",
+    "description": "HEX BOLT (M8 X 25 LG)"
+  },
+  {
+    "part_code": "JAIKO-812    018912",
+    "part_image": "../assets/JAIKO-812_018912.jpg",
+    "description": "HEX NUT (M8)"
+  },
+  {
+    "part_code": "JAIKO-812    018813",
+    "part_image": "../assets/JAIKO-812_018813.jpg",
+    "description": "NYLON BUSH"
+  },
+  {
+    "part_code": "JAIKO-812    018914",
+    "part_image": "../assets/JAIKO-812_018914.jpg",
+    "description": "BOBBIN SENSOR / COLOUR SENSOR  (VEGA 6)"
+  },
+  {
+    "part_code": "JAIKO-812    018915",
+    "part_image": "../assets/JAIKO-812_018915.jpg",
+    "description": "WASHER (M30)"
+  },
+  {
+    "part_code": "JAIKO-812    018916",
+    "part_image": "../assets/JAIKO-812_018916.jpg",
+    "description": "HEX NUT (M30)"
+  },
+  {
+    "part_code": "SA1612",
+    "part_image": "../assets/SA1612.png",
+    "description": "COMPLETE BOBBIN SENSOR / COLOUR SENSOR  (VEGA 6)"
+  },
+  {
+    "part_code": "JAIKO-810 042501",
+    "part_image": "../assets/JAIKO-810_042501.jpg",
+    "description": "OPENER BAR"
+  },
+  {
+    "part_code": "JAIKO-810 042402",
+    "part_image": "../assets/JAIKO-810_042402.jpg",
+    "description": "COLLER"
+  },
+  {
+    "part_code": "JAIKO-810      042903",
+    "part_image": "../assets/JAIKO-810_042903.jpg",
+    "description": "SPRING"
+  },
+  {
+    "part_code": "JAIKO-810      042904",
+    "part_image": "../assets/JAIKO-810_042904.png",
+    "description": "HEX BOLT (M12 X 90 LG)"
+  },
+  {
+    "part_code": "JAIKO-810      042905",
+    "part_image": "../assets/JAIKO-810_042905.jpg",
+    "description": "WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-810      042806",
+    "part_image": "../assets/JAIKO-810_042806.jpg",
+    "description": "ADJUSTING BRACKET"
+  },
+  {
+    "part_code": "JAIKO-810      042907",
+    "part_image": "../assets/JAIKO-810_042907.jpg",
+    "description": "HEX NUT (M12)"
+  },
+  {
+    "part_code": "JAIKO-810      042909",
+    "part_image": "../assets/JAIKO-810_042909.png",
+    "description": "HEX BOLT M12 X 30 LG"
+  },
+  {
+    "part_code": "JAIKO-810      042910",
+    "part_image": "../assets/JAIKO-810_042910.jpg",
+    "description": "SOCKET SET SCREW (M6 X 6 LG)"
+  },
+  {
+    "part_code": "JAIKO-812 023401",
+    "part_image": "../assets/JAIKO-812_023401.png",
+    "description": "HOUSING FOR CAM BKT."
+  },
+  {
+    "part_code": "JAIKO-812 023402",
+    "part_image": "../assets/JAIKO-812_023402.png",
+    "description": "WASHER"
+  },
+  {
+    "part_code": "JAIKO-812 023903",
+    "part_image": "../assets/JAIKO-812_023903.png",
+    "description": "BALL BEARING (# 6006)"
+  },
+  {
+    "part_code": "JAIKO-812 023404",
+    "part_image": "../assets/JAIKO-812_023404.png",
+    "description": "WASHER FOR HOUSING"
+  },
+  {
+    "part_code": "JAIKO-812 023905",
+    "part_image": "../assets/JAIKO-812_023905.png",
+    "description": "EXTERNAL CIRCLIP (A-20)"
+  },
+  {
+    "part_code": "JAIKO-812 023906",
+    "part_image": "../assets/JAIKO-812_023906.jpg",
+    "description": "ALLEN BOLT (M10 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 023407",
+    "part_image": "../assets/JAIKO-812_023407.png",
+    "description": "SUPPORT BAR"
+  },
+  {
+    "part_code": "JAIKO-812 024901",
+    "part_image": "../assets/JAIKO-812_024901.jpg",
+    "description": "THREADED ROD (M30 X 500LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 024902",
+    "part_image": "../assets/JAIKO-812_024902.jpg",
+    "description": "HEX NUT (M30)"
+  },
+  {
+    "part_code": "JAIKO-812 024503",
+    "part_image": "../assets/grey.png",
+    "description": "SPREADER MTG. BKT."
+  },
+  {
+    "part_code": "JAIKO-812 024504",
+    "part_image": "../assets/JAIKO-812_024504.png",
+    "description": "SPREADER ROD"
+  },
+  {
+    "part_code": "JAIKO-812 024905",
+    "part_image": "../assets/JAIKO-812_024905.png",
+    "description": "PLAIN WASHER (M10)"
+  },
+  {
+    "part_code": "JAIKO-812 024906",
+    "part_image": "../assets/JAIKO-812_024906.jpg",
+    "description": "HEX BOLT (M10 X 35 LG)"
+  },
+  {
+    "part_code": "JAIKO-812 024507",
+    "part_image": "../assets/JAIKO-812_024507.jpg",
+    "description": "THREADED ROD"
+  },
+  {
+    "part_code": "JAIKO-812 024508",
+    "part_image": "../assets/JAIKO-812_024508.png",
+    "description": "THREADING PIPE"
+  },
+  {
+    "part_code": "JAIKO-812 024409",
+    "part_image": "../assets/JAIKO-812_024409.png",
+    "description": "SPRING GUIDE BAR"
+  },
+  {
+    "part_code": "JAIKO-812 024910",
+    "part_image": "../assets/JAIKO-812_024910.jpg",
+    "description": "SPRING"
+  },
+  {
+    "part_code": "JAIKO-812 024411",
+    "part_image": "../assets/JAIKO-812_024411.png",
+    "description": "SPRING GUIDE SUPPORT BAR"
+  },
+  {
+    "part_code": "JAIKO-812 024412",
+    "part_image": "../assets/JAIKO-812_024412.png",
+    "description": "WASHER"
+  },
+  {
+    "part_code": "JAIKO-812 024913",
+    "part_image": "../assets/JAIKO-812_024913.jpg",
+    "description": "HEX BOLT (M8 X 15LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 024914",
+    "part_image": "../assets/JAIKO-812_024914.jpg",
+    "description": "HEX NUT (M10)"
+  },
+  {
+    "part_code": "JAIKO-812 026901",
+    "part_image": "../assets/JAIKO-812_026901.jpg",
+    "description": "UCF - 208"
+  },
+  {
+    "part_code": "JAIKO-812 026402",
+    "part_image": "../assets/JAIKO-812_026402.jpg",
+    "description": "SPROCKET (40Z)"
+  },
+  {
+    "part_code": "JAIKO-812 026903",
+    "part_image": "../assets/JAIKO-812_026903.jpg",
+    "description": "SOCKET SET SCREW (M6 X 12LG)"
+  },
+  {
+    "part_code": "JAIKO-812 026904",
+    "part_image": "../assets/JAIKO-812_026904.jpg",
+    "description": "EMRY BELT RUBBERISED EMRY CLOTH  (BLUE)"
+  },
+  {
+    "part_code": "JAIKO-812 026405",
+    "part_image": "../assets/JAIKO-812_026405.jpg",
+    "description": "TAKE UP ROLLER"
+  },
+  {
+    "part_code": "JAIKO-812 026906",
+    "part_image": "../assets/JAIKO-812_026906.png",
+    "description": "WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-812 026907",
+    "part_image": "../assets/JAIKO-812_026907.png",
+    "description": "HEX BOLT (M12 X 30 LG)"
+  },
+  {
+    "part_code": "JAIKO-812 026508",
+    "part_image": "../assets/grey.png",
+    "description": "GEAR BOX MTG. TIE"
+  },
+  {
+    "part_code": "JAIKO-812 026909",
+    "part_image": "../assets/JAIKO-812_026909.jpg",
+    "description": "UCFL-207"
+  },
+  {
+    "part_code": "JAIKO-812 026510",
+    "part_image": "../assets/JAIKO-812_026510.jpg",
+    "description": "WRINKLE REMOVE ROLL"
+  },
+  {
+    "part_code": "JAIKO-812 026411",
+    "part_image": "../assets/JAIKO-812_026411.jpg",
+    "description": "IDLER SPROCKET DISTANCE PIECE"
+  },
+  {
+    "part_code": "JAIKO-812 026912",
+    "part_image": "../assets/JAIKO-812_026912.jpg",
+    "description": "BALL BEARING #6203"
+  },
+  {
+    "part_code": "JAIKO-812    026413",
+    "part_image": "../assets/JAIKO-812_026413.jpg",
+    "description": "SPACER"
+  },
+  {
+    "part_code": "JAIKO-812    026414",
+    "part_image": "../assets/JAIKO-812_026414.jpg",
+    "description": "IDLER SPROCKET(15Z)"
+  },
+  {
+    "part_code": "JAIKO-812    026915",
+    "part_image": "../assets/JAIKO-812_026915.png",
+    "description": "HEX BOLT (M12 X 50 LG)"
+  },
+  {
+    "part_code": "JAIKO-812    026916",
+    "part_image": "../assets/JAIKO-812_026916.jpg",
+    "description": "HEX NUT (M12)"
+  },
+  {
+    "part_code": "JAIKO-812 026917",
+    "part_image": "../assets/JAIKO-812_026917.jpg",
+    "description": "R.G. BOX #WR-110 U P80 B5 B3 RATIO-192 (BONFI MAKE)"
+  },
+  {
+    "part_code": "JAIKO-812 026918",
+    "part_image": "../assets/JAIKO-812_026918.jpg",
+    "description": "MOTOR #0.75 kw, 1500 rpm, FRAME-80"
+  },
+  {
+    "part_code": "JAIKO-812    026919",
+    "part_image": "../assets/JAIKO-812_026919.png",
+    "description": "WASHER (M10)"
+  },
+  {
+    "part_code": "JAIKO-812    026920",
+    "part_image": "../assets/JAIKO-812_026920.png",
+    "description": "HEX BOLT (M10 X 30 LG)"
+  },
+  {
+    "part_code": "JAIKO-812    026921",
+    "part_image": "../assets/JAIKO-812_026921.jpg",
+    "description": "HEX NUT (M10)"
+  },
+  {
+    "part_code": "JAIKO-812    026422",
+    "part_image": "../assets/JAIKO-812_026422.jpg",
+    "description": "R.G. SHAFT"
+  },
+  {
+    "part_code": "JAIKO-812    026423",
+    "part_image": "../assets/JAIKO-812_026423.jpg",
+    "description": "SPROCKET S 19 Z"
+  },
+  {
+    "part_code": "JAIKO-608    026924",
+    "part_image": "../assets/JAIKO-608_026924.jpg",
+    "description": "SOCKET SET SCREW (M6 X 8LG)"
+  },
+  {
+    "part_code": "JAIKO-812    026425",
+    "part_image": "../assets/JAIKO-812_026425.png",
+    "description": "WASHER"
+  },
+  {
+    "part_code": "JAIKO-812    026926",
+    "part_image": "../assets/JAIKO-812_026926.jpg",
+    "description": "HEX BOLT (M10 X 25 LG)"
+  },
+  {
+    "part_code": "JAIKO-812    026427",
+    "part_image": "../assets/JAIKO-812_026427.png",
+    "description": "WASHER BIG"
+  },
+  {
+    "part_code": "JAIKO-812       029801",
+    "part_image": "../assets/JAIKO-812_029801.jpg",
+    "description": "INTERMEDIATE PIECE"
+  },
+  {
+    "part_code": "JAIKO-812      029802",
+    "part_image": "../assets/JAIKO-812_029802.jpg",
+    "description": "CREEL EYELET HOLDER-1 (44 EYELEY)"
+  },
+  {
+    "part_code": "JAIKO-812        029503",
+    "part_image": "../assets/JAIKO-812_029503.jpg",
+    "description": "CREEL EYELET HOLDER-2 (44 EYELET)"
+  },
+  {
+    "part_code": "JAIKO-812            029804",
+    "part_image": "../assets/JAIKO-812_029804.jpg",
+    "description": "CONNECTING SIDE PART"
+  },
+  {
+    "part_code": "JAIKO-812 029905",
+    "part_image": "../assets/JAIKO-812_029905.jpg",
+    "description": "EYELET"
+  },
+  {
+    "part_code": "JAIKO-812 029906",
+    "part_image": "../assets/JAIKO-812_029906.png",
+    "description": "WASHER (M8)"
+  },
+  {
+    "part_code": "JAIKO-812 029907",
+    "part_image": "../assets/JAIKO-812_029907.png",
+    "description": "HEX BOLT (M6 X 70LG)"
+  },
+  {
+    "part_code": "JAIKO-812 029908",
+    "part_image": "../assets/JAIKO-812_029908.jpg",
+    "description": "HEX NUT (M8)"
+  },
+  {
+    "part_code": "VEGA-6           029509",
+    "part_image": "../assets/VEGA-6_029509.jpg",
+    "description": "TAPE WEIGHT D3"
+  },
+  {
+    "part_code": "JAIKO-812 030801",
+    "part_image": "../assets/JAIKO-812_030801.jpg",
+    "description": "CONSOL"
+  },
+  {
+    "part_code": "JAIKO-812 030802",
+    "part_image": "../assets/JAIKO-812_030802.jpg",
+    "description": "FRICTION BUSH"
+  },
+  {
+    "part_code": "JAIKO-812 030803",
+    "part_image": "../assets/JAIKO-812_030803.jpg",
+    "description": "LETRAL DISC BIG ø160"
+  },
+  {
+    "part_code": "JAIKO-812 030804",
+    "part_image": "../assets/JAIKO-812_030804.jpg",
+    "description": "CREEL BOBIN HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812 030505",
+    "part_image": "../assets/JAIKO-812_030505.jpg",
+    "description": "ROD FOR CONE-01"
+  },
+  {
+    "part_code": "VEGA-6            031806",
+    "part_image": "../assets/VEGA-6_031806.jpg",
+    "description": "LETRAL DISC SMALL ø130"
+  },
+  {
+    "part_code": "VEGA-6            031807",
+    "part_image": "../assets/VEGA-6_031807.jpg",
+    "description": "CREEL BUSH"
+  },
+  {
+    "part_code": "JAIKO-812 031501",
+    "part_image": "../assets/JAIKO-812_031501.jpg",
+    "description": "WATER TRAY"
+  },
+  {
+    "part_code": "JAIKO-812 031502",
+    "part_image": "../assets/grey.png",
+    "description": "SPRINKLING VAT SUPPORT BRACKET"
+  },
+  {
+    "part_code": "JAIKO-812 031503",
+    "part_image": "../assets/grey.png",
+    "description": "SPRINKLING VAT ADJ. KNOB"
+  },
+  {
+    "part_code": "JAIKO-812 031904",
+    "part_image": "../assets/JAIKO-812_031904.png",
+    "description": "WASHER (M8)"
+  },
+  {
+    "part_code": "JAIKO-812 031905",
+    "part_image": "../assets/JAIKO-812_031905.png",
+    "description": "HEX BOLT (M8 X 16 LG)"
+  },
+  {
+    "part_code": "JAIKO-812 031406",
+    "part_image": "../assets/JAIKO-812_031406.jpg",
+    "description": "ALUMINUM ROLL"
+  },
+  {
+    "part_code": "JAIKO-812 031907",
+    "part_image": "../assets/JAIKO-812_031907.jpg",
+    "description": "FOAM"
+  },
+  {
+    "part_code": "VEGA-6  023806",
+    "part_image": "../assets/VEGA-6_023806.jpg",
+    "description": "BEARING"
+  },
+  {
+    "part_code": "JAIKO-812",
+    "part_image": "../assets/JAIKO-812.jpg",
+    "description": "FOAM ROLLER ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812",
+    "part_image": "../assets/JAIKO-812.png",
+    "description": "COMPLEAT WATER TRAY ASSY"
+  },
+  {
+    "part_code": "JAIKO-812 034802",
+    "part_image": "../assets/JAIKO-812_034802.png",
+    "description": "NYLON PIECE"
+  },
+  {
+    "part_code": "JAIKO-812 034504",
+    "part_image": "../assets/JAIKO-812_034504.png",
+    "description": "PIN FOR ARM"
+  },
+  {
+    "part_code": "JAIKO-812 034407",
+    "part_image": "../assets/JAIKO-812_034407.png",
+    "description": "INSIDE HOUSHING FOR DRIVE SIDE"
+  },
+  {
+    "part_code": "JAIKO-812 034908",
+    "part_image": "../assets/JAIKO-812_034908.png",
+    "description": "BALL BEARING # 6008"
+  },
+  {
+    "part_code": "JAIKO-812 034411",
+    "part_image": "../assets/grey.png",
+    "description": "DRIVE SIDE SHAFT"
+  },
+  {
+    "part_code": "JAIKO-812 034912",
+    "part_image": "../assets/JAIKO-812_034912.jpg",
+    "description": "KEY (8 X 31LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 034913",
+    "part_image": "../assets/JAIKO-812_034913.jpg",
+    "description": "KEY (8 X 24LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 034414",
+    "part_image": "../assets/JAIKO-812_034414.jpg",
+    "description": "SPROCKET (20Z)"
+  },
+  {
+    "part_code": "JAIKO-812 034915",
+    "part_image": "../assets/JAIKO-812_034915.jpg",
+    "description": "CHAIN DUPLEX"
+  },
+  {
+    "part_code": "JAIKO-812 034916",
+    "part_image": "../assets/JAIKO-812_034916.jpg",
+    "description": "BALL BEARING # 6006"
+  },
+  {
+    "part_code": "JAIKO-812 034918",
+    "part_image": "../assets/JAIKO-812_034918.jpg",
+    "description": "CIRCLIP"
+  },
+  {
+    "part_code": "JAIKO-812 034419",
+    "part_image": "../assets/JAIKO-812_034419.png",
+    "description": "DISTANCE PIECE"
+  },
+  {
+    "part_code": "JAIKO-812 034821",
+    "part_image": "../assets/grey.png",
+    "description": "NYLON BUSH-03"
+  },
+  {
+    "part_code": "JAIKO-812 034422",
+    "part_image": "../assets/JAIKO-812_034422.png",
+    "description": "HOUSHING FOR PLATE OUTSIDE"
+  },
+  {
+    "part_code": "JAIKO-812 035802",
+    "part_image": "../assets/JAIKO-812_035802.png",
+    "description": "NYLON PIECE"
+  },
+  {
+    "part_code": "JAIKO-812 035404",
+    "part_image": "../assets/JAIKO-812_035404.png",
+    "description": "PIN FOR ARM"
+  },
+  {
+    "part_code": "JAIKO-812 035807",
+    "part_image": "../assets/grey.png",
+    "description": "NYLON BUSH-04"
+  },
+  {
+    "part_code": "JAIKO-812 035408",
+    "part_image": "../assets/JAIKO-812_035408.png",
+    "description": "HOUSHING FOR NON DRIVE SIDE"
+  },
+  {
+    "part_code": "JAIKO-812 035409",
+    "part_image": "../assets/grey.png",
+    "description": "NON DRIVE SIDE SHAFT"
+  },
+  {
+    "part_code": "JAIKO-812 035912",
+    "part_image": "../assets/JAIKO-812_035912.jpg",
+    "description": "BALL BEARING # 6006"
+  },
+  {
+    "part_code": "JAIKO-812 035413",
+    "part_image": "../assets/JAIKO-812_035413.png",
+    "description": "ARM SIDE PLATE"
+  },
+  {
+    "part_code": "JAIKO-812 035914",
+    "part_image": "../assets/JAIKO-812_035914.jpg",
+    "description": "CIRCLIP"
+  },
+  {
+    "part_code": "JAIKO-812 035415",
+    "part_image": "../assets/JAIKO-812_035415.png",
+    "description": "DISTANCE PIECE"
+  },
+  {
+    "part_code": "JAIKO-812 035817",
+    "part_image": "../assets/grey.png",
+    "description": "NYLON BUSH-03"
+  },
+  {
+    "part_code": "JAIKO-812 036501",
+    "part_image": "../assets/JAIKO-812_036501.png",
+    "description": "GEAR BOX MOTOR SLIDING BKT."
+  },
+  {
+    "part_code": "JAIKO-812 036902",
+    "part_image": "../assets/JAIKO-812_036902.jpg",
+    "description": "PLAIN WASHER (M10)"
+  },
+  {
+    "part_code": "JAIKO-812 036903",
+    "part_image": "../assets/JAIKO-812_036903.png",
+    "description": "HEX BOLT (M10 X 20LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 036404",
+    "part_image": "../assets/grey.png",
+    "description": "GEAR BOX MTG. PLATE"
+  },
+  {
+    "part_code": "JAIKO-812 036905",
+    "part_image": "../assets/JAIKO-812_036905.jpg",
+    "description": "ALLEN BOLT (M10 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 036906",
+    "part_image": "../assets/JAIKO-812_036906.png",
+    "description": "R.G BOX (AS35 F P112 B5 B5 RATIO-36.82)"
+  },
+  {
+    "part_code": "JAIKO-812 036907",
+    "part_image": "../assets/JAIKO-812_036907.jpg",
+    "description": "PLAIN WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-812 036908",
+    "part_image": "../assets/JAIKO-812_036908.jpg",
+    "description": "HEX BOLT (M12 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 036909",
+    "part_image": "../assets/JAIKO-812_036909.png",
+    "description": "MOTOR (0.75KW, 1000 RPM, P90)"
+  },
+  {
+    "part_code": "JAIKO-812 036910",
+    "part_image": "../assets/JAIKO-812_036910.jpg",
+    "description": "HEX BOLT (M10 X 30LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 036911",
+    "part_image": "../assets/JAIKO-812_036911.jpg",
+    "description": "HEX NUT (M10)"
+  },
+  {
+    "part_code": "JAIKO-812 039401",
+    "part_image": "../assets/grey.png",
+    "description": "CORK ROLL D-138"
+  },
+  {
+    "part_code": "JAIKO-812 039402",
+    "part_image": "../assets/grey.png",
+    "description": "CORK ROLL SHAFT"
+  },
+  {
+    "part_code": "JAIKO-812 039903",
+    "part_image": "../assets/JAIKO-812_039903.png",
+    "description": "BALL BEARING #6207"
+  },
+  {
+    "part_code": "JAIKO-812 039904",
+    "part_image": "../assets/JAIKO-812_039904.jpg",
+    "description": "CIRCLIP"
+  },
+  {
+    "part_code": "JAIKO-812 039905",
+    "part_image": "../assets/JAIKO-812_039905.jpg",
+    "description": "PLAIN WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-812 039906",
+    "part_image": "../assets/JAIKO-812_039906.jpg",
+    "description": "HEX BOLT (M12 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 039407",
+    "part_image": "../assets/JAIKO-812_039407.jpg",
+    "description": "MAIN GEAR (40Z)"
+  },
+  {
+    "part_code": "JAIKO-812 039408",
+    "part_image": "../assets/JAIKO-812_039408.jpg",
+    "description": "MAIN GEAR (38Z)"
+  },
+  {
+    "part_code": "JAIKO-812 039909",
+    "part_image": "../assets/JAIKO-812_039909.jpg",
+    "description": "ALLEN BOLT (M8 X 40LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 039410",
+    "part_image": "../assets/JAIKO-812_039410.png",
+    "description": "IDLER DISTANCE PIECE"
+  },
+  {
+    "part_code": "JAIKO-812 039911",
+    "part_image": "../assets/grey.png",
+    "description": "BALL BEARING #6010"
+  },
+  {
+    "part_code": "JAIKO-812 039412",
+    "part_image": "../assets/grey.png",
+    "description": "IDLER GEAR (25Z)"
+  },
+  {
+    "part_code": "JAIKO-812 039413",
+    "part_image": "../assets/JAIKO-812_039413.png",
+    "description": "WASHER FOR IDLER GEAR"
+  },
+  {
+    "part_code": "JAIKO-812 039914",
+    "part_image": "../assets/JAIKO-812_039914.jpg",
+    "description": "PLAIN WASHER (M10)"
+  },
+  {
+    "part_code": "JAIKO-812 039915",
+    "part_image": "../assets/JAIKO-812_039915.png",
+    "description": "HEX BOLT (M10 X 65LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 039416",
+    "part_image": "../assets/grey.png",
+    "description": "DRIVE GEAR (25Z)"
+  },
+  {
+    "part_code": "JAIKO-812 039417",
+    "part_image": "../assets/JAIKO-812_039417.png",
+    "description": "WASHER FOR DRIVE GEAR"
+  },
+  {
+    "part_code": "JAIKO-812 039918",
+    "part_image": "../assets/JAIKO-812_039918.jpg",
+    "description": "HEX BOLT (M12 X 30LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 040401",
+    "part_image": "../assets/grey.png",
+    "description": "PIVOT BKT."
+  },
+  {
+    "part_code": "JAIKO-812 040902",
+    "part_image": "../assets/JAIKO-812_040902.jpg",
+    "description": "PLAIN WASHER (M8)"
+  },
+  {
+    "part_code": "JAIKO-812 040903",
+    "part_image": "../assets/JAIKO-812_040903.png",
+    "description": "ALLEN BOLT (M8 X 20LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 040804",
+    "part_image": "../assets/JAIKO-812_040804.png",
+    "description": "NYLON PIECE (LOWER)"
+  },
+  {
+    "part_code": "JAIKO-812 040905",
+    "part_image": "../assets/JAIKO-812_040905.jpg",
+    "description": "PLAIN WASHER (M6)"
+  },
+  {
+    "part_code": "JAIKO-812 040906",
+    "part_image": "../assets/JAIKO-812_040906.png",
+    "description": "ALLEN BOLT (M6 X 12LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 040907",
+    "part_image": "../assets/JAIKO-812_040907.jpg",
+    "description": "ALLEN BOLT (M6 X 30LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 040808",
+    "part_image": "../assets/JAIKO-812_040808.png",
+    "description": "NYLON PIECE (UPPER)"
+  },
+  {
+    "part_code": "JAIKO-812 040509",
+    "part_image": "../assets/JAIKO-812_040509.png",
+    "description": "LEVER FOR WINDING SHAFT"
+  },
+  {
+    "part_code": "JAIKO-812 040910",
+    "part_image": "../assets/JAIKO-812_040910.jpg",
+    "description": "ALLEN BOLT (M10 X 80LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 040511",
+    "part_image": "../assets/grey.png",
+    "description": "WINDING SHAFT LOCKING COVER"
+  },
+  {
+    "part_code": "JAIKO-812 040912",
+    "part_image": "../assets/grey.png",
+    "description": "PLAIN WASHER (M5)"
+  },
+  {
+    "part_code": "JAIKO-812 040913",
+    "part_image": "../assets/grey.png",
+    "description": "ALLEN BOLT (M5 X 16LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 040414",
+    "part_image": "../assets/JAIKO-812_040414.jpg",
+    "description": "CONE"
+  },
+  {
+    "part_code": "JAIKO-812 040915",
+    "part_image": "../assets/JAIKO-812_040915.jpg",
+    "description": "SOCKET SET SCREW (M12 X 16LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 040416",
+    "part_image": "../assets/JAIKO-812_040416.jpg",
+    "description": "WINDING SHAFT"
+  },
+  {
+    "part_code": "JAIKO-812 040417",
+    "part_image": "../assets/JAIKO-812_040417.png",
+    "description": "WINDING SHAFT LEVER LOCKING PIN"
+  },
+  {
+    "part_code": "JAIKO-812 041501",
+    "part_image": "../assets/JAIKO-812_041501.png",
+    "description": "MALE CLEVIS"
+  },
+  {
+    "part_code": "JAIKO-812 041902",
+    "part_image": "../assets/JAIKO-812_041902.jpg",
+    "description": "PLAIN WASHER (M10)"
+  },
+  {
+    "part_code": "JAIKO-812 041903",
+    "part_image": "../assets/JAIKO-812_041903.jpg",
+    "description": "ALLEN BOLT (M10 X 30LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 041504",
+    "part_image": "../assets/JAIKO-812_041504.png",
+    "description": "FEMALE CLEVIS"
+  },
+  {
+    "part_code": "JAIKO-812 041905",
+    "part_image": "../assets/JAIKO-812_041905.png",
+    "description": "CYLINDER (JANATICS) D-100 X 300ST SERIES- A27-A28"
+  },
+  {
+    "part_code": "JAIKO-812 041906",
+    "part_image": "../assets/JAIKO-812_041906.jpg",
+    "description": "ALLEN BOLT (M10 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 041907",
+    "part_image": "../assets/JAIKO-812_041907.png",
+    "description": "FEMALE CLEVIS PIN"
+  },
+  {
+    "part_code": "JAIKO-812 041508",
+    "part_image": "../assets/JAIKO-812_041508.jpg",
+    "description": "CYLINDER EXTENSION PIPE"
+  },
+  {
+    "part_code": "JAIKO-812 041509",
+    "part_image": "../assets/JAIKO-812_041509.png",
+    "description": "CYLINDER FORK"
+  },
+  {
+    "part_code": "JAIKO-812 041410",
+    "part_image": "../assets/JAIKO-812_041410.png",
+    "description": "FORK PIN"
+  },
+  {
+    "part_code": "JAIKO-812 041911",
+    "part_image": "../assets/JAIKO-812_041911.jpg",
+    "description": "PLAIN WASHER (M16)"
+  },
+  {
+    "part_code": "JAIKO-812 041912",
+    "part_image": "../assets/JAIKO-812_041912.jpg",
+    "description": "HEX NUT (M16)"
+  },
+  {
+    "part_code": "JAIKO-812 042901",
+    "part_image": "../assets/JAIKO-812_042901.jpg",
+    "description": "UCFL-206"
+  },
+  {
+    "part_code": "JAIKO-812 042902",
+    "part_image": "../assets/JAIKO-812_042902.jpg",
+    "description": "PLAIN WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-812 042903",
+    "part_image": "../assets/JAIKO-812_042903.png",
+    "description": "HEX BOLT (M12 X 30LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 042904",
+    "part_image": "../assets/JAIKO-812_042904.jpg",
+    "description": "HEX NUT (M12)"
+  },
+  {
+    "part_code": "JAIKO-812 042405",
+    "part_image": "../assets/JAIKO-812_042405.jpg",
+    "description": "MAXI ROLL SHAFT"
+  },
+  {
+    "part_code": "JAIKO-812 042806",
+    "part_image": "../assets/JAIKO-812_042806.jpg",
+    "description": "TUBULAR PLUG"
+  },
+  {
+    "part_code": "JAIKO-812 042807",
+    "part_image": "../assets/JAIKO-812_042807.jpg",
+    "description": "PIPE FOR MAXI ROLL"
+  },
+  {
+    "part_code": "JAIKO-812 042908",
+    "part_image": "../assets/JAIKO-812_042908.png",
+    "description": "UCFL-203"
+  },
+  {
+    "part_code": "JAIKO-812 042909",
+    "part_image": "../assets/JAIKO-812_042909.jpg",
+    "description": "WASHER(M10)"
+  },
+  {
+    "part_code": "JAIKO-812 042910",
+    "part_image": "../assets/JAIKO-812_042910.png",
+    "description": "HEX BOLT (M10 X 25 LG)"
+  },
+  {
+    "part_code": "JAIKO-812 042911",
+    "part_image": "../assets/JAIKO-812_042911.jpg",
+    "description": "HEX NUT (M10)"
+  },
+  {
+    "part_code": "JAIKO-812 042412",
+    "part_image": "../assets/JAIKO-812_042412.jpg",
+    "description": "GUIDE ROLL"
+  },
+  {
+    "part_code": "JAIKO-812        SA2411",
+    "part_image": "../assets/JAIKO-812_SA2411.jpg",
+    "description": "MAXI ROLL ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812",
+    "part_image": "../assets/JAIKO-812.jpg",
+    "description": "BIG COMB STRIP BUNCH"
+  },
+  {
+    "part_code": "JAIKO-812",
+    "part_image": "../assets/JAIKO-812.jpg",
+    "description": "COMB SIDE PART (BIG)"
+  },
+  {
+    "part_code": "JAIKO-812",
+    "part_image": "../assets/JAIKO-812.jpg",
+    "description": "COMPLETE COMB ASSY BIG"
+  },
+  {
+    "part_code": "JAIKO-812",
+    "part_image": "../assets/JAIKO-812.jpg",
+    "description": "SMALL COMB STRIP BUNCH"
+  },
+  {
+    "part_code": "JAIKO-812",
+    "part_image": "../assets/JAIKO-812.jpg",
+    "description": "SMALL COMB SIDE PART"
+  },
+  {
+    "part_code": "JAIKO-812",
+    "part_image": "../assets/JAIKO-812.jpg",
+    "description": "COMPLETE COMB ASSEMBLY SMALL"
+  },
+  {
+    "part_code": "JAIKO-812 045501",
+    "part_image": "../assets/JAIKO-812_045501.png",
+    "description": "CUTTER SLIDER"
+  },
+  {
+    "part_code": "JAIKO-812 045502",
+    "part_image": "../assets/grey.png",
+    "description": "CUTTER MTG. TIE"
+  },
+  {
+    "part_code": "JAIKO-812 045903",
+    "part_image": "../assets/JAIKO-812_045903.jpg",
+    "description": "PLAIN WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-812 045904",
+    "part_image": "../assets/JAIKO-812_045904.png",
+    "description": "HEX BOLT (M12 X 30LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 045505",
+    "part_image": "../assets/JAIKO-812_045505.png",
+    "description": "SLIDER WITH SLIDER MTG. PLATE"
+  },
+  {
+    "part_code": "JAIKO-812 045907",
+    "part_image": "../assets/JAIKO-812_045907.jpg",
+    "description": "PLAIN WASHER (M6)"
+  },
+  {
+    "part_code": "JAIKO-812 045908",
+    "part_image": "../assets/JAIKO-812_045908.png",
+    "description": "ALLEN BOLT (M6 X 20LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 045509",
+    "part_image": "../assets/JAIKO-812_045509.png",
+    "description": "CUTTER GUIDE"
+  },
+  {
+    "part_code": "JAIKO-812 045910",
+    "part_image": "../assets/JAIKO-812_045910.jpg",
+    "description": "ALLEN BOLT (M8 X 40LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 045411",
+    "part_image": "../assets/JAIKO-812_045411.jpg",
+    "description": "SUPPORT BKT."
+  },
+  {
+    "part_code": "JAIKO-812 045912",
+    "part_image": "../assets/JAIKO-812_045912.jpg",
+    "description": "PLAIN WASHER (M8)"
+  },
+  {
+    "part_code": "JAIKO-812 045913",
+    "part_image": "../assets/JAIKO-812_045913.jpg",
+    "description": "ALLEN BOLT (M8 X 20LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 045914",
+    "part_image": "../assets/JAIKO-812_045914.jpg",
+    "description": "CUTTER"
+  },
+  {
+    "part_code": "JAIKO-812 045415",
+    "part_image": "../assets/JAIKO-812_045415.jpg",
+    "description": "BOTTOM SUPPORT FOR CUTTER"
+  },
+  {
+    "part_code": "JAIKO-812 046601",
+    "part_image": "../assets/JAIKO-812_046601.jpg",
+    "description": "SHUTTLE BODY"
+  },
+  {
+    "part_code": "JAIKO-812 046403\nB",
+    "part_image": "../assets/JAIKO-812_046403_B.jpg",
+    "description": "BREAK ROLLER HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812 046904",
+    "part_image": "../assets/JAIKO-812_046904.jpg",
+    "description": "INTERNAL CIRCLIP (B28)"
+  },
+  {
+    "part_code": "JAIKO-812 046905",
+    "part_image": "../assets/JAIKO-812_046905.jpg",
+    "description": "BALL BEARING (#6001)"
+  },
+  {
+    "part_code": "JAIKO-812 046906",
+    "part_image": "../assets/JAIKO-812_046906.jpg",
+    "description": "CHOINCHOID ROLLER (SMALL)6.5˚"
+  },
+  {
+    "part_code": "JAIKO-812 046907",
+    "part_image": "../assets/JAIKO-812_046907.png",
+    "description": "WASHER (M6)"
+  },
+  {
+    "part_code": "JAIKO-812 046908\nA",
+    "part_image": "../assets/JAIKO-812_046908_A.jpg",
+    "description": "ALLEN BOLT (M6 X 25LG)"
+  },
+  {
+    "part_code": "JAIKO-812 046809",
+    "part_image": "../assets/JAIKO-812_046809.jpg",
+    "description": "COVERING"
+  },
+  {
+    "part_code": "JAIKO-812 046410",
+    "part_image": "../assets/JAIKO-812_046410.jpg",
+    "description": "BOLT"
+  },
+  {
+    "part_code": "JAIKO-812 046911",
+    "part_image": "../assets/JAIKO-812_046911.jpg",
+    "description": "SHUTTLE WHEEL ф45"
+  },
+  {
+    "part_code": "JAIKO-812 046412",
+    "part_image": "../assets/JAIKO-812_046412.jpg",
+    "description": "SLEEVE (D12 X 17LG)"
+  },
+  {
+    "part_code": "JAIKO-812 046913",
+    "part_image": "../assets/JAIKO-812_046913.jpg",
+    "description": "ALLEN BOLT (M6 X 40LG)"
+  },
+  {
+    "part_code": "JAIKO-812 046414",
+    "part_image": "../assets/JAIKO-812_046414.png",
+    "description": "AXLE"
+  },
+  {
+    "part_code": "JAIKO-812 046915",
+    "part_image": "../assets/JAIKO-812_046915.jpg",
+    "description": "INTERNAL CIRCLIP (B26)"
+  },
+  {
+    "part_code": "JAIKO-812 046916",
+    "part_image": "../assets/JAIKO-812_046916.jpg",
+    "description": "BALL BEARING (#6000)"
+  },
+  {
+    "part_code": "JAIKO-812 046417",
+    "part_image": "../assets/JAIKO-812_046417.jpg",
+    "description": "SPACER"
+  },
+  {
+    "part_code": "JAIKO-812 046918",
+    "part_image": "../assets/JAIKO-812_046918.jpg",
+    "description": "CONCHOID ROLLER BIG 6.5˚"
+  },
+  {
+    "part_code": "JAIKO-812 046919",
+    "part_image": "../assets/JAIKO-812_046919.jpg",
+    "description": "SKEET FOR SHUTTLE"
+  },
+  {
+    "part_code": "JAIKO-812 HF        SA3619",
+    "part_image": "../assets/JAIKO-812_HF_SA3619.jpg",
+    "description": "CONCHOID ROLLER SMALL ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812 HF         SA3620",
+    "part_image": "../assets/JAIKO-812_HF_SA3620.jpg",
+    "description": "SHUTTLE WHEEL ф45 ASSY"
+  },
+  {
+    "part_code": "JAIKO-812       SA3621",
+    "part_image": "../assets/JAIKO-812_SA3621.jpg",
+    "description": "CHONCHOID ROLLER BIG ASSEMBLY"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "CHONCOID ROLLER (BIG) (HPU)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "CHONCOID ROLLER (BIG) (HPU) ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812 047501",
+    "part_image": "../assets/JAIKO-812_047501.png",
+    "description": "FINGER HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812 047902",
+    "part_image": "../assets/JAIKO-812_047902.jpg",
+    "description": "WEFT COMPENSATOR LEVER (MAGNET ) BOOM"
+  },
+  {
+    "part_code": "JAIKO-812 047903",
+    "part_image": "../assets/JAIKO-812_047903.jpg",
+    "description": "SOCKET HEAD CAP SCREW (M4 X 10 LG)"
+  },
+  {
+    "part_code": "JAIKO-812 047904",
+    "part_image": "../assets/JAIKO-812_047904.jpg",
+    "description": "SPRING HOLDER (BOOM PIPE)"
+  },
+  {
+    "part_code": "JAIKO-812 047405",
+    "part_image": "../assets/JAIKO-812_047405.jpg",
+    "description": "SOLID DOWEL PIN (DIA 2 x 8LG)"
+  },
+  {
+    "part_code": "JAIKO-812 047906",
+    "part_image": "../assets/JAIKO-812_047906.jpg",
+    "description": "SPRING FOR LOW DEANIER"
+  },
+  {
+    "part_code": "JAIKO-812 047907",
+    "part_image": "../assets/JAIKO-812_047907.jpg",
+    "description": "SPRING -L"
+  },
+  {
+    "part_code": "JAIKO-812 047908",
+    "part_image": "../assets/JAIKO-812_047908.jpg",
+    "description": "SPRING -M"
+  },
+  {
+    "part_code": "JAIKO-812 047909",
+    "part_image": "../assets/JAIKO-812_047909.jpg",
+    "description": "SPRING -H"
+  },
+  {
+    "part_code": "JAIKO-812 047910",
+    "part_image": "../assets/JAIKO-812_047910.jpg",
+    "description": "SPRING HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812 047411",
+    "part_image": "../assets/JAIKO-812_047411.jpg",
+    "description": "SOLID DOWEL PIN (DIA 2 x 14LG)"
+  },
+  {
+    "part_code": "JAIKO-812 047812",
+    "part_image": "../assets/JAIKO-812_047812.jpg",
+    "description": "LEVER HOLDER (BOOM)"
+  },
+  {
+    "part_code": "JAIKO-812 047913",
+    "part_image": "../assets/JAIKO-812_047913.jpg",
+    "description": "SOCKET BUTTON HEAD SCREW(M5 X 12LG)"
+  },
+  {
+    "part_code": "JAIKO-812 047914",
+    "part_image": "../assets/JAIKO-812_047914.jpg",
+    "description": "PIVOT PIN FOR BOOM HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812 047515",
+    "part_image": "../assets/JAIKO-812_047515.jpg",
+    "description": "BOOM PIPE 1  (229 MM)"
+  },
+  {
+    "part_code": "JAIKO-812 047516",
+    "part_image": "../assets/JAIKO-812_047516.jpg",
+    "description": "BOOM PIPE  2  (259.7 MM)"
+  },
+  {
+    "part_code": "JAIKO-812 047517",
+    "part_image": "../assets/JAIKO-812_047517.jpg",
+    "description": "BOOM PIPE 3  (351 MM)"
+  },
+  {
+    "part_code": "JAIKO-812 047518",
+    "part_image": "../assets/JAIKO-812_047518.jpg",
+    "description": "BOOM PIPE 4 (310 MM)"
+  },
+  {
+    "part_code": "JAIKO-812 047919",
+    "part_image": "../assets/JAIKO-812_047919.jpg",
+    "description": "WASHER (M4)"
+  },
+  {
+    "part_code": "JAIKO-812 047920",
+    "part_image": "../assets/JAIKO-812_047920.jpg",
+    "description": "ALLEN CSK SCREW (M4 X 8LG)"
+  },
+  {
+    "part_code": "JAIKO-812 047921",
+    "part_image": "../assets/JAIKO-812_047921.jpg",
+    "description": "CIRAMIC KNOB"
+  },
+  {
+    "part_code": "JAIKO-812 047921a",
+    "part_image": "../assets/grey.png",
+    "description": "ARALDITE NO AW-106"
+  },
+  {
+    "part_code": "JAIKO-812 047921b",
+    "part_image": "../assets/grey.png",
+    "description": "HARDENERF HV - 953"
+  },
+  {
+    "part_code": "JAIKO-812 047922\nS",
+    "part_image": "../assets/JAIKO-812_047922_S.jpg",
+    "description": "SPECIAL NUT"
+  },
+  {
+    "part_code": "JAIKO-812            SA4323",
+    "part_image": "../assets/JAIKO-812_SA4323.jpg",
+    "description": "BOOM ROD WITH CERAMIC KNOB ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812           SA4324",
+    "part_image": "../assets/JAIKO-812_SA4324.jpg",
+    "description": "WEFT COMPENSATION ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812       SA4325",
+    "part_image": "../assets/JAIKO-812_SA4325.jpg",
+    "description": "BOOM PIPE ASSEMBLY (1)  (229 mm LG)                                            INCLUSIVE : WEFT COMPENSATION ASSEMBLY & BOOM ROD WITH CERAMIC KNOB ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812           SA4326",
+    "part_image": "../assets/JAIKO-812_SA4326.jpg",
+    "description": "BOOM PIPE ASSEMBLY  (2)  (259.7 MM LG )                                            INCLUSIVE : WEFT COMPENSATION ASSEMBLY & BOOM ROD WITH CERAMIC KNOB ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812            SA4327",
+    "part_image": "../assets/JAIKO-812_SA4327.jpg",
+    "description": "BOOM PIPE ASSEMBLY  (3)  ( 351 MM LG)                                             INCLUSIVE : WEFT COMPENSATION ASSEMBLY & BOOM ROD WITH CERAMIC KNOB ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812         SA4328",
+    "part_image": "../assets/JAIKO-812_SA4328.jpg",
+    "description": "BOOM PIPE ASSEMBLY (4) (310 MM LG)                                             INCLUSIVE : WEFT COMPENSATION ASSEMBLY & BOOM ROD WITH CERAMIC KNOB ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812      048501",
+    "part_image": "../assets/JAIKO-812_048501.png",
+    "description": "INSERTION FINGER"
+  },
+  {
+    "part_code": "JAIKO-812      048502",
+    "part_image": "../assets/JAIKO-812_048502.png",
+    "description": "INSERTION FINGER M"
+  },
+  {
+    "part_code": "JAIKO-812      048503",
+    "part_image": "../assets/JAIKO-812_048503.png",
+    "description": "INSERTION FINGER"
+  },
+  {
+    "part_code": "JAIKO-812      048804",
+    "part_image": "../assets/JAIKO-812_048804.jpg",
+    "description": "WEFT COMPENSATION LEVER"
+  },
+  {
+    "part_code": "JAIKO-812      048805",
+    "part_image": "../assets/JAIKO-812_048805.jpg",
+    "description": "LEVER HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812      048906",
+    "part_image": "../assets/JAIKO-812_048906.jpg",
+    "description": "PIVOT PIN"
+  },
+  {
+    "part_code": "JAIKO-812      048907",
+    "part_image": "../assets/JAIKO-812_048907.jpg",
+    "description": "SOCKET BUTTON HEAD CAP SCREW(M4 X 10LG)"
+  },
+  {
+    "part_code": "JAIKO-812 049801",
+    "part_image": "../assets/JAIKO-812_049801.jpg",
+    "description": "BRAKE SHOE/ TENSION PAD"
+  },
+  {
+    "part_code": "JAIKO-812 049902",
+    "part_image": "../assets/JAIKO-812_049902.jpg",
+    "description": "DOUBLE SIDE ADHESIVE TAPE"
+  },
+  {
+    "part_code": "JAIKO-812 049903",
+    "part_image": "../assets/JAIKO-812_049903.jpg",
+    "description": "LEATHER PAD"
+  },
+  {
+    "part_code": "JAIKO-812 049904",
+    "part_image": "../assets/JAIKO-812_049904.png",
+    "description": "BUSH FOR SPRING"
+  },
+  {
+    "part_code": "JAIKO-812 049905",
+    "part_image": "../assets/JAIKO-812_049905.jpg",
+    "description": "HEX NUT (M4)"
+  },
+  {
+    "part_code": "JAIKO-812 049406",
+    "part_image": "../assets/JAIKO-812_049406.png",
+    "description": "SPL. WASHER (M4)"
+  },
+  {
+    "part_code": "JAIKO-812 049507",
+    "part_image": "../assets/JAIKO-812_049507.jpg",
+    "description": "SPRING STREATCHER"
+  },
+  {
+    "part_code": "JAIKO-812 049908",
+    "part_image": "../assets/JAIKO-812_049908.jpg",
+    "description": "SOCKET SET SCREW (M4 X 25LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 049909",
+    "part_image": "../assets/JAIKO-812_049909.jpg",
+    "description": "WEFT TENSION SPRING"
+  },
+  {
+    "part_code": "JAIKO-812 049910",
+    "part_image": "../assets/JAIKO-812_049910.png",
+    "description": "BUSH FOR SPRING"
+  },
+  {
+    "part_code": "JAIKO-812 049911",
+    "part_image": "../assets/JAIKO-812_049911.jpg",
+    "description": "INTERNAL TOOTHED LOCK WASHER (M4)"
+  },
+  {
+    "part_code": "JAIKO-812 049812",
+    "part_image": "../assets/JAIKO-812_049812.jpg",
+    "description": "BRAKE BEARING"
+  },
+  {
+    "part_code": "JAIKO-812",
+    "part_image": "../assets/JAIKO-812.jpg",
+    "description": "SPUNG PAD"
+  },
+  {
+    "part_code": "JAIKO-812     050901",
+    "part_image": "../assets/JAIKO-812_050901.jpg",
+    "description": "SOCKET BUTTON HEAD CAP  SCREW(M5 X 10LG)"
+  },
+  {
+    "part_code": "JAIKO-812     050402",
+    "part_image": "../assets/JAIKO-812_050402.png",
+    "description": "MACHINED WASHER"
+  },
+  {
+    "part_code": "JAIKO-812     050903",
+    "part_image": "../assets/JAIKO-812_050903.jpg",
+    "description": "SOCKET BUTTON HEAD SCREW(M8 X 25LG)"
+  },
+  {
+    "part_code": "JAIKO-812     050904",
+    "part_image": "../assets/JAIKO-812_050904.jpg",
+    "description": "BOOM HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812     050905",
+    "part_image": "../assets/JAIKO-812_050905.jpg",
+    "description": "HEX LOCK NUT"
+  },
+  {
+    "part_code": "JAIKO-812     050906",
+    "part_image": "../assets/JAIKO-812_050906.png",
+    "description": "HEX HEAD SCREW (M6 X 30LG)"
+  },
+  {
+    "part_code": "JAIKO-812      051501",
+    "part_image": "../assets/JAIKO-812_051501.png",
+    "description": "INSERTION FINGER ML"
+  },
+  {
+    "part_code": "JAIKO-812      051902",
+    "part_image": "../assets/grey.png",
+    "description": "SOCKET BUTTON HEAD CAP  SCREW(M6 X 10LG)"
+  },
+  {
+    "part_code": "JAIKO-812      051903",
+    "part_image": "../assets/JAIKO-812_051903.png",
+    "description": "REFLECTOR HOLDER (MAGNET)"
+  },
+  {
+    "part_code": "JAIKO-812      051903A",
+    "part_image": "../assets/grey.png",
+    "description": "REFLECTOR HOLDER (MAGNET)"
+  },
+  {
+    "part_code": "JAIKO-812      051903B",
+    "part_image": "../assets/grey.png",
+    "description": "BUSH FOR REFLECTOR HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812      051404",
+    "part_image": "../assets/grey.png",
+    "description": "SOLID DOWEL PIN (M4 X 18LG)"
+  },
+  {
+    "part_code": "JAIKO-812      051905",
+    "part_image": "../assets/grey.png",
+    "description": "HEX NUT (M6)"
+  },
+  {
+    "part_code": "JAIKO-812      051906",
+    "part_image": "../assets/grey.png",
+    "description": "CERAMIC"
+  },
+  {
+    "part_code": "JAIKO-812      051907",
+    "part_image": "../assets/JAIKO-812_051907.png",
+    "description": "MAGNET"
+  },
+  {
+    "part_code": "JAIKO-812      051908",
+    "part_image": "../assets/grey.png",
+    "description": "MAGNET HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812      051509",
+    "part_image": "../assets/JAIKO-812_051509.png",
+    "description": "INSERTION FINGER-M"
+  },
+  {
+    "part_code": "JAIKO-812      051510",
+    "part_image": "../assets/JAIKO-812_051510.png",
+    "description": "INSERTION FINGER-L"
+  },
+  {
+    "part_code": "JAIKO-812      051511",
+    "part_image": "../assets/JAIKO-812_051511.png",
+    "description": "INSERTION FINGER-S"
+  },
+  {
+    "part_code": "JAIKO-812      051512",
+    "part_image": "../assets/JAIKO-812_051512.png",
+    "description": "INSERTION FINGER-XL"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "MAGNET & INSERTION FINGER ASSEMBLY"
+  },
+  {
+    "part_code": "JAIKO-812   053901",
+    "part_image": "../assets/JAIKO-812_053901.png",
+    "description": "EXTERNAL CIRCLIP"
+  },
+  {
+    "part_code": "JAIKO-812   053402",
+    "part_image": "../assets/JAIKO-812_053402.jpg",
+    "description": "BOBIN HOLDER"
+  },
+  {
+    "part_code": "JAIKO-812        053903",
+    "part_image": "../assets/JAIKO-812_053903.jpg",
+    "description": "FAG BALL BEARING (#6000 C3)"
+  },
+  {
+    "part_code": "JAIKO-812        053404",
+    "part_image": "../assets/JAIKO-812_053404.jpg",
+    "description": "SPACER"
+  },
+  {
+    "part_code": "JAIKO-812        053905",
+    "part_image": "../assets/JAIKO-812_053905.png",
+    "description": "SPECIAL WASHER (M10)"
+  },
+  {
+    "part_code": "JAIKO-812        053906",
+    "part_image": "../assets/JAIKO-812_053906.jpg",
+    "description": "SPRING"
+  },
+  {
+    "part_code": "JAIKO-812        053407",
+    "part_image": "../assets/JAIKO-812_053407.jpg",
+    "description": "AXLE FOR FLOTING END"
+  },
+  {
+    "part_code": "JAIKO-812        053408",
+    "part_image": "../assets/JAIKO-812_053408.jpg",
+    "description": "COVER"
+  },
+  {
+    "part_code": "JAIKO-812        053409",
+    "part_image": "../assets/JAIKO-812_053409.png",
+    "description": "AXLE FIXED END"
+  },
+  {
+    "part_code": "JAIKO-812        053410",
+    "part_image": "../assets/JAIKO-812_053410.jpg",
+    "description": "BOBIN HOLDER FIXED END"
+  },
+  {
+    "part_code": "JAIKO-812        053411",
+    "part_image": "../assets/JAIKO-812_053411.jpg",
+    "description": "SPACER"
+  },
+  {
+    "part_code": "JAIKO-812        053412",
+    "part_image": "../assets/JAIKO-812_053412.jpg",
+    "description": "MACHINED WASHER"
+  },
+  {
+    "part_code": "JAIKO-812        053913",
+    "part_image": "../assets/JAIKO-812_053913.jpg",
+    "description": "HEX NUT"
+  },
+  {
+    "part_code": "JAIKO-812 053914",
+    "part_image": "../assets/JAIKO-812_053914.jpg",
+    "description": "SIDE FLENGE ASSEMBLY BIG"
+  },
+  {
+    "part_code": "VEGA-6        040801(17)",
+    "part_image": "../assets/VEGA-6_040801(17).jpg",
+    "description": "SIDE FLANGE BIG"
+  },
+  {
+    "part_code": "JAIKO-812 053915",
+    "part_image": "../assets/JAIKO-812_053915.jpg",
+    "description": "EXPENANDING RING-P"
+  },
+  {
+    "part_code": "VEGA-6        040808(20)",
+    "part_image": "../assets/VEGA-6_040808(20).jpg",
+    "description": "SIDE FLANGE SMALL"
+  },
+  {
+    "part_code": "VEGA-6        040909(21)",
+    "part_image": "../assets/VEGA-6_040909(21).jpg",
+    "description": "BOBIN SIDE WASHER ø 112"
+  },
+  {
+    "part_code": "040910",
+    "part_image": "../assets/040910.jpg",
+    "description": "BOBIN SIDE WASHER ø 100"
+  },
+  {
+    "part_code": "JAIKO-812        053516",
+    "part_image": "../assets/JAIKO-812_053516.jpg",
+    "description": "CHEESE TUBE WITH HOLES"
+  },
+  {
+    "part_code": "VEGA-6              SA4011",
+    "part_image": "../assets/VEGA-6_SA4011.jpg",
+    "description": "SIDE FLENGE ASSEMBLY SMALL"
+  },
+  {
+    "part_code": "JAIKO-812 054501",
+    "part_image": "../assets/JAIKO-812_054501.jpg",
+    "description": "WARP GUIDE"
+  },
+  {
+    "part_code": "JAIKO-812 054902",
+    "part_image": "../assets/JAIKO-812_054902.jpg",
+    "description": "SPL. NUT"
+  },
+  {
+    "part_code": "JAIKO-812 054903",
+    "part_image": "../assets/JAIKO-812_054903.png",
+    "description": "PLAIN WASHER (M6)"
+  },
+  {
+    "part_code": "JAIKO-812 054904",
+    "part_image": "../assets/JAIKO-812_054904.jpg",
+    "description": "HEX NUT (M6)"
+  },
+  {
+    "part_code": "JAIKO-812 054405",
+    "part_image": "../assets/JAIKO-812_054405.jpg",
+    "description": "MACHINED WASHER"
+  },
+  {
+    "part_code": "JAIKO-812 054906",
+    "part_image": "../assets/JAIKO-812_054906.jpg",
+    "description": "SOCKET HEAD CAP SCREW (M6 X 25LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 054507",
+    "part_image": "../assets/JAIKO-812_054507.jpg",
+    "description": "SHUTTLE GUIDE"
+  },
+  {
+    "part_code": "JAIKO-812 054808",
+    "part_image": "../assets/JAIKO-812_054808.jpg",
+    "description": "CLAMP (SHUTTLE GUIDE)"
+  },
+  {
+    "part_code": "JAIKO-812 054909",
+    "part_image": "../assets/JAIKO-812_054909.jpg",
+    "description": "ALLEN CSK SCREW (M6 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 054910",
+    "part_image": "../assets/JAIKO-812_054910.jpg",
+    "description": "ALLEN CSK SCREW (M6 X 20LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 054911",
+    "part_image": "../assets/JAIKO-812_054911.jpg",
+    "description": "HEX NUT (M8)"
+  },
+  {
+    "part_code": "JAIKO-812 054512",
+    "part_image": "../assets/JAIKO-812_054512.jpg",
+    "description": "HOLDING BRACKET"
+  },
+  {
+    "part_code": "JAIKO-812 054513",
+    "part_image": "../assets/JAIKO-812_054513.png",
+    "description": "WEFT GUIDE"
+  },
+  {
+    "part_code": "JAIKO-812 054414",
+    "part_image": "../assets/JAIKO-812_054414.jpg",
+    "description": "BEARING BLOCK FRONT"
+  },
+  {
+    "part_code": "JAIKO-812 054415",
+    "part_image": "../assets/JAIKO-812_054415.jpg",
+    "description": "BEARING BLOCK REAR"
+  },
+  {
+    "part_code": "JAIKO-812       SA7401",
+    "part_image": "../assets/JAIKO-812_SA7401.jpg",
+    "description": "COMPLETE SHUTTLE ASSY"
+  },
+  {
+    "part_code": "JAIKO-812 055904",
+    "part_image": "../assets/JAIKO-812_055904.jpg",
+    "description": "DROP OILER NO. 6 THREAD 1/8\""
+  },
+  {
+    "part_code": "JAIKO-812 055905",
+    "part_image": "../assets/JAIKO-812_055905.png",
+    "description": "FELT"
+  },
+  {
+    "part_code": "JAIKO-812 055910",
+    "part_image": "../assets/grey.png",
+    "description": "INTERMEDIATE NUT 1/8\""
+  },
+  {
+    "part_code": "JAIKO-812 055911",
+    "part_image": "../assets/grey.png",
+    "description": "SINGLE SOLENOID VALUE (N/C) 24V AC COIL"
+  },
+  {
+    "part_code": "JAIKO-812 055912",
+    "part_image": "../assets/JAIKO-812_055912.png",
+    "description": "OUT PUT NIPPLE"
+  },
+  {
+    "part_code": "JAIKO-810 034901",
+    "part_image": "../assets/JAIKO-810_034901.jpg",
+    "description": "R.G. BOX (AS30 F RATIO-36.83, P90)"
+  },
+  {
+    "part_code": "JAIKO-810 034902",
+    "part_image": "../assets/JAIKO-810_034902.png",
+    "description": "PLAIN WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-810 034903",
+    "part_image": "../assets/JAIKO-810_034903.png",
+    "description": "HEX BOLT (M12 X 30 LG)"
+  },
+  {
+    "part_code": "JAIKO-810 034904",
+    "part_image": "../assets/JAIKO-810_034904.jpg",
+    "description": "MOTOR (0.75kw, 1000rpm, F-90)"
+  },
+  {
+    "part_code": "JAIKO-810 034905",
+    "part_image": "../assets/JAIKO-810_034905.jpg",
+    "description": "HEX BOLT (M10 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-810 034906",
+    "part_image": "../assets/JAIKO-810_034906.png",
+    "description": "PLAIN WASHER (M10)"
+  },
+  {
+    "part_code": "JAIKO-810 034907",
+    "part_image": "../assets/JAIKO-810_034907.jpg",
+    "description": "R.G. BOX SPROCKET 15Z"
+  },
+  {
+    "part_code": "JAIKO-810 034908",
+    "part_image": "../assets/JAIKO-810_034908.jpg",
+    "description": "GRUB SCREW (M6)"
+  },
+  {
+    "part_code": "JAIKO-810        034409",
+    "part_image": "../assets/JAIKO-810_034409.jpg",
+    "description": "IDLER SPOCKET DISTANCE PIECE"
+  },
+  {
+    "part_code": "JAIKO-810 034910",
+    "part_image": "../assets/JAIKO-810_034910.jpg",
+    "description": "BALL BEARING (6203 ZZ)"
+  },
+  {
+    "part_code": "JAIKO-810         034411",
+    "part_image": "../assets/JAIKO-810_034411.jpg",
+    "description": "IDLER SPROCKET 15 Z DUPLEX"
+  },
+  {
+    "part_code": "JAIKO-810 034412",
+    "part_image": "../assets/JAIKO-810_034412.png",
+    "description": "WASHER FOR IDLER"
+  },
+  {
+    "part_code": "JAIKO-810 034913",
+    "part_image": "../assets/JAIKO-810_034913.jpg",
+    "description": "PLAIN WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-810 034914",
+    "part_image": "../assets/JAIKO-810_034914.png",
+    "description": "HEX BOLT (M12 X 65 LG)"
+  },
+  {
+    "part_code": "JAIKO-810 034915",
+    "part_image": "../assets/JAIKO-810_034915.jpg",
+    "description": "HEX NUT (M12)"
+  },
+  {
+    "part_code": "JAIKO-810 034916",
+    "part_image": "../assets/JAIKO-810_034916.jpg",
+    "description": "WRINKLE ROLL SPROCKET 40Z"
+  },
+  {
+    "part_code": "JAIKO-608 034417",
+    "part_image": "../assets/JAIKO-608_034417.jpg",
+    "description": "PIN FOR GEAR SPROCKET"
+  },
+  {
+    "part_code": "JAIKO-608 034918",
+    "part_image": "../assets/JAIKO-608_034918.png",
+    "description": "BALL BRG. #6205"
+  },
+  {
+    "part_code": "JAIKO-608 034419",
+    "part_image": "../assets/grey.png",
+    "description": "SPROCKET FOR GEAR"
+  },
+  {
+    "part_code": "JAIKO-608 034420",
+    "part_image": "../assets/grey.png",
+    "description": "SPACER FOR GEAR SPROCKET"
+  },
+  {
+    "part_code": "JAIKO-608 034421",
+    "part_image": "../assets/grey.png",
+    "description": "OUT SIDE WASHER FOR SPROCKET GEAR"
+  },
+  {
+    "part_code": "JAIKO-608 034922",
+    "part_image": "../assets/JAIKO-608_034922.jpg",
+    "description": "ALLEN BOLT (M6 X 25LG.)"
+  },
+  {
+    "part_code": "JAIKO-608 034923",
+    "part_image": "../assets/JAIKO-608_034923.jpg",
+    "description": "HEX BOLT (M10 X 30LG.)"
+  },
+  {
+    "part_code": "JAIKO-608 034924",
+    "part_image": "../assets/JAIKO-608_034924.jpg",
+    "description": "SPUR GEAR 40Z"
+  },
+  {
+    "part_code": "JAIKO-608 034425",
+    "part_image": "../assets/JAIKO-608_034425.jpg",
+    "description": "SPUR GEAR 39Z"
+  },
+  {
+    "part_code": "JAIKO-608 034426",
+    "part_image": "../assets/JAIKO-608_034426.jpg",
+    "description": "KEY (8.3THK X 12 X 29LG.)"
+  },
+  {
+    "part_code": "VEGA-6            034916",
+    "part_image": "../assets/VEGA-6_034916.jpg",
+    "description": "SIMPLEX CHAIN                                         DUPLEX CHAIN                                        CHAIN (1/2\" INCH X 5/16\" INCH)"
+  },
+  {
+    "part_code": "JAIKO-608 035901",
+    "part_image": "../assets/JAIKO-608_035901.jpg",
+    "description": "UCF-209"
+  },
+  {
+    "part_code": "JAIKO-608 035902",
+    "part_image": "../assets/JAIKO-608_035902.jpg",
+    "description": "PLAIN WASHER (M12)"
+  },
+  {
+    "part_code": "JAIKO-608 035903",
+    "part_image": "../assets/JAIKO-608_035903.jpg",
+    "description": "HEX BOLT (M12 X 45LG.)"
+  },
+  {
+    "part_code": "JAIKO-608 035904",
+    "part_image": "../assets/JAIKO-608_035904.jpg",
+    "description": "HEX NUT (M12)"
+  },
+  {
+    "part_code": "JAIKO-812 059405",
+    "part_image": "../assets/JAIKO-812_059405.jpg",
+    "description": "WINDER ROLL Ø 168"
+  },
+  {
+    "part_code": "JAIKO-608 035906",
+    "part_image": "../assets/grey.png",
+    "description": "ARALDITE & HARDNER"
+  },
+  {
+    "part_code": "JAIKO-608 035907",
+    "part_image": "../assets/JAIKO-608_035907.jpg",
+    "description": "RUBBERISED EMERY CLOTH"
+  },
+  {
+    "part_code": "VEGA-6 035407(8a)",
+    "part_image": "../assets/VEGA-6_035407(8a).jpg",
+    "description": "WINDING SHAFT CONE"
+  },
+  {
+    "part_code": "JAIKO-812 059409",
+    "part_image": "../assets/JAIKO-812_059409.jpg",
+    "description": "WINDING SHAFT"
+  },
+  {
+    "part_code": "VEGA-6 035407(10a)\nSO",
+    "part_image": "../assets/VEGA-6_035407(10a)_SO.jpg",
+    "description": "SOCKET SET SCREW (M12 X 15)"
+  },
+  {
+    "part_code": "JAIKO-812 059411",
+    "part_image": "../assets/JAIKO-812_059411.jpg",
+    "description": "WRINKLE REMOVER ROLL"
+  },
+  {
+    "part_code": "JAIKO-812 062901",
+    "part_image": "../assets/JAIKO-812_062901.jpg",
+    "description": "R.G. BOX (AS25 F P-90 RATIO-36.86 B5 B5)"
+  },
+  {
+    "part_code": "VEGA-6 034402",
+    "part_image": "../assets/VEGA-6_034402.jpg",
+    "description": "HEX BOLT (M8 X 30LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 062903",
+    "part_image": "../assets/JAIKO-812_062903.jpg",
+    "description": "MOTOR (0.75KW., 1000 RPM, F-90)"
+  },
+  {
+    "part_code": "VEGA-6 034904",
+    "part_image": "../assets/VEGA-6_034904.png",
+    "description": "HEX BOLT (M10 X 25LG.)"
+  },
+  {
+    "part_code": "JAIKO-810 033405",
+    "part_image": "../assets/JAIKO-810_033405.png",
+    "description": "SPROCKET (15Z) DUPLEX"
+  },
+  {
+    "part_code": "VEGA-6 034906",
+    "part_image": "../assets/VEGA-6_034906.jpg",
+    "description": "SOCKET SET SCREW (M6 X 15LG.)"
+  },
+  {
+    "part_code": "VEGA-6 034907",
+    "part_image": "../assets/VEGA-6_034907.jpg",
+    "description": "KEY (8THK X 10 X 35LG.)"
+  },
+  {
+    "part_code": "JAIKO-812 062408",
+    "part_image": "../assets/JAIKO-812_062408.jpg",
+    "description": "SPROCKET (37Z) DUPLEX"
+  },
+  {
+    "part_code": "JAIKO-812 062409",
+    "part_image": "../assets/JAIKO-812_062409.jpg",
+    "description": "SPROCKET (35Z) DUPLEX"
+  },
+  {
+    "part_code": "JAIKO-810 033410",
+    "part_image": "../assets/JAIKO-810_033410.png",
+    "description": "IDLER SPROCKET DIST. PIECE"
+  },
+  {
+    "part_code": "JAIKO-810 033411",
+    "part_image": "../assets/JAIKO-810_033411.jpg",
+    "description": "IDLER SPROCKET (15Z) DUPLEX"
+  },
+  {
+    "part_code": "VEGA-6 034512",
+    "part_image": "../assets/VEGA-6_034512.png",
+    "description": "BALL BEARING (6203 ZZ)"
+  },
+  {
+    "part_code": "JAIKO-810 033413",
+    "part_image": "../assets/JAIKO-810_033413.jpg",
+    "description": "WASHER"
+  },
+  {
+    "part_code": "VEGA-6 034914",
+    "part_image": "../assets/VEGA-6_034914.jpg",
+    "description": "HEX BOLT (M12 X 50)"
+  },
+  {
+    "part_code": "VEGA-6 034915",
+    "part_image": "../assets/VEGA-6_034915.jpg",
+    "description": "HEX NUT (M12)"
+  },
+  {
+    "part_code": "JAIKO-812 062916",
+    "part_image": "../assets/JAIKO-812_062916.jpg",
+    "description": "CHAIN (1/2\" X 5/16\") DUPLEX"
+  },
+  {
+    "part_code": "VEGA-6            012916",
+    "part_image": "../assets/VEGA-6_012916.jpg",
+    "description": "BLACK PUSH BUTTON (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           056919",
+    "part_image": "../assets/VEGA-6_056919.jpg",
+    "description": "9PROCELINE 30 AMP (VEGA 6) (FOR OPEN WINDER)"
+  },
+  {
+    "part_code": "VEGA-6           056919",
+    "part_image": "../assets/VEGA-6_056919.jpg",
+    "description": "4 SQ. MM TERMINALS (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           056908",
+    "part_image": "../assets/VEGA-6_056908.jpg",
+    "description": "230 V FUSE TERMINALS (CF4U) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           056919",
+    "part_image": "../assets/VEGA-6_056919.jpg",
+    "description": "6 SQ. MM TERMINALS(VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           056916",
+    "part_image": "../assets/VEGA-6_056916.jpg",
+    "description": "24 VDC FUSE TERMINAL (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           012918",
+    "part_image": "../assets/VEGA-6_012918.jpg",
+    "description": "GREEN PUSH BUTTON (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           012915",
+    "part_image": "../assets/VEGA-6_012915.jpg",
+    "description": "RED PILOT LIGHT (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           012917",
+    "part_image": "../assets/VEGA-6_012917.jpg",
+    "description": "EMERGENCY PUSH BUTTON (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           056917",
+    "part_image": "../assets/VEGA-6_056917.jpg",
+    "description": "MCB DP 6 AMP (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           056917",
+    "part_image": "../assets/VEGA-6_056917.jpg",
+    "description": "MCB SP 2 AMP (VEGA 6)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "MCB TP 10 AMP"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "MCB TP 16 AMP"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "MCB FP 40 AMP"
+  },
+  {
+    "part_code": "VEGA-6           056922",
+    "part_image": "../assets/VEGA-6_056922.jpg",
+    "description": "PANEL FAN  (  4-INCH ) (VEGA 6)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "BOBIN SENSOR (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           047906",
+    "part_image": "../assets/VEGA-6_047906.jpg",
+    "description": "THERMOCUTTER WITH THERMCOUPLE (VEGA 6) (FOR OPEN WINDER)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "8 MM  PROXY (2 MM SENSING)  (FOR MAIN MOTOR ) VEGA 6"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "MAGNET SENSOR (VEGA 6)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "LOAD CELL 100 KG CAPACITY   (FOR WINDER) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           056926",
+    "part_image": "../assets/VEGA-6_056926.jpg",
+    "description": "FR-E840-0026-4-60 ( 0.75 KW ) (FOR OPEN WINDER) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6           056902",
+    "part_image": "../assets/VEGA-6_056902.jpg",
+    "description": "FR-D740-022-E16 (0.75 kW)  (FOR TAKEUP/WINDER/INFEED -1 & INFEED-2  DRIVE) (VEGA 6)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "FR-E740-230-E16 ( MAIN MOTOR DRIVE)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "FX5U-32MT/ESS"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "FX3U-32BL ( BATTERY FOR FX5U PLC )"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "FX5-4AD-ADP"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "GS2107-WTBD-N HMI"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "LINE CHOKE- 30 AMP"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "LINE CHOKE- 25 AMP"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "ADD ON WARP CARD"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "ENCODER 14 MM HOLLOW SHAFT 1024 PPR (FOR MAIN MOTOR)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "PROCELINE 30 AMP (VEGA 6) (FOR OPEN WINDER)"
+  }
+]

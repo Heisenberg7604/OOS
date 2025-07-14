@@ -1,0 +1,812 @@
+[
+  {
+    "part_code": "JPCWC032",
+    "part_image": "../assets/JPCWC032.jpg",
+    "description": "WINDING SCHAFT BRAKE LEVER"
+  },
+  {
+    "part_code": "JPCWP015",
+    "part_image": "../assets/JPCWP015.jpg",
+    "description": "BRAKE BUSH"
+  },
+  {
+    "part_code": "JPCWC004",
+    "part_image": "../assets/JPCWC004.jpg",
+    "description": "MAIN PLATE"
+  },
+  {
+    "part_code": "JPCWC024",
+    "part_image": "../assets/JPCWC024.jpg",
+    "description": "BRAKE TENSION BKT"
+  },
+  {
+    "part_code": "JPCWP014",
+    "part_image": "../assets/JPCWP014.jpg",
+    "description": "BRAKE TENSION BKT MTG BUSH"
+  },
+  {
+    "part_code": "JPCWC027",
+    "part_image": "../assets/JPCWC027.jpg",
+    "description": "BRAKE TENSION BKT ASSY CHEESE WINDER (JTW - 200IX)"
+  },
+  {
+    "part_code": "JPCWC047A",
+    "part_image": "../assets/JPCWC047A.jpg",
+    "description": "SPLIT COTTER PIN # Ø4 X 27 LG"
+  },
+  {
+    "part_code": "JPCWH004",
+    "part_image": "../assets/JPCWH004.jpg",
+    "description": "EXTERNAL CIRCLIP - A 10"
+  },
+  {
+    "part_code": "JPCWH040",
+    "part_image": "../assets/JPCWH040.png",
+    "description": "SOCKET HEAD CAP SCREW - M6 X 20 LG"
+  },
+  {
+    "part_code": "JPCWH042",
+    "part_image": "../assets/JPCWH042.png",
+    "description": "SOCKET HEAD CAP SCREW - M6 X 22 LG"
+  },
+  {
+    "part_code": "JPCWP003",
+    "part_image": "../assets/JPCWP003.jpg",
+    "description": "SLEDGE"
+  },
+  {
+    "part_code": "JPCWC009",
+    "part_image": "../assets/JPCWC009.jpg",
+    "description": "SLEDGE GUIDE"
+  },
+  {
+    "part_code": "JPCWP004",
+    "part_image": "../assets/grey.png",
+    "description": "FOLLOWER (S)"
+  },
+  {
+    "part_code": "JPCWP005",
+    "part_image": "../assets/grey.png",
+    "description": "OIL DIPING FOLLOWER"
+  },
+  {
+    "part_code": "JPCWC028",
+    "part_image": "../assets/JPCWC028.jpg",
+    "description": "WASHER -'A'"
+  },
+  {
+    "part_code": "JPCWC021",
+    "part_image": "../assets/JPCWC021.jpg",
+    "description": "DISK SPRING"
+  },
+  {
+    "part_code": "JPCWH023",
+    "part_image": "../assets/JPCWH023.jpg",
+    "description": "LOCKING SCREW"
+  },
+  {
+    "part_code": "JPCWC029",
+    "part_image": "../assets/JPCWC029.jpg",
+    "description": "WASHER FOR CAM HOUSING"
+  },
+  {
+    "part_code": "JPCWC040",
+    "part_image": "../assets/JPCWC040.jpg",
+    "description": "TIMING IDDLER PULLEY -31Z (WITH LOCKING PIECE)"
+  },
+  {
+    "part_code": "JPCWP012",
+    "part_image": "../assets/JPCWP012.jpg",
+    "description": "CAM HOUSING CAP"
+  },
+  {
+    "part_code": "JPCWP013",
+    "part_image": "../assets/JPCWP013.jpg",
+    "description": "CAM SHAFT STOPPER"
+  },
+  {
+    "part_code": "JPCWC004",
+    "part_image": "../assets/JPCWC004.jpg",
+    "description": "MAIN PLATE"
+  },
+  {
+    "part_code": "JPCWC002",
+    "part_image": "../assets/JPCWC002.jpg",
+    "description": "CAM HOUSING"
+  },
+  {
+    "part_code": "JPCWC003",
+    "part_image": "../assets/JPCWC003.jpg",
+    "description": "CAM"
+  },
+  {
+    "part_code": "JPCWC008",
+    "part_image": "../assets/JPCWC008.jpg",
+    "description": "CAM BOX PLATE"
+  },
+  {
+    "part_code": "JPCWC056",
+    "part_image": "../assets/JPCWC056.jpg",
+    "description": "TAPE GUIDE (WITH CERAMIC)"
+  },
+  {
+    "part_code": "JPCWC055",
+    "part_image": "../assets/JPCWC055.jpg",
+    "description": "BIDING TAPE GUIDE"
+  },
+  {
+    "part_code": "JPCWC057",
+    "part_image": "../assets/JPCWC057.png",
+    "description": "BIDING CERAMIC"
+  },
+  {
+    "part_code": "JPCWC053",
+    "part_image": "../assets/JPCWC053.jpg",
+    "description": "TAPE GUIDE (WITH CERAMIC)"
+  },
+  {
+    "part_code": "JPCWC052",
+    "part_image": "../assets/JPCWC052.jpg",
+    "description": "TAPE GUIDE FOR (2 MM / 2.5 MM /3MM / 3.5 MM) (WITHOUT CERAMIC)"
+  },
+  {
+    "part_code": "JPCWC054",
+    "part_image": "../assets/JPCWC054.png",
+    "description": "TAPE GUIDE CERAMIC 3MM (ONLY CERAMIC)"
+  },
+  {
+    "part_code": "JPCWP011",
+    "part_image": "../assets/JPCWP011.jpg",
+    "description": "BUSH FOR CAM HSG"
+  },
+  {
+    "part_code": "JPCWH012",
+    "part_image": "../assets/JPCWH012.jpg",
+    "description": "BALL BRG- 6004 ZZ(Ø20 X Ø 42 X 12 THK)"
+  },
+  {
+    "part_code": "JPCWP020",
+    "part_image": "../assets/JPCWP020.jpg",
+    "description": "O-RING (Ø55.5 OD X Ø 2.5)"
+  },
+  {
+    "part_code": "JPCWP019",
+    "part_image": "../assets/JPCWP019.jpg",
+    "description": "O-RING (Ø45.5 OD X Ø 2)"
+  },
+  {
+    "part_code": "JPCWH008",
+    "part_image": "../assets/JPCWH008.jpg",
+    "description": "EXTERNAL CIRCLIP - A- Ø 55"
+  },
+  {
+    "part_code": "JPCWH009",
+    "part_image": "../assets/JPCWH009.jpg",
+    "description": "INTERNAL CIRCLIP- B - Ø 42"
+  },
+  {
+    "part_code": "JPCWH029",
+    "part_image": "../assets/JPCWH029.png",
+    "description": "SOCKET HEAD CAP SCREW - M4 X 10 LG"
+  },
+  {
+    "part_code": "JPCWH036",
+    "part_image": "../assets/JPCWH036.png",
+    "description": "SOCKET HEAD CAP SCREW - M5 X 8 LG"
+  },
+  {
+    "part_code": "JPCWH035",
+    "part_image": "../assets/JPCWH035.png",
+    "description": "SOCKET HEAD CAP SCREW - M8 X 12 LG"
+  },
+  {
+    "part_code": "JPCWH017",
+    "part_image": "../assets/JPCWH017.png",
+    "description": "PUNCHED WASHER- M8"
+  },
+  {
+    "part_code": "JPCWH043",
+    "part_image": "../assets/JPCWH043.jpg",
+    "description": "HEX BOLT M8 X 40 LG"
+  },
+  {
+    "part_code": "JPCWH021",
+    "part_image": "../assets/JPCWH021.jpg",
+    "description": "HEX NUT M8"
+  },
+  {
+    "part_code": "JPCWH045",
+    "part_image": "../assets/JPCWH045.jpg",
+    "description": "HEX NUT M8 X 1.25P"
+  },
+  {
+    "part_code": "JPCWC046",
+    "part_image": "../assets/JPCWC046.jpg",
+    "description": "BUTTER FLY MTG PIECE"
+  },
+  {
+    "part_code": "JPCWH032",
+    "part_image": "../assets/JPCWH032.png",
+    "description": "SOCKET HEAD CAP SCREW - M4 X 8 LG"
+  },
+  {
+    "part_code": "JPCWH044",
+    "part_image": "../assets/JPCWH044.png",
+    "description": "BM 50 LUBE"
+  },
+  {
+    "part_code": "JPCWC037",
+    "part_image": "../assets/JPCWC037.jpg",
+    "description": "BKT FOR SENSOR"
+  },
+  {
+    "part_code": "JPCWP006",
+    "part_image": "../assets/JPCWP006.jpg",
+    "description": "TUNER HOUSING"
+  },
+  {
+    "part_code": "JPCWP014",
+    "part_image": "../assets/JPCWP014.jpg",
+    "description": "NYLON BUSH FOR HOUSING"
+  },
+  {
+    "part_code": "JPCWP007",
+    "part_image": "../assets/JPCWP007.jpg",
+    "description": "TENSION KNOB"
+  },
+  {
+    "part_code": "JPCWH002",
+    "part_image": "../assets/JPCWH002.jpg",
+    "description": "TUNER SPRING"
+  },
+  {
+    "part_code": "JPCWC007",
+    "part_image": "../assets/JPCWC007.jpg",
+    "description": "TENSION ARM"
+  },
+  {
+    "part_code": "JPCWC006",
+    "part_image": "../assets/JPCWC006.jpg",
+    "description": "DANCING ROD WITH VGUIDE ROLLER ASSY CHEESE WINDER (JTW- 200 IX)"
+  },
+  {
+    "part_code": "JPCWC048",
+    "part_image": "../assets/JPCWC048.jpg",
+    "description": "U HANDLE"
+  },
+  {
+    "part_code": "JPCWC049",
+    "part_image": "../assets/JPCWC049.jpg",
+    "description": "GUIDE PULLY COLLAR"
+  },
+  {
+    "part_code": "JPCWC044",
+    "part_image": "../assets/JPCWC044.jpg",
+    "description": "V- GUIDE ROLLER"
+  },
+  {
+    "part_code": "JPCWC058",
+    "part_image": "../assets/JPCWC058.jpg",
+    "description": "V GUIDE ROLLER ASSEMBLY"
+  },
+  {
+    "part_code": "JPCWP018",
+    "part_image": "../assets/JPCWP018.jpg",
+    "description": "GUIDE ROLLER COVER"
+  },
+  {
+    "part_code": "JPCWH014",
+    "part_image": "../assets/JPCWH014.jpg",
+    "description": "THRUST WASHER"
+  },
+  {
+    "part_code": "JPCWH028",
+    "part_image": "../assets/JPCWH028.jpg",
+    "description": "M5 X 30 LG BOLT DANCER ROD (GUIDE PULLY BOLT)"
+  },
+  {
+    "part_code": "JPCWP009",
+    "part_image": "../assets/JPCWP009.jpg",
+    "description": "SENSOR CAM WITH DANCING ROD"
+  },
+  {
+    "part_code": "JPCWP008",
+    "part_image": "../assets/JPCWP008.jpg",
+    "description": "SENSOR CAM ASSY"
+  },
+  {
+    "part_code": "JPCWH013",
+    "part_image": "../assets/JPCWH013.jpg",
+    "description": "BALL BRG.# 625 2Z C3- Ø5 X Ø16 X 5 THK"
+  },
+  {
+    "part_code": "JPCWH005",
+    "part_image": "../assets/JPCWH005.jpg",
+    "description": "EXTERNAL CIRCLIP -A8"
+  },
+  {
+    "part_code": "JPCWH006",
+    "part_image": "../assets/JPCWH006.jpg",
+    "description": "INTERNAL CIRCLIP - B 16"
+  },
+  {
+    "part_code": "JPCWH020",
+    "part_image": "../assets/JPCWH020.jpg",
+    "description": "HEX NUT- M5 X 0.8P"
+  },
+  {
+    "part_code": "JPCWH015",
+    "part_image": "../assets/JPCWH015.png",
+    "description": "PUNCHED WASHER - M5"
+  },
+  {
+    "part_code": "JPCWH016",
+    "part_image": "../assets/JPCWH016.png",
+    "description": "PUNCHED WASHER - M6"
+  },
+  {
+    "part_code": "JPCWH038",
+    "part_image": "../assets/JPCWH038.jpg",
+    "description": "CSK HEAD SCREW WITH HEX HEAD SOCKET- M4 X 16 LG."
+  },
+  {
+    "part_code": "JPCWH025",
+    "part_image": "../assets/JPCWH025.jpg",
+    "description": "SOCKET HEAD CAP SCREW- M5X10LG (CAP ARO 12.9)"
+  },
+  {
+    "part_code": "JPCWP016",
+    "part_image": "../assets/JPCWP016.jpg",
+    "description": "GUIDE PULLEY COVER/ PRE REDLE COVER"
+  },
+  {
+    "part_code": "JPCWC012",
+    "part_image": "../assets/JPCWC012.jpg",
+    "description": "PRESSURE ROLLER"
+  },
+  {
+    "part_code": "JPCWC013",
+    "part_image": "../assets/JPCWC013.jpg",
+    "description": "PRESSURE ROLLER ASSY"
+  },
+  {
+    "part_code": "JPCWP017",
+    "part_image": "../assets/JPCWP017.jpg",
+    "description": "RUBBER HSG  FOR PRE -ROLLER BRG"
+  },
+  {
+    "part_code": "JPCWC025",
+    "part_image": "../assets/JPCWC025.jpg",
+    "description": "DISTANCE PIECE"
+  },
+  {
+    "part_code": "JPCWC051",
+    "part_image": "../assets/JPCWC051.jpg",
+    "description": "OSCILLATING BAR BKT"
+  },
+  {
+    "part_code": "JPCWC022",
+    "part_image": "../assets/JPCWC022.jpg",
+    "description": "OSCILLATING ROD"
+  },
+  {
+    "part_code": "JPCWC002",
+    "part_image": "../assets/JPCWC002.jpg",
+    "description": "CAM HOUSING"
+  },
+  {
+    "part_code": "JPCWC008",
+    "part_image": "../assets/JPCWC008.jpg",
+    "description": "COVER FOR CAM HOUSING"
+  },
+  {
+    "part_code": "JPCWC014",
+    "part_image": "../assets/JPCWC014.jpg",
+    "description": "ROLLER BKT INNER"
+  },
+  {
+    "part_code": "JPCWC015",
+    "part_image": "../assets/JPCWC015.jpg",
+    "description": "ROLLER BKT OUTER"
+  },
+  {
+    "part_code": "JPCWC016",
+    "part_image": "../assets/JPCWC016.jpg",
+    "description": "ROLLER BKT INNER/ OUTER SET"
+  },
+  {
+    "part_code": "JPCWC036",
+    "part_image": "../assets/JPCWC036.jpg",
+    "description": "PRESSURE ROLLER STOPPER"
+  },
+  {
+    "part_code": "JPCWC034",
+    "part_image": "../assets/JPCWC034.jpg",
+    "description": "COVER MTG BKT"
+  },
+  {
+    "part_code": "JPCWC017",
+    "part_image": "../assets/JPCWC017.jpg",
+    "description": "CAM BOX COVER"
+  },
+  {
+    "part_code": "JPCWC001",
+    "part_image": "../assets/JPCWC001.jpg",
+    "description": "CHEESE PIPE"
+  },
+  {
+    "part_code": "JPCWH013",
+    "part_image": "../assets/JPCWH013.jpg",
+    "description": "BALL BRG #625 2Z C3- Ø5 X Ø16 X 5 THK"
+  },
+  {
+    "part_code": "JPCWH018",
+    "part_image": "../assets/JPCWH018.jpg",
+    "description": "DISTANCE PIECR 4 MM X 12 LG"
+  },
+  {
+    "part_code": "JPCWH031",
+    "part_image": "../assets/JPCWH031.jpg",
+    "description": "SCREW M4 X 0.7P X 6LG"
+  },
+  {
+    "part_code": "JPCWH046",
+    "part_image": "../assets/JPCWH046.png",
+    "description": "SOCKET HEAD CAP SCREW- M4X6LG"
+  },
+  {
+    "part_code": "JPCWH036",
+    "part_image": "../assets/JPCWH036.png",
+    "description": "SOCKET HEAD CAP SCREW- M5X8LG"
+  },
+  {
+    "part_code": "JPCWH047",
+    "part_image": "../assets/JPCWH047.png",
+    "description": "SOCKET HEAD CAP SCREW- M5X20LG"
+  },
+  {
+    "part_code": "JPCWH033",
+    "part_image": "../assets/JPCWH033.png",
+    "description": "SOCKET HEAD CAP SCREW- M5X35LG"
+  },
+  {
+    "part_code": "JPCWH034",
+    "part_image": "../assets/JPCWH034.png",
+    "description": "SOCKET HEAD CAP SCREW- M5X70LG"
+  },
+  {
+    "part_code": "JPCWH025",
+    "part_image": "../assets/JPCWH025.jpg",
+    "description": "SOCKET HEAD CAP SCREW- M5X10LG (CAP ARO 12.9)"
+  },
+  {
+    "part_code": "JPCWH022",
+    "part_image": "../assets/JPCWH022.jpg",
+    "description": "HEX NUT- M6X 1P"
+  },
+  {
+    "part_code": "JPCWH037",
+    "part_image": "../assets/JPCWH037.jpg",
+    "description": "HEX BOLT -M6 X 35 LG"
+  },
+  {
+    "part_code": "JPCWH026",
+    "part_image": "../assets/JPCWH026.jpg",
+    "description": "SOCKET HEAD CAP SCREW- M6X10LG"
+  },
+  {
+    "part_code": "JPCWC049",
+    "part_image": "../assets/JPCWC049.jpg",
+    "description": "GUIDE PULLEY COLLAR"
+  },
+  {
+    "part_code": "JPCWC044",
+    "part_image": "../assets/JPCWC044.jpg",
+    "description": "V GUIDE ROLLER"
+  },
+  {
+    "part_code": "JPCWC042",
+    "part_image": "../assets/JPCWC042.jpg",
+    "description": "THREAD ROLLER"
+  },
+  {
+    "part_code": "JPCWC043",
+    "part_image": "../assets/JPCWC043.jpg",
+    "description": "THREAD GUIDE ROLLER ASSY"
+  },
+  {
+    "part_code": "JPCWP018",
+    "part_image": "../assets/JPCWP018.jpg",
+    "description": "GUIDE ROLLER COVER"
+  },
+  {
+    "part_code": "JPCWC011",
+    "part_image": "../assets/JPCWC011.jpg",
+    "description": "BRACKET FOR GUIDE PULLEY"
+  },
+  {
+    "part_code": "JPCWC010",
+    "part_image": "../assets/JPCWC010.jpg",
+    "description": "TWO PULLEY BRACKET WITH GUIDE PULLEY"
+  },
+  {
+    "part_code": "JPCWH024",
+    "part_image": "../assets/JPCWH024.jpg",
+    "description": "5M X 30 LG. BOLT -DANCER ROD"
+  },
+  {
+    "part_code": "JPCWH013",
+    "part_image": "../assets/JPCWH013.jpg",
+    "description": "BALL BRG #625 2Z C3- Ø5 X Ø16 X 5 THK"
+  },
+  {
+    "part_code": "JPCWH010",
+    "part_image": "../assets/JPCWH010.jpg",
+    "description": "INTERNAL CIRCLIP - B 16"
+  },
+  {
+    "part_code": "JPCWH020",
+    "part_image": "../assets/JPCWH020.jpg",
+    "description": "HEX NUT- M5 X 0.8P"
+  },
+  {
+    "part_code": "JPCWH015",
+    "part_image": "../assets/JPCWH015.png",
+    "description": "PUNCHED WASHER - M5"
+  },
+  {
+    "part_code": "JPCWH016",
+    "part_image": "../assets/JPCWH016.png",
+    "description": "PUNCHED WASHER - M6"
+  },
+  {
+    "part_code": "JPCWH026",
+    "part_image": "../assets/JPCWH026.jpg",
+    "description": "SOCKET HEAD CAP SCREW- M6X10LG"
+  },
+  {
+    "part_code": "JPCWH027",
+    "part_image": "../assets/JPCWH027.jpg",
+    "description": "GUIDE PULLY BOLT 5 MM X 25 MM LG"
+  },
+  {
+    "part_code": "JPCWC031",
+    "part_image": "../assets/JPCWC031.jpg",
+    "description": "WINDING SCHAFT HOUSING COVER"
+  },
+  {
+    "part_code": "JPCWC023",
+    "part_image": "../assets/JPCWC023.jpg",
+    "description": "BRAKE HOUSING"
+  },
+  {
+    "part_code": "JPCWC050",
+    "part_image": "../assets/JPCWC050.jpg",
+    "description": "SPRING COLLAR"
+  },
+  {
+    "part_code": "JPCWC035",
+    "part_image": "../assets/JPCWC035.jpg",
+    "description": "PIPE COLLAR"
+  },
+  {
+    "part_code": "JPCWP010",
+    "part_image": "../assets/JPCWP010.jpg",
+    "description": "PIPE"
+  },
+  {
+    "part_code": "JPCWH001",
+    "part_image": "../assets/JPCWH001.jpg",
+    "description": "COMPRESSION SPRING FOR HOUSING"
+  },
+  {
+    "part_code": "JPCWH003",
+    "part_image": "../assets/JPCWH003.jpg",
+    "description": "COLLAR SPRING"
+  },
+  {
+    "part_code": "JPCWC045",
+    "part_image": "../assets/JPCWC045.jpg",
+    "description": "LOCKING KNOBH"
+  },
+  {
+    "part_code": "JPCWC033",
+    "part_image": "../assets/JPCWC033.jpg",
+    "description": "BELT TENSION BKT"
+  },
+  {
+    "part_code": "JPCWC026",
+    "part_image": "../assets/JPCWC026.jpg",
+    "description": "PIN FOR IDDLER BKT"
+  },
+  {
+    "part_code": "JPCWC030",
+    "part_image": "../assets/JPCWC030.jpg",
+    "description": "IDDLER PULLEY BKT"
+  },
+  {
+    "part_code": "JPCWC041",
+    "part_image": "../assets/JPCWC041.jpg",
+    "description": "TIMING IDDLER PULLEY -37Z  ( WITH LOCKING PIECE)"
+  },
+  {
+    "part_code": "JPCWC038",
+    "part_image": "../assets/JPCWC038.jpg",
+    "description": "TIMING PULLY 34 Z (with locking piece)"
+  },
+  {
+    "part_code": "JPCWC039",
+    "part_image": "../assets/JPCWC039.jpg",
+    "description": "TIMING PULLY 27  (with locking piece)"
+  },
+  {
+    "part_code": "JPCWC018",
+    "part_image": "../assets/JPCWC018.jpg",
+    "description": "ADDLER BRACKET ASSYMBLY WITH TIMING PULLY"
+  },
+  {
+    "part_code": "JPCWC019",
+    "part_image": "../assets/JPCWC019.jpg",
+    "description": "TIMING BELT 140 XL X 12W"
+  },
+  {
+    "part_code": "JPCWC020",
+    "part_image": "../assets/JPCWC020.jpg",
+    "description": "TIMING BELT 164 XL X 12W"
+  },
+  {
+    "part_code": "JPCWC005",
+    "part_image": "../assets/JPCWC005.png",
+    "description": "Kw- 0.12, V-177, Hz-50, RPM-1405. AC MOTOT 3 PHASE."
+  },
+  {
+    "part_code": "JPCWH030",
+    "part_image": "../assets/JPCWH030.png",
+    "description": "SOCKET HEAD CAP SCREW M4 X 16 LG"
+  },
+  {
+    "part_code": "JPCWH041",
+    "part_image": "../assets/JPCWH041.jpg",
+    "description": "HEX. HEAD BOLT M6 X 16 LG"
+  },
+  {
+    "part_code": "JPCWH012",
+    "part_image": "../assets/JPCWH012.jpg",
+    "description": "BALL BRG- 6004 2Z C3 Ø20 X Ø42 X 12THK"
+  },
+  {
+    "part_code": "JPCWH039",
+    "part_image": "../assets/JPCWH039.jpg",
+    "description": "SOCKET HEAD CAP SCREW M6 X 30 LG"
+  },
+  {
+    "part_code": "JPCWH019",
+    "part_image": "../assets/JPCWH019.jpg",
+    "description": "DUM NUT 5MM"
+  },
+  {
+    "part_code": "JPCWC047",
+    "part_image": "../assets/JPCWC047.jpg",
+    "description": "SPLIT COTTER PIN                                                        4 MM X 12 MM LG"
+  },
+  {
+    "part_code": "JPCWC047(A)",
+    "part_image": "../assets/JPCWC047(A).jpg",
+    "description": "SPLIT COTTER PIN                                                         4  MM X 27 MM LG"
+  },
+  {
+    "part_code": "JPCWC047(B)",
+    "part_image": "../assets/JPCWC047(B).jpg",
+    "description": "SPLIT COTTER PIN                                                        4 MM X 30 MM LG"
+  },
+  {
+    "part_code": "JPCWC047(c)",
+    "part_image": "../assets/JPCWC047(c).jpg",
+    "description": "SPLIT COTTER PIN                                                         8 MM X 40 MM LG"
+  },
+  {
+    "part_code": "JPCWH011",
+    "part_image": "../assets/JPCWH011.jpg",
+    "description": "BALL BRG- 6006 ZZ"
+  },
+  {
+    "part_code": "JPCWH007",
+    "part_image": "../assets/JPCWH007.jpg",
+    "description": "EXTERNAL CIRCLIP - A- Ø 20"
+  },
+  {
+    "part_code": "JPCWE001",
+    "part_image": "../assets/JPCWE001.jpg",
+    "description": "MCB TP 10 AMP"
+  },
+  {
+    "part_code": "JPCWE002",
+    "part_image": "../assets/JPCWE002.jpg",
+    "description": "WINDER POWER CARD -A"
+  },
+  {
+    "part_code": "JPCWE003",
+    "part_image": "../assets/JPCWE003.jpg",
+    "description": "WINDER INVERTER CARD -A"
+  },
+  {
+    "part_code": "JPCWE004",
+    "part_image": "../assets/JPCWE004.jpg",
+    "description": "WINDER POWER CARD- B"
+  },
+  {
+    "part_code": "JPCWE005",
+    "part_image": "../assets/JPCWE005.jpg",
+    "description": "WINDER INVERTER CARD -B"
+  },
+  {
+    "part_code": "JPCWE006",
+    "part_image": "../assets/JPCWE006.jpg",
+    "description": "D 9 PIN MALE-FEMALE"
+  },
+  {
+    "part_code": "JPCWE007",
+    "part_image": "../assets/JPCWE007.jpg",
+    "description": "COMUNICATION CABEL"
+  },
+  {
+    "part_code": "JPCWE008",
+    "part_image": "../assets/JPCWE008.jpg",
+    "description": "POWER CABLE"
+  },
+  {
+    "part_code": "JPCWE009",
+    "part_image": "../assets/JPCWE009.jpg",
+    "description": "ANALOG SENSOR A"
+  },
+  {
+    "part_code": "JPCWE010",
+    "part_image": "../assets/JPCWE010.jpg",
+    "description": "ANALOG SENSOR B"
+  },
+  {
+    "part_code": "JPCWE011",
+    "part_image": "../assets/JPCWE011.jpg",
+    "description": "DBK CONECTOR 1/6"
+  },
+  {
+    "part_code": "JPCWE012",
+    "part_image": "../assets/JPCWE012.jpg",
+    "description": "P.G 16 GLAND"
+  },
+  {
+    "part_code": "JPCWE013",
+    "part_image": "../assets/JPCWE013.jpg",
+    "description": "COM. PIN - 4 PIN"
+  },
+  {
+    "part_code": "JPCWE014",
+    "part_image": "../assets/JPCWE014.jpg",
+    "description": "POWER PLUG 5 PIN"
+  },
+  {
+    "part_code": "JPCWE015",
+    "part_image": "../assets/JPCWE015.jpg",
+    "description": "POWER CARD CONNECTOR"
+  },
+  {
+    "part_code": "JPCWE016",
+    "part_image": "../assets/JPCWE016.jpg",
+    "description": "MOTOR CONNECTOR"
+  },
+  {
+    "part_code": "JPCWE017",
+    "part_image": "../assets/JPCWE017.jpg",
+    "description": "TRANSFORMER CONNECTOR"
+  },
+  {
+    "part_code": "JPCWP001",
+    "part_image": "../assets/JPCWP001.jpg",
+    "description": "DRIVE CARD COVER (ADCO)"
+  },
+  {
+    "part_code": "JPCWP002",
+    "part_image": "../assets/JPCWP002.jpg",
+    "description": "DRIVE CARD COVER (BETA)"
+  }
+]
