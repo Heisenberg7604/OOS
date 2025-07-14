@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/navbar';
-import Footer from '../components/Footer';
 import { useAuth } from '../context/AuthContext';
 
 const ProductCatalogPage = () => {
@@ -12,8 +10,6 @@ const ProductCatalogPage = () => {
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [sortBy, setSortBy] = useState('description');
-    const [currentPage, setCurrentPage] = useState(1);
-    const [productsPerPage] = useState(20);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [successMsg, setSuccessMsg] = useState('');
 
@@ -60,13 +56,7 @@ const ProductCatalogPage = () => {
             }
         });
         setFilteredProducts(filtered);
-        setCurrentPage(1);
     }, [products, searchTerm, sortBy]);
-
-    const indexOfLastProduct = currentPage * productsPerPage;
-    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
     const handleImageError = (e) => {
         e.target.src = '/assets/placeholder.jpg';
@@ -103,7 +93,6 @@ const ProductCatalogPage = () => {
     if (error) {
         return (
             <div className="min-h-screen bg-white flex flex-col">
-                <Navbar />
                 <main className="flex-1 flex items-center justify-center">
                     <div className="text-center">
                         <div className="text-red-500 text-xl mb-4">⚠️ Error Loading Products</div>
@@ -116,14 +105,12 @@ const ProductCatalogPage = () => {
                         </button>
                     </div>
                 </main>
-                <Footer />
             </div>
         );
     }
 
     return (
         <div className="min-h-screen bg-white flex flex-col">
-            <Navbar />
             <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mt-12">
                 {/* Header */}
                 <div className="mb-8">
@@ -176,7 +163,7 @@ const ProductCatalogPage = () => {
                     </div>
                 </div>
                 {/* Products Grid */}
-                {currentProducts.length === 0 ? (
+                {filteredProducts.length === 0 ? (
                     <div className="text-center py-12">
                         <div className="text-gray-400 text-6xl mb-4">🔍</div>
                         <h3 className="text-xl font-semibold text-gray-600 mb-2">No products found</h3>
@@ -184,7 +171,7 @@ const ProductCatalogPage = () => {
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-                        {currentProducts.map((product) => {
+                        {filteredProducts.map((product) => {
                             const cartItem = cart?.items?.find(item => item.partNo === product.partNo);
                             // Fix image path
                             let imgSrc = product.imagePath || '/assets/placeholder.jpg';
@@ -234,40 +221,6 @@ const ProductCatalogPage = () => {
                         })}
                     </div>
                 )}
-                {/* Pagination */}
-                {totalPages > 1 && (
-                    <div className="flex justify-center items-center space-x-2 mb-12">
-                        <button
-                            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                            disabled={currentPage === 1}
-                            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            Previous
-                        </button>
-                        {[...Array(Math.min(5, totalPages))].map((_, index) => {
-                            const pageNum = Math.max(1, Math.min(currentPage - 2, totalPages - 4)) + index;
-                            return pageNum <= totalPages ? (
-                                <button
-                                    key={pageNum}
-                                    onClick={() => setCurrentPage(pageNum)}
-                                    className={`px-4 py-2 rounded-lg ${currentPage === pageNum
-                                        ? 'bg-red-500 text-white'
-                                        : 'border border-gray-300 hover:bg-gray-50'
-                                        }`}
-                                >
-                                    {pageNum}
-                                </button>
-                            ) : null;
-                        })}
-                        <button
-                            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                            disabled={currentPage === totalPages}
-                            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            Next
-                        </button>
-                    </div>
-                )}
                 {/* Checkout Button */}
                 <div className="text-center mt-12">
                     <button
@@ -278,7 +231,6 @@ const ProductCatalogPage = () => {
                     </button>
                 </div>
             </main>
-            <Footer />
         </div>
     );
 };

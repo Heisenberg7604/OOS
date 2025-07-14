@@ -8,8 +8,6 @@ import gridline from '../assets/gridline.png';
 import gridloom from '../assets/gridloom.png';
 import gridrad from '../assets/gridrad.png';
 import gridshuttle from '../assets/gridshuttle.png';
-import Navbar from '../components/navbar'; // Import the navbar component
-import Footer from '../components/Footer'; // Import the Footer component
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,9 +28,6 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Use the Navbar component */}
-      
-
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
@@ -250,7 +245,6 @@ const LandingPage = () => {
           <span className="text-3xl text-red-500 font-semibold drop-shadow-md">More coming soon...</span>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };
