@@ -26,7 +26,7 @@ const productSources = [
 ];
 
 async function migrateAllProducts() {
-  await mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
+  await mongoose.connect(dbUri, {});
   let added = 0, updated = 0, skipped = 0;
   for (const source of productSources) {
     const filePath = path.join(__dirname, '../public/data', source.json);

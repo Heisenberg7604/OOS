@@ -7,7 +7,7 @@ const path = require('path');
 const dbUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/jp-extrusiontech';
 
 async function migrateProducts() {
-  await mongoose.connect(dbUri, { useNewUrlParser: true, useUnifiedTopology: true });
+  await mongoose.connect(dbUri, {});
   const filePath = path.join(__dirname, 'products.json');
   const raw = fs.readFileSync(filePath, 'utf-8');
   const products = JSON.parse(raw);

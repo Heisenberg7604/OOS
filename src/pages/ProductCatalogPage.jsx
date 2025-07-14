@@ -1,9 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+
+// Mapping from subcategory to JSON and asset folder
+const PRODUCT_MAP = {
+    'cheese-winder-jtw-200-ix': {
+        json: '/data/Cheese_Winder_JTW_(200IX).json',
+        asset: '/data/Cheese-winder(200IX) assets/',
+        title: 'Cheese Winder JTW - 200 IX',
+    },
+    'vega-6-hs-star': {
+        json: '/data/VEGA-6_HS_STAR.json',
+        asset: '/data/VEGA-6 HS STAR assets/',
+        title: 'Vega-6 HS Star',
+    },
+    'flexographic-printing-machine': {
+        json: '/data/PRINTING_MACHINE.json',
+        asset: '/data/PRINTING_MACHINE assets/',
+        title: 'Flexographic Printing Machine',
+    },
+    'vega-812-hf': {
+        json: '/data/JAIKO-812_HF.json',
+        asset: '/data/JAIKO-812_HF assets/',
+        title: 'Vega 812 HF',
+    },
+    // Add more mappings as you add more products
+};
+
+const FALLBACK = PRODUCT_MAP['cheese-winder-jtw-200-ix'];
+
+const PAGE_SIZE = 50;
 
 const ProductCatalogPage = () => {
     const navigate = useNavigate();
+    const { subcategory } = useParams();
     const { addToCart, isAuthenticated, cart, loadCart } = useAuth();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -12,22 +42,35 @@ const ProductCatalogPage = () => {
     const [sortBy, setSortBy] = useState('description');
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [successMsg, setSuccessMsg] = useState('');
+    const [assetPrefix, setAssetPrefix] = useState(FALLBACK.asset);
+    const [pageTitle, setPageTitle] = useState(FALLBACK.title);
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
+        const prod = PRODUCT_MAP[subcategory] || FALLBACK;
+        setAssetPrefix(prod.asset);
+        setPageTitle(prod.title);
         const loadProducts = async () => {
             try {
                 setLoading(true);
                 setError(null);
-                // Fetch products from backend API
-                const response = await fetch('http://localhost:5000/api/products');
-                if (!response.ok) {
-                    throw new Error(`Failed to load products: ${response.status}`);
-                }
-                const data = await response.json();
-                setProducts(data || []);
+                let response = await fetch(prod.json);
+                if (!response.ok) throw new Error('Not found');
+                let data = await response.json();
+                setProducts(data);
             } catch (err) {
-                setError(err.message);
-                console.error('Error loading products:', err);
+                // fallback
+                if (prod !== FALLBACK) {
+                    try {
+                        let response = await fetch(FALLBACK.json);
+                        let data = await response.json();
+                        setProducts(data);
+                    } catch (e) {
+                        setError('Failed to load products');
+                    }
+                } else {
+                    setError('Failed to load products');
+                }
             } finally {
                 setLoading(false);
             }
@@ -35,14 +78,18 @@ const ProductCatalogPage = () => {
         loadProducts();
         if (isAuthenticated) loadCart();
         // eslint-disable-next-line
-    }, [isAuthenticated]);
+    }, [subcategory, isAuthenticated]);
+
+    // Helper for consistent part number sorting
+    const getPartNumber = (product) => product.partNo || product.part_code || '';
 
     useEffect(() => {
         let filtered = [...products];
         if (searchTerm) {
             filtered = filtered.filter(product =>
                 (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
-                (product.partNo && product.partNo.toLowerCase().includes(searchTerm.toLowerCase()))
+                (product.partNo && product.partNo.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                (product.part_code && product.part_code.toLowerCase().includes(searchTerm.toLowerCase()))
             );
         }
         filtered.sort((a, b) => {
@@ -50,13 +97,24 @@ const ProductCatalogPage = () => {
                 case 'description':
                     return (a.description || '').localeCompare(b.description || '');
                 case 'partno':
-                    return (a.partNo || '').localeCompare(b.partNo || '');
+                    return getPartNumber(a).localeCompare(getPartNumber(b));
                 default:
                     return 0;
             }
         });
         setFilteredProducts(filtered);
-    }, [products, searchTerm, sortBy]);
+    }, [products, searchTerm, sortBy, subcategory]);
+
+    // Reset to first page only when search/sort/subcategory changes
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchTerm, sortBy, subcategory]);
+
+    // Pagination logic
+    const totalPages = Math.ceil(filteredProducts.length / PAGE_SIZE);
+    const paginatedProducts = filteredProducts.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+    const firstProductIdx = filteredProducts.length === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1;
+    const lastProductIdx = Math.min(currentPage * PAGE_SIZE, filteredProducts.length);
 
     const handleImageError = (e) => {
         e.target.src = '/assets/placeholder.jpg';
@@ -117,11 +175,11 @@ const ProductCatalogPage = () => {
                     <div className="flex items-center mb-4">
                         <div className="w-10 h-0.5 bg-black mr-4" />
                         <h1 className="text-3xl font-bold text-gray-800">
-                            Product Catalog
+                            {pageTitle} Catalog
                         </h1>
                     </div>
                     <p className="text-gray-600">
-                        Showing {filteredProducts.length} of {products.length} products
+                        Showing {firstProductIdx}–{lastProductIdx} of {filteredProducts.length} products
                     </p>
                 </div>
                 {/* Success Message */}
@@ -163,63 +221,112 @@ const ProductCatalogPage = () => {
                     </div>
                 </div>
                 {/* Products Grid */}
-                {filteredProducts.length === 0 ? (
+                {paginatedProducts.length === 0 ? (
                     <div className="text-center py-12">
                         <div className="text-gray-400 text-6xl mb-4">🔍</div>
                         <h3 className="text-xl font-semibold text-gray-600 mb-2">No products found</h3>
                         <p className="text-gray-500">Try adjusting your search or filter criteria</p>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-                        {filteredProducts.map((product) => {
-                            const cartItem = cart?.items?.find(item => item.partNo === product.partNo);
-                            // Fix image path
-                            let imgSrc = product.imagePath || '/assets/placeholder.jpg';
-                            if (imgSrc && !imgSrc.startsWith('/')) {
-                                imgSrc = '/data/stackofill assets/' + imgSrc.replace(/^assets\//, '');
-                            }
-                            return (
-                                <div
-                                    key={product.partNo}
-                                    className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-                                >
-                                    {/* Product Image */}
-                                    <div className="h-48 bg-gray-100 overflow-hidden flex items-center justify-center">
-                                        <img
-                                            src={imgSrc}
-                                            alt={product.description}
-                                            className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
-                                            onError={handleImageError}
-                                        />
-                                    </div>
-                                    {/* Product Info */}
-                                    <div className="p-6">
-                                        <div className="mb-2">
-                                            <span className="text-sm font-medium text-red-500 bg-red-50 px-2 py-1 rounded">
-                                                {product.partNo}
-                                            </span>
+                    <>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+                            {paginatedProducts.map((product) => {
+                                const cartItem = cart?.items?.find(item => (item.partNo === product.partNo || item.partNo === product.part_code));
+                                // Use part_image or imagePath
+                                let imgFiles = [];
+                                if (Array.isArray(product.part_image)) {
+                                    imgFiles = product.part_image.map(img => img.split('/').pop());
+                                } else if (product.part_image) {
+                                    imgFiles = [product.part_image.split('/').pop()];
+                                } else if (product.imagePath) {
+                                    imgFiles = [product.imagePath.split('/').pop()];
+                                }
+                                return (
+                                    <div
+                                        key={product.partNo || product.part_code}
+                                        className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                                    >
+                                        {/* Product Image(s) */}
+                                        <div className="h-48 bg-gray-100 overflow-hidden flex items-center justify-center">
+                                            {imgFiles.length > 0 ? (
+                                                imgFiles.map((imgFile, idx) => (
+                                                    <img
+                                                        key={imgFile + idx}
+                                                        src={imgFile ? assetPrefix + imgFile : '/assets/placeholder.jpg'}
+                                                        alt={product.description}
+                                                        className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                                                        onError={handleImageError}
+                                                        style={{ maxWidth: '50%', maxHeight: '100%', display: 'inline-block' }}
+                                                    />
+                                                ))
+                                            ) : (
+                                                <img
+                                                    src={'/assets/placeholder.jpg'}
+                                                    alt={product.description}
+                                                    className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                                                    onError={handleImageError}
+                                                />
+                                            )}
                                         </div>
-                                        <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
-                                            {product.description}
-                                        </h3>
-                                        {/* Cart Controls */}
-                                        {cartItem && cartItem.quantity > 0 ? (
-                                            <div className="flex items-center justify-between mt-4">
-                                                <span className="text-green-600 font-semibold">In Cart ({cartItem.quantity})</span>
+                                        {/* Product Info */}
+                                        <div className="p-6">
+                                            <div className="mb-2">
+                                                <span className="text-sm font-medium text-red-500 bg-red-50 px-2 py-1 rounded">
+                                                    {product.partNo || product.part_code}
+                                                </span>
                                             </div>
-                                        ) : (
-                                            <button
-                                                className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors duration-200 font-semibold"
-                                                onClick={() => handleAddToCart(product.partNo)}
-                                            >
-                                                Add to Cart
-                                            </button>
-                                        )}
+                                            <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
+                                                {product.description}
+                                            </h3>
+                                            {/* Cart Controls */}
+                                            {cartItem && cartItem.quantity > 0 ? (
+                                                <div className="flex items-center justify-between mt-4">
+                                                    <span className="text-green-600 font-semibold">In Cart ({cartItem.quantity})</span>
+                                                </div>
+                                            ) : (
+                                                <button
+                                                    className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors duration-200 font-semibold"
+                                                    onClick={() => handleAddToCart(product.partNo || product.part_code)}
+                                                >
+                                                    Add to Cart
+                                                </button>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
-                    </div>
+                                );
+                            })}
+                        </div>
+                        {/* Pagination Controls */}
+                        <div className="flex justify-center items-center gap-2 mb-8">
+                            <button
+                                className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+                                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                                disabled={currentPage === 1}
+                            >
+                                Previous
+                            </button>
+                            {/* Page numbers */}
+                            {Array.from({ length: totalPages }, (_, i) => (
+                                <button
+                                    key={i + 1}
+                                    onClick={() => setCurrentPage(i + 1)}
+                                    className={`px-3 py-2 rounded font-semibold ${currentPage === i + 1
+                                        ? 'bg-red-500 text-white'
+                                        : 'bg-gray-100 hover:bg-gray-200'
+                                        }`}
+                                >
+                                    {i + 1}
+                                </button>
+                            ))}
+                            <button
+                                className="px-4 py-2 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+                                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                                disabled={currentPage === totalPages}
+                            >
+                                Next
+                            </button>
+                        </div>
+                    </>
                 )}
                 {/* Checkout Button */}
                 <div className="text-center mt-12">

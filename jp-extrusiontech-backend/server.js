@@ -15,7 +15,7 @@ const Order = require('./models/Order');
 const Cart = require('./models/Cart');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Connect to MongoDB
 connectDB();
@@ -135,10 +135,10 @@ app.post('/api/auth/register', async (req, res) => {
         await cart.save();
 
         // Create token
-        const token = jwt.sign({ 
-            id: user._id, 
-            email: user.email, 
-            role: user.role 
+        const token = jwt.sign({
+            id: user._id,
+            email: user.email,
+            role: user.role
         }, JWT_SECRET, {
             expiresIn: '24h'
         });
@@ -190,10 +190,10 @@ app.post('/api/auth/login', async (req, res) => {
             await cart.save();
         }
 
-        const token = jwt.sign({ 
-            id: user._id, 
-            email: user.email, 
-            role: user.role 
+        const token = jwt.sign({
+            id: user._id,
+            email: user.email,
+            role: user.role
         }, JWT_SECRET, {
             expiresIn: '24h'
         });
@@ -314,10 +314,10 @@ app.put('/api/products/:partNo', authenticateToken, requireAdmin, async (req, re
 
         const product = await Product.findOneAndUpdate(
             { partNo },
-            { 
-                description, 
-                imagePath, 
-                updatedAt: new Date() 
+            {
+                description,
+                imagePath,
+                updatedAt: new Date()
             },
             { new: true }
         );
@@ -355,7 +355,7 @@ app.delete('/api/products/:partNo', authenticateToken, requireAdmin, async (req,
 app.get('/api/cart', authenticateToken, async (req, res) => {
     try {
         let cart = await Cart.findOne({ userId: req.user.id });
-        
+
         if (!cart) {
             cart = new Cart({
                 userId: req.user.id,
@@ -381,7 +381,7 @@ app.get('/api/cart', authenticateToken, async (req, res) => {
 app.post('/api/cart/add', authenticateToken, async (req, res) => {
     try {
         const { partNo, quantity } = req.body;
-        
+
         if (!partNo || !quantity || quantity <= 0) {
             return res.status(400).json({ message: 'Valid part number and quantity are required' });
         }
@@ -431,7 +431,7 @@ app.post('/api/cart/add', authenticateToken, async (req, res) => {
 app.put('/api/cart/update', authenticateToken, async (req, res) => {
     try {
         const { partNo, quantity } = req.body;
-        
+
         if (!partNo || !quantity || quantity <= 0) {
             return res.status(400).json({ message: 'Valid part number and quantity are required' });
         }
@@ -467,7 +467,7 @@ app.put('/api/cart/update', authenticateToken, async (req, res) => {
 app.delete('/api/cart/remove/:partNo', authenticateToken, async (req, res) => {
     try {
         const { partNo } = req.params;
-        
+
         const cart = await Cart.findOne({ userId: req.user.id });
         if (!cart) {
             return res.status(404).json({ message: 'Cart not found' });
@@ -518,7 +518,7 @@ app.delete('/api/cart/clear', authenticateToken, async (req, res) => {
 app.post('/api/orders', authenticateToken, async (req, res) => {
     try {
         const cart = await Cart.findOne({ userId: req.user.id });
-        
+
         if (!cart || cart.items.length === 0) {
             return res.status(400).json({ message: 'Cart is empty' });
         }
@@ -539,15 +539,15 @@ app.post('/api/orders', authenticateToken, async (req, res) => {
         });
 
         await order.save();
-        
+
         // Clear user's cart
         cart.items = [];
         cart.total = 0;
         cart.updatedAt = new Date();
         await cart.save();
-        
+
         console.log('Order placed:', order);
-        
+
         // Send confirmation email if transporter is configured
         if (transporter) {
             const mailOptions = {
@@ -655,9 +655,9 @@ app.put('/api/admin/orders/:orderId', authenticateToken, requireAdmin, async (re
 
         const order = await Order.findByIdAndUpdate(
             orderId,
-            { 
-                status, 
-                updatedAt: new Date() 
+            {
+                status,
+                updatedAt: new Date()
             },
             { new: true }
         );
