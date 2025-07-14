@@ -1,0 +1,1842 @@
+[
+  {
+    "part_code": "VEGA-6             SA0112",
+    "part_image": "../assets/VEGA-6_SA0112.png",
+    "description": "LOOM STAND ASSY"
+  },
+  {
+    "part_code": "VEGA-6              001902",
+    "part_image": "../assets/VEGA-6_001902.png",
+    "description": "FELT"
+  },
+  {
+    "part_code": "VEGA-6              002401",
+    "part_image": "../assets/VEGA-6_002401.png",
+    "description": "BASE PLATE"
+  },
+  {
+    "part_code": "VEGA-6              002405",
+    "part_image": "../assets/VEGA-6_002405.png",
+    "description": "MAIN SHAFT"
+  },
+  {
+    "part_code": "VEGA-6              002506",
+    "part_image": "../assets/VEGA-6_002506.png",
+    "description": "SEALING RING"
+  },
+  {
+    "part_code": "VEGA-6              SA0210",
+    "part_image": "../assets/VEGA-6_SA0210.png",
+    "description": "MAIN HOUSING ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              003401",
+    "part_image": "../assets/VEGA-6_003401.jpg",
+    "description": "CAM"
+  },
+  {
+    "part_code": "VEGA-6              003905",
+    "part_image": "../assets/VEGA-6_003905.png",
+    "description": "SUPPORT BAR"
+  },
+  {
+    "part_code": "VEGA-6              003808",
+    "part_image": "../assets/VEGA-6_003808.png",
+    "description": "CAP"
+  },
+  {
+    "part_code": "VEGA-6              SA0426",
+    "part_image": "../assets/VEGA-6_SA0426.png",
+    "description": "TIMING COUNTER PULLEY ASSY - H- 12.7P-44Z TOTAL ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              004404",
+    "part_image": "../assets/VEGA-6_004404.png",
+    "description": "AXLE"
+  },
+  {
+    "part_code": "VEGA-6              004914",
+    "part_image": "../assets/VEGA-6_004914.png",
+    "description": "FOR MAIN MOTOR"
+  },
+  {
+    "part_code": "VEGA-6              SA0427",
+    "part_image": "../assets/VEGA-6_SA0427.png",
+    "description": "MOTOR PULLY -H -12.7P-22Z (FOR 1100 PPM)"
+  },
+  {
+    "part_code": "VEGA-6              SA0428",
+    "part_image": "../assets/VEGA-6_SA0428.png",
+    "description": "MOTOR PULLY -H -12.7P-24Z (FOR 1000 PPM)"
+  },
+  {
+    "part_code": "VEGA-6              004918",
+    "part_image": "../assets/VEGA-6_004918.png",
+    "description": "MOTOR (3.7KW, RPM1410 FRAME SIZE- 112)"
+  },
+  {
+    "part_code": "VEGA-6              004923",
+    "part_image": "../assets/VEGA-6_004923.jpg",
+    "description": "TIMING BELT BIG H 180-16ZZ-42WIDTH 0.5 INCH"
+  },
+  {
+    "part_code": "VEGA-6              004923",
+    "part_image": "../assets/VEGA-6_004923.jpg",
+    "description": "TIMING BELT SMALL  H-400-80ZZ-35WIDTH 0.5 INCH"
+  },
+  {
+    "part_code": "VEGA-6              005401",
+    "part_image": "../assets/VEGA-6_005401.jpg",
+    "description": "STAND"
+  },
+  {
+    "part_code": "VEGA-6              SA6909",
+    "part_image": "../assets/VEGA-6_SA6909.jpg",
+    "description": "REED RING ASSY 576 DENT     REF:VEGA 6                                     VEGA HS                                          VEGA STAR"
+  },
+  {
+    "part_code": "VEGA-6              SA0610",
+    "part_image": "../assets/VEGA-6_SA0610.jpg",
+    "description": "REED RING ASSY 720 DENT     REF:VEGA 6                                     VEGA HS                                          VEGA STAR"
+  },
+  {
+    "part_code": "VEGA-6              SA7013",
+    "part_image": "../assets/VEGA-6_SA7013.jpg",
+    "description": "REED RING ASSY 864 DENT     REF:VEGA 6                                     VEGA HS                                          VEGA STAR"
+  },
+  {
+    "part_code": "VEGA-6              007401",
+    "part_image": "../assets/VEGA-6_007401.png",
+    "description": "SEGMENT"
+  },
+  {
+    "part_code": "VEGA-6              007504",
+    "part_image": "../assets/VEGA-6_007504.jpg",
+    "description": "UPPER BEARING BLOCK"
+  },
+  {
+    "part_code": "VEGA-6              007505",
+    "part_image": "../assets/VEGA-6_007505.jpg",
+    "description": "LOWER BEARING BLOCK"
+  },
+  {
+    "part_code": "VEGA-6              007407",
+    "part_image": "../assets/VEGA-6_007407.jpg",
+    "description": "ADJUSTING SCREW"
+  },
+  {
+    "part_code": "VEGA-6              007809",
+    "part_image": "../assets/VEGA-6_007809.jpg",
+    "description": "UPPER BRG. BLOCK COVER"
+  },
+  {
+    "part_code": "VEGA-6              008401",
+    "part_image": "../assets/VEGA-6_008401.jpg",
+    "description": "COVER PLATE"
+  },
+  {
+    "part_code": "VEGA-6              008906",
+    "part_image": "../assets/VEGA-6_008906.jpg",
+    "description": "EXCENTER ROLLER (ø52)"
+  },
+  {
+    "part_code": "VEGA-6              008407",
+    "part_image": "../assets/VEGA-6_008407.jpg",
+    "description": "PLUG"
+  },
+  {
+    "part_code": "VEGA-6              008921",
+    "part_image": "../assets/VEGA-6_008921.jpg",
+    "description": "NYLOX RING"
+  },
+  {
+    "part_code": "VEGA-6              008808",
+    "part_image": "../assets/VEGA-6_008808.jpg",
+    "description": "LEAVER"
+  },
+  {
+    "part_code": "VEGA-6              008410",
+    "part_image": "../assets/VEGA-6_008410.jpg",
+    "description": "CONNECTING ROD"
+  },
+  {
+    "part_code": "VEGA-6              008411",
+    "part_image": "../assets/VEGA-6_008411.jpg",
+    "description": "DOVEL PIN 6 X30 LG"
+  },
+  {
+    "part_code": "VEGA-6              008412",
+    "part_image": "../assets/VEGA-6_008412.jpg",
+    "description": "LARGER BEARING BLOCK"
+  },
+  {
+    "part_code": "VEGA-6              008413",
+    "part_image": "../assets/VEGA-6_008413.jpg",
+    "description": "CYLINDRICAL PIN"
+  },
+  {
+    "part_code": "VEGA-6              008423",
+    "part_image": "../assets/VEGA-6_008423.jpg",
+    "description": "CYLINDRICAL PIN (WITH SERCLIP GROVE)"
+  },
+  {
+    "part_code": "VEGA-6              008414",
+    "part_image": "../assets/VEGA-6_008414.jpg",
+    "description": "BEARING CAP"
+  },
+  {
+    "part_code": "VEGA-6              008917",
+    "part_image": "../assets/VEGA-6_008917.jpg",
+    "description": "CLAMPING PIECE"
+  },
+  {
+    "part_code": "VEGA-6              SA0818",
+    "part_image": "../assets/VEGA-6_SA0818.jpg",
+    "description": "EXCENTER ROLLER (ø52) COMPLEAT ASSY"
+  },
+  {
+    "part_code": "VEGA-6              SA0822",
+    "part_image": "../assets/VEGA-6_SA0822.jpg",
+    "description": "LEVER  ASSEMBLY"
+  },
+  {
+    "part_code": "009801",
+    "part_image": "../assets/009801.png",
+    "description": "RETURN PULLEY STRAIGHT 100.5 LG"
+  },
+  {
+    "part_code": "VEGA-6              009402",
+    "part_image": "../assets/VEGA-6_009402.jpg",
+    "description": "AXEL (SMALL)"
+  },
+  {
+    "part_code": "VEGA-6               009904",
+    "part_image": "../assets/VEGA-6_009904.jpg",
+    "description": "FELT RING"
+  },
+  {
+    "part_code": "VEGA-6  009905   (720)",
+    "part_image": "../assets/VEGA-6_009905_(720).jpg",
+    "description": "LOWER HEDDLE BELT"
+  },
+  {
+    "part_code": "VEGA-6              009906",
+    "part_image": "../assets/VEGA-6_009906.jpg",
+    "description": "HELD WIRE"
+  },
+  {
+    "part_code": "VEGA-6   009907   (720)",
+    "part_image": "../assets/VEGA-6_009907_(720).jpg",
+    "description": "UPPER HEDDLE BELT"
+  },
+  {
+    "part_code": "VEGA-6              SA0993",
+    "part_image": "../assets/VEGA-6_SA0993.png",
+    "description": "HELD WIRE WITH HEDEL BELT ASSY"
+  },
+  {
+    "part_code": "VEGA-6              009808",
+    "part_image": "../assets/VEGA-6_009808.png",
+    "description": "RETURN PULLEY TAPER 100.5 LG"
+  },
+  {
+    "part_code": "VEGA-6              SA0991",
+    "part_image": "../assets/VEGA-6_SA0991.png",
+    "description": "RETURN PULLEY STRAIGHT 100.5 LG ASSY"
+  },
+  {
+    "part_code": "VEGA-6              SA0992",
+    "part_image": "../assets/VEGA-6_SA0992.png",
+    "description": "RETURN PULLEY TAPER 100.5 LG ASSY"
+  },
+  {
+    "part_code": "VEGA-6              010501",
+    "part_image": "../assets/VEGA-6_010501.png",
+    "description": "EYELET BOW"
+  },
+  {
+    "part_code": "VEGA-6              010902",
+    "part_image": "../assets/VEGA-6_010902.jpg",
+    "description": "CERAMIC"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "ARALDITE 500 GM"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "HARDNER 400 GM"
+  },
+  {
+    "part_code": "VEGA-6              011806",
+    "part_image": "../assets/VEGA-6_011806.jpg",
+    "description": "COMPENSATOR HOLDER (THRU HOLES)"
+  },
+  {
+    "part_code": "VEGA-6              011807",
+    "part_image": "../assets/VEGA-6_011807.jpg",
+    "description": "INTERMEDIATE PIECE"
+  },
+  {
+    "part_code": "VEGA-6              011808",
+    "part_image": "../assets/VEGA-6_011808.jpg",
+    "description": "SUPPORT"
+  },
+  {
+    "part_code": "VEGA-6              011409",
+    "part_image": "../assets/VEGA-6_011409.png",
+    "description": "COMPENSATOR WIRE D 2.2"
+  },
+  {
+    "part_code": "VEGA-6              011410",
+    "part_image": "../assets/VEGA-6_011410.jpg",
+    "description": "THREAD EYE"
+  },
+  {
+    "part_code": "VEGA-6             011811",
+    "part_image": "../assets/VEGA-6_011811.jpg",
+    "description": "COMPENSATOR SPACER"
+  },
+  {
+    "part_code": "VEGA-6              011512",
+    "part_image": "../assets/VEGA-6_011512.jpg",
+    "description": "TENSION SPRING"
+  },
+  {
+    "part_code": "VEGA-6              011513",
+    "part_image": "../assets/VEGA-6_011513.jpg",
+    "description": "SPRING HOLDER (ø 1.2 )"
+  },
+  {
+    "part_code": "VEGA-6              011814",
+    "part_image": "../assets/VEGA-6_011814.jpg",
+    "description": "BENDING SPRING DIVISER"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "TAPE DIVIDER 576 DENT"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.png",
+    "description": "TAPE DIVIDER 720 DENT"
+  },
+  {
+    "part_code": "VEGA-6              011823",
+    "part_image": "../assets/VEGA-6_011823.jpg",
+    "description": "COMPENSATION HOLDER (THRU HOLES)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "OILER DROPER"
+  },
+  {
+    "part_code": "VEGA-6              012803",
+    "part_image": "../assets/VEGA-6_012803.jpg",
+    "description": "CLAMPING PIECE (BOTTOM)"
+  },
+  {
+    "part_code": "VEGA-6              012802",
+    "part_image": "../assets/VEGA-6_012802.jpg",
+    "description": "CLAMPING PIECE (TOP)"
+  },
+  {
+    "part_code": "VEGA-6              SA1213",
+    "part_image": "../assets/VEGA-6_SA1213.jpg",
+    "description": "CLAMPING PIECE ASSY"
+  },
+  {
+    "part_code": "VEGA-6              012806",
+    "part_image": "../assets/VEGA-6_012806.jpg",
+    "description": "VERTICAL CABLE TUBE BOTTOM BKT."
+  },
+  {
+    "part_code": "VEGA-6              012407",
+    "part_image": "../assets/VEGA-6_012407.jpg",
+    "description": "BRIDGE"
+  },
+  {
+    "part_code": "VEGA-6              012808",
+    "part_image": "../assets/VEGA-6_012808.png",
+    "description": "CONTROL SWITCH COVER -1"
+  },
+  {
+    "part_code": "VEGA-6              012809",
+    "part_image": "../assets/VEGA-6_012809.jpg",
+    "description": "CONTROL SWITCH COVER -2"
+  },
+  {
+    "part_code": "VEGA-6              SA1214",
+    "part_image": "../assets/VEGA-6_SA1214.jpg",
+    "description": "CONTROL SWITCH COVER PAIR"
+  },
+  {
+    "part_code": "VEGA-6              013401",
+    "part_image": "../assets/VEGA-6_013401.jpg",
+    "description": "WEAVING RING HOLDER(388LG)"
+  },
+  {
+    "part_code": "VEGA-6              013405",
+    "part_image": "../assets/VEGA-6_013405.jpg",
+    "description": "WEAVING RING HOLDER MOUNTING BRACKET"
+  },
+  {
+    "part_code": "VEGA-6              013407",
+    "part_image": "../assets/VEGA-6_013407.jpg",
+    "description": "WEAVING RING HOLDER PIN"
+  },
+  {
+    "part_code": "VEGA-6              013408",
+    "part_image": "../assets/VEGA-6_013408.jpg",
+    "description": "WEAVING RING HOLDER (446LG)"
+  },
+  {
+    "part_code": "VEGA-6              013409",
+    "part_image": "../assets/VEGA-6_013409.jpg",
+    "description": "WEAVING RING HOLDER (502LG)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING  12 INCH Ø194"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 15 INCH Ø242.5"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 18 INCH Ø291"
+  },
+  {
+    "part_code": "VEGA-6              014401",
+    "part_image": "../assets/VEGA-6_014401.jpg",
+    "description": "WEAVING RING 19\""
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 19.5 INCH Ø316"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 20 INCH Ø325"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 21 INCH Ø350"
+  },
+  {
+    "part_code": "VEGA-6             014402",
+    "part_image": "../assets/VEGA-6_014402.jpg",
+    "description": "WEAVING RING 22\""
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 22.5 INCH Ø388"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 24 INCH Ø413.8"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 25.5 INCH Ø413.8"
+  },
+  {
+    "part_code": "VEGA-6              014403",
+    "part_image": "../assets/VEGA-6_014403.jpg",
+    "description": "WEAVING RING 26\""
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 27 INCH Ø436"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 27.5 INCH Ø445"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 28 INCH Ø453"
+  },
+  {
+    "part_code": "VEGA-6              014404",
+    "part_image": "../assets/VEGA-6_014404.jpg",
+    "description": "WEAVING RING 30\""
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 32 INCH Ø517.5"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 33 INCH Ø533.5"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "WEAVING RING 34 INCH Ø550"
+  },
+  {
+    "part_code": "VEGA-6              014405",
+    "part_image": "../assets/VEGA-6_014405.jpg",
+    "description": "WEAVING RING 36\" Ø582"
+  },
+  {
+    "part_code": "VEGA-6              014406",
+    "part_image": "../assets/VEGA-6_014406.jpg",
+    "description": "1) GUIDE PLATE  19\"                       2) GUIDE PLATE  22\"                       3) GUIDE PLATE  24\"                       4) GUIDE PLATE  26\"                        5) GUIDE PLATE  30\""
+  },
+  {
+    "part_code": "VEGA-6              014407",
+    "part_image": "../assets/VEGA-6_014407.jpg",
+    "description": "SLIDER"
+  },
+  {
+    "part_code": "VEGA-6              SA1409",
+    "part_image": "../assets/VEGA-6_SA1409.jpg",
+    "description": "GUIDE PLATE SLIDER ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6             015501",
+    "part_image": "../assets/VEGA-6_015501.jpg",
+    "description": "MAGNET SENSOR ROD MTG BKT"
+  },
+  {
+    "part_code": "VEGA-6              015502",
+    "part_image": "../assets/VEGA-6_015502.jpg",
+    "description": "MAGNET SENSOR ROD"
+  },
+  {
+    "part_code": "VEGA-6              015406",
+    "part_image": "../assets/VEGA-6_015406.jpg",
+    "description": "SENSOR MTG BKT"
+  },
+  {
+    "part_code": "VEGA-6              015507",
+    "part_image": "../assets/VEGA-6_015507.jpg",
+    "description": "MAGNET SENSOR MTG BKT"
+  },
+  {
+    "part_code": "VEGA-6             015912",
+    "part_image": "../assets/VEGA-6_015912.jpg",
+    "description": "MAGNET SENSOR(VEGA 6)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.png",
+    "description": "MAGNET SENSOR SPECIAL NUT"
+  },
+  {
+    "part_code": "VEGA-6              SA1514",
+    "part_image": "../assets/VEGA-6_SA1514.png",
+    "description": "COMPLEAT MAGNET SENSOR ASSY"
+  },
+  {
+    "part_code": "VEGA-6              016501",
+    "part_image": "../assets/VEGA-6_016501.jpg",
+    "description": "COLOUR SENSOR MTG PAD"
+  },
+  {
+    "part_code": "VEGA-6              016503",
+    "part_image": "../assets/VEGA-6_016503.jpg",
+    "description": "COLOUR SENSOR ROD"
+  },
+  {
+    "part_code": "VEGA-6              016405",
+    "part_image": "../assets/VEGA-6_016405.jpg",
+    "description": "SENSOR MTG BKT"
+  },
+  {
+    "part_code": "VEGA-6              016506",
+    "part_image": "../assets/VEGA-6_016506.jpg",
+    "description": "COLOUR SENSOR MTG BKT"
+  },
+  {
+    "part_code": "VEGA-6              016408",
+    "part_image": "../assets/VEGA-6_016408.jpg",
+    "description": "NYLON BUSH"
+  },
+  {
+    "part_code": "VEGA-6              016909",
+    "part_image": "../assets/VEGA-6_016909.jpg",
+    "description": "BOBBIN SENSOR / COLOUR SENSOR  (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6              SA1612",
+    "part_image": "../assets/VEGA-6_SA1612.png",
+    "description": "COMPLETE BOBBIN SENSOR / COLOUR SENSOR  (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6              017401",
+    "part_image": "../assets/VEGA-6_017401.jpg",
+    "description": "BEARING DISTANCE"
+  },
+  {
+    "part_code": "VEGA-6              017402",
+    "part_image": "../assets/VEGA-6_017402.jpg",
+    "description": "SEALING DISC"
+  },
+  {
+    "part_code": "VEGA-6              017803",
+    "part_image": "../assets/VEGA-6_017803.png",
+    "description": "DRAWING  ROLL"
+  },
+  {
+    "part_code": "VEGA-6              017507",
+    "part_image": "../assets/VEGA-6_017507.jpg",
+    "description": "DRIVE BLOCK"
+  },
+  {
+    "part_code": "VEGA-6              SA1711",
+    "part_image": "../assets/VEGA-6_SA1711.jpg",
+    "description": "DRIVING ROLL/ PUSHER   ASSY"
+  },
+  {
+    "part_code": "VEGA-6              SA1712",
+    "part_image": "../assets/VEGA-6_SA1712.jpg",
+    "description": "DRRIVE BLOCK COMPLEAT ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              018401",
+    "part_image": "../assets/VEGA-6_018401.jpg",
+    "description": "SPACER"
+  },
+  {
+    "part_code": "VEGA-6              018802",
+    "part_image": "../assets/VEGA-6_018802.jpg",
+    "description": "BANDAGE BRAKE ROLL"
+  },
+  {
+    "part_code": "VEGA-6              018402",
+    "part_image": "../assets/VEGA-6_018402.png",
+    "description": "BANDAGE BRAKE ROLL"
+  },
+  {
+    "part_code": "VEGA-6              018904",
+    "part_image": "../assets/VEGA-6_018904.jpg",
+    "description": "SPL. HEX BOLT (M8)"
+  },
+  {
+    "part_code": "VEGA-6               018505",
+    "part_image": "../assets/VEGA-6_018505.jpg",
+    "description": "BRAKE STAND"
+  },
+  {
+    "part_code": "VEGA-6              SA1809",
+    "part_image": "../assets/VEGA-6_SA1809.jpg",
+    "description": "BANDAGE BRAKE ROLL ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6               SA1810",
+    "part_image": "../assets/VEGA-6_SA1810.jpg",
+    "description": "BRAKE STAND COMPLEAT ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              019401",
+    "part_image": "../assets/VEGA-6_019401.jpg",
+    "description": "COLLAR"
+  },
+  {
+    "part_code": "VEGA-6              019403",
+    "part_image": "../assets/VEGA-6_019403.png",
+    "description": "THREAD ROD BIG (TOTAL LENGTH 693 MM)"
+  },
+  {
+    "part_code": "VEGA-6              019405",
+    "part_image": "../assets/VEGA-6_019405.png",
+    "description": "CONECTING PIECE"
+  },
+  {
+    "part_code": "VEGA-6             019406",
+    "part_image": "../assets/VEGA-6_019406.png",
+    "description": "SLIDING PIECE"
+  },
+  {
+    "part_code": "VEGA-6              019407",
+    "part_image": "../assets/VEGA-6_019407.png",
+    "description": "THREAD ROD (SMALL) (LH/RH)"
+  },
+  {
+    "part_code": "VEGA-6              019908",
+    "part_image": "../assets/VEGA-6_019908.png",
+    "description": "PRESSURE SPRING"
+  },
+  {
+    "part_code": "VEGA-6              019809",
+    "part_image": "../assets/VEGA-6_019809.jpg",
+    "description": "HOLDER SLEEVE"
+  },
+  {
+    "part_code": "VEGA-6              019510",
+    "part_image": "../assets/VEGA-6_019510.jpg",
+    "description": "SPREADER LEAVER (SMALL)"
+  },
+  {
+    "part_code": "VEGA-6               019411",
+    "part_image": "../assets/VEGA-6_019411.jpg",
+    "description": "CAP SLEVE"
+  },
+  {
+    "part_code": "VEGA-6              019517",
+    "part_image": "../assets/VEGA-6_019517.jpg",
+    "description": "SPREADER LEVER LH, RH(BIG)"
+  },
+  {
+    "part_code": "VEGA-6              019818",
+    "part_image": "../assets/VEGA-6_019818.jpg",
+    "description": "SPERADER ROLLER"
+  },
+  {
+    "part_code": "VEGA-6              SA1922",
+    "part_image": "../assets/VEGA-6_SA1922.png",
+    "description": "SPERADER ROLLER WITH BEARING"
+  },
+  {
+    "part_code": "VEGA-6              SA1923",
+    "part_image": "../assets/VEGA-6_SA1923.jpg",
+    "description": "COMPLETE SPREADER ASSEMBLY"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "COMPLETE SPREADER ASSEMBLY (WITHOUT SPREADER ROLLER)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "SPREADER ARM BIG"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "SPREADER ARM SMALL"
+  },
+  {
+    "part_code": "JAIKO-608               020517",
+    "part_image": "../assets/JAIKO-608_020517.jpg",
+    "description": "ENTRY STEP MTG. BEARING"
+  },
+  {
+    "part_code": "VEGA-608    022501",
+    "part_image": "../assets/VEGA-608_022501.jpg",
+    "description": "OPEN BAR"
+  },
+  {
+    "part_code": "JAIKO-810      042402",
+    "part_image": "../assets/JAIKO-810_042402.jpg",
+    "description": "COLLER"
+  },
+  {
+    "part_code": "JAIKO-810      042903",
+    "part_image": "../assets/JAIKO-810_042903.png",
+    "description": "SPRING"
+  },
+  {
+    "part_code": "VEGA-6              022804",
+    "part_image": "../assets/VEGA-6_022804.jpg",
+    "description": "BUSH MTG. GUIDE ROLL D48"
+  },
+  {
+    "part_code": "VEGA-6              022404",
+    "part_image": "../assets/VEGA-6_022404.png",
+    "description": "BUSH MTG. GUIDE ROLL D48"
+  },
+  {
+    "part_code": "VEGA-6              022405",
+    "part_image": "../assets/VEGA-6_022405.jpg",
+    "description": "AXLE D 17 1600 LG"
+  },
+  {
+    "part_code": "VEGA-6              022406",
+    "part_image": "../assets/VEGA-6_022406.jpg",
+    "description": "PIPE D 48"
+  },
+  {
+    "part_code": "VEGA-6              SA2209",
+    "part_image": "../assets/VEGA-6_SA2209.jpg",
+    "description": "GUIDE ROLLER ASSEMBLY COMP"
+  },
+  {
+    "part_code": "VEGA-6              023501",
+    "part_image": "../assets/VEGA-6_023501.jpg",
+    "description": "WATER TRAY"
+  },
+  {
+    "part_code": "VEGA-6              023402",
+    "part_image": "../assets/VEGA-6_023402.jpg",
+    "description": "COLLA SLEAVE (WATER TRAY)"
+  },
+  {
+    "part_code": "VEGA-6              023403",
+    "part_image": "../assets/VEGA-6_023403.jpg",
+    "description": "DISTANCE PIECE (WATTER TRAY)"
+  },
+  {
+    "part_code": "VEGA-6              023806",
+    "part_image": "../assets/VEGA-6_023806.png",
+    "description": "BEARING"
+  },
+  {
+    "part_code": "VEGA-6              023407",
+    "part_image": "../assets/VEGA-6_023407.jpg",
+    "description": "FOAM PIPE"
+  },
+  {
+    "part_code": "VEGA-6              023908",
+    "part_image": "../assets/VEGA-6_023908.jpg",
+    "description": "FOAM"
+  },
+  {
+    "part_code": "VEGA-6            SA2309",
+    "part_image": "../assets/VEGA-6_SA2309.png",
+    "description": "FOAM ROLLER ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6             SA2310",
+    "part_image": "../assets/VEGA-6_SA2310.jpg",
+    "description": "COMPLEAT WATER TRAY ASSY"
+  },
+  {
+    "part_code": "VEGA-6              024801",
+    "part_image": "../assets/VEGA-6_024801.jpg",
+    "description": "PIPE FOR MAXI ROLL"
+  },
+  {
+    "part_code": "VEGA-6              024402",
+    "part_image": "../assets/VEGA-6_024402.jpg",
+    "description": "SHAFT"
+  },
+  {
+    "part_code": "VEGA-6              024803",
+    "part_image": "../assets/VEGA-6_024803.jpg",
+    "description": "TUBULAR PLUG"
+  },
+  {
+    "part_code": "VEGA-6              024407",
+    "part_image": "../assets/VEGA-6_024407.jpg",
+    "description": "BRAKE PULLEY"
+  },
+  {
+    "part_code": "VEGA-6            SA2411",
+    "part_image": "../assets/VEGA-6_SA2411.jpg",
+    "description": "MAXI ROLL ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6             046916",
+    "part_image": "../assets/VEGA-6_046916.jpg",
+    "description": "MOTOR FOR MAXI (0.12 KW, 940 RPM, 63F/ B5)"
+  },
+  {
+    "part_code": "VEGA-6            046418",
+    "part_image": "../assets/VEGA-6_046418.jpg",
+    "description": "COLLAR SLEVE FOR MAXI ROLL"
+  },
+  {
+    "part_code": "VEGA-6             046511",
+    "part_image": "../assets/VEGA-6_046511.jpg",
+    "description": "R.G BOX MTG BKT (MAXI DRIVE)"
+  },
+  {
+    "part_code": "VEGA-6              042904",
+    "part_image": "../assets/VEGA-6_042904.jpg",
+    "description": "LOAD CELL 30 KG CAPACITY   ( FOR INFEED ) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA 6               046915",
+    "part_image": "../assets/VEGA_6_046915.jpg",
+    "description": "GEAR BOX (AS-16 F, RATIO- 44.73)"
+  },
+  {
+    "part_code": "VEGA-6              025901",
+    "part_image": "../assets/VEGA-6_025901.jpg",
+    "description": "LEATHER BELT"
+  },
+  {
+    "part_code": "VEGA-6              025502",
+    "part_image": "../assets/VEGA-6_025502.jpg",
+    "description": "SS STRIP"
+  },
+  {
+    "part_code": "VEGA-6              025403",
+    "part_image": "../assets/VEGA-6_025403.jpg",
+    "description": "LATHER BELT MTG BOLT"
+  },
+  {
+    "part_code": "VEGA-6              025906",
+    "part_image": "../assets/VEGA-6_025906.jpg",
+    "description": "WING NUT M8 TAKE UP"
+  },
+  {
+    "part_code": "VEGA-6              SA2509",
+    "part_image": "../assets/VEGA-6_SA2509.jpg",
+    "description": "COMPLEAT  LEATHER BELT  ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              026901",
+    "part_image": "../assets/VEGA-6_026901.jpg",
+    "description": "W63, i64 P-71 B 5 (TAKE UP GEAR BOX)"
+  },
+  {
+    "part_code": "VEGA-6              026902",
+    "part_image": "../assets/VEGA-6_026902.jpg",
+    "description": "MOTOR (0.37 kw X 1350 RPM - 71 FRAME SIZE- B5  (TAKE UP MOTOR)"
+  },
+  {
+    "part_code": "VEGA-6             026406",
+    "part_image": "../assets/VEGA-6_026406.jpg",
+    "description": "SHAFT FOR GEAR BOX"
+  },
+  {
+    "part_code": "VEGA-6              026907",
+    "part_image": "../assets/VEGA-6_026907.jpg",
+    "description": "SPROCKET S 1/2\" 23 Z TAKE UP"
+  },
+  {
+    "part_code": "VEGA-6            026415",
+    "part_image": "../assets/VEGA-6_026415.jpg",
+    "description": "TIE"
+  },
+  {
+    "part_code": "VEGA-6             026916",
+    "part_image": "../assets/VEGA-6_026916.jpg",
+    "description": "UCFL-207"
+  },
+  {
+    "part_code": "VEGA-6             026917",
+    "part_image": "../assets/VEGA-6_026917.jpg",
+    "description": "SPROCKET S 41 Z 1/2\""
+  },
+  {
+    "part_code": "VEGA-6             026419",
+    "part_image": "../assets/VEGA-6_026419.jpg",
+    "description": "TAKE UP ROLLER"
+  },
+  {
+    "part_code": "VEGA-6             026820",
+    "part_image": "../assets/VEGA-6_026820.jpg",
+    "description": "PIPE FOR RETURN PULLY (TAKE UP)"
+  },
+  {
+    "part_code": "VEGA-6              026421",
+    "part_image": "../assets/VEGA-6_026421.jpg",
+    "description": "AXLE FOR RETURN PULLEY"
+  },
+  {
+    "part_code": "VEGA-6       024803(22)",
+    "part_image": "../assets/VEGA-6_024803(22).jpg",
+    "description": "TUBULAR PLUG"
+  },
+  {
+    "part_code": "VEGA-6              026523",
+    "part_image": "../assets/VEGA-6_026523.jpg",
+    "description": "ROCKING LEVER"
+  },
+  {
+    "part_code": "VEGA-6             026424",
+    "part_image": "../assets/VEGA-6_026424.jpg",
+    "description": "SPACER FOR ROCKING LEVER"
+  },
+  {
+    "part_code": "VEGA-6              026425",
+    "part_image": "../assets/VEGA-6_026425.jpg",
+    "description": "STOPPER PIN FOR ROCKING LEVER"
+  },
+  {
+    "part_code": "VEGA-6              SA2626",
+    "part_image": "../assets/VEGA-6_SA2626.jpg",
+    "description": "TAKE UP ROLLER ASSEMBLY  INCLUDES :UCFL-207   SPROCKET S 41 Z 1/2\""
+  },
+  {
+    "part_code": "VEGA-6              SA2627",
+    "part_image": "../assets/VEGA-6_SA2627.jpg",
+    "description": "RETURN PULLY ASSY (TAKE UP)"
+  },
+  {
+    "part_code": "VEGA-6             029801",
+    "part_image": "../assets/VEGA-6_029801.jpg",
+    "description": "INTERMEDIATE PIECE"
+  },
+  {
+    "part_code": "VEGA-6              029502",
+    "part_image": "../assets/VEGA-6_029502.jpg",
+    "description": "CREEL ILET HOLDER B 720"
+  },
+  {
+    "part_code": "VEGA-6              029503",
+    "part_image": "../assets/VEGA-6_029503.jpg",
+    "description": "CREEL ILET HOLDER A 720"
+  },
+  {
+    "part_code": "VEGA-6              029804",
+    "part_image": "../assets/VEGA-6_029804.jpg",
+    "description": "CONNECTING SIDE PIECE"
+  },
+  {
+    "part_code": "VEGA-6              029905",
+    "part_image": "../assets/VEGA-6_029905.jpg",
+    "description": "EYELET"
+  },
+  {
+    "part_code": "VEGA-6              029509",
+    "part_image": "../assets/VEGA-6_029509.jpg",
+    "description": "TAPE WEIGHT D3"
+  },
+  {
+    "part_code": "VEGA-6              031801",
+    "part_image": "../assets/VEGA-6_031801.jpg",
+    "description": "CONSOLE"
+  },
+  {
+    "part_code": "VEGA-6              031802",
+    "part_image": "../assets/VEGA-6_031802.jpg",
+    "description": "FRICTION BUSH"
+  },
+  {
+    "part_code": "VEGA-6              031803",
+    "part_image": "../assets/VEGA-6_031803.jpg",
+    "description": "LETRAL DISC BIG ø160"
+  },
+  {
+    "part_code": "VEGA-6              031804",
+    "part_image": "../assets/VEGA-6_031804.jpg",
+    "description": "BOBIN HOLDER"
+  },
+  {
+    "part_code": "VEGA-6              031505",
+    "part_image": "../assets/VEGA-6_031505.jpg",
+    "description": "ROD FOR CONE"
+  },
+  {
+    "part_code": "VEGA-6              031806",
+    "part_image": "../assets/VEGA-6_031806.jpg",
+    "description": "LETRAL DISC SMALL ø130"
+  },
+  {
+    "part_code": "VEGA-6              031807",
+    "part_image": "../assets/VEGA-6_031807.jpg",
+    "description": "CREEL BUSH"
+  },
+  {
+    "part_code": "VEGA-6              031508",
+    "part_image": "../assets/VEGA-6_031508.jpg",
+    "description": "ROD FOR CONE"
+  },
+  {
+    "part_code": "VEGA-6              032804",
+    "part_image": "../assets/VEGA-6_032804.jpg",
+    "description": "EXTENSION TUBE"
+  },
+  {
+    "part_code": "VEGA-6              032805",
+    "part_image": "../assets/VEGA-6_032805.jpg",
+    "description": "EXTENSION TUBE CAP /PIPE LOCKING BKT"
+  },
+  {
+    "part_code": "VEGA-6              032411",
+    "part_image": "../assets/VEGA-6_032411.jpg",
+    "description": "GRUVE ALUMINIUM GUIDE ROLL"
+  },
+  {
+    "part_code": "VEGA-6              032415",
+    "part_image": "../assets/VEGA-6_032415.jpg",
+    "description": "GRUVE GUIDE ROLL SHAFT"
+  },
+  {
+    "part_code": "VEGA-6              SA3222",
+    "part_image": "../assets/VEGA-6_SA3222.jpg",
+    "description": "EXTENSION ASSY"
+  },
+  {
+    "part_code": "VEGA-6             SA3223",
+    "part_image": "../assets/VEGA-6_SA3223.jpg",
+    "description": "GROOVE ALUMINIUM GUIDE ROLL ASSY"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "TAG"
+  },
+  {
+    "part_code": "VEGA-6              034901",
+    "part_image": "../assets/VEGA-6_034901.jpg",
+    "description": "R. G. BOX (AS20 F RATIO-37.31 080 B5, B3"
+  },
+  {
+    "part_code": "VEGA-6              034903",
+    "part_image": "../assets/VEGA-6_034903.jpg",
+    "description": "Motor (o.37 Kw, 910 RPM, F-80) FOR WINDER"
+  },
+  {
+    "part_code": "VEGA-6              034905",
+    "part_image": "../assets/VEGA-6_034905.jpg",
+    "description": "SPROCKET (12Z)"
+  },
+  {
+    "part_code": "VEGA-6              034907",
+    "part_image": "../assets/VEGA-6_034907.jpg",
+    "description": "Key (8THK x 10x 25 LG)"
+  },
+  {
+    "part_code": "VEGA-6             034908",
+    "part_image": "../assets/VEGA-6_034908.jpg",
+    "description": "SPROCKET 35 Z 1/2 \" 2 ROLL SURFACE WINDER (1000)"
+  },
+  {
+    "part_code": "VEGA-6             034909",
+    "part_image": "../assets/VEGA-6_034909.jpg",
+    "description": "SPROCKET 37 Z 1/2 \""
+  },
+  {
+    "part_code": "VEGA-6              034410",
+    "part_image": "../assets/VEGA-6_034410.jpg",
+    "description": "IDLER SPOCKET DISTANCE PIECE"
+  },
+  {
+    "part_code": "VEGA-6              034911",
+    "part_image": "../assets/VEGA-6_034911.jpg",
+    "description": "IDLER SPROCKET 15 Z 2 SURFACE WINDER"
+  },
+  {
+    "part_code": "VEGA-6              034916",
+    "part_image": "../assets/VEGA-6_034916.jpg",
+    "description": "SIMPLEX CHAIN                                         DUPLEX CHAIN                                        CHAIN (1/2 INCH X 5/16 INCH)"
+  },
+  {
+    "part_code": "VEGA-6              035901",
+    "part_image": "../assets/VEGA-6_035901.jpg",
+    "description": "UCFL-207"
+  },
+  {
+    "part_code": "VEGA-6              035404",
+    "part_image": "../assets/VEGA-6_035404.jpg",
+    "description": "WINDER ROLL ø 168"
+  },
+  {
+    "part_code": "VEGA-6              SA3511",
+    "part_image": "../assets/VEGA-6_SA3511.jpg",
+    "description": "WINDER ROLL ø 168 COMPLEAT ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              035906",
+    "part_image": "../assets/VEGA-6_035906.jpg",
+    "description": "EMRY BELT RUBBERISED EMRY CLOTH  (BLUE)"
+  },
+  {
+    "part_code": "VEGA-6              035407",
+    "part_image": "../assets/VEGA-6_035407.jpg",
+    "description": "WINDING SHAFT CONE"
+  },
+  {
+    "part_code": "VEGA-6              035408",
+    "part_image": "../assets/VEGA-6_035408.jpg",
+    "description": "WINDING SHAFT"
+  },
+  {
+    "part_code": "VEGA-6              SA3512",
+    "part_image": "../assets/VEGA-6_SA3512.png",
+    "description": "GROOVE ROLL ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              036801",
+    "part_image": "../assets/VEGA-6_036801.jpg",
+    "description": "SHUTTLE BODY"
+  },
+  {
+    "part_code": "VEGA-6              036403",
+    "part_image": "../assets/VEGA-6_036403.jpg",
+    "description": "BREAK ROLLER HOLDER"
+  },
+  {
+    "part_code": "VEGA-6              036406",
+    "part_image": "../assets/VEGA-6_036406.jpg",
+    "description": "CHOINCHOID ROLLER (SMALL)6.5˚ (SMALL)"
+  },
+  {
+    "part_code": "VEGA-6              036809",
+    "part_image": "../assets/VEGA-6_036809.jpg",
+    "description": "COVERING"
+  },
+  {
+    "part_code": "VEGA-6              036410",
+    "part_image": "../assets/VEGA-6_036410.jpg",
+    "description": "AXEL FOR SHUTTLE ROLLER"
+  },
+  {
+    "part_code": "VEGA-6              036411",
+    "part_image": "../assets/VEGA-6_036411.jpg",
+    "description": "SHUTTLE WHEEL ф45"
+  },
+  {
+    "part_code": "VEGA-6              036412",
+    "part_image": "../assets/VEGA-6_036412.png",
+    "description": "SLEEVE (D12 X 17LJ)"
+  },
+  {
+    "part_code": "VEGA-6              036414",
+    "part_image": "../assets/VEGA-6_036414.png",
+    "description": "AXLE- 3"
+  },
+  {
+    "part_code": "VEGA-6             036417",
+    "part_image": "../assets/VEGA-6_036417.jpg",
+    "description": "SPACER"
+  },
+  {
+    "part_code": "VEGA-6              036418",
+    "part_image": "../assets/VEGA-6_036418.jpg",
+    "description": "CONCHOID ROLLER BIG 6.5˚"
+  },
+  {
+    "part_code": "VEGA-6              SA3619",
+    "part_image": "../assets/VEGA-6_SA3619.jpg",
+    "description": "CONCHOID ROLLER SMALL ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              SA3620",
+    "part_image": "../assets/VEGA-6_SA3620.jpg",
+    "description": "SHUTTLE WHEEL ф45 ASSY"
+  },
+  {
+    "part_code": "VEGA-6              SA3621",
+    "part_image": "../assets/VEGA-6_SA3621.jpg",
+    "description": "CHONCHOID ROLLER BIG ASSEMBLY"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "CHONCOID ROLLER (BIG) (HPU)"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "CHONCOID ROLLER (BIG) (HPU) ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              037801",
+    "part_image": "../assets/VEGA-6_037801.jpg",
+    "description": "BRAKE BEARING"
+  },
+  {
+    "part_code": "VEGA-6              037804",
+    "part_image": "../assets/VEGA-6_037804.jpg",
+    "description": "BEARING BLOCK REAR-2"
+  },
+  {
+    "part_code": "VEGA-6             037407",
+    "part_image": "../assets/VEGA-6_037407.jpg",
+    "description": "PICK UP (SMALL)"
+  },
+  {
+    "part_code": "VEGA-6              037408",
+    "part_image": "../assets/VEGA-6_037408.jpg",
+    "description": "NUT"
+  },
+  {
+    "part_code": "VEGA-6              037411",
+    "part_image": "../assets/VEGA-6_037411.jpg",
+    "description": "AXEL D10 X 50 LG"
+  },
+  {
+    "part_code": "VEGA-6              037912",
+    "part_image": "../assets/VEGA-6_037912.jpg",
+    "description": "FLAT END PRESSURE SPRING"
+  },
+  {
+    "part_code": "VEGA-6              037413",
+    "part_image": "../assets/VEGA-6_037413.jpg",
+    "description": "PICK UP BIG"
+  },
+  {
+    "part_code": "VEGA-6              037415",
+    "part_image": "../assets/VEGA-6_037415.png",
+    "description": "BEARING BLOCK"
+  },
+  {
+    "part_code": "VEGA-6              SA3720",
+    "part_image": "../assets/VEGA-6_SA3720.jpg",
+    "description": "COMPLETE BEARING BLOCK REAR ASSEMBLY-2"
+  },
+  {
+    "part_code": "VEGA-6              SA3721",
+    "part_image": "../assets/VEGA-6_SA3721.png",
+    "description": "PICK UP ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6             SA3722",
+    "part_image": "../assets/VEGA-6_SA3722.png",
+    "description": "PICK UP BIG ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              038401",
+    "part_image": "../assets/VEGA-6_038401.jpg",
+    "description": "AXEL - 2"
+  },
+  {
+    "part_code": "VEGA-6              038402",
+    "part_image": "../assets/VEGA-6_038402.png",
+    "description": "SHUTTLE ROLLER / TRACK ROLLER"
+  },
+  {
+    "part_code": "VEGA-6              038804",
+    "part_image": "../assets/VEGA-6_038804.jpg",
+    "description": "COVERING"
+  },
+  {
+    "part_code": "VEGA-6              SA3806",
+    "part_image": "../assets/VEGA-6_SA3806.jpg",
+    "description": "SHUTTLE ROLLER / TRACK ROLLER ASSEMBLY  INCLUSIVE : SHUTTLE ROLLER, BEARING , CIRCLIP"
+  },
+  {
+    "part_code": "VEGA-6              SA3807",
+    "part_image": "../assets/VEGA-6_SA3807.jpg",
+    "description": "COMPLEAT SHUTTLE ROLLER / TRACK ROLLER ASSEMBLY                                  INCLUSIVE:                                        WITH AXEL-2                              SHUTTLE ROLLER/TRACK ROLLER                          BEARING"
+  },
+  {
+    "part_code": "VEGA-6             038407",
+    "part_image": "../assets/VEGA-6_038407.jpg",
+    "description": "SEALING WASHER"
+  },
+  {
+    "part_code": "VEGA-6            039501",
+    "part_image": "../assets/VEGA-6_039501.jpg",
+    "description": "SPRING LOADED ARM"
+  },
+  {
+    "part_code": "VEGA-6              039804",
+    "part_image": "../assets/VEGA-6_039804.png",
+    "description": "BRAKE SHOE/ TENSION PAD"
+  },
+  {
+    "part_code": "VEGA-6              039905",
+    "part_image": "../assets/VEGA-6_039905.jpg",
+    "description": "DOUBLE ADHESIVE TAPE"
+  },
+  {
+    "part_code": "VEGA-6              039906",
+    "part_image": "../assets/VEGA-6_039906.png",
+    "description": "LEATHER PAD"
+  },
+  {
+    "part_code": "not available",
+    "part_image": "../assets/not_available.jpg",
+    "description": "SPUNG PAD"
+  },
+  {
+    "part_code": "VEGA-6              039907",
+    "part_image": "../assets/VEGA-6_039907.jpg",
+    "description": "CLAPER EXTENSION SPRING"
+  },
+  {
+    "part_code": "VEGA-6              040801",
+    "part_image": "../assets/VEGA-6_040801.jpg",
+    "description": "SIDE FLANGE BIG"
+  },
+  {
+    "part_code": "VEGA-6              040906",
+    "part_image": "../assets/VEGA-6_040906.jpg",
+    "description": "EXTENSION RING"
+  },
+  {
+    "part_code": "VEGA-6             SA4007",
+    "part_image": "../assets/VEGA-6_SA4007.jpg",
+    "description": "SIDE FLENGE ASSEMBLY BIG"
+  },
+  {
+    "part_code": "VEGA-6              040808",
+    "part_image": "../assets/VEGA-6_040808.jpg",
+    "description": "SIDE FLANGE SMALL"
+  },
+  {
+    "part_code": "VEGA-6              040909",
+    "part_image": "../assets/VEGA-6_040909.png",
+    "description": "BOBIN SIDE WASHER (D-112)"
+  },
+  {
+    "part_code": "VEGA-6              040910",
+    "part_image": "../assets/VEGA-6_040910.png",
+    "description": "BOBIN SIDE WASHER (D-100)"
+  },
+  {
+    "part_code": "VEGA-6              SA4011",
+    "part_image": "../assets/VEGA-6_SA4011.jpg",
+    "description": "SIDE FLENGE ASSEMBLY SMALL"
+  },
+  {
+    "part_code": "VEGA-6              041801",
+    "part_image": "../assets/VEGA-6_041801.jpg",
+    "description": "BOOM HOLDER PLASTIC"
+  },
+  {
+    "part_code": "VEGA-6              041404",
+    "part_image": "../assets/VEGA-6_041404.jpg",
+    "description": "BOOM HOLDER SOLID PIN(5 x 30 LG)"
+  },
+  {
+    "part_code": "VEGA-6              041505",
+    "part_image": "../assets/VEGA-6_041505.jpg",
+    "description": "SHUTTLE GUARD"
+  },
+  {
+    "part_code": "VEGA-6              041806",
+    "part_image": "../assets/VEGA-6_041806.jpg",
+    "description": "SHUTTLE GUARD CLAMP"
+  },
+  {
+    "part_code": "VEGA-6              041507",
+    "part_image": "../assets/VEGA-6_041507.jpg",
+    "description": "WARP GUARD"
+  },
+  {
+    "part_code": "VEGA-6              041808",
+    "part_image": "../assets/VEGA-6_041808.jpg",
+    "description": "WARP GUARD CLAMP (REAR)"
+  },
+  {
+    "part_code": "VEGA-6              041809",
+    "part_image": "../assets/VEGA-6_041809.jpg",
+    "description": "WARP GUIDE CLAMP FRONT (R.H)"
+  },
+  {
+    "part_code": "VEGA-6             041810",
+    "part_image": "../assets/VEGA-6_041810.jpg",
+    "description": "WARP GUIDE CLAMP FRONT (L.H)"
+  },
+  {
+    "part_code": "Q",
+    "part_image": "../assets/Q.jpg",
+    "description": "WEFT GUIDE"
+  },
+  {
+    "part_code": "VEGA-6              042401",
+    "part_image": "../assets/VEGA-6_042401.jpg",
+    "description": "LOAD CELL MTG BKT"
+  },
+  {
+    "part_code": "VEGA-6              042406",
+    "part_image": "../assets/VEGA-6_042406.jpg",
+    "description": "LOAD CELL SHAFT SUPPORT BKT"
+  },
+  {
+    "part_code": "VEGA-6              042808",
+    "part_image": "../assets/VEGA-6_042808.jpg",
+    "description": "NYLON BUSH"
+  },
+  {
+    "part_code": "VEGA-6              042412",
+    "part_image": "../assets/VEGA-6_042412.jpg",
+    "description": "LOAD CELL SHAFT RERSTING BKT"
+  },
+  {
+    "part_code": "VEGA-6              042914",
+    "part_image": "../assets/VEGA-6_042914.jpg",
+    "description": "LOAD CELL 100 KG CAPACITY ( FOR WINDER  ) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6             SA4215",
+    "part_image": "../assets/VEGA-6_SA4215.png",
+    "description": "GROOVE ALUMINIUM GUIDE ROLL ASSY"
+  },
+  {
+    "part_code": "VEGA-6              043501",
+    "part_image": "../assets/grey.png",
+    "description": "FINGER HOLDER"
+  },
+  {
+    "part_code": "VEGA-6              043502",
+    "part_image": "../assets/VEGA-6_043502.jpg",
+    "description": "WEFT COMPENSATOR LEVER (MAGNET ) BOOM"
+  },
+  {
+    "part_code": "VEGA-6              043804",
+    "part_image": "../assets/VEGA-6_043804.png",
+    "description": "SPRING HOLDER (BOOM PIPE)"
+  },
+  {
+    "part_code": "VEGA-6              043405",
+    "part_image": "../assets/VEGA-6_043405.png",
+    "description": "SOLID DOWEL PIN (DIA 2 x 8LG)"
+  },
+  {
+    "part_code": "VEGA-6              043906",
+    "part_image": "../assets/VEGA-6_043906.jpg",
+    "description": "SPRING FOR LOW DEANIER"
+  },
+  {
+    "part_code": "VEGA-6              043907",
+    "part_image": "../assets/VEGA-6_043907.jpg",
+    "description": "SPRING -L"
+  },
+  {
+    "part_code": "VEGA-6             043908",
+    "part_image": "../assets/VEGA-6_043908.jpg",
+    "description": "SPRING -M"
+  },
+  {
+    "part_code": "VEGA-6             043909",
+    "part_image": "../assets/VEGA-6_043909.jpg",
+    "description": "SPRING -H"
+  },
+  {
+    "part_code": "VEGA-6              043910",
+    "part_image": "../assets/VEGA-6_043910.jpg",
+    "description": "EYE FOR SPRING LOADED ARM"
+  },
+  {
+    "part_code": "VEGA-6              043411",
+    "part_image": "../assets/VEGA-6_043411.png",
+    "description": "SOLID DOWEL PIN (DIA 2 x 14LG)"
+  },
+  {
+    "part_code": "VEGA-6             043812",
+    "part_image": "../assets/VEGA-6_043812.jpg",
+    "description": "LEVER HOLDER (BOOM)"
+  },
+  {
+    "part_code": "VEGA-6              043414",
+    "part_image": "../assets/VEGA-6_043414.png",
+    "description": "PIVOT PIN FOR BOOM HOLDER"
+  },
+  {
+    "part_code": "VEGA-6              043515",
+    "part_image": "../assets/VEGA-6_043515.png",
+    "description": "BOOM PIPE 1  (229 MM)"
+  },
+  {
+    "part_code": "VEGA-6              043516",
+    "part_image": "../assets/VEGA-6_043516.png",
+    "description": "BOOM PIPE  2  (259.7 MM)"
+  },
+  {
+    "part_code": "VEGA-6              043517",
+    "part_image": "../assets/VEGA-6_043517.png",
+    "description": "BOOM PIPE 3  (351 MM)"
+  },
+  {
+    "part_code": "VEGA-6              043518",
+    "part_image": "../assets/VEGA-6_043518.png",
+    "description": "BOOM PIPE 4 (310 MM)"
+  },
+  {
+    "part_code": "VEGA-6              043921",
+    "part_image": "../assets/VEGA-6_043921.png",
+    "description": "CIRAMIC KNOB"
+  },
+  {
+    "part_code": "VEGA-6              SA4323",
+    "part_image": "../assets/VEGA-6_SA4323.jpg",
+    "description": "BOOM ROD WITH CERAMIC KNOB ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              SA4324",
+    "part_image": "../assets/VEGA-6_SA4324.jpg",
+    "description": "WEFT COMPENSATION ASSEMBLY"
+  },
+  {
+    "part_code": "VEGA-6              SA4325",
+    "part_image": "../assets/VEGA-6_SA4325.jpg",
+    "description": "BOOM PIPE ASSEMBLY (1)  (229 mm LG)"
+  },
+  {
+    "part_code": "VEGA-6              SA4326",
+    "part_image": "../assets/VEGA-6_SA4326.jpg",
+    "description": "BOOM PIPE ASSEMBLY  (2)  (259.7 MM LG )"
+  },
+  {
+    "part_code": "VEGA-6              SA4327",
+    "part_image": "../assets/VEGA-6_SA4327.jpg",
+    "description": "BOOM PIPE ASSEMBLY  (3)  ( 351 MM LG)"
+  },
+  {
+    "part_code": "VEGA-6              SA4328",
+    "part_image": "../assets/VEGA-6_SA4328.jpg",
+    "description": "BOOM PIPE ASSEMBLY (4) (310 MM LG)"
+  },
+  {
+    "part_code": "VEGA-6            SA4401",
+    "part_image": "../assets/VEGA-6_SA4401.jpg",
+    "description": "COMPLETE SHUTTLE ASSY WITH BOOM PIPE ASSY"
+  },
+  {
+    "part_code": "VEGA-6             SA4402",
+    "part_image": "../assets/VEGA-6_SA4402.jpg",
+    "description": "COMPLETE SHUTTLE ASSY WITHOUT BOOM PIPE ASSY"
+  },
+  {
+    "part_code": "VEGA-6              064801",
+    "part_image": "../assets/VEGA-6_064801.jpg",
+    "description": "COMB SIDE PART SMALL"
+  },
+  {
+    "part_code": "VEGA-6              064802",
+    "part_image": "../assets/VEGA-6_064802.jpg",
+    "description": "SMALL COMB STRIP BUNCH 720 DENT"
+  },
+  {
+    "part_code": "VEGA-6              SA6409",
+    "part_image": "../assets/VEGA-6_SA6409.jpg",
+    "description": "COMPLETE COMB ASSEMBLY SMALL"
+  },
+  {
+    "part_code": "VEGA-6              065801",
+    "part_image": "../assets/VEGA-6_065801.jpg",
+    "description": "COMB SIDE PART (BIG)"
+  },
+  {
+    "part_code": "VEGA-6              065802",
+    "part_image": "../assets/VEGA-6_065802.jpg",
+    "description": "BIG COMB STRIP BUNCH 720 DENT"
+  },
+  {
+    "part_code": "VEGA-6              SA6507",
+    "part_image": "../assets/VEGA-6_SA6507.jpg",
+    "description": "COMPLETE COMB ASSY BIG (720 DENT)"
+  },
+  {
+    "part_code": "VEGA-6              066801",
+    "part_image": "../assets/VEGA-6_066801.jpg",
+    "description": "SMALL COMB STRIP BUNCH 576 DENT"
+  },
+  {
+    "part_code": "VEGA-6          064801(2)",
+    "part_image": "../assets/VEGA-6_064801(2).jpg",
+    "description": "COMB SIDE PART SMALL"
+  },
+  {
+    "part_code": "VEGA-6              SA6609",
+    "part_image": "../assets/VEGA-6_SA6609.jpg",
+    "description": "COMB ASSY SMALL(576 DENT)"
+  },
+  {
+    "part_code": "VEGA-6              067801",
+    "part_image": "../assets/VEGA-6_067801.jpg",
+    "description": "BIG COMB STRIP BUNCH 576 DENT"
+  },
+  {
+    "part_code": "VEGA-6          065801(2)",
+    "part_image": "../assets/VEGA-6_065801(2).jpg",
+    "description": "COMB SIDE PART (BIG)"
+  },
+  {
+    "part_code": "VEGA-6              SA6707",
+    "part_image": "../assets/VEGA-6_SA6707.jpg",
+    "description": "COMB ASSY BIG(576 DENT)"
+  },
+  {
+    "part_code": "VEGA-6              068501",
+    "part_image": "../assets/VEGA-6_068501.jpg",
+    "description": "CREEL EYELET HOLDER A (576 DENT)"
+  },
+  {
+    "part_code": "VEGA-6              068502",
+    "part_image": "../assets/VEGA-6_068502.jpg",
+    "description": "CREEL EYELET HOLDER B (576 DENT)"
+  },
+  {
+    "part_code": "VEGA-6               12916",
+    "part_image": "../assets/VEGA-6_12916.jpg",
+    "description": "BLACK PUSH BUTTON (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56919",
+    "part_image": "../assets/VEGA-6_56919.jpg",
+    "description": "2.5 SQ. MM TERMINALS (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56919",
+    "part_image": "../assets/VEGA-6_56919.jpg",
+    "description": "4 SQ. MM TERMINALS (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56908",
+    "part_image": "../assets/VEGA-6_56908.jpg",
+    "description": "230 V FUSE TERMINALS (CF4U) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56919",
+    "part_image": "../assets/VEGA-6_56919.jpg",
+    "description": "6 SQ. MM TERMINALS(VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56916",
+    "part_image": "../assets/VEGA-6_56916.jpg",
+    "description": "24 VDC FUSE TERMINAL (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6               57902",
+    "part_image": "../assets/VEGA-6_57902.jpg",
+    "description": "3 STAYPUT SELECTOR SWITCH (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                12918",
+    "part_image": "../assets/VEGA-6_12918.jpg",
+    "description": "GREEN PUSH BUTTON (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                12915",
+    "part_image": "../assets/VEGA-6_12915.jpg",
+    "description": "RED PILOT LIGHT (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                12917",
+    "part_image": "../assets/VEGA-6_12917.jpg",
+    "description": "EMERGENCY PUSH BUTTON (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56917",
+    "part_image": "../assets/VEGA-6_56917.jpg",
+    "description": "MCB DP 6 AMP (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56917",
+    "part_image": "../assets/VEGA-6_56917.jpg",
+    "description": "MCB SP 2 AMP (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6               56907",
+    "part_image": "../assets/VEGA-6_56907.jpg",
+    "description": "MCB TP 10 AMP"
+  },
+  {
+    "part_code": "VEGA-6               56917",
+    "part_image": "../assets/VEGA-6_56917.jpg",
+    "description": "MCB TP 16 AMP"
+  },
+  {
+    "part_code": "VEGA-6               56925",
+    "part_image": "../assets/VEGA-6_56925.jpg",
+    "description": "COMMUNICATION CABLE 0.5 MTR"
+  },
+  {
+    "part_code": "VEGA-6                57909",
+    "part_image": "../assets/VEGA-6_57909.jpg",
+    "description": "COMMUNICATION CABLE GOC HMI to COMMUNICATION CARD"
+  },
+  {
+    "part_code": "VEGA-6               57908",
+    "part_image": "../assets/VEGA-6_57908.jpg",
+    "description": "GC-RS422-COM (COMMUNICATION MODULE) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56922",
+    "part_image": "../assets/VEGA-6_56922.jpg",
+    "description": "PANEL FAN (4-inch) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                57904",
+    "part_image": "../assets/VEGA-6_57904.jpg",
+    "description": "ROTARY SWITCH - 32 AMP (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56912",
+    "part_image": "../assets/VEGA-6_56912.jpg",
+    "description": "LOAD CELL CARD (FOR WINDER & INFEED) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56915",
+    "part_image": "../assets/VEGA-6_56915.jpg",
+    "description": "8 CHANNEL RELAY CARD (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6               56915",
+    "part_image": "../assets/VEGA-6_56915.jpg",
+    "description": "4 CHANNEL RELAY CARD (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56918",
+    "part_image": "../assets/VEGA-6_56918.jpg",
+    "description": "LINE CHOKE -15 AMP (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56914",
+    "part_image": "../assets/VEGA-6_56914.jpg",
+    "description": "SMPS CARD  4.5AMP 24 VDC (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                47932",
+    "part_image": "../assets/VEGA-6_47932.jpg",
+    "description": "PORCELINE 30 AMP (VEGA 6) (FOR OPEN WINDER)"
+  },
+  {
+    "part_code": "VEGA-6                56911",
+    "part_image": "../assets/VEGA-6_56911.jpg",
+    "description": "WARP CARD (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                26929",
+    "part_image": "../assets/VEGA-6_26929.jpg",
+    "description": "8 MM  PROXY (2 MM SENSING)  (FOR MAIN MOTOR/TAKEUP MOTOR) VEGA 6"
+  },
+  {
+    "part_code": "VEGA-6                26929",
+    "part_image": "../assets/VEGA-6_26929.jpg",
+    "description": "8 MM  PROXY (4 MM SENSING) (FOR TAKEUP MOTOR) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                47906",
+    "part_image": "../assets/VEGA-6_47906.jpg",
+    "description": "THERMOCUTTER WITH THERMCOUPLE (VEGA 6) (FOR OPEN WINDER)"
+  },
+  {
+    "part_code": "VEGA-6                56924",
+    "part_image": "../assets/VEGA-6_56924.jpg",
+    "description": "COMMUNICATION CABLE 1 MTR (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56909",
+    "part_image": "../assets/VEGA-6_56909.jpg",
+    "description": "COMMUNICATION CARD (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                57901",
+    "part_image": "../assets/VEGA-6_57901.jpg",
+    "description": "GOC HMI ( GC35MH-32MT-DSS-J) ( PLC + HMI ) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56926",
+    "part_image": "../assets/VEGA-6_56926.jpg",
+    "description": "FR-E 840-0026-4-60 (0.75 kW)  (FOR OPEN / TORQUE WINDER) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56901",
+    "part_image": "../assets/VEGA-6_56901.jpg",
+    "description": "FR-D740-080-E16 ( 3.7 kW ) (FOR MAIN MOTOR DRIVE) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                56902",
+    "part_image": "../assets/VEGA-6_56902.jpg",
+    "description": "FR-D740-022-E16 (0.75 kW)  (FOR TAKEUP/LOADCELL WINDER/INFEED -1 & INFEED-2  DRIVE) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6               57907",
+    "part_image": "../assets/VEGA-6_57907.jpg",
+    "description": "GC-4AD-12 MODULE (GOC MODULE)  (FOR INFEED-1 & INFEED-2 ) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6                57906",
+    "part_image": "../assets/VEGA-6_57906.jpg",
+    "description": "GC-4DA-12 MODULE ( GOC MODULE)  ( FOR TAKEUP & WINDER) (VEGA 6)"
+  },
+  {
+    "part_code": "VEGA-6               57910",
+    "part_image": "../assets/VEGA-6_57910.jpg",
+    "description": "TEMPRATURE CONTROLLER  (OMRON MAKE) (FOR OPEN WINDER)"
+  }
+]
