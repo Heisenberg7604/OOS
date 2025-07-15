@@ -24,6 +24,11 @@ const PRODUCT_MAP = {
         asset: '/data/JAIKO-812_HF assets/',
         title: 'Vega 812 HF',
     },
+    'lamination-1600-polycoat': {
+        json: '/data/Polycoat.json',
+        asset: '/data/Polycoat assets/',
+        title: 'Lamination-1600 Polycoat',
+    },
     // Add more mappings as you add more products
 };
 
