@@ -59,10 +59,13 @@ const ProductCatalogPage = () => {
             try {
                 setLoading(true);
                 setError(null);
-                let response = await fetch(prod.json);
-                if (!response.ok) throw new Error('Not found');
-                let data = await response.json();
-                setProducts(data);
+                // Fetch products from backend API
+                const response = await fetch('http://localhost:5000/api/products');
+                if (!response.ok) {
+                    throw new Error(`Failed to load products: ${response.status}`);
+                }
+                const data = await response.json();
+                setProducts(data || []);
             } catch (err) {
                 // fallback
                 if (prod !== FALLBACK) {

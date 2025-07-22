@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { userAPI, handleAPIError } from '../api';
+import axios from 'axios';
 
 const UserManagement = () => {
   const { user: currentUser } = useAuth();
@@ -18,12 +18,17 @@ const UserManagement = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await userAPI.getAllUsers();
+      const token = localStorage.getItem('token');
+      const response = await axios.get('http://localhost:5001/api/admin/users', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
       setUsers(response.data);
     } catch (err) {
-      const errorInfo = handleAPIError(err);
-      setError(errorInfo.message);
-      console.error('Failed to fetch users:', errorInfo);
+      setError(err.response?.data?.message || 'Failed to fetch users');
+      console.error('Failed to fetch users:', err);
     } finally {
       setLoading(false);
     }
@@ -34,19 +39,25 @@ const UserManagement = () => {
       setUpdating(prev => ({ ...prev, [userId]: true }));
       setError(null);
       
-      await userAPI.updateUserRole(userId, newRole);
+      const token = localStorage.getItem('token');
+      await axios.put(`http://localhost:5001/api/admin/users/${userId}/role`, {
+        role: newRole
+      }, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
       
       // Update local state
       setUsers(users.map(user => 
         user._id === userId ? { ...user, role: newRole } : user
       ));
       
-      // Show success message (optional)
       console.log('User role updated successfully');
     } catch (err) {
-      const errorInfo = handleAPIError(err);
-      setError(`Failed to update user role: ${errorInfo.message}`);
-      console.error('Failed to update user role:', errorInfo);
+      setError(`Failed to update user role: ${err.response?.data?.message || 'Unknown error'}`);
+      console.error('Failed to update user role:', err);
     } finally {
       setUpdating(prev => ({ ...prev, [userId]: false }));
     }
@@ -62,17 +73,21 @@ const UserManagement = () => {
       setDeleting(prev => ({ ...prev, [userId]: true }));
       setError(null);
       
-      await userAPI.deleteUser(userId);
+      const token = localStorage.getItem('token');
+      await axios.delete(`http://localhost:5001/api/admin/users/${userId}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
       
       // Update local state
       setUsers(users.filter(user => user._id !== userId));
       
-      // Show success message (optional)
       console.log('User deleted successfully');
     } catch (err) {
-      const errorInfo = handleAPIError(err);
-      setError(`Failed to delete user: ${errorInfo.message}`);
-      console.error('Failed to delete user:', errorInfo);
+      setError(`Failed to delete user: ${err.response?.data?.message || 'Unknown error'}`);
+      console.error('Failed to delete user:', err);
     } finally {
       setDeleting(prev => ({ ...prev, [userId]: false }));
     }
@@ -83,7 +98,13 @@ const UserManagement = () => {
       setUpdating(prev => ({ ...prev, [userId]: true }));
       setError(null);
       
-      const response = await userAPI.toggleUserStatus(userId);
+      const token = localStorage.getItem('token');
+      const response = await axios.put(`http://localhost:5001/api/admin/users/${userId}/toggle-status`, {}, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
       
       // Update local state
       setUsers(users.map(user => 
@@ -91,9 +112,8 @@ const UserManagement = () => {
       ));
       
     } catch (err) {
-      const errorInfo = handleAPIError(err);
-      setError(`Failed to toggle user status: ${errorInfo.message}`);
-      console.error('Failed to toggle user status:', errorInfo);
+      setError(`Failed to toggle user status: ${err.response?.data?.message || 'Unknown error'}`);
+      console.error('Failed to toggle user status:', err);
     } finally {
       setUpdating(prev => ({ ...prev, [userId]: false }));
     }
@@ -115,13 +135,29 @@ const UserManagement = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">User Management</h1>
-        <button
-          onClick={refreshUsers}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors duration-200"
-        >
-          Refresh
-        </button>
+        <div className="flex items-center space-x-4">
+          <button
+            onClick={() => window.location.href = '/admin'}
+            className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition-colors duration-200"
+          >
+            ← Back to Dashboard
+          </button>
+          <h1 className="text-2xl font-bold text-gray-900">User Management</h1>
+        </div>
+        <div className="flex space-x-3">
+          <button
+            onClick={() => window.location.href = '/admin/create-user'}
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors duration-200"
+          >
+            Create Customer Account
+          </button>
+          <button
+            onClick={refreshUsers}
+            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors duration-200"
+          >
+            Refresh
+          </button>
+        </div>
       </div>
 
       {error && (
@@ -166,6 +202,9 @@ const UserManagement = () => {
                   Email
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Customer Info
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Role
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -201,6 +240,25 @@ const UserManagement = () => {
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {user.email}
                   </td>
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    <div className="space-y-1">
+                      {user.customerName && (
+                        <div><strong>Customer:</strong> {user.customerName}</div>
+                      )}
+                      {user.companyName && (
+                        <div><strong>Company:</strong> {user.companyName}</div>
+                      )}
+                      {user.phoneNumber && (
+                        <div><strong>Phone:</strong> {user.phoneNumber}</div>
+                      )}
+                      {user.address && (
+                        <div><strong>Address:</strong> {user.address}</div>
+                      )}
+                      {!user.customerName && !user.companyName && !user.phoneNumber && !user.address && (
+                        <div className="text-gray-400 italic">No customer info</div>
+                      )}
+                    </div>
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     {currentUser._id === user._id ? (
                       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
@@ -215,7 +273,6 @@ const UserManagement = () => {
                       >
                         <option value="user">User</option>
                         <option value="admin">Admin</option>
-                        <option value="moderator">Moderator</option>
                       </select>
                     )}
                   </td>

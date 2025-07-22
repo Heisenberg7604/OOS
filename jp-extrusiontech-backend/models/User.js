@@ -19,6 +19,36 @@ const UserSchema = new mongoose.Schema({
     enum: ['user', 'admin'], 
     default: 'user' 
   },
+  // Customer information fields
+  customerName: {
+    type: String,
+    required: false,
+    default: ''
+  },
+  companyName: {
+    type: String,
+    required: false,
+    default: ''
+  },
+  phoneNumber: {
+    type: String,
+    required: false,
+    default: ''
+  },
+  address: {
+    type: String,
+    required: false,
+    default: ''
+  },
+  isActive: {
+    type: Boolean,
+    default: true
+  },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: false
+  },
   createdAt: { 
     type: Date, 
     default: Date.now 

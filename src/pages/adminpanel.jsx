@@ -9,7 +9,7 @@ const AdminPanel = () => {
     const [activeTab, setActiveTab] = useState('dashboard');
     const [error, setError] = useState('');
 
-    const API_BASE_URL = 'http://localhost:5000/api';
+    const API_BASE_URL = 'http://localhost:5001/api';
 
     // Get auth token from localStorage
     const getAuthToken = () => {
@@ -216,14 +216,16 @@ const AdminPanel = () => {
                                 Orders
                             </button>
                             <button
-                                onClick={() => setActiveTab('users')}
-                                className={`px-4 py-2 rounded-lg font-medium ${
-                                    activeTab === 'users'
-                                        ? 'bg-blue-600 text-white'
-                                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                                }`}
+                                onClick={() => window.location.href = '/admin/users'}
+                                className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
                             >
-                                Users
+                                User Management
+                            </button>
+                            <button
+                                onClick={() => window.location.href = '/admin/create-user'}
+                                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+                            >
+                                Create Customer Account
                             </button>
                             <button
                                 onClick={handleLogout}
@@ -323,6 +325,63 @@ const AdminPanel = () => {
                                         <div className="text-2xl font-bold text-gray-900">{stats.totalProducts || 0}</div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        {/* Quick Actions */}
+                        <div className="bg-white p-6 rounded-lg shadow-sm border">
+                            <h3 className="text-lg font-medium text-gray-900 mb-4">Quick Actions</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <button
+                                    onClick={() => window.location.href = '/admin/users'}
+                                    className="flex items-center p-4 bg-purple-50 border border-purple-200 rounded-lg hover:bg-purple-100 transition-colors"
+                                >
+                                    <div className="flex-shrink-0">
+                                        <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
+                                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div className="ml-4">
+                                        <div className="text-sm font-medium text-purple-900">User Management</div>
+                                        <div className="text-sm text-purple-600">View and manage all customer accounts</div>
+                                    </div>
+                                </button>
+                                
+                                <button
+                                    onClick={() => window.location.href = '/admin/create-user'}
+                                    className="flex items-center p-4 bg-green-50 border border-green-200 rounded-lg hover:bg-green-100 transition-colors"
+                                >
+                                    <div className="flex-shrink-0">
+                                        <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div className="ml-4">
+                                        <div className="text-sm font-medium text-green-900">Create Customer Account</div>
+                                        <div className="text-sm text-green-600">Add new customer to the system</div>
+                                    </div>
+                                </button>
+                                
+                                <button
+                                    onClick={() => setActiveTab('orders')}
+                                    className="flex items-center p-4 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
+                                >
+                                    <div className="flex-shrink-0">
+                                        <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div className="ml-4">
+                                        <div className="text-sm font-medium text-blue-900">Order Management</div>
+                                        <div className="text-sm text-blue-600">View and manage all orders</div>
+                                    </div>
+                                </button>
                             </div>
                         </div>
 

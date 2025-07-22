@@ -31,7 +31,6 @@ function App() {
           {/* Public routes */}
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/admin/login" element={<AdminLogin />} />
@@ -48,6 +47,7 @@ function App() {
           <Route element={<ProtectedRoute roles={['admin']} />}>
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/admin/users" element={<UserManagement />} />
+            <Route path="/admin/create-user" element={<Register />} />
           </Route>
         </Routes>
         <Footer />
