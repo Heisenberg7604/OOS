@@ -87,12 +87,6 @@ const Navbar = () => {
                 >
                   Login
                 </Link>
-                <Link 
-                  to="/register" 
-                  className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors"
-                >
-                  Register
-                </Link>
               </>
             )}
           </div>
@@ -189,13 +183,6 @@ const Navbar = () => {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Login
-                  </Link>
-                  <Link 
-                    to="/register" 
-                    className="block px-3 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Register
                   </Link>
                 </div>
               )}

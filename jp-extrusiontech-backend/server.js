@@ -15,7 +15,7 @@ const Order = require('./models/Order');
 const Cart = require('./models/Cart');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Connect to MongoDB
 connectDB();
@@ -92,71 +92,11 @@ async function initializeDefaultAdmin() {
 }
 
 // Auth Routes
-// Register
+// Register - DISABLED (Admin-only account creation)
 app.post('/api/auth/register', async (req, res) => {
-    try {
-        const { name, email, password, role } = req.body;
-
-        // Validate input
-        if (!name || !email || !password) {
-            return res.status(400).json({ message: 'Name, email, and password are required' });
-        }
-
-        // Prevent admin registration through public endpoint
-        if (role === 'admin') {
-            return res.status(403).json({ message: 'Admin registration is not allowed through this endpoint' });
-        }
-
-        // Check if user already exists
-        const existingUser = await User.findOne({ email });
-        if (existingUser) {
-            return res.status(400).json({ message: 'User already exists' });
-        }
-
-        // Hash password
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        // Create user (always as 'user' role)
-        const user = new User({
-            name,
-            email,
-            password: hashedPassword,
-            role: 'user' // Force user role
-        });
-
-        await user.save();
-
-        // Initialize empty cart for new user
-        const cart = new Cart({
-            userId: user._id,
-            items: [],
-            total: 0
-        });
-        await cart.save();
-
-        // Create token
-        const token = jwt.sign({ 
-            id: user._id, 
-            email: user.email, 
-            role: user.role 
-        }, JWT_SECRET, {
-            expiresIn: '24h'
-        });
-
-        // Don't send password back
-        const userResponse = {
-            id: user._id,
-            name: user.name,
-            email: user.email,
-            role: user.role,
-            createdAt: user.createdAt
-        };
-
-        res.status(201).json({ user: userResponse, token });
-    } catch (err) {
-        console.error('Registration error:', err);
-        res.status(500).json({ message: 'Registration failed' });
-    }
+    res.status(403).json({ 
+        message: 'Public registration is disabled. Please contact an administrator to create your account.' 
+    });
 });
 
 // Login
@@ -690,6 +630,74 @@ app.delete('/api/admin/orders/:orderId', authenticateToken, requireAdmin, async 
     }
 });
 
+// Create customer account (admin only)
+app.post('/api/admin/create-customer', authenticateToken, requireAdmin, async (req, res) => {
+    try {
+        const { 
+            name, 
+            email, 
+            password, 
+            customerName, 
+            companyName, 
+            phoneNumber, 
+            address 
+        } = req.body;
+
+        if (!name || !email || !password) {
+            return res.status(400).json({ message: 'Name, email, and password are required' });
+        }
+
+        // Check if user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: 'User already exists' });
+        }
+
+        // Hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const user = new User({
+            name,
+            email,
+            password: hashedPassword,
+            role: 'user', // Always create as user
+            customerName: customerName || name,
+            companyName: companyName || '',
+            phoneNumber: phoneNumber || '',
+            address: address || '',
+            createdBy: req.user.id
+        });
+
+        await user.save();
+
+        // Initialize empty cart for new user
+        const cart = new Cart({
+            userId: user._id,
+            items: [],
+            total: 0
+        });
+        await cart.save();
+
+        // Don't send password back
+        const userResponse = {
+            id: user._id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            customerName: user.customerName,
+            companyName: user.companyName,
+            phoneNumber: user.phoneNumber,
+            address: user.address,
+            createdAt: user.createdAt
+        };
+
+        res.status(201).json(userResponse);
+    } catch (err) {
+        console.error('Create customer error:', err);
+        res.status(500).json({ message: 'Failed to create customer account' });
+    }
+});
+
 // Create additional admin user (admin only)
 app.post('/api/admin/users', authenticateToken, requireAdmin, async (req, res) => {
     try {
@@ -720,7 +728,8 @@ app.post('/api/admin/users', authenticateToken, requireAdmin, async (req, res) =
             name,
             email,
             password: hashedPassword,
-            role: role || 'user'
+            role: role || 'user',
+            createdBy: req.user.id
         });
 
         await user.save();
@@ -749,15 +758,98 @@ app.post('/api/admin/users', authenticateToken, requireAdmin, async (req, res) =
     }
 });
 
-// Delete user (admin only)
-app.delete('/api/admin/users/:userId', authenticateToken, requireAdmin, async (req, res) => {
+// Update user role (admin only)
+app.put('/api/admin/users/:userId/role', authenticateToken, requireAdmin, async (req, res) => {
     try {
         const { userId } = req.params;
-        const user = await User.findByIdAndDelete(userId);
+        const { role } = req.body;
+
+        if (!role || !['user', 'admin'].includes(role)) {
+            return res.status(400).json({ message: 'Valid role is required' });
+        }
+
+        // Prevent changing the last admin's role
+        if (role === 'user') {
+            const adminCount = await User.countDocuments({ role: 'admin' });
+            const currentUser = await User.findById(userId);
+            if (adminCount === 1 && currentUser.role === 'admin') {
+                return res.status(400).json({ message: 'Cannot remove the last admin user' });
+            }
+        }
+
+        const user = await User.findByIdAndUpdate(
+            userId,
+            { role, updatedAt: new Date() },
+            { new: true }
+        ).select('-password');
 
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
+
+        res.json(user);
+    } catch (err) {
+        console.error('Update user role error:', err);
+        res.status(500).json({ message: 'Failed to update user role' });
+    }
+});
+
+// Toggle user status (admin only)
+app.put('/api/admin/users/:userId/toggle-status', authenticateToken, requireAdmin, async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Prevent deactivating the last admin
+        if (user.role === 'admin' && user.isActive !== false) {
+            const adminCount = await User.countDocuments({ role: 'admin', isActive: { $ne: false } });
+            if (adminCount === 1) {
+                return res.status(400).json({ message: 'Cannot deactivate the last admin user' });
+            }
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { 
+                isActive: user.isActive === false ? true : false,
+                updatedAt: new Date() 
+            },
+            { new: true }
+        ).select('-password');
+
+        res.json({ 
+            user: updatedUser,
+            isActive: updatedUser.isActive 
+        });
+    } catch (err) {
+        console.error('Toggle user status error:', err);
+        res.status(500).json({ message: 'Failed to toggle user status' });
+    }
+});
+
+// Delete user (admin only)
+app.delete('/api/admin/users/:userId', authenticateToken, requireAdmin, async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Prevent deleting the last admin
+        if (user.role === 'admin') {
+            const adminCount = await User.countDocuments({ role: 'admin' });
+            if (adminCount === 1) {
+                return res.status(400).json({ message: 'Cannot delete the last admin user' });
+            }
+        }
+
+        await User.findByIdAndDelete(userId);
 
         // Also remove user's cart and orders
         await Cart.findOneAndDelete({ userId });
