@@ -1,53 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import gridshuttle from '../assets/gridshuttle.png';
+import gridbag from '../assets/gridbag.png';
 
 const ProductsPage = () => {
     const navigate = useNavigate();
-    const { addToCart, isAuthenticated } = useAuth();
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [successMsg, setSuccessMsg] = useState('');
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                setLoading(true);
-                setError(null);
-                const response = await fetch('http://localhost:5001/api/products');
-                if (!response.ok) throw new Error('Failed to fetch products');
-                const data = await response.json();
-                setProducts(data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchProducts();
-    }, []);
-
-    const handleAddToCart = async (partNo) => {
-        if (!isAuthenticated) {
-            navigate('/login');
-            return;
-        }
-        const result = await addToCart(partNo, 1);
-        if (result.success) {
-            setSuccessMsg('Added to cart!');
-            setTimeout(() => setSuccessMsg(''), 1500);
-        } else {
-            setError(result.message || 'Failed to add to cart');
-        }
-    };
-
-    if (loading) {
-        return <div className="text-center py-12">Loading products...</div>;
-    }
-    if (error) {
-        return <div className="text-center py-12 text-red-500">{error}</div>;
-    }
     return (
         <div className="min-h-screen bg-white flex flex-col">
             <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mt-12">
@@ -55,45 +13,105 @@ const ProductsPage = () => {
                     <div className="w-10 h-0.5 bg-black mr-4" />
                     <h2 className="text-2xl font-semibold">Products</h2>
                 </div>
-                {successMsg && (
-                    <div className="mb-4 p-3 bg-green-100 text-green-800 rounded-lg text-center font-semibold">
-                        {successMsg}
-                    </div>
-                )}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {products.map((product) => {
-                        let imgSrc = product.imagePath || '/assets/placeholder.jpg';
-                        // If imagePath does not start with /, fix it
-                        if (imgSrc && !imgSrc.startsWith('/')) {
-                            imgSrc = '/data/' + imgSrc.replace(/^assets\//, '');
-                        }
-                        return (
-                            <div key={product.partNo} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                                <div className="h-48 bg-gray-100 overflow-hidden flex items-center justify-center">
-                                    <img
-                                        src={imgSrc}
-                                        alt={product.description}
-                                        className="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
-                                        onError={e => { e.target.src = '/assets/placeholder.jpg'; }}
-                                    />
-                                </div>
-                                <div className="p-6">
-                                    <div className="mb-2">
-                                        <span className="text-sm font-medium text-red-500 bg-red-50 px-2 py-1 rounded">{product.partNo}</span>
-                                    </div>
-                                    <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">{product.description}</h3>
-                                    <button
-                                        className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors duration-200 font-semibold"
-                                        onClick={() => handleAddToCart(product.partNo)}
-                                    >
-                                        Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        );
-                    })}
+
+                {/* Product Cards Container */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {productList.map((product, idx) => (
+                        <ProductCard
+                            key={product.title + idx}
+                            title={product.title}
+                            img={product.img}
+                            dropdown={product.dropdown}
+                            category={product.category}
+                        />
+                    ))}
+                </div>
+
+                {/* More coming soon */}
+                <div className="mt-8 mb-12">
+                    <span className="text-3xl text-red-500 font-semibold drop-shadow-md">More coming soon...</span>
                 </div>
             </main>
+        </div>
+    );
+};
+
+const productList = [
+    {
+        title: 'Jaiko Loom Models',
+        img: gridshuttle,
+        category: 'jaiko-loom',
+        dropdown: [
+            { name: 'Vega-6 HS Star', subcategory: 'vega-6-hs-star' },
+            { name: 'Vega 608 HF', subcategory: 'vega-608-hf' },
+            { name: 'Vega 812 HF', subcategory: 'vega-812-hf' },
+        ],
+    },
+    {
+        title: 'JP Catalogues',
+        img: gridbag,
+        category: 'jp-catalogues',
+        dropdown: [
+            { name: 'Cheese winder JTW -200 IX', subcategory: 'cheese-winder-jtw-200-ix' },
+            { name: 'Flexographic Printing Machine', subcategory: 'flexographic-printing-machine' },
+            { name: 'Lamination-1600 Polycoat', subcategory: 'lamination-1600-polycoat' },
+            { name: 'Bag liner insertion machine', subcategory: 'bag-liner-insertion-machine' },
+            { name: 'Bag cutting Stitching Machine.', subcategory: 'bag-cutting-stitching-machine' },
+        ],
+    },
+];
+
+// ProductCard component with subcategories displayed directly
+const ProductCard = ({ title, img, dropdown, category }) => {
+    const navigate = useNavigate();
+
+    const handleDropdownClick = (subcategory) => {
+        navigate(`/products/${category}/${subcategory}`);
+    };
+
+    return (
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            {/* Header with image and title */}
+            <div className="flex items-center p-8 bg-gradient-to-r from-gray-50 to-white">
+                <img
+                    src={img}
+                    alt={title}
+                    className="w-24 h-24 object-cover rounded-xl mr-6"
+                />
+                <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">{title}</h3>
+                    <p className="text-gray-600">Select a category to view products</p>
+                </div>
+            </div>
+
+            {/* Subcategories grid */}
+            <div className="p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {dropdown.map((item, idx) => (
+                        <div
+                            key={item.name}
+                            onClick={() => handleDropdownClick(item.subcategory)}
+                            className="p-4 bg-gray-50 hover:bg-red-50 rounded-xl cursor-pointer border border-gray-200 hover:border-red-300 transition-all duration-200 group"
+                        >
+                            <div className="flex items-center justify-between">
+                                <span className="text-sm font-medium text-gray-700 group-hover:text-red-600 transition-colors duration-200">
+                                    {item.name}
+                                </span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2}
+                                    stroke="currentColor"
+                                    className="w-5 h-5 text-gray-400 group-hover:text-red-500 transition-colors duration-200"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };
