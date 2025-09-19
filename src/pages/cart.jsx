@@ -9,7 +9,7 @@ const CartPage = () => {
     const [error, setError] = useState(null);
     const [isCartLoading, setIsCartLoading] = useState(true);
     const [imageErrors, setImageErrors] = useState({});
-    
+
     const { user, isAuthenticated, logout, token, api } = useAuth();
     const navigate = useNavigate();
 
@@ -19,47 +19,26 @@ const CartPage = () => {
             navigate('/login');
             return;
         }
-        
+
         setIsCartLoading(true);
         setError(null);
-        
+
         try {
-            console.log('Attempting to fetch cart...');
-            const response = await api.get('/cart', {
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
-            });
-            
-            if (response.data && (response.data.items || response.data.length === 0)) {
-                console.log('Cart data received:', response.data);
-                setCart(response.data);
+            console.log('Loading cart from localStorage...');
+
+            // Load cart from localStorage
+            const storedCart = localStorage.getItem('cart');
+            if (storedCart) {
+                const cartData = JSON.parse(storedCart);
+                console.log('Cart data loaded:', cartData);
+                setCart(cartData);
             } else {
-                throw new Error('Invalid cart data structure received');
+                console.log('No cart data found, initializing empty cart');
+                setCart({ items: [], total: 0 });
             }
         } catch (error) {
-            console.error('Cart fetch error:', {
-                message: error.message,
-                response: error.response?.data,
-                status: error.response?.status,
-                config: {
-                    url: error.config?.url,
-                    method: error.config?.method
-                }
-            });
-            
-            if (error.response?.status === 401 || error.response?.status === 403) {
-                console.log('Authentication error - logging out');
-                logout();
-                navigate('/login');
-            } else if (error.response?.status === 404) {
-                setError('Cart service unavailable. Please try again later.');
-            } else {
-                setError(error.response?.data?.message || 
-                        error.message || 
-                        'Failed to load cart. Please refresh the page.');
-            }
+            console.error('Cart load error:', error);
+            setError('Failed to load cart. Please refresh the page.');
         } finally {
             setIsCartLoading(false);
         }
@@ -70,9 +49,9 @@ const CartPage = () => {
             navigate('/login');
             return;
         }
-        
+
         fetchCart();
-        
+
         // Cleanup function
         return () => {
             // Cancel any pending requests if component unmounts
@@ -84,34 +63,22 @@ const CartPage = () => {
             navigate('/login');
             return;
         }
-        
+
         try {
-            // Optimistic UI update
-            setCart(prev => ({
-                ...prev,
-                items: prev.items.filter(item => item["part no"] !== partNo),
-                total: prev.total - (prev.items.find(item => item["part no"] === partNo)?.price || 0)
-            }));
-            
-            await api.delete(`/cart/remove/${encodeURIComponent(partNo)}`, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
+            // Update cart state
+            setCart(prev => {
+                const newItems = prev.items.filter(item => item["part no"] !== partNo);
+                const newTotal = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const newCart = { items: newItems, total: newTotal };
+
+                // Save to localStorage
+                localStorage.setItem('cart', JSON.stringify(newCart));
+
+                return newCart;
             });
-            
-            // Final sync with server
-            await fetchCart();
         } catch (error) {
             console.error('Remove item error:', error);
-            // Revert optimistic update on error
-            await fetchCart();
-            
-            if (error.response?.status === 401 || error.response?.status === 403) {
-                logout();
-                navigate('/login');
-            } else {
-                setError('Failed to remove item. Please try again.');
-            }
+            setError('Failed to remove item. Please try again.');
         }
     };
 
@@ -120,64 +87,37 @@ const CartPage = () => {
             navigate('/login');
             return;
         }
-        
+
         try {
-            await api.delete('/cart/clear', {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
             setCart({ items: [], total: 0 });
+            localStorage.setItem('cart', JSON.stringify({ items: [], total: 0 }));
         } catch (error) {
             console.error('Clear cart error:', error);
-            
-            if (error.response?.status === 401 || error.response?.status === 403) {
-                logout();
-                navigate('/login');
-            } else {
-                setError('Failed to clear cart. Please try again.');
-            }
+            setError('Failed to clear cart. Please try again.');
         }
     };
 
     const handleQuantityChange = async (partNo, newQty) => {
         if (newQty < 1 || !isAuthenticated || !token) return;
-        
+
         try {
-            // Optimistic UI update
+            // Update cart state
             setCart(prev => {
-                const updatedItems = prev.items.map(item => 
+                const updatedItems = prev.items.map(item =>
                     item["part no"] === partNo ? { ...item, quantity: newQty } : item
                 );
-                
-                return {
-                    items: updatedItems,
-                    total: updatedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
-                };
+
+                const newTotal = updatedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const newCart = { items: updatedItems, total: newTotal };
+
+                // Save to localStorage
+                localStorage.setItem('cart', JSON.stringify(newCart));
+
+                return newCart;
             });
-            
-            await api.put('/cart/update', {
-                partNo,
-                quantity: newQty
-            }, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            
-            // Final sync with server
-            await fetchCart();
         } catch (error) {
             console.error('Quantity update error:', error);
-            // Revert optimistic update on error
-            await fetchCart();
-            
-            if (error.response?.status === 401 || error.response?.status === 403) {
-                logout();
-                navigate('/login');
-            } else {
-                setError('Failed to update quantity. Please try again.');
-            }
+            setError('Failed to update quantity. Please try again.');
         }
     };
 
@@ -195,32 +135,25 @@ const CartPage = () => {
 
         setIsLoading(true);
         setError(null);
-        
+
         try {
-            const response = await api.post('/orders', {
+            // Mock order submission
+            const mockOrder = {
+                id: 'order-' + Date.now(),
                 items: cart.items,
-                total: cart.total
-            }, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            
+                total: cart.total,
+                status: 'pending',
+                createdAt: new Date().toISOString()
+            };
+
             setOrderConfirmed(true);
             setCart({ items: [], total: 0 });
-            
-            // Optional: Show success notification
-            console.log('Order submitted successfully:', response.data);
+            localStorage.setItem('cart', JSON.stringify({ items: [], total: 0 }));
+
+            console.log('Order submitted successfully:', mockOrder);
         } catch (error) {
             console.error('Order submission error:', error);
-            
-            if (error.response?.status === 401 || error.response?.status === 403) {
-                logout();
-                navigate('/login');
-            } else {
-                setError(error.response?.data?.message || 
-                        'Failed to submit order. Please try again later.');
-            }
+            setError('Failed to submit order. Please try again later.');
         } finally {
             setIsLoading(false);
         }
@@ -235,19 +168,19 @@ const CartPage = () => {
 
     const getImageSrc = (item) => {
         const partNo = item["part no"] || item.partNo;
-        
+
         // If this image has already failed, return placeholder
         if (imageErrors[partNo]) {
             return '/assets/placeholder.jpg';
         }
-        
+
         let imgSrc = item["image path"] || '/assets/placeholder.jpg';
-        
+
         // Fix image path if it doesn't start with /
         if (imgSrc && !imgSrc.startsWith('/')) {
             imgSrc = '/data/stackofill assets/' + imgSrc.replace(/^assets\//, '');
         }
-        
+
         return imgSrc;
     };
 
@@ -304,7 +237,7 @@ const CartPage = () => {
                     <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg">
                         <div className="flex justify-between items-center">
                             <span>{error}</span>
-                            <button 
+                            <button
                                 onClick={() => setError(null)}
                                 className="ml-4 text-sm underline text-red-800 hover:text-red-900"
                             >
@@ -321,8 +254,8 @@ const CartPage = () => {
                             {orderConfirmed ? 'Order Confirmed!' : 'Your Cart is Empty'}
                         </h3>
                         <p className="text-gray-500 mb-4">
-                            {orderConfirmed 
-                                ? 'Thank you for your purchase. A confirmation has been sent to your email.' 
+                            {orderConfirmed
+                                ? 'Thank you for your purchase. A confirmation has been sent to your email.'
                                 : 'Browse our products to add items to your cart.'}
                         </p>
                         <button
@@ -350,7 +283,7 @@ const CartPage = () => {
                             {cart.items.map((item) => {
                                 const partNo = item["part no"] || item.partNo;
                                 const imgSrc = getImageSrc(item);
-                                
+
                                 return (
                                     <div key={partNo} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
                                         <div className="p-4 flex flex-col h-full">
@@ -407,11 +340,10 @@ const CartPage = () => {
                             <button
                                 onClick={handleSubmitOrder}
                                 disabled={isLoading || orderConfirmed}
-                                className={`w-full md:w-auto px-8 py-3 rounded-lg text-lg font-semibold transition-colors ${
-                                    isLoading || orderConfirmed
+                                className={`w-full md:w-auto px-8 py-3 rounded-lg text-lg font-semibold transition-colors ${isLoading || orderConfirmed
                                         ? 'bg-gray-400 cursor-not-allowed'
                                         : 'bg-green-600 text-white hover:bg-green-700'
-                                }`}
+                                    }`}
                             >
                                 {isLoading ? (
                                     <span className="flex items-center justify-center">

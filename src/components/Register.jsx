@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import axios from 'axios';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -49,21 +48,18 @@ const Register = () => {
     }
 
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:5001/api/admin/create-customer', {
+      // Mock customer creation
+      const mockCustomer = {
+        id: Date.now().toString(),
         name: formData.name,
         email: formData.email,
-        password: formData.password,
         customerName: formData.customerName || formData.name,
         companyName: formData.companyName,
         phoneNumber: formData.phoneNumber,
-        address: formData.address
-      }, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
+        address: formData.address,
+        role: 'user',
+        createdAt: new Date().toISOString()
+      };
 
       setSuccess('Customer account created successfully!');
       setFormData({
@@ -77,7 +73,7 @@ const Register = () => {
         address: ''
       });
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to create customer account');
+      setError('Failed to create customer account');
     }
 
     setLoading(false);
@@ -162,7 +158,7 @@ const Register = () => {
           {/* Customer Information Section */}
           <div className="border-t pt-6 mt-6">
             <h3 className="text-lg font-semibold mb-4 text-gray-800">Customer Information</h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="mb-4">
                 <label className="block text-gray-700 mb-2" htmlFor="customerName">

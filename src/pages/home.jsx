@@ -34,10 +34,13 @@ const LandingPage = () => {
       try {
         setLoading(true);
         setError(null);
-        const response = await fetch('http://localhost:5000/api/products');
-        if (!response.ok) throw new Error('Failed to fetch products');
-        const data = await response.json();
-        setProducts(data);
+        // Mock products for demo purposes
+        const mockProducts = [
+          { partNo: 'PART001', description: 'Sample Product 1' },
+          { partNo: 'PART002', description: 'Sample Product 2' },
+          { partNo: 'PART003', description: 'Sample Product 3' }
+        ];
+        setProducts(mockProducts);
       } catch (err) {
         setError(err.message);
       } finally {

@@ -1,82 +1,59 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [token, setToken] = useState(null);
   const [cart, setCart] = useState({ items: [], total: 0 });
 
-  // Initialize axios
-  const api = axios.create({
-    baseURL: 'http://localhost:5001/api',
-  });
-
-  // Add auth token to requests
-  api.interceptors.request.use(config => {
-    const currentToken = token || localStorage.getItem('token');
-    if (currentToken) {
-      config.headers.Authorization = `Bearer ${currentToken}`;
-    }
-    return config;
-  });
-
-  // Response interceptor to handle token expiration
-  api.interceptors.response.use(
-    response => response,
-    error => {
-      if (error.response?.status === 401 || error.response?.status === 403) {
-        // Token expired or invalid
-        logout();
-      }
-      return Promise.reject(error);
-    }
-  );
+  // Mock API functions for frontend-only operation
+  const api = {
+    get: async (url) => ({ data: [] }),
+    post: async (url, data) => ({ data: { success: true } }),
+    put: async (url, data) => ({ data: { success: true } }),
+    delete: async (url) => ({ data: { success: true } })
+  };
 
   const checkAuth = async () => {
-    try {
-      // Get token from localStorage as fallback
-      const currentToken = token || localStorage.getItem('token');
-      
-      if (!currentToken) {
-        setLoading(false);
-        return;
-      }
+    // Check localStorage for existing session
+    const storedToken = localStorage.getItem('token');
+    const storedUser = localStorage.getItem('user');
 
-      // Update token in state if it was retrieved from localStorage
-      if (!token && currentToken) {
-        setToken(currentToken);
-      }
+    if (storedToken && storedUser) {
+      try {
+        const userData = JSON.parse(storedUser);
+        setUser(userData);
+        setToken(storedToken);
+        setIsAuthenticated(true);
 
-      const response = await api.get('/auth/me');
-      setUser(response.data);
-      setIsAuthenticated(true);
-      
-      // Load user's cart
-      await loadCart();
-    } catch (err) {
-      console.error('Auth check failed:', err);
-      setUser(null);
-      setIsAuthenticated(false);
-      setToken(null);
-      localStorage.removeItem('token');
-    } finally {
-      setLoading(false);
+        // Load cart from localStorage
+        const storedCart = localStorage.getItem('cart');
+        if (storedCart) {
+          setCart(JSON.parse(storedCart));
+        }
+      } catch (err) {
+        console.error('Failed to parse stored user data:', err);
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        localStorage.removeItem('cart');
+      }
     }
+    setLoading(false);
   };
 
   const loadCart = async () => {
-    try {
-      const currentToken = token || localStorage.getItem('token');
-      if (!currentToken) return;
-      const response = await api.get('/cart');
-      setCart(response.data);
-    } catch (err) {
-      console.error('Failed to load cart:', err);
-      setCart({ items: [], total: 0 });
+    // Load cart from localStorage
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      try {
+        setCart(JSON.parse(storedCart));
+      } catch (err) {
+        console.error('Failed to parse stored cart:', err);
+        setCart({ items: [], total: 0 });
+      }
     }
   };
 
@@ -97,34 +74,62 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password, role = 'user') => {
     try {
-      const response = await api.post('/auth/register', { name, email, password, role });
-      setToken(response.data.token);
-      localStorage.setItem('token', response.data.token);
-      setUser(response.data.user);
+      // Create mock user data
+      const mockUser = {
+        id: Date.now().toString(),
+        name,
+        email,
+        role,
+        createdAt: new Date().toISOString()
+      };
+
+      const mockToken = 'mock-token-' + Date.now();
+
+      // Store in localStorage
+      localStorage.setItem('token', mockToken);
+      localStorage.setItem('user', JSON.stringify(mockUser));
+
+      setToken(mockToken);
+      setUser(mockUser);
       setIsAuthenticated(true);
-      return { success: true, user: response.data.user };
+
+      return { success: true, user: mockUser };
     } catch (err) {
       console.error('Registration failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Registration failed' 
+      return {
+        success: false,
+        message: 'Registration failed'
       };
     }
   };
 
   const login = async (email, password) => {
     try {
-      const response = await api.post('/auth/login', { email, password });
-      setToken(response.data.token);
-      localStorage.setItem('token', response.data.token);
-      setUser(response.data.user);
+      // Mock login - accept any email/password combination
+      const mockUser = {
+        id: Date.now().toString(),
+        name: email.split('@')[0],
+        email,
+        role: email.includes('admin') ? 'admin' : 'user',
+        createdAt: new Date().toISOString()
+      };
+
+      const mockToken = 'mock-token-' + Date.now();
+
+      // Store in localStorage
+      localStorage.setItem('token', mockToken);
+      localStorage.setItem('user', JSON.stringify(mockUser));
+
+      setToken(mockToken);
+      setUser(mockUser);
       setIsAuthenticated(true);
-      return { success: true, user: response.data.user };
+
+      return { success: true, user: mockUser };
     } catch (err) {
       console.error('Login failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Login failed' 
+      return {
+        success: false,
+        message: 'Login failed'
       };
     }
   };
@@ -132,19 +137,27 @@ export const AuthProvider = ({ children }) => {
   // Admin login function for the navbar
   const loginAsAdmin = async (username, password) => {
     try {
-      // Try to login with admin credentials
-      const response = await api.post('/auth/login', { email: username, password });
-      
-      // Check if the user has admin role
-      if (response.data.user && response.data.user.role === 'admin') {
-        setToken(response.data.token);
-        localStorage.setItem('token', response.data.token);
-        setUser({ ...response.data.user, isAdmin: true });
-        setIsAuthenticated(true);
-        return true;
-      } else {
-        return false; // Not an admin
-      }
+      // Mock admin login - accept any username/password
+      const mockUser = {
+        id: Date.now().toString(),
+        name: username,
+        email: username + '@admin.com',
+        role: 'admin',
+        isAdmin: true,
+        createdAt: new Date().toISOString()
+      };
+
+      const mockToken = 'mock-admin-token-' + Date.now();
+
+      // Store in localStorage
+      localStorage.setItem('token', mockToken);
+      localStorage.setItem('user', JSON.stringify(mockUser));
+
+      setToken(mockToken);
+      setUser(mockUser);
+      setIsAuthenticated(true);
+
+      return true;
     } catch (err) {
       console.error('Admin login failed:', err);
       return false;
@@ -154,6 +167,8 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setToken(null);
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('cart');
     setUser(null);
     setIsAuthenticated(false);
     setCart({ items: [], total: 0 });
@@ -165,15 +180,45 @@ export const AuthProvider = ({ children }) => {
       if (!isAuthenticated) {
         throw new Error('Please login to add items to cart');
       }
-      
-      const response = await api.post('/cart/add', { partNo, quantity });
-      setCart(response.data);
+
+      // Mock product data
+      const mockProduct = {
+        partNo,
+        description: `Product ${partNo}`,
+        price: Math.floor(Math.random() * 100) + 10,
+        quantity
+      };
+
+      // Update cart state
+      setCart(prev => {
+        const existingItem = prev.items.find(item => item.partNo === partNo);
+        let newItems;
+
+        if (existingItem) {
+          newItems = prev.items.map(item =>
+            item.partNo === partNo
+              ? { ...item, quantity: item.quantity + quantity }
+              : item
+          );
+        } else {
+          newItems = [...prev.items, mockProduct];
+        }
+
+        const newTotal = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const newCart = { items: newItems, total: newTotal };
+
+        // Save to localStorage
+        localStorage.setItem('cart', JSON.stringify(newCart));
+
+        return newCart;
+      });
+
       return { success: true };
     } catch (err) {
       console.error('Add to cart failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Failed to add to cart' 
+      return {
+        success: false,
+        message: err.message || 'Failed to add to cart'
       };
     }
   };
@@ -183,15 +228,26 @@ export const AuthProvider = ({ children }) => {
       if (!isAuthenticated) {
         throw new Error('Please login to update cart');
       }
-      
-      const response = await api.put('/cart/update', { partNo, quantity });
-      setCart(response.data);
+
+      setCart(prev => {
+        const newItems = prev.items.map(item =>
+          item.partNo === partNo ? { ...item, quantity } : item
+        );
+        const newTotal = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const newCart = { items: newItems, total: newTotal };
+
+        // Save to localStorage
+        localStorage.setItem('cart', JSON.stringify(newCart));
+
+        return newCart;
+      });
+
       return { success: true };
     } catch (err) {
       console.error('Update cart failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Failed to update cart' 
+      return {
+        success: false,
+        message: err.message || 'Failed to update cart'
       };
     }
   };
@@ -201,15 +257,24 @@ export const AuthProvider = ({ children }) => {
       if (!isAuthenticated) {
         throw new Error('Please login to remove items from cart');
       }
-      
-      const response = await api.delete(`/cart/remove/${partNo}`);
-      setCart(response.data);
+
+      setCart(prev => {
+        const newItems = prev.items.filter(item => item.partNo !== partNo);
+        const newTotal = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const newCart = { items: newItems, total: newTotal };
+
+        // Save to localStorage
+        localStorage.setItem('cart', JSON.stringify(newCart));
+
+        return newCart;
+      });
+
       return { success: true };
     } catch (err) {
       console.error('Remove from cart failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Failed to remove from cart' 
+      return {
+        success: false,
+        message: err.message || 'Failed to remove from cart'
       };
     }
   };
@@ -219,15 +284,16 @@ export const AuthProvider = ({ children }) => {
       if (!isAuthenticated) {
         throw new Error('Please login to clear cart');
       }
-      
-      await api.delete('/cart/clear');
+
       setCart({ items: [], total: 0 });
+      localStorage.setItem('cart', JSON.stringify({ items: [], total: 0 }));
+
       return { success: true };
     } catch (err) {
       console.error('Clear cart failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Failed to clear cart' 
+      return {
+        success: false,
+        message: err.message || 'Failed to clear cart'
       };
     }
   };
@@ -237,15 +303,26 @@ export const AuthProvider = ({ children }) => {
       if (!isAuthenticated) {
         throw new Error('Please login to submit order');
       }
-      
-      const response = await api.post('/orders');
-      setCart({ items: [], total: 0 }); // Clear cart after successful order
-      return { success: true, order: response.data };
+
+      // Mock order submission
+      const mockOrder = {
+        id: 'order-' + Date.now(),
+        items: cart.items,
+        total: cart.total,
+        status: 'pending',
+        createdAt: new Date().toISOString()
+      };
+
+      // Clear cart after successful order
+      setCart({ items: [], total: 0 });
+      localStorage.setItem('cart', JSON.stringify({ items: [], total: 0 }));
+
+      return { success: true, order: mockOrder };
     } catch (err) {
       console.error('Order submission failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Failed to submit order' 
+      return {
+        success: false,
+        message: err.message || 'Failed to submit order'
       };
     }
   };
@@ -255,14 +332,31 @@ export const AuthProvider = ({ children }) => {
       if (!isAuthenticated) {
         throw new Error('Please login to view orders');
       }
-      
-      const response = await api.get('/orders/my');
-      return { success: true, orders: response.data };
+
+      // Return mock orders
+      const mockOrders = [
+        {
+          id: 'order-1',
+          items: [{ partNo: 'PART001', description: 'Sample Part 1', quantity: 2, price: 50 }],
+          total: 100,
+          status: 'completed',
+          createdAt: new Date(Date.now() - 86400000).toISOString()
+        },
+        {
+          id: 'order-2',
+          items: [{ partNo: 'PART002', description: 'Sample Part 2', quantity: 1, price: 75 }],
+          total: 75,
+          status: 'pending',
+          createdAt: new Date(Date.now() - 172800000).toISOString()
+        }
+      ];
+
+      return { success: true, orders: mockOrders };
     } catch (err) {
       console.error('Get orders failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Failed to get orders' 
+      return {
+        success: false,
+        message: err.message || 'Failed to get orders'
       };
     }
   };
@@ -270,39 +364,62 @@ export const AuthProvider = ({ children }) => {
   // Product functions
   const getProducts = async () => {
     try {
-      const response = await api.get('/products');
-      return { success: true, products: response.data };
+      // Return mock products
+      const mockProducts = [
+        { partNo: 'PART001', description: 'Sample Product 1', price: 50 },
+        { partNo: 'PART002', description: 'Sample Product 2', price: 75 },
+        { partNo: 'PART003', description: 'Sample Product 3', price: 100 }
+      ];
+
+      return { success: true, products: mockProducts };
     } catch (err) {
       console.error('Get products failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Failed to get products' 
+      return {
+        success: false,
+        message: err.message || 'Failed to get products'
       };
     }
   };
 
   const searchProducts = async (query) => {
     try {
-      const response = await api.get(`/products/search/${query}`);
-      return { success: true, products: response.data };
+      // Mock search - return filtered products
+      const mockProducts = [
+        { partNo: 'PART001', description: 'Sample Product 1', price: 50 },
+        { partNo: 'PART002', description: 'Sample Product 2', price: 75 },
+        { partNo: 'PART003', description: 'Sample Product 3', price: 100 }
+      ];
+
+      const filteredProducts = mockProducts.filter(product =>
+        product.partNo.toLowerCase().includes(query.toLowerCase()) ||
+        product.description.toLowerCase().includes(query.toLowerCase())
+      );
+
+      return { success: true, products: filteredProducts };
     } catch (err) {
       console.error('Search products failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Failed to search products' 
+      return {
+        success: false,
+        message: err.message || 'Failed to search products'
       };
     }
   };
 
   const getProduct = async (partNo) => {
     try {
-      const response = await api.get(`/products/${partNo}`);
-      return { success: true, product: response.data };
+      // Return mock product
+      const mockProduct = {
+        partNo,
+        description: `Product ${partNo}`,
+        price: Math.floor(Math.random() * 100) + 10
+      };
+
+      return { success: true, product: mockProduct };
     } catch (err) {
       console.error('Get product failed:', err);
-      return { 
-        success: false, 
-        message: err.response?.data?.message || 'Failed to get product' 
+      return {
+        success: false,
+        message: err.message || 'Failed to get product'
       };
     }
   };

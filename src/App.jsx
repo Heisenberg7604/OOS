@@ -34,7 +34,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/admin/login" element={<AdminLogin />} />
-          
+
           {/* Protected routes - require authentication */}
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<Profile />} />
@@ -42,7 +42,7 @@ function App() {
             <Route path="/products/:category/:subcategory" element={<ProductCatalogPage />} />
             <Route path="/cart" element={<CartPage />} />
           </Route>
-          
+
           {/* Admin-only routes */}
           <Route element={<ProtectedRoute roles={['admin']} />}>
             <Route path="/admin" element={<AdminPanel />} />

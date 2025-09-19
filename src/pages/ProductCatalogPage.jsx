@@ -59,8 +59,8 @@ const ProductCatalogPage = () => {
             try {
                 setLoading(true);
                 setError(null);
-                // Fetch products from backend API
-                const response = await fetch('http://localhost:5000/api/products');
+                // Load products from local JSON file instead of backend API
+                const response = await fetch(prod.json);
                 if (!response.ok) {
                     throw new Error(`Failed to load products: ${response.status}`);
                 }

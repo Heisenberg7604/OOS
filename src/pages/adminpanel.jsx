@@ -33,85 +33,67 @@ const AdminPanel = () => {
             return;
         }
 
-        fetchOrders();
-        fetchStats();
-        fetchUsers();
+        // Mock data for frontend-only operation
+        setOrders([
+            {
+                _id: 'order-1',
+                customerName: 'John Doe',
+                customerEmail: 'john@example.com',
+                items: [{ partNo: 'PART001', description: 'Sample Part 1', quantity: 2 }],
+                status: 'pending',
+                createdAt: new Date().toISOString()
+            },
+            {
+                _id: 'order-2',
+                customerName: 'Jane Smith',
+                customerEmail: 'jane@example.com',
+                items: [{ partNo: 'PART002', description: 'Sample Part 2', quantity: 1 }],
+                status: 'completed',
+                createdAt: new Date(Date.now() - 86400000).toISOString()
+            }
+        ]);
+
+        setUsers([
+            {
+                _id: 'user-1',
+                name: 'John Doe',
+                email: 'john@example.com',
+                role: 'user',
+                createdAt: new Date().toISOString()
+            },
+            {
+                _id: 'user-2',
+                name: 'Admin User',
+                email: 'admin@example.com',
+                role: 'admin',
+                createdAt: new Date(Date.now() - 172800000).toISOString()
+            }
+        ]);
+
+        setStats({
+            totalOrders: 2,
+            pendingOrders: 1,
+            completedOrders: 1,
+            totalUsers: 2,
+            totalProducts: 3
+        });
+
+        setLoading(false);
     }, []);
-
-    const fetchOrders = async () => {
-        try {
-            const response = await fetch(`${API_BASE_URL}/admin/orders`, {
-                headers: getAuthHeaders()
-            });
-            
-            if (response.status === 401 || response.status === 403) {
-                setError('Unauthorized access. Please login as admin.');
-                setLoading(false);
-                return;
-            }
-            
-            if (!response.ok) {
-                throw new Error('Failed to fetch orders');
-            }
-            
-            const data = await response.json();
-            setOrders(data);
-            setLoading(false);
-        } catch (error) {
-            console.error('Error fetching orders:', error);
-            setError('Failed to fetch orders');
-            setLoading(false);
-        }
-    };
-
-    const fetchStats = async () => {
-        try {
-            const response = await fetch(`${API_BASE_URL}/admin/stats`, {
-                headers: getAuthHeaders()
-            });
-            
-            if (!response.ok) {
-                throw new Error('Failed to fetch stats');
-            }
-            
-            const data = await response.json();
-            setStats(data);
-        } catch (error) {
-            console.error('Error fetching stats:', error);
-        }
-    };
-
-    const fetchUsers = async () => {
-        try {
-            const response = await fetch(`${API_BASE_URL}/admin/users`, {
-                headers: getAuthHeaders()
-            });
-            
-            if (!response.ok) {
-                throw new Error('Failed to fetch users');
-            }
-            
-            const data = await response.json();
-            setUsers(data);
-        } catch (error) {
-            console.error('Error fetching users:', error);
-        }
-    };
 
     const updateOrderStatus = async (orderId, newStatus) => {
         try {
-            const response = await fetch(`${API_BASE_URL}/admin/orders/${orderId}`, {
-                method: 'PUT',
-                headers: getAuthHeaders(),
-                body: JSON.stringify({ status: newStatus }),
-            });
-            
-            if (response.ok) {
-                fetchOrders();
-                fetchStats();
-            } else {
-                throw new Error('Failed to update order status');
-            }
+            // Mock order status update
+            setOrders(prev => prev.map(order =>
+                order._id === orderId ? { ...order, status: newStatus } : order
+            ));
+
+            // Update stats
+            setStats(prev => ({
+                ...prev,
+                pendingOrders: newStatus === 'pending' ? prev.pendingOrders + 1 : prev.pendingOrders - 1,
+                completedOrders: newStatus === 'completed' ? prev.completedOrders + 1 : prev.completedOrders - 1
+            }));
         } catch (error) {
             console.error('Error updating order:', error);
             setError('Failed to update order status');
@@ -121,17 +103,12 @@ const AdminPanel = () => {
     const deleteOrder = async (orderId) => {
         if (window.confirm('Are you sure you want to delete this order?')) {
             try {
-                const response = await fetch(`${API_BASE_URL}/admin/orders/${orderId}`, {
-                    method: 'DELETE',
-                    headers: getAuthHeaders()
-                });
-                
-                if (response.ok) {
-                    fetchOrders();
-                    fetchStats();
-                } else {
-                    throw new Error('Failed to delete order');
-                }
+                // Mock order deletion
+                setOrders(prev => prev.filter(order => order._id !== orderId));
+                setStats(prev => ({
+                    ...prev,
+                    totalOrders: prev.totalOrders - 1
+                }));
             } catch (error) {
                 console.error('Error deleting order:', error);
                 setError('Failed to delete order');
@@ -177,7 +154,7 @@ const AdminPanel = () => {
                 <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded max-w-md">
                     <p className="font-bold">Error:</p>
                     <p>{error}</p>
-                    <button 
+                    <button
                         onClick={() => window.location.href = '/login'}
                         className="mt-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
                     >
@@ -197,21 +174,19 @@ const AdminPanel = () => {
                         <div className="flex items-center space-x-4">
                             <button
                                 onClick={() => setActiveTab('dashboard')}
-                                className={`px-4 py-2 rounded-lg font-medium ${
-                                    activeTab === 'dashboard'
+                                className={`px-4 py-2 rounded-lg font-medium ${activeTab === 'dashboard'
                                         ? 'bg-blue-600 text-white'
                                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                                }`}
+                                    }`}
                             >
                                 Dashboard
                             </button>
                             <button
                                 onClick={() => setActiveTab('orders')}
-                                className={`px-4 py-2 rounded-lg font-medium ${
-                                    activeTab === 'orders'
+                                className={`px-4 py-2 rounded-lg font-medium ${activeTab === 'orders'
                                         ? 'bg-blue-600 text-white'
                                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                                }`}
+                                    }`}
                             >
                                 Orders
                             </button>
@@ -348,7 +323,7 @@ const AdminPanel = () => {
                                         <div className="text-sm text-purple-600">View and manage all customer accounts</div>
                                     </div>
                                 </button>
-                                
+
                                 <button
                                     onClick={() => window.location.href = '/admin/create-user'}
                                     className="flex items-center p-4 bg-green-50 border border-green-200 rounded-lg hover:bg-green-100 transition-colors"
@@ -365,7 +340,7 @@ const AdminPanel = () => {
                                         <div className="text-sm text-green-600">Add new customer to the system</div>
                                     </div>
                                 </button>
-                                
+
                                 <button
                                     onClick={() => setActiveTab('orders')}
                                     className="flex items-center p-4 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors"
@@ -579,9 +554,8 @@ const AdminPanel = () => {
                                                 {user.email}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                                                    user.role === 'admin' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
-                                                }`}>
+                                                <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${user.role === 'admin' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
+                                                    }`}>
                                                     {user.role}
                                                 </span>
                                             </td>

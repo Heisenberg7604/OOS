@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import axios from 'axios';
 
 const UserManagement = () => {
   const { user: currentUser } = useAuth();
@@ -11,52 +10,59 @@ const UserManagement = () => {
   const [deleting, setDeleting] = useState({});
 
   useEffect(() => {
-    fetchUsers();
-  }, []);
+    // Mock users data
+    const mockUsers = [
+      {
+        _id: 'user-1',
+        name: 'John Doe',
+        email: 'john@example.com',
+        role: 'user',
+        customerName: 'John Doe',
+        companyName: 'ABC Corp',
+        phoneNumber: '+1234567890',
+        address: '123 Main St, City, State',
+        isActive: true,
+        createdAt: new Date().toISOString()
+      },
+      {
+        _id: 'user-2',
+        name: 'Jane Smith',
+        email: 'jane@example.com',
+        role: 'user',
+        customerName: 'Jane Smith',
+        companyName: 'XYZ Ltd',
+        phoneNumber: '+0987654321',
+        address: '456 Oak Ave, City, State',
+        isActive: true,
+        createdAt: new Date(Date.now() - 86400000).toISOString()
+      },
+      {
+        _id: 'admin-1',
+        name: 'Admin User',
+        email: 'admin@example.com',
+        role: 'admin',
+        isActive: true,
+        createdAt: new Date(Date.now() - 172800000).toISOString()
+      }
+    ];
 
-  const fetchUsers = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5001/api/admin/users', {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
-      setUsers(response.data);
-    } catch (err) {
-      setError(err.response?.data?.message || 'Failed to fetch users');
-      console.error('Failed to fetch users:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
+    setUsers(mockUsers);
+    setLoading(false);
+  }, []);
 
   const updateUserRole = async (userId, newRole) => {
     try {
       setUpdating(prev => ({ ...prev, [userId]: true }));
       setError(null);
-      
-      const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5001/api/admin/users/${userId}/role`, {
-        role: newRole
-      }, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
-      
-      // Update local state
-      setUsers(users.map(user => 
+
+      // Mock role update
+      setUsers(users.map(user =>
         user._id === userId ? { ...user, role: newRole } : user
       ));
-      
+
       console.log('User role updated successfully');
     } catch (err) {
-      setError(`Failed to update user role: ${err.response?.data?.message || 'Unknown error'}`);
+      setError(`Failed to update user role: ${err.message || 'Unknown error'}`);
       console.error('Failed to update user role:', err);
     } finally {
       setUpdating(prev => ({ ...prev, [userId]: false }));
@@ -66,27 +72,19 @@ const UserManagement = () => {
   const deleteUser = async (userId) => {
     const userToDelete = users.find(user => user._id === userId);
     const confirmMessage = `Are you sure you want to delete user "${userToDelete?.name || 'Unknown'}"? This action cannot be undone.`;
-    
+
     if (!window.confirm(confirmMessage)) return;
-    
+
     try {
       setDeleting(prev => ({ ...prev, [userId]: true }));
       setError(null);
-      
-      const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5001/api/admin/users/${userId}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
-      
-      // Update local state
+
+      // Mock user deletion
       setUsers(users.filter(user => user._id !== userId));
-      
+
       console.log('User deleted successfully');
     } catch (err) {
-      setError(`Failed to delete user: ${err.response?.data?.message || 'Unknown error'}`);
+      setError(`Failed to delete user: ${err.message || 'Unknown error'}`);
       console.error('Failed to delete user:', err);
     } finally {
       setDeleting(prev => ({ ...prev, [userId]: false }));
@@ -97,22 +95,14 @@ const UserManagement = () => {
     try {
       setUpdating(prev => ({ ...prev, [userId]: true }));
       setError(null);
-      
-      const token = localStorage.getItem('token');
-      const response = await axios.put(`http://localhost:5001/api/admin/users/${userId}/toggle-status`, {}, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
-      
-      // Update local state
-      setUsers(users.map(user => 
-        user._id === userId ? { ...user, isActive: response.data.isActive } : user
+
+      // Mock status toggle
+      setUsers(users.map(user =>
+        user._id === userId ? { ...user, isActive: !user.isActive } : user
       ));
-      
+
     } catch (err) {
-      setError(`Failed to toggle user status: ${err.response?.data?.message || 'Unknown error'}`);
+      setError(`Failed to toggle user status: ${err.message || 'Unknown error'}`);
       console.error('Failed to toggle user status:', err);
     } finally {
       setUpdating(prev => ({ ...prev, [userId]: false }));
@@ -120,7 +110,43 @@ const UserManagement = () => {
   };
 
   const refreshUsers = () => {
-    fetchUsers();
+    // Reload mock data
+    const mockUsers = [
+      {
+        _id: 'user-1',
+        name: 'John Doe',
+        email: 'john@example.com',
+        role: 'user',
+        customerName: 'John Doe',
+        companyName: 'ABC Corp',
+        phoneNumber: '+1234567890',
+        address: '123 Main St, City, State',
+        isActive: true,
+        createdAt: new Date().toISOString()
+      },
+      {
+        _id: 'user-2',
+        name: 'Jane Smith',
+        email: 'jane@example.com',
+        role: 'user',
+        customerName: 'Jane Smith',
+        companyName: 'XYZ Ltd',
+        phoneNumber: '+0987654321',
+        address: '456 Oak Ave, City, State',
+        isActive: true,
+        createdAt: new Date(Date.now() - 86400000).toISOString()
+      },
+      {
+        _id: 'admin-1',
+        name: 'Admin User',
+        email: 'admin@example.com',
+        role: 'admin',
+        isActive: true,
+        createdAt: new Date(Date.now() - 172800000).toISOString()
+      }
+    ];
+
+    setUsers(mockUsers);
   };
 
   if (loading) {
@@ -277,11 +303,10 @@ const UserManagement = () => {
                     )}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                      user.isActive !== false 
-                        ? 'bg-green-100 text-green-800' 
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${user.isActive !== false
+                        ? 'bg-green-100 text-green-800'
                         : 'bg-red-100 text-red-800'
-                    }`}>
+                      }`}>
                       {user.isActive !== false ? 'Active' : 'Inactive'}
                     </span>
                   </td>
