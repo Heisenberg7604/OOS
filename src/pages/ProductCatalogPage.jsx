@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -55,34 +55,36 @@ const ProductCatalogPage = () => {
         const prod = PRODUCT_MAP[subcategory] || FALLBACK;
         setAssetPrefix(prod.asset);
         setPageTitle(prod.title);
+        
         const loadProducts = async () => {
             try {
                 setLoading(true);
                 setError(null);
-                // Load products from local JSON file instead of backend API
-                const response = await fetch(prod.json);
-                if (!response.ok) {
-                    throw new Error(`Failed to load products: ${response.status}`);
-                }
-                const data = await response.json();
-                setProducts(data || []);
-            } catch (err) {
-                // fallback
-                if (prod !== FALLBACK) {
-                    try {
-                        let response = await fetch(FALLBACK.json);
-                        let data = await response.json();
-                        setProducts(data);
-                    } catch (e) {
-                        setError('Failed to load products');
+                
+                // Sample products data directly in frontend
+                const sampleProducts = [
+                    {
+                        partNo: "SAMPLE-001",
+                        description: "High Performance Motor Assembly - Premium quality motor for industrial applications",
+                        part_image: ["sample-motor.jpg"],
+                        category: "Motors"
+                    },
+                    {
+                        partNo: "SAMPLE-002", 
+                        description: "Precision Bearing Set - Durable bearings for smooth operation",
+                        part_image: ["sample-bearing.jpg"],
+                        category: "Bearings"
                     }
-                } else {
-                    setError('Failed to load products');
-                }
+                ];
+                
+                setProducts(sampleProducts);
+            } catch (err) {
+                setError('Failed to load products');
             } finally {
                 setLoading(false);
             }
         };
+        
         loadProducts();
         if (isAuthenticated) loadCart();
         // eslint-disable-next-line
@@ -239,7 +241,9 @@ const ProductCatalogPage = () => {
                     <>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
                             {paginatedProducts.map((product) => {
-                                const cartItem = cart?.items?.find(item => (item.partNo === product.partNo || item.partNo === product.part_code));
+                                const partNumber = product.partNo || product.part_code;
+                                const cartItem = cart && cart.items ? cart.items.find(item => item.partNo === partNumber) : null;
+                                
                                 // Use part_image or imagePath
                                 let imgFiles = [];
                                 if (Array.isArray(product.part_image)) {
@@ -249,9 +253,10 @@ const ProductCatalogPage = () => {
                                 } else if (product.imagePath) {
                                     imgFiles = [product.imagePath.split('/').pop()];
                                 }
+                                
                                 return (
                                     <div
-                                        key={product.partNo || product.part_code}
+                                        key={partNumber}
                                         className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                                     >
                                         {/* Product Image(s) */}
@@ -280,7 +285,7 @@ const ProductCatalogPage = () => {
                                         <div className="p-6">
                                             <div className="mb-2">
                                                 <span className="text-sm font-medium text-red-500 bg-red-50 px-2 py-1 rounded">
-                                                    {product.partNo || product.part_code}
+                                                    {partNumber}
                                                 </span>
                                             </div>
                                             <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
@@ -294,7 +299,7 @@ const ProductCatalogPage = () => {
                                             ) : (
                                                 <button
                                                     className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors duration-200 font-semibold"
-                                                    onClick={() => handleAddToCart(product.partNo || product.part_code)}
+                                                    onClick={() => handleAddToCart(partNumber)}
                                                 >
                                                     Add to Cart
                                                 </button>

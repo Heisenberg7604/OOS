@@ -4,7 +4,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [token, setToken] = useState(null);
   const [cart, setCart] = useState({ items: [], total: 0 });
@@ -18,30 +18,59 @@ export const AuthProvider = ({ children }) => {
   };
 
   const checkAuth = async () => {
-    // Check localStorage for existing session
-    const storedToken = localStorage.getItem('token');
-    const storedUser = localStorage.getItem('user');
+    try {
+      // Check localStorage for existing session
+      const storedToken = localStorage.getItem('token');
+      const storedUser = localStorage.getItem('user');
 
-    if (storedToken && storedUser) {
-      try {
-        const userData = JSON.parse(storedUser);
-        setUser(userData);
-        setToken(storedToken);
-        setIsAuthenticated(true);
+      if (storedToken && storedUser) {
+        try {
+          const userData = JSON.parse(storedUser);
+          setUser(userData);
+          setToken(storedToken);
+          setIsAuthenticated(true);
 
-        // Load cart from localStorage
-        const storedCart = localStorage.getItem('cart');
-        if (storedCart) {
-          setCart(JSON.parse(storedCart));
+          // Load cart from localStorage
+          const storedCart = localStorage.getItem('cart');
+          if (storedCart) {
+            try {
+              const parsedCart = JSON.parse(storedCart);
+              setCart({
+                items: parsedCart.items || [],
+                total: parsedCart.total || 0
+              });
+            } catch (err) {
+              console.error('Failed to parse stored cart:', err);
+              setCart({ items: [], total: 0 });
+            }
+          } else {
+            setCart({ items: [], total: 0 });
+          }
+        } catch (err) {
+          console.error('Failed to parse stored user data:', err);
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          localStorage.removeItem('cart');
+          setUser(null);
+          setToken(null);
+          setIsAuthenticated(false);
+          setCart({ items: [], total: 0 });
         }
-      } catch (err) {
-        console.error('Failed to parse stored user data:', err);
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        localStorage.removeItem('cart');
+      } else {
+        setUser(null);
+        setToken(null);
+        setIsAuthenticated(false);
+        setCart({ items: [], total: 0 });
       }
+    } catch (err) {
+      console.error('Auth check failed:', err);
+      setUser(null);
+      setToken(null);
+      setIsAuthenticated(false);
+      setCart({ items: [], total: 0 });
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const loadCart = async () => {
@@ -49,11 +78,18 @@ export const AuthProvider = ({ children }) => {
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
       try {
-        setCart(JSON.parse(storedCart));
+        const parsedCart = JSON.parse(storedCart);
+        // Ensure the cart has proper structure
+        setCart({
+          items: parsedCart.items || [],
+          total: parsedCart.total || 0
+        });
       } catch (err) {
         console.error('Failed to parse stored cart:', err);
         setCart({ items: [], total: 0 });
       }
+    } else {
+      setCart({ items: [], total: 0 });
     }
   };
 
@@ -191,17 +227,21 @@ export const AuthProvider = ({ children }) => {
 
       // Update cart state
       setCart(prev => {
-        const existingItem = prev.items.find(item => item.partNo === partNo);
+        // Ensure prev has proper structure
+        const currentCart = prev || { items: [], total: 0 };
+        const currentItems = currentCart.items || [];
+
+        const existingItem = currentItems.find(item => item.partNo === partNo);
         let newItems;
 
         if (existingItem) {
-          newItems = prev.items.map(item =>
+          newItems = currentItems.map(item =>
             item.partNo === partNo
               ? { ...item, quantity: item.quantity + quantity }
               : item
           );
         } else {
-          newItems = [...prev.items, mockProduct];
+          newItems = [...currentItems, mockProduct];
         }
 
         const newTotal = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -230,7 +270,11 @@ export const AuthProvider = ({ children }) => {
       }
 
       setCart(prev => {
-        const newItems = prev.items.map(item =>
+        // Ensure prev has proper structure
+        const currentCart = prev || { items: [], total: 0 };
+        const currentItems = currentCart.items || [];
+
+        const newItems = currentItems.map(item =>
           item.partNo === partNo ? { ...item, quantity } : item
         );
         const newTotal = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -259,7 +303,11 @@ export const AuthProvider = ({ children }) => {
       }
 
       setCart(prev => {
-        const newItems = prev.items.filter(item => item.partNo !== partNo);
+        // Ensure prev has proper structure
+        const currentCart = prev || { items: [], total: 0 };
+        const currentItems = currentCart.items || [];
+
+        const newItems = currentItems.filter(item => item.partNo !== partNo);
         const newTotal = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         const newCart = { items: newItems, total: newTotal };
 

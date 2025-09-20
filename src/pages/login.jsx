@@ -85,7 +85,10 @@ const Login = () => {
         </div>
         <div className="mt-4 text-center">
           <p className="text-sm text-gray-500">
-            Test credentials: admin@test.com / admin123
+            For admin access, use any email containing "admin" (e.g., admin@test.com)
+          </p>
+          <p className="text-xs text-gray-400 mt-1">
+            Any password will work for demo purposes
           </p>
         </div>
       </div>

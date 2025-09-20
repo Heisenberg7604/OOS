@@ -1,10 +1,10 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import DebugAuth from './components/DebugAuth';
 
 // Import all pages
 import Home from './pages/home';
@@ -13,7 +13,6 @@ import Register from './components/Register';
 import AdminPanel from './pages/adminpanel';
 import UserManagement from './pages/UserManagement';
 import Unauthorized from './pages/Unauthorized';
-import LandingPage from './pages/home';
 import Profile from './pages/profile';
 import ProductsPage from './pages/ProductsPage';
 import ProductCatalogPage from './pages/ProductCatalogPage';
@@ -51,6 +50,7 @@ function App() {
           </Route>
         </Routes>
         <Footer />
+        <DebugAuth />
       </Router>
     </AuthProvider>
   );
