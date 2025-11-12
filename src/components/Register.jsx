@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
+const API_BASE_URL = 'http://localhost:5001/api';
+
 const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -48,32 +50,69 @@ const Register = () => {
     }
 
     try {
-      // Mock customer creation
-      const mockCustomer = {
-        id: Date.now().toString(),
-        name: formData.name,
-        email: formData.email,
-        customerName: formData.customerName || formData.name,
-        companyName: formData.companyName,
-        phoneNumber: formData.phoneNumber,
-        address: formData.address,
-        role: 'user',
-        createdAt: new Date().toISOString()
-      };
+      // Get auth token for admin authentication
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setError('You must be logged in as admin to create users');
+        setLoading(false);
+        return;
+      }
 
-      setSuccess('Customer account created successfully!');
-      setFormData({
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        customerName: '',
-        companyName: '',
-        phoneNumber: '',
-        address: ''
+      // Call the registration API
+      const response = await fetch(`${API_BASE_URL}/auth/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          role: 'user' // Always create as regular user (not admin)
+        })
       });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        // Handle different error statuses
+        if (response.status === 409) {
+          setError('A user with this email already exists');
+        } else if (response.status === 401 || response.status === 403) {
+          setError('You must be logged in as admin to create users');
+        } else if (result.errors && result.errors.length > 0) {
+          setError(result.errors[0].msg || 'Validation failed');
+        } else {
+          setError(result.message || 'Failed to create user account');
+        }
+        setLoading(false);
+        return;
+      }
+
+      if (result.success) {
+        setSuccess('User account created successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
+          customerName: '',
+          companyName: '',
+          phoneNumber: '',
+          address: ''
+        });
+        
+        // Optionally redirect after a delay
+        setTimeout(() => {
+          navigate('/admin/users');
+        }, 2000);
+      } else {
+        setError(result.message || 'Failed to create user account');
+      }
     } catch (err) {
-      setError('Failed to create customer account');
+      console.error('Registration error:', err);
+      setError(`Failed to create user account: ${err.message || 'Network error. Please check if backend is running.'}`);
     }
 
     setLoading(false);

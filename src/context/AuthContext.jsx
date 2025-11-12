@@ -9,13 +9,8 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [cart, setCart] = useState({ items: [], total: 0 });
 
-  // Mock API functions for frontend-only operation
-  const api = {
-    get: async (url) => ({ data: [] }),
-    post: async (url, data) => ({ data: { success: true } }),
-    put: async (url, data) => ({ data: { success: true } }),
-    delete: async (url) => ({ data: { success: true } })
-  };
+  // API base URL
+  const API_BASE_URL = 'http://localhost:5001/api';
 
   const checkAuth = async () => {
     try {
@@ -25,32 +20,53 @@ export const AuthProvider = ({ children }) => {
 
       if (storedToken && storedUser) {
         try {
-          const userData = JSON.parse(storedUser);
-          setUser(userData);
-          setToken(storedToken);
-          setIsAuthenticated(true);
+          // Verify token with backend
+          const response = await fetch(`${API_BASE_URL}/auth/verify`, {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${storedToken}`,
+              'Content-Type': 'application/json',
+            },
+          });
 
-          // Load cart from localStorage
-          const storedCart = localStorage.getItem('cart');
-          if (storedCart) {
-            try {
-              const parsedCart = JSON.parse(storedCart);
-              setCart({
-                items: parsedCart.items || [],
-                total: parsedCart.total || 0
-              });
-            } catch (err) {
-              console.error('Failed to parse stored cart:', err);
+          const result = await response.json();
+
+          if (result.success) {
+            const userData = result.data.user;
+            setUser(userData);
+            setToken(storedToken);
+            setIsAuthenticated(true);
+
+            // Load cart from localStorage
+            const storedCart = localStorage.getItem('cart');
+            if (storedCart) {
+              try {
+                const parsedCart = JSON.parse(storedCart);
+                setCart({
+                  items: parsedCart.items || [],
+                  total: parsedCart.total || 0
+                });
+              } catch (err) {
+                console.error('Failed to parse stored cart:', err);
+                setCart({ items: [], total: 0 });
+              }
+            } else {
               setCart({ items: [], total: 0 });
             }
           } else {
+            // Token is invalid, clear storage
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            setUser(null);
+            setToken(null);
+            setIsAuthenticated(false);
             setCart({ items: [], total: 0 });
           }
         } catch (err) {
-          console.error('Failed to parse stored user data:', err);
+          console.error('Token verification failed:', err);
+          // Clear invalid token
           localStorage.removeItem('token');
           localStorage.removeItem('user');
-          localStorage.removeItem('cart');
           setUser(null);
           setToken(null);
           setIsAuthenticated(false);
@@ -102,7 +118,7 @@ export const AuthProvider = ({ children }) => {
       // If no token in localStorage, set loading to false
       setLoading(false);
     }
-  }, []);
+  }, [token]);
 
   useEffect(() => {
     checkAuth();
@@ -110,92 +126,100 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (name, email, password, role = 'user') => {
     try {
-      // Create mock user data
-      const mockUser = {
-        id: Date.now().toString(),
-        name,
-        email,
-        role,
-        createdAt: new Date().toISOString()
-      };
+      const response = await fetch(`${API_BASE_URL}/auth/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, password, role }),
+      });
 
-      const mockToken = 'mock-token-' + Date.now();
+      const result = await response.json();
 
-      // Store in localStorage
-      localStorage.setItem('token', mockToken);
-      localStorage.setItem('user', JSON.stringify(mockUser));
+      if (result.success) {
+        const { token, user } = result.data;
+        
+        setUser(user);
+        setToken(token);
+        setIsAuthenticated(true);
 
-      setToken(mockToken);
-      setUser(mockUser);
-      setIsAuthenticated(true);
+        // Store in localStorage
+        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('token', token);
 
-      return { success: true, user: mockUser };
-    } catch (err) {
-      console.error('Registration failed:', err);
-      return {
-        success: false,
-        message: 'Registration failed'
-      };
+        return { success: true, user, token };
+      } else {
+        return { success: false, message: result.message || 'Registration failed' };
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      return { success: false, message: 'Network error. Please check if backend is running.' };
     }
   };
 
   const login = async (email, password) => {
     try {
-      // Mock login - accept any email/password combination
-      const mockUser = {
-        id: Date.now().toString(),
-        name: email.split('@')[0],
-        email,
-        role: email.includes('admin') ? 'admin' : 'user',
-        createdAt: new Date().toISOString()
-      };
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-      const mockToken = 'mock-token-' + Date.now();
+      const result = await response.json();
 
-      // Store in localStorage
-      localStorage.setItem('token', mockToken);
-      localStorage.setItem('user', JSON.stringify(mockUser));
+      if (result.success) {
+        const { token, user } = result.data;
+        
+        setUser(user);
+        setToken(token);
+        setIsAuthenticated(true);
 
-      setToken(mockToken);
-      setUser(mockUser);
-      setIsAuthenticated(true);
+        // Store in localStorage
+        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('token', token);
 
-      return { success: true, user: mockUser };
-    } catch (err) {
-      console.error('Login failed:', err);
-      return {
-        success: false,
-        message: 'Login failed'
-      };
+        return { success: true, user, token };
+      } else {
+        return { success: false, message: result.message || 'Login failed' };
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      return { success: false, message: 'Network error. Please check if backend is running.' };
     }
   };
 
   // Admin login function for the navbar
   const loginAsAdmin = async (username, password) => {
     try {
-      // Mock admin login - accept any username/password
-      const mockUser = {
-        id: Date.now().toString(),
-        name: username,
-        email: username + '@admin.com',
-        role: 'admin',
-        isAdmin: true,
-        createdAt: new Date().toISOString()
-      };
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: username, password }),
+      });
 
-      const mockToken = 'mock-admin-token-' + Date.now();
+      const result = await response.json();
 
-      // Store in localStorage
-      localStorage.setItem('token', mockToken);
-      localStorage.setItem('user', JSON.stringify(mockUser));
+      if (result.success) {
+        const { token, user } = result.data;
+        
+        setUser(user);
+        setToken(token);
+        setIsAuthenticated(true);
 
-      setToken(mockToken);
-      setUser(mockUser);
-      setIsAuthenticated(true);
+        // Store in localStorage
+        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('token', token);
 
-      return true;
-    } catch (err) {
-      console.error('Admin login failed:', err);
+        return true;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.error('Admin login error:', error);
       return false;
     }
   };
@@ -495,7 +519,6 @@ export const AuthProvider = ({ children }) => {
       login,
       loginAsAdmin,
       logout,
-      api,
       // Cart functions
       addToCart,
       updateCartItem,

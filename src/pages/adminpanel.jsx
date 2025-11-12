@@ -12,6 +12,10 @@ const AdminPanel = () => {
     const [uploadLoading, setUploadLoading] = useState(false);
     const [uploadSuccess, setUploadSuccess] = useState('');
     const [uploadError, setUploadError] = useState('');
+    const [sooData, setSooData] = useState(null);
+    const [sooLoading, setSooLoading] = useState(false);
+    const [assigningProducts, setAssigningProducts] = useState(new Set());
+    const [sooSearchTerm, setSooSearchTerm] = useState('');
 
     const API_BASE_URL = 'http://localhost:5001/api';
 
@@ -37,53 +41,67 @@ const AdminPanel = () => {
             return;
         }
 
-        // Mock data for frontend-only operation
-        setOrders([
-            {
-                _id: 'order-1',
-                customerName: 'John Doe',
-                customerEmail: 'john@example.com',
-                items: [{ partNo: 'PART001', description: 'Sample Part 1', quantity: 2 }],
-                status: 'pending',
-                createdAt: new Date().toISOString()
-            },
-            {
-                _id: 'order-2',
-                customerName: 'Jane Smith',
-                customerEmail: 'jane@example.com',
-                items: [{ partNo: 'PART002', description: 'Sample Part 2', quantity: 1 }],
-                status: 'completed',
-                createdAt: new Date(Date.now() - 86400000).toISOString()
-            }
-        ]);
-
-        setUsers([
-            {
-                _id: 'user-1',
-                name: 'John Doe',
-                email: 'john@example.com',
-                role: 'user',
-                createdAt: new Date().toISOString()
-            },
-            {
-                _id: 'user-2',
-                name: 'Admin User',
-                email: 'admin@example.com',
-                role: 'admin',
-                createdAt: new Date(Date.now() - 172800000).toISOString()
-            }
-        ]);
-
-        setStats({
-            totalOrders: 2,
-            pendingOrders: 1,
-            completedOrders: 1,
-            totalUsers: 2,
-            totalProducts: 3
-        });
-
-        setLoading(false);
+        // Load real data from APIs
+        loadDashboardData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const loadDashboardData = async () => {
+        try {
+            setLoading(true);
+            
+            // Load users
+            const usersResponse = await fetch(`${API_BASE_URL}/users`, {
+                headers: getAuthHeaders()
+            });
+            const usersResult = await usersResponse.json();
+            if (usersResult.success) {
+                setUsers(usersResult.data.users || []);
+            }
+
+            // Load product statistics
+            const statsResponse = await fetch(`${API_BASE_URL}/products/admin/statistics`, {
+                headers: getAuthHeaders()
+            });
+            const statsResult = await statsResponse.json();
+            if (statsResult.success) {
+                const productStats = statsResult.data;
+                setStats({
+                    totalOrders: 0, // Orders not implemented yet
+                    pendingOrders: 0,
+                    completedOrders: 0,
+                    totalUsers: usersResult.success ? usersResult.data.users.length : 0,
+                    totalProducts: productStats.total || 0
+                });
+            }
+
+            // Mock orders for now (orders system not implemented yet)
+            setOrders([
+                {
+                    _id: 'order-1',
+                    customerName: 'John Doe',
+                    customerEmail: 'john@example.com',
+                    items: [{ partNo: 'PART001', description: 'Sample Part 1', quantity: 2 }],
+                    status: 'pending',
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    _id: 'order-2',
+                    customerName: 'Jane Smith',
+                    customerEmail: 'jane@example.com',
+                    items: [{ partNo: 'PART002', description: 'Sample Part 2', quantity: 1 }],
+                    status: 'completed',
+                    createdAt: new Date(Date.now() - 86400000).toISOString()
+                }
+            ]);
+
+        } catch (error) {
+            console.error('Error loading dashboard data:', error);
+            setError('Failed to load dashboard data');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const updateOrderStatus = async (orderId, newStatus) => {
         try {
@@ -154,13 +172,26 @@ const AdminPanel = () => {
                 'text/csv'
             ];
 
-            if (allowedTypes.includes(file.type) || file.name.endsWith('.xlsx') || file.name.endsWith('.xls') || file.name.endsWith('.csv')) {
-                setUploadFile(file);
-                setUploadError('');
-            } else {
+            // Check file type
+            if (!allowedTypes.includes(file.type) && !file.name.endsWith('.xlsx') && !file.name.endsWith('.xls') && !file.name.endsWith('.csv')) {
                 setUploadError('Please select a valid Excel file (.xlsx, .xls) or CSV file');
                 setUploadFile(null);
+                event.target.value = '';
+                return;
             }
+
+            // Check file size (100MB = 104857600 bytes)
+            const maxSize = 100 * 1024 * 1024; // 100MB
+            if (file.size > maxSize) {
+                const fileSizeMB = (file.size / 1024 / 1024).toFixed(2);
+                setUploadError(`File is too large (${fileSizeMB} MB). Maximum size is 100MB.`);
+                setUploadFile(null);
+                event.target.value = '';
+                return;
+            }
+
+            setUploadFile(file);
+            setUploadError('');
         }
     };
 
@@ -175,30 +206,87 @@ const AdminPanel = () => {
         setUploadSuccess('');
 
         try {
-            // Mock file upload process
-            await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate upload delay
+            const token = getAuthToken();
+            if (!token) {
+                setUploadError('Please login first');
+                setUploadLoading(false);
+                return;
+            }
 
-            // In a real application, you would send the file to your backend here
-            // const formData = new FormData();
-            // formData.append('file', uploadFile);
-            // const response = await fetch('/api/admin/upload-excel', {
-            //     method: 'POST',
-            //     body: formData,
-            //     headers: {
-            //         'Authorization': `Bearer ${getAuthToken()}`
-            //     }
-            // });
+            const formData = new FormData();
+            formData.append('file', uploadFile);
+            
+            // Test if backend is reachable first
+            try {
+                const healthCheckResponse = await fetch('http://localhost:5001/api/health');
+                if (!healthCheckResponse.ok) {
+                    throw new Error('Backend server is not responding');
+                }
+            } catch (healthError) {
+                const errorMsg = healthError.message.includes('Failed to fetch') || healthError.message.includes('NetworkError')
+                    ? 'Cannot connect to backend server. Make sure it\'s running on port 5001 and check the browser console for CORS errors.'
+                    : healthError.message;
+                throw new Error(errorMsg);
+            }
+            
+            const response = await fetch(`${API_BASE_URL}/upload/excel`, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                    // Don't set Content-Type header - let browser set it with boundary for FormData
+                }
+            });
 
-            setUploadSuccess(`File "${uploadFile.name}" uploaded successfully! ${Math.floor(Math.random() * 100) + 50} products processed.`);
-            setUploadFile(null);
+            // Check if response is ok
+            if (!response.ok) {
+                let errorMessage = `HTTP error! status: ${response.status}`;
+                try {
+                    const errorData = await response.json();
+                    errorMessage = errorData.message || errorMessage;
+                } catch {
+                    // If response is not JSON, use status text
+                    errorMessage = response.statusText || errorMessage;
+                }
+                throw new Error(errorMessage);
+            }
 
-            // Reset file input
-            const fileInput = document.getElementById('excel-upload');
-            if (fileInput) fileInput.value = '';
+            const result = await response.json();
+
+            if (result.success) {
+                const { summary } = result.data;
+                const skipped = summary.skippedProducts || 0;
+                let successMessage = `File "${uploadFile.name}" uploaded successfully!\n`;
+                successMessage += `Total rows: ${summary.totalRows || 0}\n`;
+                successMessage += `Valid products: ${summary.validProducts || 0}\n`;
+                successMessage += `✅ Added: ${summary.addedProducts || 0}\n`;
+                successMessage += `🔄 Updated: ${summary.updatedProducts || 0}\n`;
+                if (skipped > 0) {
+                    successMessage += `⚠️ Skipped: ${skipped} (check server logs for details)`;
+                }
+                
+                setUploadSuccess(successMessage);
+                setUploadFile(null);
+
+                // Reset file input
+                const fileInput = document.getElementById('excel-upload');
+                if (fileInput) fileInput.value = '';
+
+                // Update stats
+                setStats(prev => ({
+                    ...prev,
+                    totalProducts: prev.totalProducts + (summary.addedProducts || 0)
+                }));
+
+                // Reload dashboard data to refresh stats
+                loadDashboardData();
+            } else {
+                setUploadError(result.message || 'Failed to upload file');
+            }
 
         } catch (error) {
             console.error('Upload error:', error);
-            setUploadError('Failed to upload file. Please try again.');
+            setUploadError(error.message || 'Failed to upload file. Please check your connection and try again.');
         } finally {
             setUploadLoading(false);
         }
@@ -207,6 +295,80 @@ const AdminPanel = () => {
     const clearUploadMessages = () => {
         setUploadSuccess('');
         setUploadError('');
+    };
+
+    const loadSooData = async () => {
+        try {
+            setSooLoading(true);
+            setError('');
+            console.log('🔍 Frontend: Loading SOO data...');
+            const response = await fetch(`${API_BASE_URL}/user-products/soo`, {
+                headers: getAuthHeaders()
+            });
+            
+            console.log('🔍 Frontend: Response status:', response.status);
+            
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('🔍 Frontend: Error response:', errorText);
+                throw new Error(`HTTP ${response.status}: ${errorText}`);
+            }
+            
+            const result = await response.json();
+            console.log('🔍 Frontend: SOO result:', result);
+            
+            if (result.success) {
+                console.log('🔍 Frontend: SOO data loaded successfully:', {
+                    users: result.data?.users?.length || 0,
+                    products: result.data?.totalProducts || 0,
+                    categories: result.data?.allCategories?.length || 0
+                });
+                setSooData(result.data);
+            } else {
+                const errorMsg = result.message || 'Failed to load SOO data';
+                console.error('🔍 Frontend: SOO error:', errorMsg);
+                setError(errorMsg);
+            }
+        } catch (error) {
+            console.error('❌ Frontend: Error loading SOO data:', error);
+            setError(`Failed to load SOO data: ${error.message}`);
+        } finally {
+            setSooLoading(false);
+        }
+    };
+
+    const toggleCategoryAssignment = async (userId, category, isAssigned) => {
+        const assignmentKey = `${userId}-${category}`;
+        setAssigningProducts(prev => new Set(prev).add(assignmentKey));
+        
+        try {
+            const response = await fetch(`${API_BASE_URL}/user-products/soo/assign-category`, {
+                method: 'POST',
+                headers: getAuthHeaders(),
+                body: JSON.stringify({
+                    userId,
+                    category,
+                    assign: !isAssigned
+                })
+            });
+            
+            const result = await response.json();
+            if (result.success) {
+                // Reload SOO data
+                await loadSooData();
+            } else {
+                setError(result.message || 'Failed to update category assignment');
+            }
+        } catch (error) {
+            console.error('Error updating category assignment:', error);
+            setError('Failed to update category assignment');
+        } finally {
+            setAssigningProducts(prev => {
+                const newSet = new Set(prev);
+                newSet.delete(assignmentKey);
+                return newSet;
+            });
+        }
     };
 
     if (loading) {
@@ -287,6 +449,21 @@ const AdminPanel = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                                 </svg>
                                 Upload Excel
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setActiveTab('soo');
+                                    loadSooData();
+                                }}
+                                className={`flex items-center px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${activeTab === 'soo'
+                                    ? 'bg-blue-600 text-white shadow-md'
+                                    : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600 border border-gray-200'
+                                    }`}
+                            >
+                                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                SOO
                             </button>
                             <button
                                 onClick={() => window.location.href = '/admin/users'}
@@ -730,7 +907,7 @@ const AdminPanel = () => {
                                             className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                                         />
                                         <p className="mt-1 text-xs text-gray-500">
-                                            Supported formats: .xlsx, .xls, .csv (Max size: 10MB)
+                                            Supported formats: .xlsx, .xls, .csv (Max size: 100MB)
                                         </p>
                                     </div>
 
@@ -785,34 +962,245 @@ const AdminPanel = () => {
                                 <div className="mt-8 p-4 bg-blue-50 rounded-lg">
                                     <h4 className="text-sm font-medium text-blue-900 mb-2">Excel File Format Instructions:</h4>
                                     <ul className="text-sm text-blue-800 space-y-1">
-                                        <li>• Column A: Part Number (required)</li>
-                                        <li>• Column B: Description (required)</li>
-                                        <li>• Column C: Category (optional)</li>
-                                        <li>• Column D: Price (optional)</li>
+                                        <li>• Column A: Part No (required)</li>
+                                        <li>• Column B: Part Image (optional - URL or file path)</li>
+                                        <li>• Column C: DESCRIPTION (required)</li>
                                         <li>• First row should contain headers</li>
                                         <li>• Maximum 1000 rows per upload</li>
+                                        <li>• Images can be URLs or file paths</li>
                                     </ul>
                                 </div>
 
                                 {/* Sample Template Download */}
                                 <div className="mt-4">
                                     <button
-                                        onClick={() => {
-                                            // Create a sample CSV content
-                                            const csvContent = "Part Number,Description,Category,Price\nSAMPLE-001,Sample Product 1,Motors,25.99\nSAMPLE-002,Sample Product 2,Bearings,15.50";
-                                            const blob = new Blob([csvContent], { type: 'text/csv' });
-                                            const url = window.URL.createObjectURL(blob);
-                                            const a = document.createElement('a');
-                                            a.href = url;
-                                            a.download = 'product_template.csv';
-                                            a.click();
-                                            window.URL.revokeObjectURL(url);
+                                        onClick={async () => {
+                                            try {
+                                                const response = await fetch(`${API_BASE_URL}/upload/template`);
+                                                if (response.ok) {
+                                                    const blob = await response.blob();
+                                                    const url = window.URL.createObjectURL(blob);
+                                                    const a = document.createElement('a');
+                                                    a.href = url;
+                                                    a.download = 'product_template.csv';
+                                                    a.click();
+                                                    window.URL.revokeObjectURL(url);
+                                                } else {
+                                                    setUploadError('Failed to download template');
+                                                }
+                                            } catch (error) {
+                                                console.error('Template download error:', error);
+                                                setUploadError('Failed to download template');
+                                            }
                                         }}
                                         className="text-blue-600 hover:text-blue-800 text-sm underline"
                                     >
                                         Download Sample Template
                                     </button>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {activeTab === 'soo' && (
+                    <div className="space-y-6">
+                        <div className="bg-white rounded-lg shadow-sm border">
+                            <div className="px-6 py-4 border-b">
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                                    <div>
+                                        <h3 className="text-lg font-medium text-gray-900">SOO - Product Assignment</h3>
+                                        <p className="text-sm text-gray-600 mt-1">
+                                            Assign products to users. Only checked products will be visible to each user.
+                                        </p>
+                                    </div>
+                                    <div className="flex-1 sm:max-w-md">
+                                        <div className="relative">
+                                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                                </svg>
+                                            </div>
+                                            <input
+                                                type="text"
+                                                placeholder="Search by customer name or company name..."
+                                                value={sooSearchTerm}
+                                                onChange={(e) => setSooSearchTerm(e.target.value)}
+                                                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                            />
+                                            {sooSearchTerm && (
+                                                <button
+                                                    onClick={() => setSooSearchTerm('')}
+                                                    className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                                                >
+                                                    <svg className="h-5 w-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="p-6">
+                                {sooLoading ? (
+                                    <div className="flex justify-center items-center py-12">
+                                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                                    </div>
+                                ) : sooData ? (
+                                    <div className="space-y-8">
+                                        {(() => {
+                                            // Filter users based on search term (frontend-only filtering)
+                                            const filteredUsers = sooData.users && sooData.users.length > 0 
+                                                ? sooData.users.filter((user) => {
+                                                    if (!sooSearchTerm.trim()) return true;
+                                                    
+                                                    const searchLower = sooSearchTerm.toLowerCase().trim();
+                                                    const userName = (user.name || '').toLowerCase();
+                                                    const userEmail = (user.email || '').toLowerCase();
+                                                    
+                                                    // Search by customer name (user.name) or company name (if available)
+                                                    // For now, searching by name and email since companyName/customerName aren't in DB yet
+                                                    return userName.includes(searchLower) || 
+                                                           userEmail.includes(searchLower);
+                                                })
+                                                : [];
+                                            
+                                            return filteredUsers.length > 0 ? (
+                                                filteredUsers.map((user) => (
+                                            <div key={user.id} className="border border-gray-200 rounded-lg p-6">
+                                                <div className="mb-4 pb-4 border-b border-gray-200">
+                                                    <h4 className="text-lg font-semibold text-gray-900">{user.name}</h4>
+                                                    <p className="text-sm text-gray-600">{user.email}</p>
+                                                </div>
+                                                
+                                                {sooData.allCategories && sooData.allCategories.length > 0 ? (
+                                                    <div className="space-y-4">
+                                                        {sooData.allCategories.map((category) => {
+                                                            const categoryData = user.categoriesWithStatus?.[category];
+                                                            if (!categoryData || categoryData.totalCount === 0) return null;
+                                                            
+                                                            const assignmentKey = `${user.id}-${category}`;
+                                                            const isAssigning = assigningProducts.has(assignmentKey);
+                                                            const isChecked = categoryData.isFullyAssigned;
+                                                            
+                                                            return (
+                                                                <div 
+                                                                    key={category} 
+                                                                    className={`border rounded-lg p-4 transition-all ${
+                                                                        isChecked 
+                                                                            ? 'bg-green-50 border-green-300' 
+                                                                            : categoryData.isPartiallyAssigned
+                                                                            ? 'bg-yellow-50 border-yellow-300'
+                                                                            : 'bg-gray-50 border-gray-200'
+                                                                    }`}
+                                                                >
+                                                                    <div className="flex items-center justify-between">
+                                                                        <div className="flex items-center flex-1">
+                                                                            <input
+                                                                                type="checkbox"
+                                                                                checked={isChecked}
+                                                                                onChange={() => toggleCategoryAssignment(user.id, category, isChecked)}
+                                                                                disabled={isAssigning}
+                                                                                className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer disabled:opacity-50"
+                                                                            />
+                                                                            <label className="ml-3 flex-1 cursor-pointer">
+                                                                                <div className="text-lg font-semibold text-gray-900">
+                                                                                    {category}
+                                                                                </div>
+                                                                                <div className="text-sm text-gray-600 mt-1">
+                                                                                    {categoryData.assignedCount} of {categoryData.totalCount} products assigned
+                                                                                    {categoryData.isPartiallyAssigned && (
+                                                                                        <span className="ml-2 text-yellow-600">(Partial)</span>
+                                                                                    )}
+                                                                                </div>
+                                                                            </label>
+                                                                        </div>
+                                                                        {isAssigning && (
+                                                                            <div className="ml-4">
+                                                                                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600"></div>
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                ) : (
+                                                    <p className="text-sm text-gray-500 text-center py-4">
+                                                        No products available. Upload products first.
+                                                    </p>
+                                                )}
+                                            </div>
+                                                ))
+                                            ) : sooSearchTerm ? (
+                                                <div className="text-center py-12 border border-gray-200 rounded-lg p-8">
+                                                    <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                                    </svg>
+                                                    <h3 className="mt-2 text-sm font-medium text-gray-900">No users found</h3>
+                                                    <p className="mt-1 text-sm text-gray-500">
+                                                        No users match "{sooSearchTerm}". Try a different search term.
+                                                    </p>
+                                                    <button
+                                                        onClick={() => setSooSearchTerm('')}
+                                                        className="mt-4 text-sm text-blue-600 hover:text-blue-800"
+                                                    >
+                                                        Clear search
+                                                    </button>
+                                                </div>
+                                            ) : (
+                                            <div className="text-center py-12 border border-gray-200 rounded-lg p-8">
+                                                <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                                                </svg>
+                                                <h3 className="mt-2 text-sm font-medium text-gray-900">No users found</h3>
+                                                <p className="mt-1 text-sm text-gray-500">Create users first to assign products to them.</p>
+                                                <div className="mt-6">
+                                                    <button
+                                                        onClick={() => window.location.href = '/admin/create-user'}
+                                                        className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                                                    >
+                                                        Create User
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        );
+                                        })()}
+                                        
+                                        {sooSearchTerm && sooData.users && sooData.users.length > 0 && (
+                                            <div className="text-sm text-gray-600 text-center py-2 border-t border-gray-200 pt-4">
+                                                Showing {(() => {
+                                                    const filtered = sooData.users.filter((user) => {
+                                                        if (!sooSearchTerm.trim()) return true;
+                                                        const searchLower = sooSearchTerm.toLowerCase().trim();
+                                                        const userName = (user.name || '').toLowerCase();
+                                                        const userEmail = (user.email || '').toLowerCase();
+                                                        return userName.includes(searchLower) || userEmail.includes(searchLower);
+                                                    });
+                                                    return filtered.length;
+                                                })()} of {sooData.users.length} users
+                                            </div>
+                                        )}
+                                        
+                                        {sooData.totalProducts === 0 && sooData.users && sooData.users.length > 0 && (
+                                            <div className="text-center py-8 border border-yellow-200 rounded-lg p-6 bg-yellow-50">
+                                                <svg className="mx-auto h-10 w-10 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                                </svg>
+                                                <h3 className="mt-2 text-sm font-medium text-yellow-800">No products found</h3>
+                                                <p className="mt-1 text-sm text-yellow-700">Upload products first using the Upload Excel tab.</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                ) : (
+                                    <div className="text-center py-12">
+                                        <p className="text-gray-500">Failed to load SOO data. Check the browser console for details.</p>
+                                        {error && (
+                                            <p className="mt-2 text-sm text-red-600">{error}</p>
+                                        )}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

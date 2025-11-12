@@ -242,33 +242,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Products Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 mt-12">
-        <div className="mb-8 flex items-center">
-          <div className="w-10 h-0.5 bg-black mr-4" />
-          <h2 className="text-2xl font-semibold">Products</h2>
-        </div>
-
-        {/* Product Cards Container */}
-        <div className="space-y-6">
-          {productList.map((product, idx) => (
-            <ProductCard
-              key={product.title + idx}
-              title={product.title}
-              img={product.img}
-              dropdown={product.dropdown}
-              isOpen={openIndex === idx}
-              onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-              category={product.category}
-            />
-          ))}
-        </div>
-
-        {/* More coming soon */}
-        <div className="mt-8 mb-12">
-          <span className="text-3xl text-red-500 font-semibold drop-shadow-md">More coming soon...</span>
-        </div>
-      </section>
+    
     </div>
   );
 };

@@ -97,17 +97,7 @@ const Navbar = () => {
                 </span>
               )}
             </Link>
-            <Link 
-              to="/contact" 
-              className={`flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                isActive('/contact') 
-                  ? 'bg-red-50 text-red-700 border border-red-200' 
-                  : 'text-gray-700 hover:text-red-600 hover:bg-gray-50'
-              }`}
-            >
-              <Phone className="w-4 h-4 mr-2" />
-              Contact
-            </Link>
+           
             {(user?.role === 'admin' || user?.isAdmin) && (
               <Link 
                 to="/admin" 
