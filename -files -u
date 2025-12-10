@@ -1,0 +1,390 @@
+A	ADMIN_ONLY_REGISTRATION.md
+D	backend/config.js
+D	backend/database/connection.js
+D	backend/database/migrations/README.md
+D	backend/database/migrations/alter_image_to_mediumtext.sql
+D	backend/database/migrations/migrate-image-to-mediumtext.js
+D	backend/database/setup.sql
+D	backend/env.example
+D	backend/middleware/auth.js
+D	backend/middleware/upload.js
+D	backend/models/Product.js
+D	backend/models/User.js
+D	backend/models/UserProduct.js
+D	backend/models/index.js
+D	backend/package-lock.json
+D	backend/package.json
+D	backend/routes/auth.js
+D	backend/routes/products.js
+D	backend/routes/upload.js
+D	backend/routes/userProducts.js
+D	backend/routes/users.js
+D	backend/server.js
+D	backend/utils/excelParser.js
+D	backend/utils/productManager.js
+A	jp-extrusiontech-backend/README.md
+A	jp-extrusiontech-backend/cart-sessions.json
+A	jp-extrusiontech-backend/config/database.js
+A	jp-extrusiontech-backend/data/carts.json
+A	jp-extrusiontech-backend/data/orders.json
+A	jp-extrusiontech-backend/data/products.json
+A	jp-extrusiontech-backend/data/users.json
+A	jp-extrusiontech-backend/env.example
+A	jp-extrusiontech-backend/generate-secret.js
+A	jp-extrusiontech-backend/migrate-data.js
+A	jp-extrusiontech-backend/migrate-multi-products.js
+A	jp-extrusiontech-backend/migrate-products.js
+A	jp-extrusiontech-backend/models/Cart.js
+A	jp-extrusiontech-backend/models/Order.js
+A	jp-extrusiontech-backend/models/Product.js
+A	jp-extrusiontech-backend/models/User.js
+A	jp-extrusiontech-backend/orders.json
+A	jp-extrusiontech-backend/package-lock.json
+A	jp-extrusiontech-backend/package.json
+A	jp-extrusiontech-backend/products.json
+A	jp-extrusiontech-backend/routes/auth.js
+A	jp-extrusiontech-backend/server.js
+A	jp-extrusiontech-backend/users.json
+M	package-lock.json
+M	package.json
+D	public/assets/placeholder.jpg
+D	public/data/Cheese winders JTW (200 IX).json
+A	public/data/Cheese-winder(200IX) assets/JPCWC001.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC002.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC003.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC004.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC005.png
+A	public/data/Cheese-winder(200IX) assets/JPCWC006.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC007.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC008.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC009.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC010.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC011.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC012.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC013.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC014.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC015.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC016.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC017.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC018.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC019.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC020.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC021.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC022.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC023.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC024.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC025.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC026.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC027.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC028.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC029.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC030.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC031.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC032.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC033.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC034.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC035.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC036.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC037.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC038.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC039.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC040.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC041.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC042.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC043.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC044.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC045.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC046.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC047(A).jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC047(B).jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC047(c).jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC047.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC047A.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC048.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC049.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC050.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC051.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC052.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC053.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC054.png
+A	public/data/Cheese-winder(200IX) assets/JPCWC055.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC056.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWC057.png
+A	public/data/Cheese-winder(200IX) assets/JPCWC058.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE001.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE002.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE003.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE004.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE005.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE006.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE007.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE008.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE009.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE010.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE011.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE012.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE013.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE014.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE015.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE016.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWE017.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH001.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH002.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH003.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH004.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH005.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH006.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH007.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH008.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH009.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH010.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH011.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH012.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH013.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH014.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH015.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH016.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH017.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH018.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH019.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH020.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH021.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH022.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH023.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH024.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH025.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH026.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH027.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH028.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH029.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH030.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH031.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH032.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH033.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH034.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH035.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH036.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH037.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH038.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH039.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH040.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH041.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH042.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH043.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH044.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH045.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWH046.png
+A	public/data/Cheese-winder(200IX) assets/JPCWH047.png
+A	public/data/Cheese-winder(200IX) assets/JPCWP001.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP002.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP003.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP006.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP007.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP008.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP009.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP010.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP011.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP012.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP013.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP014.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP015.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP016.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP017.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP018.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP019.jpg
+A	public/data/Cheese-winder(200IX) assets/JPCWP020.jpg
+A	public/data/Cheese-winder(200IX) assets/grey.png
+A	public/data/Cheese_Winder_JTW_(200IX).json
+A	public/data/JAIKO-812_HF assets/040910.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_026924.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_034417.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_034425.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_034426.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_034918.png
+A	public/data/JAIKO-812_HF assets/JAIKO-608_034922.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_034923.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_034924.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_035901.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_035902.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_035903.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_035904.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-608_035907.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_006904A.png
+A	public/data/JAIKO-812_HF assets/JAIKO-810_033405.png
+A	public/data/JAIKO-812_HF assets/JAIKO-810_033410.png
+A	public/data/JAIKO-812_HF assets/JAIKO-810_033411.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_033413.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034409.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034411.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034412.png
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034901.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034902.png
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034903.png
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034904.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034905.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034906.png
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034907.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034908.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034910.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034913.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034914.png
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034915.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_034916.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_042402.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_042501.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_042806.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_042903.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_042904.png
+A	public/data/JAIKO-812_HF assets/JAIKO-810_042905.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_042907.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-810_042909.png
+A	public/data/JAIKO-812_HF assets/JAIKO-810_042910.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812._001511.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812._004401.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_001902.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_001910.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002401.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002406.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002410.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002413.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002903.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002904.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002905.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002907.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002908.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002909.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002911.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002912.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002914.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002915.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_002916.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_003401.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_003402.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_003903.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004404.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004417(16).png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004419(18).jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004520(19).png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004902.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004903.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004905.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004906.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004912.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004913.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004914.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004915.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004921(20).jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004922(21).png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004922.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004923.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_004928.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005401.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005402.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005903.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005904.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005905.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005906.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005907.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005908.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005909.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005911.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_005912.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006401.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006402.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006403.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006406.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006410.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006515.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006516.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006905.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006907.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006908.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006909.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006911.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006912.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006913.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006914.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_006917.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_007401.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_008401.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_008902.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_008903.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_008906.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_008908.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_010905.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_010907.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_011411.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_011507.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_012505.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013511.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013512.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013513.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013514.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013515.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013516.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013520.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013801.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013802.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013803.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013804.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013822.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013905.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013906.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013907.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013908.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013909.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013917.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013918.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_013919.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015401.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015402.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015403.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015404.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015405.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015406.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015407.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015408.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015409.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015410.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015411.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015412.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015413.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015414.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_015415.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_016502.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_016901.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_016903.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_016904.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017401.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017405.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017502.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017508.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017903.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017904.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017906.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017907.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017909.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017910.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017911.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017912.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017913.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_017914.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018404.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018407.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018506.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018813.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018902.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018903.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018905.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018908.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018909.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018910.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018911.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018912.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018914.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018915.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_018916.jpg
+A	public/data/JAIKO-812_HF assets/JAIKO-812_023401.png
+A	public/data/JAIKO-812_HF assets/JAIKO-812_023402.pn
