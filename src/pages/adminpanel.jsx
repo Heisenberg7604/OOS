@@ -17,7 +17,7 @@ const AdminPanel = () => {
     const [assigningProducts, setAssigningProducts] = useState(new Set());
     const [sooSearchTerm, setSooSearchTerm] = useState('');
 
-    const API_BASE_URL = 'http://localhost:5001/api';
+    const API_BASE_URL = 'https://spares.jpel.in/api';
 
     // Get auth token from localStorage
     const getAuthToken = () => {
@@ -218,7 +218,7 @@ const AdminPanel = () => {
             
             // Test if backend is reachable first
             try {
-                const healthCheckResponse = await fetch('http://localhost:5001/api/health');
+                const healthCheckResponse = await fetch('https://spares.jpel.in/api/health');
                 if (!healthCheckResponse.ok) {
                     throw new Error('Backend server is not responding');
                 }

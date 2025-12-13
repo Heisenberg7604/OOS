@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [cart, setCart] = useState({ items: [], total: 0 });
 
   // API base URL
-  const API_BASE_URL = 'http://localhost:5001/api';
+  const API_BASE_URL = 'https://spares.jpel.in/api';
 
   const checkAuth = async () => {
     try {

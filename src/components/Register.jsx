@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-const API_BASE_URL = 'http://localhost:5001/api';
+const API_BASE_URL = 'https://spares.jpel.in/api';
 
 const Register = () => {
   const [formData, setFormData] = useState({

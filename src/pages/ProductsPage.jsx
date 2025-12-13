@@ -10,7 +10,7 @@ const ProductsPage = () => {
     const [error, setError] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(null);
 
-    const API_BASE_URL = 'http://localhost:5001/api';
+    const API_BASE_URL = 'https://spares.jpel.in/api';
 
     useEffect(() => {
         fetchProducts();
