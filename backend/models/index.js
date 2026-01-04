@@ -9,14 +9,14 @@ import { Order } from './Order.js';
 // Product.belongsTo(User, { foreignKey: 'createdBy', as: 'creator' });
 
 // Many-to-many relationship: Users can have multiple products, products can be assigned to multiple users
-User.belongsToMany(Product, { 
-  through: UserProduct, 
+User.belongsToMany(Product, {
+  through: UserProduct,
   foreignKey: 'userId',
   otherKey: 'productId',
   as: 'assignedProducts'
 });
-Product.belongsToMany(User, { 
-  through: UserProduct, 
+Product.belongsToMany(User, {
+  through: UserProduct,
   foreignKey: 'productId',
   otherKey: 'userId',
   as: 'assignedUsers'
@@ -48,9 +48,33 @@ export const initializeDatabase = async () => {
     await sequelize.authenticate();
     console.log('✅ Database connection established successfully.');
 
-    // Sync models
-    await sequelize.sync({ alter: true });
-    console.log('✅ Database models synchronized successfully.');
+    // Check if tables already exist
+    const [results] = await sequelize.query(`
+      SELECT COUNT(*) as count 
+      FROM information_schema.tables 
+      WHERE table_schema = DATABASE() 
+      AND table_name IN ('users', 'products', 'user_products')
+    `);
+
+    const tableCount = results[0]?.count || 0;
+
+    if (tableCount >= 3) {
+      console.log('ℹ️  Database tables already exist. Skipping sync to avoid conflicts.');
+    } else {
+      // Sync models - only create tables if they don't exist, don't alter existing ones
+      try {
+        await sequelize.sync({ alter: false });
+        console.log('✅ Database models synchronized successfully.');
+      } catch (syncError) {
+        // If it's a key constraint error, tables likely already exist with correct structure
+        if (syncError.code === 'ER_TOO_MANY_KEYS' || syncError.errno === 1069) {
+          console.log('ℹ️  Tables already exist with constraints. Skipping sync.');
+        } else {
+          // Re-throw other errors
+          throw syncError;
+        }
+      }
+    }
 
     // Create default admin user if it doesn't exist
     await createDefaultAdmin();
@@ -94,8 +118,3 @@ export default {
   Order,
   initializeDatabase
 };
-
-
-
-
-
