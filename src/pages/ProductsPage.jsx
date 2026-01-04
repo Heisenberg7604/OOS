@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import gridshuttle from '../assets/gridshuttle.png';
-import gridbag from '../assets/gridbag.png';
+import { useAuth } from '../context/AuthContext';
 
 const ProductsPage = () => {
-    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
@@ -337,30 +335,31 @@ const ProductsPage = () => {
     );
 };
 
-const productList = [
-    {
-        title: 'Jaiko Loom Models',
-        img: gridshuttle,
-        category: 'jaiko-loom',
-        dropdown: [
-            { name: 'Vega-6 HS Star', subcategory: 'vega-6-hs-star' },
-            { name: 'Vega 608 HF', subcategory: 'vega-608-hf' },
-            { name: 'Vega 812 HF', subcategory: 'vega-812-hf' },
-        ],
-    },
-    {
-        title: 'JP Catalogues',
-        img: gridbag,
-        category: 'jp-catalogues',
-        dropdown: [
-            { name: 'Cheese winder JTW -200 IX', subcategory: 'cheese-winder-jtw-200-ix' },
-            { name: 'Flexographic Printing Machine', subcategory: 'flexographic-printing-machine' },
-            { name: 'Lamination-1600 Polycoat', subcategory: 'lamination-1600-polycoat' },
-            { name: 'Bag liner insertion machine', subcategory: 'bag-liner-insertion-machine' },
-            { name: 'Bag cutting Stitching Machine.', subcategory: 'bag-cutting-stitching-machine' },
-        ],
-    },
-];
+// Legacy product list - kept for reference but not currently used
+// const productList = [
+//     {
+//         title: 'Jaiko Loom Models',
+//         img: gridshuttle,
+//         category: 'jaiko-loom',
+//         dropdown: [
+//             { name: 'Vega-6 HS Star', subcategory: 'vega-6-hs-star' },
+//             { name: 'Vega 608 HF', subcategory: 'vega-608-hf' },
+//             { name: 'Vega 812 HF', subcategory: 'vega-812-hf' },
+//         ],
+//     },
+//     {
+//         title: 'JP Catalogues',
+//         img: gridbag,
+//         category: 'jp-catalogues',
+//         dropdown: [
+//             { name: 'Cheese winder JTW -200 IX', subcategory: 'cheese-winder-jtw-200-ix' },
+//             { name: 'Flexographic Printing Machine', subcategory: 'flexographic-printing-machine' },
+//             { name: 'Lamination-1600 Polycoat', subcategory: 'lamination-1600-polycoat' },
+//             { name: 'Bag liner insertion machine', subcategory: 'bag-liner-insertion-machine' },
+//             { name: 'Bag cutting Stitching Machine.', subcategory: 'bag-cutting-stitching-machine' },
+//         ],
+//     },
+// ];
 
 // CategoryButton component for Excel file categories
 const CategoryButton = ({ category, productCount, isSelected, onClick }) => {
@@ -432,7 +431,7 @@ const ProductCard = ({ title, img, dropdown, category }) => {
             {/* Subcategories grid */}
             <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {dropdown.map((item, idx) => (
+                    {dropdown.map((item) => (
                         <div
                             key={item.name}
                             onClick={() => handleDropdownClick(item.subcategory)}
@@ -463,8 +462,46 @@ const ProductCard = ({ title, img, dropdown, category }) => {
 
 // ProductItem component for individual products from Excel
 const ProductItem = ({ product }) => {
+    const { addToCart, isAuthenticated } = useAuth();
+    const navigate = useNavigate();
+    const [quantity, setQuantity] = useState(1);
+    const [addingToCart, setAddingToCart] = useState(false);
+    const [addToCartMessage, setAddToCartMessage] = useState('');
+
+    const handleAddToCart = async () => {
+        if (!isAuthenticated) {
+            navigate('/login');
+            return;
+        }
+
+        setAddingToCart(true);
+        setAddToCartMessage('');
+
+        try {
+            const result = await addToCart(
+                product.partNumber,
+                product.description,
+                product.price || 0,
+                quantity,
+                product.image,
+                product.category
+            );
+
+            if (result.success) {
+                setAddToCartMessage('Added to cart!');
+                setTimeout(() => setAddToCartMessage(''), 2000);
+            } else {
+                setAddToCartMessage(result.message || 'Failed to add to cart');
+            }
+        } catch {
+            setAddToCartMessage('Failed to add to cart');
+        } finally {
+            setAddingToCart(false);
+        }
+    };
+
     return (
-        <div className="bg-white rounded-xl p-4 border border-gray-200 hover:border-red-300 hover:shadow-lg transition-all duration-200 group cursor-pointer">
+        <div className="bg-white rounded-xl p-4 border border-gray-200 hover:border-red-300 hover:shadow-lg transition-all duration-200 group">
             {/* Product Image */}
             <div className="mb-3 flex justify-center">
                 <div className="w-full h-48 bg-gray-100 rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden">
@@ -496,9 +533,68 @@ const ProductItem = ({ product }) => {
                     {product.description}
                 </p>
                 {product.category && (
-                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded inline-block w-fit">
+                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded inline-block w-fit mb-3">
                         {product.category}
                     </span>
+                )}
+
+                {/* Quantity Selector */}
+                <div className="mb-3">
+                    <label className="text-xs text-gray-600 mb-1 block">Quantity:</label>
+                    <div className="flex items-center border border-gray-300 rounded-lg">
+                        <button
+                            type="button"
+                            onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
+                            className="w-8 h-8 bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 rounded-l-lg"
+                        >
+                            -
+                        </button>
+                        <input
+                            type="number"
+                            min="1"
+                            value={quantity}
+                            onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                            className="w-12 h-8 text-center border-0 focus:ring-0 focus:outline-none"
+                        />
+                        <button
+                            type="button"
+                            onClick={() => setQuantity(prev => prev + 1)}
+                            className="w-8 h-8 bg-gray-100 text-gray-600 flex items-center justify-center hover:bg-gray-200 rounded-r-lg"
+                        >
+                            +
+                        </button>
+                    </div>
+                </div>
+
+                {/* Add to Cart Button */}
+                <button
+                    onClick={handleAddToCart}
+                    disabled={addingToCart}
+                    className={`w-full py-2 px-4 rounded-lg font-medium text-sm transition-colors ${
+                        addingToCart
+                            ? 'bg-gray-400 text-white cursor-not-allowed'
+                            : 'bg-red-600 text-white hover:bg-red-700'
+                    }`}
+                >
+                    {addingToCart ? (
+                        <span className="flex items-center justify-center">
+                            <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Adding...
+                        </span>
+                    ) : (
+                        'Add to Cart'
+                    )}
+                </button>
+
+                {addToCartMessage && (
+                    <p className={`text-xs mt-2 text-center ${
+                        addToCartMessage.includes('Added') ? 'text-green-600' : 'text-red-600'
+                    }`}>
+                        {addToCartMessage}
+                    </p>
                 )}
             </div>
         </div>

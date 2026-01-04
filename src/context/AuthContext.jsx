@@ -235,18 +235,20 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Cart functions
-  const addToCart = async (partNo, quantity = 1) => {
+  const addToCart = async (partNo, description, price = 0, quantity = 1, image = null, category = null) => {
     try {
       if (!isAuthenticated) {
         throw new Error('Please login to add items to cart');
       }
 
-      // Mock product data
-      const mockProduct = {
+      // Product data
+      const product = {
         partNo,
-        description: `Product ${partNo}`,
-        price: Math.floor(Math.random() * 100) + 10,
-        quantity
+        description: description || `Product ${partNo}`,
+        price: price || 0,
+        quantity,
+        image: image || null,
+        category: category || null
       };
 
       // Update cart state
@@ -265,7 +267,7 @@ export const AuthProvider = ({ children }) => {
               : item
           );
         } else {
-          newItems = [...currentItems, mockProduct];
+          newItems = [...currentItems, product];
         }
 
         const newTotal = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
@@ -376,20 +378,35 @@ export const AuthProvider = ({ children }) => {
         throw new Error('Please login to submit order');
       }
 
-      // Mock order submission
-      const mockOrder = {
-        id: 'order-' + Date.now(),
-        items: cart.items,
-        total: cart.total,
-        status: 'pending',
-        createdAt: new Date().toISOString()
-      };
+      if (!cart.items || cart.items.length === 0) {
+        throw new Error('Cart is empty');
+      }
 
-      // Clear cart after successful order
-      setCart({ items: [], total: 0 });
-      localStorage.setItem('cart', JSON.stringify({ items: [], total: 0 }));
+      const response = await fetch(`${API_BASE_URL}/orders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          items: cart.items,
+          total: cart.total,
+          customerName: user?.name,
+          customerEmail: user?.email
+        })
+      });
 
-      return { success: true, order: mockOrder };
+      const result = await response.json();
+
+      if (result.success) {
+        // Clear cart after successful order
+        setCart({ items: [], total: 0 });
+        localStorage.setItem('cart', JSON.stringify({ items: [], total: 0 }));
+
+        return { success: true, order: result.data.order };
+      } else {
+        throw new Error(result.message || 'Failed to submit order');
+      }
     } catch (err) {
       console.error('Order submission failed:', err);
       return {

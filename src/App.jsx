@@ -19,6 +19,7 @@ import ProductCatalogPage from './pages/ProductCatalogPage';
 import Contact from './pages/contact';
 import CartPage from './pages/cart';
 import AdminLogin from './pages/AdminLogin';
+import ThankYou from './pages/ThankYou';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:category/:subcategory" element={<ProductCatalogPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/thank-you" element={<ThankYou />} />
           </Route>
 
           {/* Admin-only routes */}

@@ -13,6 +13,7 @@ import productRoutes from './routes/products.js';
 import authRoutes from './routes/auth.js';
 import userRoutes from './routes/users.js';
 import userProductRoutes from './routes/userProducts.js';
+import orderRoutes from './routes/orders.js';
 
 // Import database
 import { initializeDatabase } from './models/index.js';
@@ -94,6 +95,7 @@ app.use('/api/upload', (req, res, next) => {
 app.use('/api/upload', uploadRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/user-products', userProductRoutes);
+app.use('/api/orders', orderRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

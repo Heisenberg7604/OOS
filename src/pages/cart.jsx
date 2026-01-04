@@ -8,7 +8,7 @@ const CartPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [isCartLoading, setIsCartLoading] = useState(true);
-    const { user, isAuthenticated, logout, token } = useAuth();
+    const { user, isAuthenticated, logout, token, submitOrder } = useAuth();
     const navigate = useNavigate();
 
     const fetchCart = async () => {
@@ -135,20 +135,14 @@ const CartPage = () => {
         setError(null);
 
         try {
-            // Mock order submission
-            const mockOrder = {
-                id: 'order-' + Date.now(),
-                items: cart.items,
-                total: cart.total,
-                status: 'pending',
-                createdAt: new Date().toISOString()
-            };
+            const result = await submitOrder();
 
-            setOrderConfirmed(true);
-            setCart({ items: [], total: 0 });
-            localStorage.setItem('cart', JSON.stringify({ items: [], total: 0 }));
-
-            console.log('Order submitted successfully:', mockOrder);
+            if (result.success) {
+                // Navigate to thank you page with order ID
+                navigate(`/thank-you?orderId=${result.order.id}`);
+            } else {
+                setError(result.message || 'Failed to submit order. Please try again later.');
+            }
         } catch (error) {
             console.error('Order submission error:', error);
             setError('Failed to submit order. Please try again later.');

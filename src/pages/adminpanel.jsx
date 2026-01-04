@@ -64,36 +64,46 @@ const AdminPanel = () => {
                 headers: getAuthHeaders()
             });
             const statsResult = await statsResponse.json();
-            if (statsResult.success) {
-                const productStats = statsResult.data;
-                setStats({
-                    totalOrders: 0, // Orders not implemented yet
-                    pendingOrders: 0,
-                    completedOrders: 0,
-                    totalUsers: usersResult.success ? usersResult.data.users.length : 0,
-                    totalProducts: productStats.total || 0
-                });
-            }
-
-            // Mock orders for now (orders system not implemented yet)
-            setOrders([
-                {
-                    _id: 'order-1',
-                    customerName: 'John Doe',
-                    customerEmail: 'john@example.com',
-                    items: [{ partNo: 'PART001', description: 'Sample Part 1', quantity: 2 }],
-                    status: 'pending',
-                    createdAt: new Date().toISOString()
-                },
-                {
-                    _id: 'order-2',
-                    customerName: 'Jane Smith',
-                    customerEmail: 'jane@example.com',
-                    items: [{ partNo: 'PART002', description: 'Sample Part 2', quantity: 1 }],
-                    status: 'completed',
-                    createdAt: new Date(Date.now() - 86400000).toISOString()
+            
+            // Load orders
+            const ordersResponse = await fetch(`${API_BASE_URL}/orders`, {
+                headers: getAuthHeaders()
+            });
+            const ordersResult = await ordersResponse.json();
+            
+            if (ordersResult.success) {
+                const ordersData = ordersResult.data.orders || [];
+                setOrders(ordersData);
+                
+                // Calculate order statistics
+                const totalOrders = ordersData.length;
+                const pendingOrders = ordersData.filter(o => o.status === 'pending').length;
+                const completedOrders = ordersData.filter(o => o.status === 'completed').length;
+                
+                if (statsResult.success) {
+                    const productStats = statsResult.data;
+                    setStats({
+                        totalOrders,
+                        pendingOrders,
+                        completedOrders,
+                        totalUsers: usersResult.success ? usersResult.data.users.length : 0,
+                        totalProducts: productStats.total || 0
+                    });
                 }
-            ]);
+            } else {
+                // If orders fetch fails, set empty orders
+                setOrders([]);
+                if (statsResult.success) {
+                    const productStats = statsResult.data;
+                    setStats({
+                        totalOrders: 0,
+                        pendingOrders: 0,
+                        completedOrders: 0,
+                        totalUsers: usersResult.success ? usersResult.data.users.length : 0,
+                        totalProducts: productStats.total || 0
+                    });
+                }
+            }
 
         } catch (error) {
             console.error('Error loading dashboard data:', error);
@@ -105,17 +115,25 @@ const AdminPanel = () => {
 
     const updateOrderStatus = async (orderId, newStatus) => {
         try {
-            // Mock order status update
-            setOrders(prev => prev.map(order =>
-                order._id === orderId ? { ...order, status: newStatus } : order
-            ));
+            const response = await fetch(`${API_BASE_URL}/orders/${orderId}/status`, {
+                method: 'PATCH',
+                headers: getAuthHeaders(),
+                body: JSON.stringify({ status: newStatus })
+            });
 
-            // Update stats
-            setStats(prev => ({
-                ...prev,
-                pendingOrders: newStatus === 'pending' ? prev.pendingOrders + 1 : prev.pendingOrders - 1,
-                completedOrders: newStatus === 'completed' ? prev.completedOrders + 1 : prev.completedOrders - 1
-            }));
+            const result = await response.json();
+            
+            if (result.success) {
+                // Update local orders state
+                setOrders(prev => prev.map(order =>
+                    order.id === orderId ? { ...order, status: newStatus } : order
+                ));
+
+                // Reload dashboard data to update stats
+                loadDashboardData();
+            } else {
+                setError(result.message || 'Failed to update order status');
+            }
         } catch (error) {
             console.error('Error updating order:', error);
             setError('Failed to update order status');
@@ -123,14 +141,11 @@ const AdminPanel = () => {
     };
 
     const deleteOrder = async (orderId) => {
-        if (window.confirm('Are you sure you want to delete this order?')) {
+        if (window.confirm('Are you sure you want to delete this order? This action cannot be undone.')) {
             try {
-                // Mock order deletion
-                setOrders(prev => prev.filter(order => order._id !== orderId));
-                setStats(prev => ({
-                    ...prev,
-                    totalOrders: prev.totalOrders - 1
-                }));
+                // Note: You may want to add a DELETE endpoint in the backend
+                // For now, we'll just update the status to cancelled
+                await updateOrderStatus(orderId, 'cancelled');
             } catch (error) {
                 console.error('Error deleting order:', error);
                 setError('Failed to delete order');
@@ -743,16 +758,16 @@ const AdminPanel = () => {
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
                                         {orders.slice(0, 5).map((order) => (
-                                            <tr key={order._id}>
+                                            <tr key={order.id}>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                    {order._id.substring(0, 8)}...
+                                                    {order.id.substring(0, 8)}...
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <div className="text-sm text-gray-900">{order.customerName}</div>
-                                                    <div className="text-sm text-gray-500">{order.customerEmail}</div>
+                                                    <div className="text-sm text-gray-900">{order.customerName || order.user?.name || 'N/A'}</div>
+                                                    <div className="text-sm text-gray-500">{order.customerEmail || order.user?.email || 'N/A'}</div>
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {order.items.length} items
+                                                    {Array.isArray(order.items) ? order.items.length : 0} items
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                     {new Date(order.createdAt).toLocaleDateString()}
@@ -802,21 +817,21 @@ const AdminPanel = () => {
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {orders.map((order) => (
-                                        <tr key={order._id}>
+                                        <tr key={order.id}>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                {order._id.substring(0, 8)}...
+                                                {order.id.substring(0, 8)}...
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">{order.customerName}</div>
-                                                <div className="text-sm text-gray-500">{order.customerEmail}</div>
+                                                <div className="text-sm text-gray-900">{order.customerName || order.user?.name || 'N/A'}</div>
+                                                <div className="text-sm text-gray-500">{order.customerEmail || order.user?.email || 'N/A'}</div>
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="text-sm text-gray-900">
-                                                    {order.items.map((item, index) => (
+                                                    {Array.isArray(order.items) ? order.items.map((item, index) => (
                                                         <div key={index} className="mb-1">
                                                             <span className="font-medium">{item.partNo}</span>: {item.description} (Qty: {item.quantity})
                                                         </div>
-                                                    ))}
+                                                    )) : 'No items'}
                                                 </div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -830,7 +845,7 @@ const AdminPanel = () => {
                                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                 <select
                                                     value={order.status}
-                                                    onChange={(e) => updateOrderStatus(order._id, e.target.value)}
+                                                    onChange={(e) => updateOrderStatus(order.id, e.target.value)}
                                                     className="mr-2 px-2 py-1 border rounded text-sm"
                                                 >
                                                     <option value="pending">Pending</option>
@@ -839,7 +854,7 @@ const AdminPanel = () => {
                                                     <option value="cancelled">Cancelled</option>
                                                 </select>
                                                 <button
-                                                    onClick={() => deleteOrder(order._id)}
+                                                    onClick={() => deleteOrder(order.id)}
                                                     className="text-red-600 hover:text-red-900 ml-2"
                                                 >
                                                     Delete

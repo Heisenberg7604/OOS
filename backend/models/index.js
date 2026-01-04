@@ -2,6 +2,7 @@ import { sequelize } from '../database/connection.js';
 import { User } from './User.js';
 import { Product } from './Product.js';
 import { UserProduct } from './UserProduct.js';
+import { Order } from './Order.js';
 
 // Define associations
 // User.hasMany(Product, { foreignKey: 'createdBy', as: 'createdProducts' });
@@ -21,12 +22,23 @@ Product.belongsToMany(User, {
   as: 'assignedUsers'
 });
 
+// One-to-many relationship: User has many Orders
+User.hasMany(Order, { 
+  foreignKey: 'userId',
+  as: 'orders'
+});
+Order.belongsTo(User, { 
+  foreignKey: 'userId',
+  as: 'user'
+});
+
 // Export models and sequelize
 export {
   sequelize,
   User,
   Product,
-  UserProduct
+  UserProduct,
+  Order
 };
 
 // Initialize database
@@ -79,6 +91,7 @@ export default {
   User,
   Product,
   UserProduct,
+  Order,
   initializeDatabase
 };
 
