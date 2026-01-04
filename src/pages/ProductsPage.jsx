@@ -481,7 +481,7 @@ const ProductItem = ({ product }) => {
             const result = await addToCart(
                 product.partNumber,
                 product.description,
-                product.price || 0,
+                0, // No price - for quote requests
                 quantity,
                 product.image,
                 product.category

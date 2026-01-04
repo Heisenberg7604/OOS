@@ -66,8 +66,7 @@ const CartPage = () => {
             // Update cart state
             setCart(prev => {
                 const newItems = prev.items.filter(item => item.partNo !== partNo);
-                const newTotal = newItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                const newCart = { items: newItems, total: newTotal };
+                const newCart = { items: newItems, total: 0 }; // No price calculation
 
                 // Save to localStorage
                 localStorage.setItem('cart', JSON.stringify(newCart));
@@ -105,8 +104,7 @@ const CartPage = () => {
                     item.partNo === partNo ? { ...item, quantity: newQty } : item
                 );
 
-                const newTotal = updatedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                const newCart = { items: updatedItems, total: newTotal };
+                const newCart = { items: updatedItems, total: 0 }; // No price calculation
 
                 // Save to localStorage
                 localStorage.setItem('cart', JSON.stringify(newCart));
@@ -272,7 +270,6 @@ const CartPage = () => {
                                                     {item.description}
                                                 </h3>
                                                 <p className="text-sm text-gray-500 mb-2">Part No: {partNo}</p>
-                                                <p className="text-sm text-gray-600 mb-2">Price: ${item.price}</p>
                                             </div>
                                             <div className="flex items-center justify-between mt-auto">
                                                 <div className="flex items-center border border-gray-300 rounded-lg">
@@ -304,14 +301,6 @@ const CartPage = () => {
                                     </div>
                                 );
                             })}
-                        </div>
-
-                        {/* Cart Total */}
-                        <div className="mt-8 bg-white rounded-lg shadow-sm border p-6">
-                            <div className="flex justify-between items-center text-xl font-bold">
-                                <span>Total:</span>
-                                <span>${(cart.total || 0).toFixed(2)}</span>
-                            </div>
                         </div>
 
                         <div className="mt-8 flex justify-center">

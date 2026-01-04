@@ -19,12 +19,24 @@ router.post('/', authenticateToken, async (req, res) => {
       });
     }
 
-    if (!total || total <= 0) {
-      return res.status(400).json({
-        success: false,
-        message: 'Valid order total is required'
-      });
+    // Allow 0 total (for quote requests or items without prices)
+    // Accept total as provided, or calculate from items, or default to 0
+    let orderTotal = 0;
+    
+    if (total !== undefined && total !== null) {
+      orderTotal = parseFloat(total) || 0;
     }
+    
+    // If total is 0 or not provided, calculate from items (will be 0 if no prices)
+    if (orderTotal === 0) {
+      orderTotal = items.reduce((sum, item) => {
+        const itemPrice = parseFloat(item.price) || 0;
+        const itemQuantity = parseInt(item.quantity) || 1;
+        return sum + (itemPrice * itemQuantity);
+      }, 0);
+    }
+    
+    // Allow 0 total - no validation blocking it
 
     // Get user details
     const user = await User.findByPk(userId);
@@ -39,7 +51,7 @@ router.post('/', authenticateToken, async (req, res) => {
     const order = await Order.create({
       userId,
       items,
-      total,
+      total: orderTotal,
       status: 'pending',
       customerName: customerName || user.name,
       customerEmail: customerEmail || user.email

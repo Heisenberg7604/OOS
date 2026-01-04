@@ -382,6 +382,9 @@ export const AuthProvider = ({ children }) => {
         throw new Error('Cart is empty');
       }
 
+      // Calculate total (will be 0 if no prices)
+      const orderTotal = cart.total || 0;
+
       const response = await fetch(`${API_BASE_URL}/orders`, {
         method: 'POST',
         headers: {
@@ -390,7 +393,7 @@ export const AuthProvider = ({ children }) => {
         },
         body: JSON.stringify({
           items: cart.items,
-          total: cart.total,
+          total: orderTotal, // Can be 0 for quote requests
           customerName: user?.name,
           customerEmail: user?.email
         })
