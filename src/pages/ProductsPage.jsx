@@ -9,6 +9,9 @@ const ProductsPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [selectedCategory, setSelectedCategory] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 25;
 
     const API_BASE_URL = 'https://spares.jpel.in/api';
 
@@ -52,10 +55,29 @@ const ProductsPage = () => {
     // Get unique categories from products (excluding 'All' and 'General' if empty)
     const productCategories = [...new Set(products.map(p => p.category || 'General').filter(cat => cat && cat !== 'General'))];
 
-    // Filter products by selected category
-    const displayProducts = selectedCategory
-        ? products.filter(p => (p.category || 'General') === selectedCategory)
-        : [];
+    // Filter products by selected category and search term
+    const filteredProducts = products.filter(p => {
+        // Filter by category if selected
+        const categoryMatch = !selectedCategory || (p.category || 'General') === selectedCategory;
+        
+        // Filter by search term (product name/description or product code/partNumber)
+        const searchMatch = !searchTerm || 
+            (p.partNumber && p.partNumber.toLowerCase().includes(searchTerm.toLowerCase())) ||
+            (p.description && p.description.toLowerCase().includes(searchTerm.toLowerCase()));
+        
+        return categoryMatch && searchMatch;
+    });
+
+    // Pagination logic
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+    const startIndex = (currentPage - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    const displayProducts = filteredProducts.slice(startIndex, endIndex);
+
+    // Reset to page 1 when search term or category changes
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchTerm, selectedCategory]);
 
     if (loading) {
         return (
@@ -97,7 +119,7 @@ const ProductsPage = () => {
                     <h2 className="text-2xl font-semibold">Products</h2>
                     {selectedCategory && (
                         <span className="ml-4 text-sm text-gray-500">
-                            ({displayProducts.length} products in "{selectedCategory}")
+                            ({filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'} in "{selectedCategory}")
                         </span>
                     )}
                 </div>
@@ -126,22 +148,170 @@ const ProductsPage = () => {
                 {/* Products List - Only show when a category is selected */}
                 {selectedCategory && (
                     <>
-                        <div className="mb-6 flex items-center">
-                            <div className="w-10 h-0.5 bg-black mr-4" />
-                            <h3 className="text-xl font-semibold">{selectedCategory}</h3>
-                        </div>
-                        {displayProducts.length > 0 ? (
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                                {displayProducts.map((product) => (
-                                    <ProductItem key={product.id} product={product} />
-                                ))}
+                        <div className="mb-6">
+                            <div className="mb-4 flex items-center">
+                                <div className="w-10 h-0.5 bg-black mr-4" />
+                                <h3 className="text-xl font-semibold">{selectedCategory}</h3>
                             </div>
+                            
+                            {/* Search Bar */}
+                            <div className="mb-6">
+                                <div className="relative max-w-md">
+                                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                        </svg>
+                                    </div>
+                                    <input
+                                        type="text"
+                                        placeholder="Search by product name or code..."
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                        className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-red-500 focus:border-red-500 sm:text-sm"
+                                    />
+                                    {searchTerm && (
+                                        <button
+                                            onClick={() => setSearchTerm('')}
+                                            className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                                        >
+                                            <svg className="h-5 w-5 text-gray-400 hover:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    )}
+                                </div>
+                                {searchTerm && (
+                                    <p className="mt-2 text-sm text-gray-600">
+                                        Found {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'} matching "{searchTerm}"
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+
+                        {displayProducts.length > 0 ? (
+                            <>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
+                                    {displayProducts.map((product) => (
+                                        <ProductItem key={product.id} product={product} />
+                                    ))}
+                                </div>
+
+                                {/* Pagination Controls */}
+                                {totalPages > 1 && (
+                                    <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6 mt-8">
+                                        <div className="flex flex-1 justify-between sm:hidden">
+                                            <button
+                                                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                                                disabled={currentPage === 1}
+                                                className={`relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium ${
+                                                    currentPage === 1 
+                                                        ? 'text-gray-400 cursor-not-allowed' 
+                                                        : 'text-gray-700 hover:bg-gray-50'
+                                                }`}
+                                            >
+                                                Previous
+                                            </button>
+                                            <button
+                                                onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                                                disabled={currentPage === totalPages}
+                                                className={`relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium ${
+                                                    currentPage === totalPages 
+                                                        ? 'text-gray-400 cursor-not-allowed' 
+                                                        : 'text-gray-700 hover:bg-gray-50'
+                                                }`}
+                                            >
+                                                Next
+                                            </button>
+                                        </div>
+                                        <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                                            <div>
+                                                <p className="text-sm text-gray-700">
+                                                    Showing <span className="font-medium">{startIndex + 1}</span> to{' '}
+                                                    <span className="font-medium">{Math.min(endIndex, filteredProducts.length)}</span> of{' '}
+                                                    <span className="font-medium">{filteredProducts.length}</span> results
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                                                    <button
+                                                        onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                                                        disabled={currentPage === 1}
+                                                        className={`relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 ${
+                                                            currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''
+                                                        }`}
+                                                    >
+                                                        <span className="sr-only">Previous</span>
+                                                        <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                            <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                    
+                                                    {/* Page Numbers */}
+                                                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                                                        // Show first page, last page, current page, and pages around current
+                                                        if (
+                                                            page === 1 ||
+                                                            page === totalPages ||
+                                                            (page >= currentPage - 1 && page <= currentPage + 1)
+                                                        ) {
+                                                            return (
+                                                                <button
+                                                                    key={page}
+                                                                    onClick={() => setCurrentPage(page)}
+                                                                    className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
+                                                                        page === currentPage
+                                                                            ? 'z-10 bg-red-600 text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600'
+                                                                            : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0'
+                                                                    }`}
+                                                                >
+                                                                    {page}
+                                                                </button>
+                                                            );
+                                                        } else if (page === currentPage - 2 || page === currentPage + 2) {
+                                                            return (
+                                                                <span key={page} className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300">
+                                                                    ...
+                                                                </span>
+                                                            );
+                                                        }
+                                                        return null;
+                                                    })}
+                                                    
+                                                    <button
+                                                        onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                                                        disabled={currentPage === totalPages}
+                                                        className={`relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 ${
+                                                            currentPage === totalPages ? 'cursor-not-allowed opacity-50' : ''
+                                                        }`}
+                                                    >
+                                                        <span className="sr-only">Next</span>
+                                                        <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                            <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+                                                        </svg>
+                                                    </button>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </>
                         ) : (
                             <div className="text-center py-12">
                                 <p className="text-gray-500 text-lg">No products available</p>
                                 <p className="text-gray-400 text-sm mt-2">
-                                    No products found in "{selectedCategory}" category
+                                    {searchTerm 
+                                        ? `No products found matching "${searchTerm}" in "${selectedCategory}" category`
+                                        : `No products found in "${selectedCategory}" category`
+                                    }
                                 </p>
+                                {searchTerm && (
+                                    <button
+                                        onClick={() => setSearchTerm('')}
+                                        className="mt-4 text-sm text-red-600 hover:text-red-800 underline"
+                                    >
+                                        Clear search
+                                    </button>
+                                )}
                             </div>
                         )}
                     </>
